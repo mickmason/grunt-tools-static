@@ -6,20 +6,14 @@ $bootstrap-sass-asset-helper: false !default;
 
 //== Colors
 //
-//## Gray and brand colors for use across Bootstrap.
-
-$gray-base:              #000 !default;
-$gray-darker:            lighten($gray-base, 13.5%) !default; // #222
-$gray-dark:              lighten($gray-base, 20%) !default;   // #333
-$gray:                   lighten($gray-base, 33.5%) !default; // #555
-$gray-light:             lighten($gray-base, 46.7%) !default; // #777
-$gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
-
-$brand-primary:         darken(#428bca, 6.5%) !default; // #337ab7
-$brand-success:         #5cb85c !default;
-$brand-info:            #5bc0de !default;
-$brand-warning:         #f0ad4e !default;
-$brand-danger:          #d9534f !default;
+//## Gray and brand colors for DFA.
+$gray:                      #565656 !default;
+$gray-dark:                 #323232 !default;
+$white:                     #fff !default;                   
+$gray-lightest:             #f4f5f6 !default;          
+$gray-light:                #e4e5e6 !default;            
+$brand-primary:         #006845 !default;
+$brand-darker:          #005036 !default;
 
 
 //== Scaffolding
@@ -34,7 +28,7 @@ $text-color:            $gray-dark !default;
 //** Global textual link color.
 $link-color:            $brand-primary !default;
 //** Link hover color set via `darken()` function.
-$link-hover-color:      darken($link-color, 15%) !default;
+$link-hover-color:      $brand-darker !default;
 //** Link hover decoration.
 $link-hover-decoration: underline !default;
 
@@ -42,9 +36,9 @@ $link-hover-decoration: underline !default;
 //== Typography
 //
 //## Font, line-height, and color for body text, headings, and more.
-
-$font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif !default;
-$font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
+//Sans serif font stack
+$font-family-sans-serif:  "SourceSansRegular", Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-serif:       "SourceSerifRegular", Georgia, "Times New Roman", Times, serif !default;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
 $font-family-base:        $font-family-sans-serif !default;
@@ -61,7 +55,8 @@ $font-size-h5:            $font-size-base !default;
 $font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
 
 //** Unit-less `line-height` for use in components like buttons.
-$line-height-base:        1.428571429 !default; // 20/14
+//$line-height-base:        1.428571429 !default; // 20/14
+$line-height-base:        1.571428571428571 !default; // 22/14
 //** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
 $line-height-computed:    floor(($font-size-base * $line-height-base)) !default; // ~20px
 
@@ -158,19 +153,19 @@ $btn-primary-bg:                 $brand-primary !default;
 $btn-primary-border:             darken($btn-primary-bg, 5%) !default;
 
 $btn-success-color:              #fff !default;
-$btn-success-bg:                 $brand-success !default;
+$btn-success-bg:                 $brand-darker !default;
 $btn-success-border:             darken($btn-success-bg, 5%) !default;
 
 $btn-info-color:                 #fff !default;
-$btn-info-bg:                    $brand-info !default;
+$btn-info-bg:                    $brand-darker !default;
 $btn-info-border:                darken($btn-info-bg, 5%) !default;
 
 $btn-warning-color:              #fff !default;
-$btn-warning-bg:                 $brand-warning !default;
+$btn-warning-bg:                 $brand-darker !default;
 $btn-warning-border:             darken($btn-warning-bg, 5%) !default;
 
 $btn-danger-color:               #fff !default;
-$btn-danger-bg:                  $brand-danger !default;
+$btn-danger-bg:                  $brand-darker !default;
 $btn-danger-border:              darken($btn-danger-bg, 5%) !default;
 
 $btn-link-disabled-color:        $gray-light !default;
@@ -188,10 +183,10 @@ $btn-border-radius-small:        $border-radius-small !default;
 //** `<input>` background color
 $input-bg:                       #fff !default;
 //** `<input disabled>` background color
-$input-bg-disabled:              $gray-lighter !default;
+$input-bg-disabled:              $gray-light !default;
 
 //** Text color for `<input>`s
-$input-color:                    $gray !default;
+$input-color:                    $gray-light !default;
 //** `<input>` border color
 $input-border:                   #ccc !default;
 
@@ -224,7 +219,7 @@ $legend-color:                   $gray-dark !default;
 $legend-border-color:            #e5e5e5 !default;
 
 //** Background color for textual input addons
-$input-group-addon-bg:           $gray-lighter !default;
+$input-group-addon-bg:           $gray-light !default;
 //** Border color for textual input addons
 $input-group-addon-border-color: $input-border !default;
 
@@ -425,7 +420,7 @@ $navbar-inverse-toggle-border-color:        #333 !default;
 
 //=== Shared nav styles
 $nav-link-padding:                          10px 15px !default;
-$nav-link-hover-bg:                         $gray-lighter !default;
+$nav-link-hover-bg:                         $gray-light !default;
 
 $nav-disabled-link-color:                   $gray-light !default;
 $nav-disabled-link-hover-color:             $gray-light !default;
@@ -433,7 +428,7 @@ $nav-disabled-link-hover-color:             $gray-light !default;
 //== Tabs
 $nav-tabs-border-color:                     #ddd !default;
 
-$nav-tabs-link-hover-border-color:          $gray-lighter !default;
+$nav-tabs-link-hover-border-color:          $gray-light !default;
 
 $nav-tabs-active-link-hover-bg:             $body-bg !default;
 $nav-tabs-active-link-hover-color:          $gray !default;
@@ -457,7 +452,7 @@ $pagination-bg:                        #fff !default;
 $pagination-border:                    #ddd !default;
 
 $pagination-hover-color:               $link-hover-color !default;
-$pagination-hover-bg:                  $gray-lighter !default;
+$pagination-hover-bg:                  $gray-lightest !default;
 $pagination-hover-border:              #ddd !default;
 
 $pagination-active-color:              #fff !default;
@@ -491,7 +486,7 @@ $pager-disabled-color:                 $pagination-disabled-color !default;
 
 $jumbotron-padding:              30px !default;
 $jumbotron-color:                inherit !default;
-$jumbotron-bg:                   $gray-lighter !default;
+$jumbotron-bg:                   $gray-lightest !default;
 $jumbotron-heading-color:        inherit !default;
 $jumbotron-font-size:            ceil(($font-size-base * 1.5)) !default;
 $jumbotron-heading-font-size:    ceil(($font-size-base * 4.5)) !default;
@@ -574,13 +569,13 @@ $label-default-bg:            $gray-light !default;
 //** Primary label background color
 $label-primary-bg:            $brand-primary !default;
 //** Success label background color
-$label-success-bg:            $brand-success !default;
+$label-success-bg:            $brand-primary !default;
 //** Info label background color
-$label-info-bg:               $brand-info !default;
+$label-info-bg:               $brand-primary !default;
 //** Warning label background color
-$label-warning-bg:            $brand-warning !default;
+$label-warning-bg:            $brand-primary !default;
 //** Danger label background color
-$label-danger-bg:             $brand-danger !default;
+$label-danger-bg:             $brand-primary !default;
 
 //** Default label text color
 $label-color:                 #fff !default;
@@ -660,13 +655,13 @@ $progress-border-radius:      $border-radius-base !default;
 //** Default progress bar color
 $progress-bar-bg:             $brand-primary !default;
 //** Success progress bar color
-$progress-bar-success-bg:     $brand-success !default;
+$progress-bar-success-bg:     $brand-primary !default;
 //** Warning progress bar color
-$progress-bar-warning-bg:     $brand-warning !default;
+$progress-bar-warning-bg:     $brand-primary !default;
 //** Danger progress bar color
-$progress-bar-danger-bg:      $brand-danger !default;
+$progress-bar-danger-bg:      $brand-primary !default;
 //** Info progress bar color
-$progress-bar-info-bg:        $brand-info !default;
+$progress-bar-info-bg:        $brand-primary !default;
 
 
 //== List group
@@ -694,7 +689,7 @@ $list-group-active-text-color:  lighten($list-group-active-bg, 40%) !default;
 //** Text color of disabled list items
 $list-group-disabled-color:      $gray-light !default;
 //** Background color of disabled list items
-$list-group-disabled-bg:         $gray-lighter !default;
+$list-group-disabled-bg:         $gray-lightest !default;
 //** Text color for content within disabled list items
 $list-group-disabled-text-color: $list-group-disabled-color !default;
 
@@ -863,12 +858,12 @@ $blockquote-small-color:      $gray-light !default;
 //** Blockquote font size
 $blockquote-font-size:        ($font-size-base * 1.25) !default;
 //** Blockquote border color
-$blockquote-border-color:     $gray-lighter !default;
+$blockquote-border-color:     $gray-lightest !default;
 //** Page header border color
-$page-header-border-color:    $gray-lighter !default;
+$page-header-border-color:    $gray-lightest !default;
 //** Width of horizontal description list titles
 $dl-horizontal-offset:        $component-offset-horizontal !default;
 //** Point at which .dl-horizontal becomes horizontal
 $dl-horizontal-breakpoint:    $grid-float-breakpoint !default;
 //** Horizontal line color.
-$hr-border:                   $gray-lighter !default;
+$hr-border:                   $gray-lightest !default;
