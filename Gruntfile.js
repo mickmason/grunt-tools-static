@@ -8,6 +8,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-express');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-parallel');
+  grunt.loadNpmTasks('grunt-svgstore');
+  grunt.loadNpmTasks('grunt-contrib-concat');
+    
 
   //Uncomment the line below to add HTML Validation to the project
   //  grunt.loadNpmTasks('grunt-html-validation');
@@ -59,26 +62,36 @@ module.exports = function(grunt) {
 
     uglify: {
       options: {
-        banner: '<%= pkg.warning %>/**\n * Client: <%= pkg.clientName %>\n * Project: <%= pkg.projectName %>\n * Version: <%= pkg.version %>\n * Description: <%= pkg.description %>\n * Copyright <%= grunt.template.today("yyyy") %>\n * Created by <%= pkg.developer %>\n * on behalf of TERMINALFOUR\n * www.terminalfour.com\n */\n',
-        preserveComments : 'some',
+        banner: '/** \n * TERMINALFOUR custom scripts \n * Created by <%= pkg.developer %> \n  */\n',
+        preserveComments : 'all',
         mangle : true
       },//options
       build: {
-        src: 'development/terminalfour/src/js/*.js',
-        dest: 'www-root/style-assets/js/t4-custom.min.js'
-      }//build
+        src: 'development/terminalfour/src/js/scripts.js',
+        dest: 'development/terminalfour/src/js/scripts.min.js',
+              
+      },//build
+      
+      
     }, //uglify
+      
+    concat: {
+        options: {
+           banner: '\n/** \n * TERMINALFOUR custom and concatenated library scripts \n * Client: <%= pkg.clientName %>\n * Project: <%= pkg.projectName %>\n * Version: <%= pkg.version %>\n * Description: <%= pkg.description %>\n * Copyright <%= grunt.template.today("yyyy") %>\n * Created by <%= pkg.developer %>\n * on behalf of TERMINALFOUR\n * www.terminalfour.com\n*/\n',
+        },
+        dist: {
+          src: ['development/lib/jquery-3.1.1/jquery-3.1.1.min.js', 'development/lib/bootstrap.min.js', 'development/lib/slick/slick/slick.min.js', 'development/terminalfour/src/js/scripts.min.js'],
+          dest: 'www-root/style-assets/js/t4-scripts.min.js',
+        }
+      },//concat
     
     sass: {
       dist: {
         options: {
           style: 'expanded',
-          //Uncomment the line below to add Compass into the project
-          //compass: true,
         },//options
         files: {
-          'www-root/style-assets/css/framework.css': 'development/terminalfour/src/sass/framework.scss',
-          'www-root/style-assets/css/style-local.css': 'development/terminalfour/src/sass/style.scss'
+          'www-root/style-assets/css/style.css': 'development/terminalfour/src/sass/style.scss'
         }//files
       }//dist
     },//sass
@@ -121,7 +134,20 @@ module.exports = function(grunt) {
       files: ['*.html']
     },//validation
     */
-
+    svgstore: {
+        options: {
+          
+          svg: { // will add and overide the the default xmlns="http://www.w3.org/2000/svg" attribute to the resulting SVG
+            viewBox : '0 0 100 100'
+          }
+        },
+        default : {
+            
+          files: {
+            'www-root/style-assets/media/svg/dfa-icons.svg': ['project-assets/svg-icons/*.svg'],
+          },
+        },
+      },
     includereplace: {
       dist: {
         options: {
@@ -134,9 +160,14 @@ module.exports = function(grunt) {
     },//includereplace
     
     copy: {
-      main: {
+      copyJsLibs: {
         files: [
-          {expand: true, cwd: 'development/lib/', src: ['./**'], dest: 'www-root/style-assets/lib/', filter: 'isFile'}
+          {expand: true, cwd: 'development/lib/', src: ['jquery-3.1.1/jquery-3.1.1.min.js'], dest: 'www-root/style-assets/lib/', filter: 'isFile'}
+        ]
+      },//main
+      media: {
+        files: [
+          {expand: true, cwd: 'development/terminalfour/src/media/', src: ['**/*'], dest: 'www-root/style-assets/media/', filter: 'isFile'}
         ]
       }//main
     },//copy
@@ -144,7 +175,7 @@ module.exports = function(grunt) {
     watch: {
       options: { livereload: true },
       sass: {
-        files: ['development/**/**/**/*.scss'],
+        files: ['development/**/**/**/*.scss', 'bower_components/**/*.scss'],
         
         //Uncomment the line below and delete the other tasks line to add csslint into the project
         //tasks: ['sass:dist','csslint:strict']
@@ -157,10 +188,10 @@ module.exports = function(grunt) {
       },//sass
 
       scripts: {
-        files: ['development/terminalfour/src/js/*.js'],
+        files: ['development/terminalfour/src/js/scripts.js'],
         //Uncomment the line below and delete the other "tasks:['uglify:build'] to add JSHint into the project"
         //tasks: ['jshint','uglify:build']
-        tasks: ['uglify:build']
+        tasks: ['uglify', 'concat']
       },//scripts
 
       htmlcompile: {
@@ -189,7 +220,6 @@ module.exports = function(grunt) {
   */
   grunt.registerTask('server', [
     'express',
-    'copy',
     'watch',
     'express-keepalive'
   ]);

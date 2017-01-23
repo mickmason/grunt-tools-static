@@ -1,7 +1,14 @@
-// Add your custom style declaration in this file
+/* 
+ *  Stying for DFA site responsivization and redesign 2017
+ *  Michael Mason @ TERMINALFOUR
+ *  Includes Bootrap SCSS customized (https://github.com/twbs/bootstrap-sass), Slick Slider SCSS (https://github.com/kenwheeler/slick/)
+*/
+
+@import "../../../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap.scss"; 
+@import "../../../lib/slick/slick/slick.scss"; 
 
 * {
-	box-sizing: border-box;
+	box-sizing: border-box; 
 }
 
 html,

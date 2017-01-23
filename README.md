@@ -1,4 +1,4 @@
-# PSDEV HTML Starter Kit
+# DFA Feature landing page
 
 - Introduction
 - Tools we are going to use
@@ -6,28 +6,24 @@
 - Creating a new project
 
 -----
-## Introduction
+## About
 
-This document aims to develop a standardised workflow for developers creating HTML cutups for clients. This is aimed at providing a well-defined and consistent standard of coding across the whole team and should allow for more robust code with fewer bugs.
-
-There are several tools being used to make a developers life a little easier. These include tools such as SASS and Grunt amongst others. All of these tools are detailed in this document as well as a guide on how to get up and running with your development environment.
+This is a feature landing page for use in various DFA sites. It's use is particularly for one-off, featured events like, for example, the Africa Ireland Economic Forum. It can be used as a one-page site or links can be added to further reading content.
 
 ---
-## Tools we are going to use
+## Tools
 
-This section details the tools involved, what they do and how to install them on your development machine. There are several steps involved, but once up and running development will become far more consistent and you will start to wonder how you ever developed without them...
+
 
 ### SASS
 
-[SASS](http://sass-lang.com) is a pre-processor for CSS. It essentially allows the use of things like variables and nested rules in CSS, but that is not all it does. More info can be found at [http://sass-lang.com/](http://sass-lang.com/) where you can find documentation to get up and running with SASS. As more and more packages come with SASS versions it is fast becoming a standard language used in web development.
-
-*Note: There is a guide on how to install mixins for SASS in the index.html file of the project.*
+[SASS](http://sass-lang.com) 
 
 ### Grunt
 
-[Grunt](http://gruntjs.com/) is a JavaScript task runner. It allows developers to automate the things they do most often in a reliable and consistent manner. There are lots of plugins already available for Grunt to do things like minify your code, check your syntax and much more. Grunt plugins are installed through NPM (Node Package Manager), which requires that you have Node.js installed. (Don’t worry, we’ll cover all the installation required shortly.)
+[Grunt](http://gruntjs.com/) 
 
-We’ll be using the following Grunt plugins for development:
+Using the following Grunt plugins for development:
 
 - [Bower Task](https://github.com/yatskevich/grunt-bower-task) - Allows installation of libraries using Bower
 - [Uglify](https://github.com/gruntjs/grunt-contrib-uglify) – Minifies JavaScript files
@@ -37,87 +33,15 @@ We’ll be using the following Grunt plugins for development:
 - [Copy](https://github.com/gruntjs/grunt-contrib-copy) - Moves files around and into the correct locations
 - [Express](https://github.com/blai/grunt-express) - Creates an onn the fly web server and launches it
 
-Check out the links to each project above for more information and documentation in the case where you need to edit the tasks slightly.
-
-## Setup
-
-There is some setup involved before we can start coding, but once set up, starting a new project should be quick and simple.
-
-All the files you require are located within this GIT project.
-
-Clone the project and you will have a local copy.
-
-```bash
-git clone git@git.terminalfour.com:PS/html-cutups-starter-kit.git
-```
-
-### Identify and install your project
-
-The first thing you should do once you have your local copy is identify your project. This can be done by simply editing the fields in the `package.json` file at the root of your project to include information about the project, yourself and the client. This information is output as a comment block at the start of JavaScript and CSS files as a way of identifying who wrote the file.
-
-Once you have a local version stored and you've updated the project information, open your command prompt and cd to the root directory of your project
-
-```bash
-cd path/to/my/project/folder
-```
-
-Doing a quick `ls –la` command or `dir` command should display the following files and folders:
-
-- _
-- .gitignore
-- bower.json
-- config.rb
-- .Gruntfile.js
-- index.html
-- package.json
-
-
+- [JSHint](https://github.com/gruntjs/grunt-contrib-jshint) – Checks JavaScript syntax
+- [CSSLint](https://github.com/gruntjs/grunt-contrib-csslint) - Checks CSS syntax for possible errors and pitfalls
 
 
 ### Node.js
 
-Before we can start using Grunt, we need Node Package Manager (NPM), which in turn needs Node.js installed. This is as simple as going to [http://nodejs.org/](http://nodejs.org/), download the installer and install it – this will *also* install NPM.
+You will need [http://nodejs.org/](http://nodejs.org/) to run the files.
 
-### Grunt
-
-Now that we have Node.js and NPM installed we can install Grunt. 
-
-To begin, hold shift and right click in the home directory of this project. Select "*Open Command window here*" Alternatively you can press the `Windows key + R` and type in cmd and navigate to the directory using the command line
-
-Once you are in the directory using the command prompt, type in
-```
-npm install -g grunt-cli
-```
-
-Once this has finished downloading you will need to run the command 
-```
-npm install grunt --save-dev
-```
-
-These two steps are all you need to do to fully set up Grunt. For more information please go to
-
-[http://gruntjs.com/getting-started](http://gruntjs.com/getting-started)
-
-
-### Ruby
-
-If you’re using a Mac, you probably already have Ruby installed. If you’re on Windows, go to [http://rubyinstaller.org](http://rubyinstaller.org) and download the correct installer for your platform. There are also videos on Lynda.com that cover the Ruby installation as part of them ([Ruby Essential Training](http://www.lynda.com/Ruby-tutorials/essential-training/47905-2.html))
-
-### SASS
-
-Once Ruby is installed we can install SASS. From the command prompt run the following commands. You may need to do this as an administrator user or use the `sudo` command if you’re using a UNIX based system.
-
-```rb
-gem update --system
-gem install sass
-```
-
----
-
-
-##Installation
-
-###Before you install
+## Frameworks/plugins
 
 If you want to add any of the additional packages you will have to edit ```package.js```, ```bower.json``` and ```Gruntfile.js``` and uncomment the relevant lines of code for your module **before** you run the installation
 
@@ -125,15 +49,12 @@ If you want to add any of the additional packages you will have to edit ```packa
 - [CSSLint](https://github.com/gruntjs/grunt-contrib-csslint) - Checks CSS syntax for possible errors and pitfalls
 - [Compass](https://github.com/gruntjs/grunt-contrib-compass) – add additional mixins to SASS
 - [Bourbon](http://bourbon.io/)
-- [HTML Validation](https://www.npmjs.org/package/grunt-html-validation) - Validates HTML files against W3C
 
 also included but commented out are
 
-- [Bootstrap](http://getbootstrap.com)
-- [Foundation](http://foundation.zurb.com)
+- [Bootstrap Sass](https://github.com/twbs/bootstrap-sass) customized for this project
 - [JQuery](https://jquery.com/)
-
-Installation intructions for all these additonal features are listed in the `index.html` file of the project
+- [Slick slider](https://github.com/kenwheeler/slick/)
 
 ---
 
