@@ -57,20 +57,6 @@ also included but commented out are
 - [Slick slider](https://github.com/kenwheeler/slick/)
 
 ---
-
-##Beginning the installation
-
-Once in the correct folder and with the files edited if needs be and in place run the following command in the commandline:
-
-```bash
-npm install
-```
-
-This will read the `package.json` file and attempt to download all the dependencies listed in that file. It will save them in a folder called `node_modules`.
-
-You should now have all the modules you need installed and you’re nearly ready to start coding.
-
----
 ## Using Grunt to do the grunt work
 
 We have our setup ready to go, but we haven’t automated anything yet. You might have noticed a file called `Gruntfile.js` in the project folder. This file controls how Grunt works and what it does. This file has been written for you already and should do everything we need, so it’s not recommended to edit this file unless you need a separate specific task to be run on your project.
