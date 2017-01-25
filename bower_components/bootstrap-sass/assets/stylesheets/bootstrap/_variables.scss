@@ -26,7 +26,7 @@ $body-bg:               #fff !default;
 $text-color:            $gray-dark !default;
 
 //** Global textual link color.
-$link-color:            $brand-primary !default;
+$link-color:            $brand-darker !default;
 //** Link hover color set via `darken()` function.
 $link-hover-color:      $brand-darker !default;
 //** Link hover decoration.
@@ -38,31 +38,34 @@ $link-hover-decoration: underline !default;
 //## Font, line-height, and color for body text, headings, and more.
 //Sans serif font stack
 $font-family-sans-serif:  "SourceSansRegular", Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-sans-light:  "SourceSansLight", Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$sans-serif-semibold:      "SourceSansSemiBold", Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $font-family-serif:       "SourceSerifRegular", Georgia, "Times New Roman", Times, serif !default;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
 $font-family-base:        $font-family-sans-serif !default;
 
-$font-size-base:          14px !default;
-$font-size-large:         ceil(($font-size-base * 1.25)) !default; // ~18px
-$font-size-small:         ceil(($font-size-base * 0.85)) !default; // ~12px
+$font-size-base:          16px !default;
+$font-size-large:         ceil(($font-size-base * 1.125)) !default; // ~18px
+$font-size-small:         ceil(($font-size-base * 0.875)) !default; // ~14px
 
-$font-size-h1:            floor(($font-size-base * 2.6)) !default; // ~36px
-$font-size-h2:            floor(($font-size-base * 2.15)) !default; // ~30px
-$font-size-h3:            ceil(($font-size-base * 1.7)) !default; // ~24px
+$font-size-h1:            floor(($font-size-base * 2.428571428571429)) !default; // ~34px
+$font-size-h2:            floor(($font-size-base * 2)) !default; // ~28px
+$font-size-h3:            ceil(($font-size-base * 1.571428571428571)) !default; // ~22px
 $font-size-h4:            ceil(($font-size-base * 1.25)) !default; // ~18px
 $font-size-h5:            $font-size-base !default;
 $font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
 
 //** Unit-less `line-height` for use in components like buttons.
-//$line-height-base:        1.428571429 !default; // 20/14
-$line-height-base:        1.571428571428571 !default; // 22/14
+$line-height-base:        1.5 !default; // 24/16
+//$line-height-base:        1.571428571428571 !default; // 22/14 - 14 * 1.25
 //** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
 $line-height-computed:    floor(($font-size-base * $line-height-base)) !default; // ~20px
 
 //** By default, this inherits from the `<body>`.
 $headings-font-family:    inherit !default;
 $headings-font-weight:    500 !default;
+$headings-font-light:     300 !default;
 $headings-line-height:    1.1 !default;
 $headings-color:          inherit !default;
 
@@ -87,14 +90,14 @@ $icon-font-svg-id:        "glyphicons_halflingsregular" !default;
 //
 //## Define common padding and border radius sizes and more. Values based on 14px text and 1.428 line-height (~20px to start).
 
-$padding-base-vertical:     6px !default;
-$padding-base-horizontal:   12px !default;
+$padding-base-vertical:     4px !default;
+$padding-base-horizontal:   8px !default;
 
-$padding-large-vertical:    10px !default;
-$padding-large-horizontal:  16px !default;
+$padding-large-vertical:    16px !default;
+$padding-large-horizontal:  16px !default; 
 
-$padding-small-vertical:    5px !default;
-$padding-small-horizontal:  10px !default;
+$padding-small-vertical:    4px !default;
+$padding-small-horizontal:  8px !default;
 
 $padding-xs-vertical:       1px !default;
 $padding-xs-horizontal:     5px !default;
@@ -104,12 +107,12 @@ $line-height-small:         1.5 !default;
 
 $border-radius-base:        4px !default;
 $border-radius-large:       6px !default;
-$border-radius-small:       3px !default;
+$border-radius-small:       4px !default;
 
 //** Global color for active items (e.g., navs or dropdowns).
-$component-active-color:    #fff !default;
+$component-active-color:    $text-color !default;
 //** Global background color for active items (e.g., navs or dropdowns).
-$component-active-bg:       $brand-primary !default;
+$component-active-bg:       $gray-light !default;
 
 //** Width of the `border` for generating carets that indicate dropdowns.
 $caret-width-base:          4px !default;
@@ -129,13 +132,13 @@ $table-condensed-cell-padding:  5px !default;
 //** Default background color used for all tables.
 $table-bg:                      transparent !default;
 //** Background color used for `.table-striped`.
-$table-bg-accent:               #f9f9f9 !default;
+$table-bg-accent:               $gray-lightest !default;
 //** Background color used for `.table-hover`.
-$table-bg-hover:                #f5f5f5 !default;
+$table-bg-hover:                $gray-light !default;
 $table-bg-active:               $table-bg-hover !default;
 
 //** Border color for table and cell borders.
-$table-border-color:            #ddd !default;
+$table-border-color:            $text-color !default;
 
 
 //== Buttons
@@ -144,13 +147,13 @@ $table-border-color:            #ddd !default;
 
 $btn-font-weight:                normal !default;
 
-$btn-default-color:              #333 !default;
-$btn-default-bg:                 #fff !default;
-$btn-default-border:             #ccc !default;
+$btn-default-color:              $text-color !default;
+$btn-default-bg:                 transparent !default;
+$btn-default-border:             $text-color !default;
 
 $btn-primary-color:              #fff !default;
 $btn-primary-bg:                 $brand-primary !default;
-$btn-primary-border:             darken($btn-primary-bg, 5%) !default;
+$btn-primary-border:             $brand-darker !default;
 
 $btn-success-color:              #fff !default;
 $btn-success-bg:                 $brand-darker !default;
@@ -203,7 +206,7 @@ $input-border-radius-small:      $border-radius-small !default;
 $input-border-focus:             #66afe9 !default;
 
 //** Placeholder text color
-$input-color-placeholder:        #999 !default;
+$input-color-placeholder:        $gray-light !default;
 
 //** Default `.form-control` height
 $input-height-base:              ($line-height-computed + ($padding-base-vertical * 2) + 2) !default;
@@ -746,7 +749,7 @@ $thumbnail-padding:           4px !default;
 //** Thumbnail background color
 $thumbnail-bg:                $body-bg !default;
 //** Thumbnail border color
-$thumbnail-border:            #ddd !default;
+$thumbnail-border:            $text-color !default;
 //** Thumbnail border radius
 $thumbnail-border-radius:     $border-radius-base !default;
 

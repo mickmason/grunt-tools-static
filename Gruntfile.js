@@ -81,7 +81,7 @@ module.exports = function(grunt) {
         },
         dist: {
           src: ['development/lib/jquery-3.1.1/jquery-3.1.1.min.js', 'development/lib/bootstrap.min.js', 'development/lib/slick/slick/slick.min.js', 'development/terminalfour/src/js/scripts.min.js'],
-          dest: 'www-root/style-assets/js/t4-scripts.min.js',
+          dest: 'www-root/style-assets/js/t4-scripts.min.js'
         }
       },//concat
     
@@ -139,7 +139,11 @@ module.exports = function(grunt) {
           
           svg: { // will add and overide the the default xmlns="http://www.w3.org/2000/svg" attribute to the resulting SVG
             viewBox : '0 0 100 100'
-          }
+          },
+          cleanup: true,
+          convertNameToId: function(name) {
+            return name;
+         }
         },
         default : {
             
@@ -186,7 +190,7 @@ module.exports = function(grunt) {
         tasks: ['sass:dist']
 
       },//sass
-
+        
       scripts: {
         files: ['development/terminalfour/src/js/scripts.js'],
         //Uncomment the line below and delete the other "tasks:['uglify:build'] to add JSHint into the project"
@@ -197,8 +201,11 @@ module.exports = function(grunt) {
       htmlcompile: {
         files: ['development/terminalfour/src/html/**/*.html'],
         tasks: ['includereplace']
-      }//htmlcompile
-      
+      },//htmlcompile
+      media: {
+          files: ['development/terminalfour/src/media/**/*.*'],
+          tasks: ['copy:media']
+      }
       //Uncomment the region below to add HTML Validation into the project (Dont forget to add a comment on the line above after the HTML compile curly braces right before the comment)
       // html: {
       //   files: ['www-root/**/*.html'],
