@@ -1,0 +1,61 @@
+//Coverts px values to em and rem, also returns the px value
+
+//Take a pixel value and covert to rem
+//Take up to 4 values and a property
+
+//@function strip-unit($num) {
+//  @return $num / ($num * 0 + 1);
+//}
+//
+//@mixin rem-calc($property, $values...) {
+//  $max: length($values);
+//  $pxValues: '';
+//  $remValues: '';
+//
+//  @for $i from 1 through $max {
+//    $value: strip-unit(nth($values, $i));
+//    $pxValues: #{$pxValues + $value*16}px;
+//
+//    @if $i < $max {
+//      $pxValues: #{$pxValues + " "};
+//    }
+//  } 
+//
+//  @for $i from 1 through $max {
+//    $value: strip-unit(nth($values, $i));
+//    $remValues: #{$remValues + $value}rem;
+//
+//    @if $i < $max {
+//      $remValues: #{$remValues + " "};
+//    }
+//  } 
+//  
+//  #{$property}: $pxValues; 
+//  #{$property}: $remValues; 
+//}
+
+@mixin rem-calc($property, $values...) {
+    $max: length($values);
+    $rem-values: '';
+    $px-values: '';
+
+    @for $i from 1 through $max {
+        $value: nth($values, $i);
+        @if $value == 'auto' {
+            $px-values: #{$px-values + $value};   
+            $rem-values: #{$rem-values + $value};
+        } @else {
+            $px-values: #{$px-values + $value}px; 
+            $value: $value / 16;
+            $rem-values: #{$rem-values + $value}rem;    
+        }
+        
+        @if $i < $max {
+            $px-values: #{$px-values + " "};
+            $rem-values: #{$rem-values + " "};
+        }
+    }
+    #{$property}: #{$px-values};    
+    #{$property}: #{$rem-values};
+}
+

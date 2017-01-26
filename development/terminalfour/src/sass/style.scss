@@ -319,7 +319,7 @@ header {
     display: none;
     position: absolute;
     bottom: 10%;
-    left: 15px;
+    @include rem-calc(left, 15);    
     z-index: 20;
     width: 80%;
     h1 {
