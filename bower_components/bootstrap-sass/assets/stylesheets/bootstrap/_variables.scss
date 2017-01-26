@@ -7,11 +7,12 @@ $bootstrap-sass-asset-helper: false !default;
 //== Colors
 //
 //## Gray and brand colors for DFA.
+$gray-lightest:             #f4f5f6 !default;          
+$gray-light:                #e4e5e6 !default;  
+$gray-lighter:              #7b7b7b !default;
 $gray:                      #565656 !default;
 $gray-dark:                 #323232 !default;
 $white:                     #fff !default;                   
-$gray-lightest:             #f4f5f6 !default;          
-$gray-light:                #e4e5e6 !default;            
 $brand-primary:         #006845 !default;
 $brand-darker:          #005036 !default;
 
@@ -45,8 +46,9 @@ $font-family-serif:       "SourceSerifRegular", Georgia, "Times New Roman", Time
 $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
 $font-family-base:        $font-family-sans-serif !default;
 
-$font-size-base:          16px !default;
-$font-size-large:         ceil(($font-size-base * 1.125)) !default; // ~18px
+$font-size-base:          14px !default;
+$font-size-large:         ceil(($font-size-base * 1.25)) !default; // ~18px 
+$font-size-med:           ceil(($font-size-base * 1.14)) !default; // ~18px 
 $font-size-small:         ceil(($font-size-base * 0.875)) !default; // ~14px
 
 $font-size-h1:            floor(($font-size-base * 2.428571428571429)) !default; // ~34px

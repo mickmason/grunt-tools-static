@@ -14,7 +14,6 @@
 @import "mixins/reset-text";
 @import "mixins/text-emphasis";
 @import "mixins/text-overflow";
-@import "mixins/dfa-text-to-uppercase.scss";
 @import "mixins/vendor-prefixes";
 
 // Components
@@ -39,3 +38,7 @@
 @import "mixins/nav-vertical-align";
 @import "mixins/grid-framework";
 @import "mixins/grid";
+
+//DFA Custom
+@import "mixins/dfa-text-to-uppercase.scss";
+@import "mixins/dfa-transition.scss";
