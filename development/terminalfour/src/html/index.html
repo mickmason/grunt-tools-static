@@ -12,9 +12,6 @@
     <!--** Site header container **-->
        <header>
         <!--** Main header block **-->
-        
-           
-
             <div class="header-row">
                <div class="content-wrap">
                 <!--** Header title column - logo and desktop title **-->
@@ -58,18 +55,19 @@
                   <nav>
                     <div class="main-nav">
                         <ul class="main-nav-list">
-                            <li><a href="javascriptvoid(0)">About AIEF</a></li>
-                            <li><a href="javascriptvoid(0)">Speakers and Presentations 2017</a></li>
-                            <li><a href="javascriptvoid(0)">Gallery</a></li>
-                            <li><a href="javascriptvoid(0)">Interviews</a></li>
-                            <li><a href="javascriptvoid(0)">Contact</a></li>
+                            <li><a href="javascript:void(0)">About AIEF</a></li>
+                            <li><a href="javascript:void(0)">Speakers and Presentations 2017</a></li>
+                            <li><a href="javascript:void(0)">Gallery</a></li>
+                            <li><a href="javascript:void(0)">Interviews</a></li>
+                            <li><a href="javascript:void(0)">Contact</a></li>
                         </ul>
                     </div> 
                     <div class="desktop-search" data-target="site-search">
-                         <a href="javascript:void(0)" title="Show site search">
+                         <a href="javascript:void(0)" class="desktop-search-anchor" title="Show site search">
                             <div class="desktop-search-icon dfa-icon">
-                                <img src="style-assets/media/svg-imgs/search_Icons Bazaar_white.svg" alt="Image" />
+                                <img class="search-icon" src="style-assets/media/svg-imgs/search_Icons Bazaar_white.svg" alt="Image" />
                             </div>
+                            <span class="desktop-search-text">Search: </span>
                         </a>  
                     </div>
                   </nav>
@@ -106,7 +104,7 @@
     <div class="hero-image-wrapper">
            <img class="hero-image" src="style-assets/media/imgs/3-attendees-540px.jpg" alt="Africa Ireland Economic Forum" />
            <div class="hero-text" data-posx="50" data-posy="30" data-align="">
-               <h1>Africa Ireland Economic Forum</h1>
+               <h1 class="hero-heading">Africa Ireland Economic Forum</h1>
                <p class="hero-text-subtext">First held in 2011, the Africa Ireland Economic Forum (AIEF) is hosted by the Department of Foreign Affairs and Trade in partnership with the African Ambassadors in Ireland.
 </p>
            </div>
@@ -119,29 +117,96 @@
                </a>              
            </div>
            
-           <div class="hero-image-overlay"></div>
+           <div class="transparent-image-overlay"></div>
     </div>
     <!--** // Hero image ** -->
     <!--** Main section .container **-->
-    <section class="main-section">
-       
-        <!--** Intro row ** -->
-        <div class="intro-row">
+    <div class="main-section">
+        <!--** Hero text-row for mobile ** -->
+        <section class="hero-text-row__mobile">
             <div class="content-wrap">
-                <div class="intro-block">
+                <div class="hero-text-block__mobile">
+                    
                     <div class="hero-text__mobile">
-                       <h1>Africa Ireland Economic Forum</h1>
+                       <h1 class="hero-heading__mobile">Africa Ireland Economic Forum</h1>
                        <p class="hero-text-subtext">First held in 2011, the Africa Ireland Economic Forum (AIEF) is hosted by the Department of Foreign Affairs and Trade in partnership with the African Ambassadors in Ireland.
         </p>
-                   </div>    
+                   </div> 
+                   
+                         
                 </div>
             </div>           
-        </div>
+        </section>
+        
         <!--** Intro row ** -->
-    </section>
+        <section class="intro-feature landing-feature-section">
+            <div class="content-wrap">
+                <div class="intro-feature-block"> 
+                     <h1 class="intro-feature-heading">Africa Ireland Economic Forum - Introduction</h1>   
+                     <div class="intro-feature-body">
+                        <div class="intro-feature-leftcol">
+                            
+                            <p><strong>First held in 2011, the Africa Ireland Economic Forum (AIEF) is hosted by the Department of Foreign Affairs and Trade in partnership with the African Ambassadors in Ireland.
+    </strong></p>
+                            <p><img class="img-responsive" src="style-assets/media/imgs/2.-Mary-Mitchell-4to3.jpg" alt="Mary Mitchel O'Connor TD" /></p>
+                            <p>AIEF is a flagship event of the Department of Foreign Affairs and Trade’s Africa Strategy, and provides a key networking opportunity for African and Irish businesses to discuss opportunities in Africa and identify areas for mutually beneficial trade and investment.</p>                        
+                            
+                         </div> 
+                         <div class="intro-feature-rightcol">
+                            <!-- <h2 class="intro-feature-heading__sub">Sub-heading</h2>-->
+                             <p>Minister Mitchell O’Connor underlined the potential for Ireland to position itself as a long-term trade and investment partner in the region, and for Irish companies to deliver innovative solutions in partnership with Governments and civil society in line with the 2030 Agenda. Read the full text of Minister O'Connor's speech. Parliament of the Economic Community of West African States.</p>
+                             <p>Ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
+                             <ul>
+                                <li>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</li>
+                                <li>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</li>
+                                <li>Sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</li>
+                                <li>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</li>
+                                <li>Neque porro quisquam est, qui dolorem ipsum quia dolor.</li>
+                            </ul>
+                            
+                         </div>
+                    </div>
+                </div>
+            </div>           
+        </section>
+        <!--** People feature row ** -->
+        <section class="people-feature landing-feature-section" style="background-color: #f4f5f6">
+            <div class="content-wrap">
+                <div class="people-feature-block"> 
+                    <h1 class="feature-heading">People at AIEF</h1>
+                    <div class="people-row">
+                        <div class="people-feature-person">
+                            <img class="people-feature-image" src="style-assets/media/imgs/6-Mr-Bryan-Cuthbert-540px.jpg" alt="Mr Bryan Cuthbert" />
+                            <div class="people-feature-overlay">
+                                <div class="people-feature-about">
+                                    <h2 class="people-feature-about-heading">Mr Bryan Cuthbert</h2>
+                                    <p class="people-feature-about-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                                    <a class="people-feature-about-link" href="javascript:void(0)">Read more ></a>
+                                </div>
+                                <div class="transparent-image-overlay"></div>
+                            </div>
+                        </div> 
+                        <div class="people-feature-person">
+                            <img class="people-feature-image" src="style-assets/media/imgs/5-Mr-Ronan-MacNioclais-540px.jpg" alt="Mr Bryan Cuthbert" />
+                            <div class="people-feature-overlay">
+                                <div class="people-feature-about">
+                                    <h2 class="people-feature-about-heading">Mr Ronan MacNioclais</h2>
+                                    <p class="people-feature-about-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                                    <a class="people-feature-about-link" href="javascript:void(0)">Read more ></a>    
+                                </div>
+                                
+                                <div class="transparent-image-overlay__dark"></div>
+                            </div>
+                        </div>    
+                    </div>
+                    
+                </div>
+            </div>           
+        </section>
+        <!--** // Intro row ** -->        
+    </div>
     <!--** // Main section .container **-->
 
     <script src="style-assets/js/t4-scripts.min.js"></script>
 </body>
->>>>>>> mm-dev
 </html>

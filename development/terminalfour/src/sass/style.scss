@@ -1,4 +1,4 @@
-/* 
+/* /* 
  *  Stying for DFA site responsivization and redesign 2017
  *  Michael Mason @ TERMINALFOUR
  *  Includes Bootrap SCSS customized (https://github.com/twbs/bootstrap-sass), Slick Slider SCSS (https://github.com/kenwheeler/slick/)
@@ -227,7 +227,7 @@ header {
         border-bottom: none;
     }
     .main-nav {
-        @include make-xs-column(11);
+        @include make-md-column(10);
     }
     .main-nav-list {
         padding: 0;
@@ -254,20 +254,45 @@ header {
         }
     }
     .desktop-search {
+        @include make-md-column(2, 0);
         display: block;
         float: right;
         width: 48px ;
-        padding: ($padding-small-vertical * 1.5 + 1) ($padding-small-horizontal / 2 - 2) ($padding-small-vertical * 1.5) ($padding-small-horizontal / 2 + 2);
-        img {
+       
+
+//        @include dfa-transition(background-color, 120, ease-out);
+        color: $white;
+        
+        .desktop-search-anchor {
+            display: inline-block;
+            float: right;
+            padding: ($padding-small-vertical * 1.5 ) ($padding-small-horizontal * 2.5) ($padding-small-vertical * 1.5 + 1) ($padding-small-horizontal * 3);
+
+            color: inherit;
+            background-color: $brand-darker ;
+            @include clearfix;
+        }
+        .desktop-search-text {
+            display: block;
+            text-align: center;
+            padding-top: ($padding-small-vertical * 1 - 1);
+            padding-left: ($padding-small-horizontal * 1);
+            padding-bottom: ($padding-small-vertical * 1 + 1);
+            padding-right: ($padding-small-horizontal * 2);
+            float: right;
+            width: auto;
+        }
+        .desktop-search-icon {
+            float: right;
+            width: 34px;
+        }
+        .search-icon {
             display: block;
             margin-left: auto;
             margin-right: auto;
             width: 34px;
         }
-        @include dfa-transition(background-color, 120, ease-out);
-        &:hover, &.active {
-            background-color: $brand-darker ;
-        }
+        
     }
 }
 @media (min-width: $screen-lg-min) {
@@ -281,6 +306,9 @@ header {
     .dfa-site-search-input {
         font-size: $font-size-large;
     }
+    .desktop-search-anchor {
+        padding-bottom: ($padding-small-vertical * 1.5) ;
+    }
 }
 
 /***
@@ -292,6 +320,44 @@ header {
     @include container-fixed();
     background-color: #fff;
 }
+
+/** 
+ *
+ * Main sections
+ *
+**/
+/* 
+ * Landing page scaffolding 
+**/
+.landing-feature-section {
+    @include make-row;
+    padding-top: ($padding-small-vertical * 8) ;
+    padding-bottom: ($padding-small-vertical * 8) ;
+}
+.feature-heading {
+    margin-top: 0;
+}
+/* Transparent overlays */
+.transparent-image-overlay, .transparent-image-overlay__mid, .transparent-image-overlay__dark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background-color: $gray-dark;
+    filter: alpha(opacity=36); // IE 5-7
+    opacity: 0.36;
+}
+.transparent-image-overlay__mid {
+    filter: alpha(opacity=52); // IE 5-7
+    opacity: 0.52;
+}
+.transparent-image-overlay__dark {
+    filter: alpha(opacity=76); // IE 5-7
+    opacity: 0.76;
+}
+
 /*
  * Hero image 
  */
@@ -304,43 +370,34 @@ header {
     width: 100%;
     height: auto;
 }
-.hero-image-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 10;
-    background-color: $gray-dark;
-    filter: alpha(opacity=36); // IE 5-7
-    opacity: 0.36;
-}
+
 .hero-text {
     display: none;
     position: absolute;
     width: 66%;
-    top: 50%;
+    top: 48%;
     text-align: left;
     @include rem-calc(left, 15);
     transform: translate(-0%, -50%);   
     z-index: 20;
     
-    h1 {
+    .hero-heading {
         font-family: "SourceSansBlack", sans-serif;   
         @include rem-calc(font-size, 64);  
         line-height: 1;
         @include rem-calc(margin-bottom, 16);
+        margin-top: 0;
     }
     color: $white;
     
 }
 .hero-text-subtext {
+        
         @include rem-calc(font-size, 18);  
-        margin-top: 0;
+        margin: 0;
 }
 
 .hero-scroll {
-    
     display: none;
     color: $white;
     text-align: center;
@@ -366,7 +423,6 @@ header {
     &:hover, &:active, &:focus {
         background-color: #000;
     }
-    
     a {
         color: inherit;
         &:hover {
@@ -382,46 +438,67 @@ header {
         height: 30px;
         @include rem-calc(margin, 0, auto);
     }
-    
-    
 }
-
-
+.hero-text-row__mobile {
+    @include make-row;
+}
+.hero-text-block__mobile {
+    @include make-xs-column(12);
+}
 .hero-text__mobile {
-    h1 {
-        font-family: "SourceSansBlack", sans-serif;        
+    .hero-heading__mobile {
+        font-family: "SourceSansBlack", sans-serif; 
+        @include rem-calc(font-size, 42);
     }
     .hero-text-subtext {
         @include rem-calc(font-size, 18);  
         font-family: "SourceSansSemiBold";
-    }
-    
+    }  
 }
 
+
 /* 
- * Intro row 
+ * 
+ * Intro section 
+ *
  */
-.intro-row {
-    @include make-row;
-}
-.intro-block {
+.intro-feature-block {
     @include make-xs-column(12);
 }
+.intro-feature-heading {
+    margin-top: 0;
+    @include rem-calc(margin-bottom, 28);
+    @include rem-calc(font-size, 40);
+}
+.intro-feature-heading__sub {
+    margin-top: 0; 
+}
+.intro-feature-body {
+    @include make-row;
+}
+.intro-feature-leftcol {
+    @include make-sm-column(6);
+} 
+.intro-feature-rightcol {
+    @include make-sm-column(6);
+} 
 @media screen and (min-width: 609px) {
     .hero-text {
         display: block;    
     }
+    .hero-text__mobile {
+        display: none;
+    }
 }
-
 @media screen and (min-width: $screen-sm-min) {
     .hero-text {
         text-align: center;
         top: 30%;
         left: 50%;
         transform: translate(-50%, -33%);    
-        h1 {
+        .hero-heading {
             font-family: "SourceSansBlack", sans-serif;     
-            @include rem-calc(font-size, 84);  
+            @include rem-calc(font-size, 72);  
             @include rem-calc(margin-bottom, 28);
         }
     }
@@ -431,9 +508,67 @@ header {
         img {
             height: 36px;
         }
+    }   
+}
+@media screen and (min-width: $screen-md-min) {
+    .hero-text {
+        .hero-heading {
+            @include rem-calc(font-size, 84);
+        }
+    }    
+}
+
+/** 
+ * 
+ * People feature
+ *
+**/
+.people-feature-block {
+    @include make-xs-column(12);
+}
+/* Row contains all pictures */
+.people-row {
+    @include make-row;
+}
+/* Each is a col */
+ 
+.people-feature-person {
+    position: relative;
+    @include make-xs-column(12,0);
+ 
+    overflow: hidden;
+    &:hover .people-feature-overlay {
+        top: 0;
     }
+}
+.people-feature-image {
+    position: relative;
+    @include img-responsive;
+    width: 100%;
+}
+.people-feature-overlay {
+    position: absolute;
+    top: 100%;
+    height: 100%;
+    @include rem-calc(padding, ($padding-small-vertical * 4), ($padding-small-horizontal), ($padding-small-vertical * 4), ($padding-small-horizontal));
+    color: $white;
+    @include dfa-transition(top, 220, ease-out, 0);
+}
+.people-feature-about {
+    position: relative;
+    z-index: 20;
+}
+.people-feature-about-heading {
+    font-family: $sans-serif-semibold;
+    @include rem-calc(margin-top, 0);
+    @include rem-calc(font-size, 18);
+}
+.people-feature-about-text, .people-feature-about-link {
     
+}
+.people-feature-about-link {
+    color: inherit;
+    font-family: $sans-serif-bold;
 }
 
 
->>>>>>> mm-dev

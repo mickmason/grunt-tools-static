@@ -64,12 +64,18 @@
     /* Postition hero text in tablet and bigger devices  */
     if ($('.hero-text')) {
         console.log('there is a hero text element');
-        var $heroText = $('.hero-text');
-        var x = ($heroText.attr('data-posx')) ? $heroText.attr('data-posx') : 50 ;
-        var y = ($heroText.attr('data-posy')) ? $heroText.attr('data-posy') : 50;
-        var align = ($heroText.attr('data-align')) ? $heroText.attr('data-align') : "centre";
-        
-        $heroText.css({left: x+'%', top: y+'%', textAlign: align});
+        if (window.outerWidth > 768) {
+            var $heroText = $('.hero-text');
+            var x = ($heroText.attr('data-posx')) ? $heroText.attr('data-posx') : 50 ;
+            var y = ($heroText.attr('data-posy')) ? $heroText.attr('data-posy') : 50;
+            var align = ($heroText.attr('data-align')) ? $heroText.attr('data-align') : "centre";
+
+            $heroText.css({left: x+'%', top: y+'%', textAlign: align});
+            $(global).on(resize, function() {
+                $heroText.css({left: x+'%', top: y+'%', textAlign: align});
+            });
+        } 
+
     }
     
 
