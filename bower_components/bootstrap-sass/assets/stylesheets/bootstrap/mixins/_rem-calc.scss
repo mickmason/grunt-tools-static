@@ -37,12 +37,12 @@
   @return $num / ($num * 0 + 1);
 }
 @mixin rem-calc($property, $values...) {
-    
     $max: length($values);
     $rem-values: '';
     $px-values: '';
-
-    @for $i from 1 through $max {
+    //@debug $values; 
+    @for $i from 1 through $max { 
+        
         $value: nth($values, $i);
         @if $value == 'auto' {
             $px-values: #{$px-values + $value};   

@@ -1494,7 +1494,7 @@ hr {
   cursor: pointer;
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 768px) {
   html {
     font-size: 16px;
   }
@@ -1608,7 +1608,7 @@ hr {
 h1, h3, h4, h5, h6,
 .h1, .h3, .h4, .h5, .h6 {
   font-family: "SourceSansBold", Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 500;
+  font-weight: inherit;
   line-height: 1.1;
   color: inherit;
 }
@@ -1631,6 +1631,7 @@ h6 .small,
 
 h2, .h2 {
   font-family: "SourceSansLight", Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 200;
 }
 
 h1, .h1,
@@ -7625,7 +7626,7 @@ header:after {
 .header-navigation__mobile-search a:hover, .header-navigation__mobile-search a:active, .header-navigation__mobile-search a:focus, .header-navigation__mobile-menu a:hover, .header-navigation__mobile-menu a:active, .header-navigation__mobile-menu a:focus {
   text-decoration: none;
 }
-.header-navigation__mobile-search img, .header-navigation__mobile-menu img {
+.header-navigation__mobile-search .dfa-icon img, .header-navigation__mobile-menu .dfa-icon img {
   display: block;
   width: 65%;
   margin-left: auto;
@@ -7957,6 +7958,11 @@ header:after {
   margin-top: 0;
 }
 
+/* SVG Icons */
+.dfa-icon img {
+  width: 100%;
+}
+
 /* Transparent overlays */
 .transparent-image-overlay, .transparent-image-overlay__mid, .transparent-image-overlay__dark {
   position: absolute;
@@ -8217,8 +8223,8 @@ header:after {
 
 /* Row contains all pictures */
 .people-row {
-  margin-left: -15px;
-  margin-right: -15px;
+  margin-left: 0;
+  margin-right: 0;
 }
 .people-row:before, .people-row:after {
   content: " ";
@@ -8231,43 +8237,12 @@ header:after {
 /* Each is a col */
 .people-feature-person {
   position: relative;
-  position: relative;
   float: left;
   width: 100%;
   min-height: 1px;
   padding-left: 0;
   padding-right: 0;
-  position: relative;
-  min-height: 1px;
-  padding-left: 0;
-  padding-right: 0;
-  position: relative;
-  min-height: 1px;
-  padding-left: 0;
-  padding-right: 0;
-  position: relative;
-  min-height: 1px;
-  padding-left: 0;
-  padding-right: 0;
   overflow: hidden;
-}
-@media (min-width: 768px) {
-  .people-feature-person {
-    float: left;
-    width: 16.66667%;
-  }
-}
-@media (min-width: 992px) {
-  .people-feature-person {
-    float: left;
-    width: 33.33333%;
-  }
-}
-@media (min-width: 1200px) {
-  .people-feature-person {
-    float: left;
-    width: 25%;
-  }
 }
 .people-feature-person:hover .people-feature-overlay {
   top: 0;
@@ -8285,17 +8260,20 @@ header:after {
   position: absolute;
   top: 100%;
   height: 100%;
+  width: 100%;
   padding: 16px 8px 16px 8px;
   padding: 1rem 0.5rem 1rem 0.5rem;
   color: #fff;
-  -webkit-transition: top 220ms ease-out 0s;
-  -moz-transition: top 220ms ease-out 0s;
-  -o-transition: top 220ms ease-out 0s;
-  transition: top 220ms ease-out 0s;
+  -webkit-transition: top 260ms ease-out 0s;
+  -moz-transition: top 260ms ease-out 0s;
+  -o-transition: top 260ms ease-out 0s;
+  transition: top 260ms ease-out 0s;
+  background-color: #000;
 }
 
 .people-feature-about {
   position: relative;
+  height: 100%;
   z-index: 20;
 }
 
@@ -8307,14 +8285,141 @@ header:after {
   font-size: 1.125rem;
 }
 
-.people-feature-about-text, .people-feature-about-link {
-  font-size: 14px;
-  font-size: 0.875rem;
-}
-
 .people-feature-about-link {
   color: inherit;
   font-family: "SourceSansBold", Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  position: absolute;
+  bottom: 0;
+  transform: translate(0, 0);
+}
+.people-feature-about-link:hover, .people-feature-about-link:focus, .people-feature-about-link:active {
+  color: inherit;
+}
+
+@media screen and (min-width: 768px) {
+  .people-feature-person {
+    position: relative;
+    min-height: 1px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+@media screen and (min-width: 768px) and (min-width: 768px) {
+  .people-feature-person {
+    float: left;
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .people-feature-person {
+    position: relative;
+    min-height: 1px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+@media screen and (min-width: 992px) and (min-width: 992px) {
+  .people-feature-person {
+    float: left;
+    width: 33.33333%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .people-feature-person {
+    position: relative;
+    min-height: 1px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+@media screen and (min-width: 1200px) and (min-width: 1200px) {
+  .people-feature-person {
+    float: left;
+    width: 25%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .people-feature-about-heading {
+    font-size: 16px;
+    font-size: 1rem;
+    margin-bottom: 6px;
+    margin-bottom: 0.375rem;
+  }
+
+  .people-feature-about-text {
+    font-size: 12px;
+    font-size: 0.75rem;
+  }
+
+  .people-feature-about-link {
+    font-size: 14px;
+    font-size: 0.875rem;
+  }
+}
+/**
+ *
+ * Media Gallery 
+ *
+**/
+.media-gallery-block {
+  position: relative;
+  float: left;
+  width: 100%;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.media-gallery-slider {
+  padding-top: 32px;
+  padding-top: 2rem;
+  padding-bottom: 32px;
+  padding-bottom: 2rem;
+}
+
+.gallery-item {
+  padding-left: 15px;
+  padding-left: 0.9375rem;
+  padding-right: 15px;
+  padding-right: 0.9375rem;
+}
+
+.gallery-item-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  width: 100%;
+}
+
+.gallery-item-caption-text {
+  font-family: "SourceSansSemiBold", Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-size: 1.125rem;
+  padding: 16px 16px 16px 16px;
+  padding: 1rem 1rem 1rem 1rem;
+  margin: 0;
+  background-color: #fff;
+}
+
+.gallery-next, .gallery-prev {
+  width: 45px;
+  width: 2.8125rem;
+  padding: 6px 6px 6px 6px;
+  padding: 0.375rem 0.375rem 0.375rem 0.375rem;
+  border-radius: 50%;
+  border-radius: 50%;
+  background-color: #fff;
+  -webkit-transition: background-color 160ms ease-in 0s;
+  -moz-transition: background-color 160ms ease-in 0s;
+  -o-transition: background-color 160ms ease-in 0s;
+  transition: background-color 160ms ease-in 0s;
+}
+.gallery-next:hover, .gallery-prev:hover {
+  cursor: pointer;
+  background-color: #f4f5f6;
 }
 
 /*# sourceMappingURL=style.css.map */

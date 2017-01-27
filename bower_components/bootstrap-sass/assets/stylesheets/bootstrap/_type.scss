@@ -166,7 +166,6 @@ h1, h3, h4, h5, h6,
   font-weight: $headings-font-weight;
   line-height: $headings-line-height;
   color: $headings-color;
-
   small,
   .small {
     font-weight: normal;
@@ -176,6 +175,7 @@ h1, h3, h4, h5, h6,
 }
 h2, .h2 { 
     font-family: $font-family-sans-light;
+    font-weight: $headings-font-light;
 }
 
 h1, .h1,
@@ -252,7 +252,10 @@ mark,
 
 // Transformation
 .text-lowercase      { text-transform: lowercase; }
-.text-uppercase      { text-transform: uppercase; }
+.text-uppercase      { 
+    text-transform: uppercase; 
+
+}
 .text-capitalize     { text-transform: capitalize; }
 
 // Contextual colors

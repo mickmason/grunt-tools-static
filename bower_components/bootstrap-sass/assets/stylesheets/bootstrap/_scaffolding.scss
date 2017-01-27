@@ -160,7 +160,7 @@ hr {
   cursor: pointer;
 }
 
-@media screen and (min-width: $screen-md-min) {
+@media screen and (min-width: $screen-sm-min) {
     html {
         font-size: $font-size-med;
     }
