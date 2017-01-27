@@ -1,4 +1,3 @@
-
 (function t4mainfunction($global) { 
     'use strict' ;
     /* Handle mobile nav and search */
@@ -10,7 +9,7 @@
         
         var $other = $('.header-navigation__mobile-search, .header-navigation__mobile-menu').not($self);
         console.log($other);
-        var $target = $('#'+$self.attr('data-target'));
+        var $target = $('#'+$self.attr('data-target')); 
         if ($self.hasClass('desktop-search')) {
              
             if ($self.hasClass('active')) {
@@ -61,4 +60,17 @@
             $(this).attr('placeholder', text);
         });
     });
+    
+    /* Postition hero text in tablet and bigger devices  */
+    if ($('.hero-text')) {
+        console.log('there is a hero text element');
+        var $heroText = $('.hero-text');
+        var x = ($heroText.attr('data-posx')) ? $heroText.attr('data-posx') : 50 ;
+        var y = ($heroText.attr('data-posy')) ? $heroText.attr('data-posy') : 50;
+        var align = ($heroText.attr('data-align')) ? $heroText.attr('data-align') : "centre";
+        
+        $heroText.css({left: x+'%', top: y+'%', textAlign: align});
+    }
+    
+
 })(window); 
