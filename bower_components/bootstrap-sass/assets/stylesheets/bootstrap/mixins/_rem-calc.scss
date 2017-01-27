@@ -33,8 +33,11 @@
 //  #{$property}: $pxValues; 
 //  #{$property}: $remValues; 
 //}
-
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
 @mixin rem-calc($property, $values...) {
+    
     $max: length($values);
     $rem-values: '';
     $px-values: '';
@@ -45,8 +48,9 @@
             $px-values: #{$px-values + $value};   
             $rem-values: #{$rem-values + $value};
         } @else {
+            $value: strip-unit($value);
             $px-values: #{$px-values + $value}px; 
-            $value: $value / 16;
+            $value: ($value / 16);
             $rem-values: #{$rem-values + $value}rem;    
         }
         
@@ -58,9 +62,5 @@
 
     
     #{$property}: #{$px-values};    
-    
-    
-    
     #{$property}: #{$rem-values};
 }
-
