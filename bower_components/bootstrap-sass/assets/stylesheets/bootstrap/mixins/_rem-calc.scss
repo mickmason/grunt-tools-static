@@ -55,7 +55,12 @@
             $rem-values: #{$rem-values + " "};
         }
     }
+
+    
     #{$property}: #{$px-values};    
+    
+    
+    
     #{$property}: #{$rem-values};
 }
 
