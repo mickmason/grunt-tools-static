@@ -13,12 +13,7 @@
  *
  **/
 
-/* Contains content width in rows  */
-.content-wrap {
-    @include clearfix;
-    max-width: 1200px;  
-    margin: 0 auto;
-}
+
 
 /* Page header */
 header {
@@ -66,10 +61,9 @@ header {
     &.white-simple { display: none;}
 }
 .header-navigation__mobile-search, .header-navigation__mobile-menu {
-    padding: ($padding-small-vertical * 3) ($padding-small-horizontal / 2) ($padding-small-vertical * 3);
+    padding: ($padding-small-vertical * 4) ($padding-small-horizontal / 2) ($padding-small-vertical * 3);
     float: right; 
-    text-align: center;
-    width: 50px ;
+    @include rem-calc(width, 56);
     height: 72px;
     
     @include dfa-transition(background-color, 100, ease-in);
@@ -83,16 +77,10 @@ header {
             text-decoration: none;
         }
     }
-    .dfa-icon img { display: block; width: 65%; margin-left: auto; margin-right: auto; }  
     &.active, &:hover {
         background-color: $brand-darker;
     }
 }
-
-.header-navigation__mobile-menu {
-    padding-top: 13px;
-}
-
 .navigation-text-label {
     font-size: 10px;
     @include dfa-text-to-uppercase(0.1) ;
@@ -331,21 +319,43 @@ header {
 **/
 .landing-feature-section {
     @include make-row;
-    padding-top: ($padding-small-vertical * 8) ;
-    padding-bottom: ($padding-small-vertical * 8) ;
+    @include rem-calc(padding-top, ($padding-small-vertical * 8));
+    @include rem-calc(padding-bottom, ($padding-small-vertical * 8)) ;
 }
 .feature-heading {
     margin-top: 0;
-}
-
-/* SVG Icons */
-.dfa-icon {
+    @include rem-calc(margin-bottom, ($padding-small-vertical * 8)) ;
     
-    img {
-        width: 100%;
+}
+/* Contains content width in rows  */
+.content-wrap {
+    @include clearfix;
+    max-width: 1200px;  
+    margin: 0 auto;
+}
+/* SVG Icons */
+.dfa-icon, dfa-icon__with-label {
+    display: flex;
+    flex-direction: column;
+    width: 100%; 
+    .dfa-icon-image {
+        width: 64%;
+        @include rem-calc(margin, 0, auto);  
+     
     }
 }
+.dfa-icon__with-label {
 
+    .dfa-icon-image {
+        
+    }
+    .dfa-icon-label {
+        text-align: center;
+        @include rem-calc(font-size, 12);
+        @include dfa-text-to-uppercase;
+        @include rem-calc(margin-top, 4); 
+    }
+}
 /* Transparent overlays */
 .transparent-image-overlay, .transparent-image-overlay__mid, .transparent-image-overlay__dark {
     position: absolute;
@@ -416,6 +426,7 @@ header {
     @include rem-calc(padding, 25, 4, 4, 4);
     @include border-radius(50%);
     background-color: transparent;
+    background-color: rgba(#000, 0);
     
     border: 2px solid $white;
     
@@ -431,6 +442,7 @@ header {
     
     &:hover, &:active, &:focus {
         background-color: #000;
+        background-color: rgba(#000, 0.36);
     }
     a {
         color: inherit;
@@ -548,6 +560,8 @@ header {
     &:hover .people-feature-overlay {
         top: 0;
     }
+    border-bottom: 8px solid $brand-darker;
+
 }
 .people-feature-image {
     position: relative;
@@ -555,14 +569,16 @@ header {
     width: 100%;
 }
 .people-feature-overlay {
-    position: absolute;
+    position: static;
     top: 100%;
     height: 100%;
     width: 100%;
     @include rem-calc(padding, ($padding-small-vertical * 4), ($padding-small-horizontal), ($padding-small-vertical * 4), ($padding-small-horizontal));
     color: $white;
     @include dfa-transition(top, 260, ease-out, 0);
-    background-color: #000; 
+    background-color: $gray-dark;
+    background-color: rgba($gray-dark, 1); 
+
 }
 .people-feature-about {
     position: relative;
@@ -577,7 +593,7 @@ header {
 .people-feature-about-link {
     color: inherit;
     font-family: $sans-serif-bold;
-    position: absolute;
+    position: static;
     bottom: 0;
     transform: translate(0, 0);
     &:hover, &:focus, &:active {
@@ -587,16 +603,60 @@ header {
 @media screen and (min-width:  $screen-sm-min) {
     .people-feature-person {
         @include make-sm-column(6,0);
+        
+        border-right: 1px solid #000;
+        &:nth-child(2n) {
+            border-right: none;
+        }
+        
     } 
 }
 @media screen and (min-width:  $screen-md-min) {
     .people-feature-person {
         @include make-md-column(4,0);
+        img {
+            margin-bottom: 4rem;
+        }
+        &:nth-child(2n) {
+            border-right: 1px solid #000;
+        }
+        border-right: 1px solid #000;
+        &:nth-child(3n) {
+            border-right: none;
+        }
+    }
+    .people-feature-overlay {
+        position: absolute;
+        top: 78%;
+        top: calc(100% - 4rem);
     }
 }
 @media screen and (min-width: $screen-lg-min) {
     .people-feature-person {
         @include make-lg-column(3,0);
+         img {
+            margin-bottom: 51px;
+        }
+        &:nth-child(2n) {
+            border-right: 1px solid #000;
+        }
+ 
+        &:nth-child(3n) {
+            border-right: 1px solid #000;
+        }
+        &:nth-child(4n) {
+            border-right: none;
+        }
+  
+    }
+    .people-feature-overlay {
+        position: absolute;
+        top: 82%;
+        top: calc(100% - 58px);
+    }
+    
+    .people-feature-about-link {
+        position: absolute;
     }
     .people-feature-about-heading  {
         @include rem-calc(font-size, 16);
