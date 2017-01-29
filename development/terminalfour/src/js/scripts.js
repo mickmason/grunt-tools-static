@@ -9,13 +9,22 @@
                 console.log('loaded');
                 $('.modal-backdrop').addClass('ekko-lightbox');
             },
-            alwaysShowClose: true  
+            alwaysShowClose: true
         })
     }); 
     
     /* 
      * Slick slider initialization
+     * 
      */
+    $('.slick-gallery').slick({
+        prevArrow: '.arrow-left-icon.dfa-icon',
+        nextArrow: '.arrow-right-icon.dfa-icon',
+        centerMode: true,
+        centerPadding: '20px'
+    });
+    
+    
     
     /* Handle mobile nav and search */
     $('.header-navigation__mobile-search, .header-navigation__mobile-menu, .desktop-search').on('click', function(e) {
