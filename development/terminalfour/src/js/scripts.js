@@ -4,14 +4,8 @@
     /* Lightbox modal - Ekko-lightbox */
     $(document).on('click', '[data-toggle="lightbox"]', function(event) {
         event.preventDefault();
-        $(this).ekkoLightbox({
-            width: '66%',
-            height: '800px',
-            onContentLoaded: function(e) {
-                console.log('Loaded');
-                console.log(e.toString());
-            }
-        }); 
+        console.log('click '+event.target);
+        $(this).ekkoLightbox({}); 
     }); 
     
     

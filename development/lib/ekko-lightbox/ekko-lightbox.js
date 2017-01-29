@@ -261,6 +261,7 @@ var Lightbox = (function ($) {
 				this._updateTitleAndFooter();
 
 				var currentRemote = this._$element.attr('data-remote') || this._$element.attr('href');
+                console.log('href is '+this._$element.attr('href'));
 				var currentType = this._detectRemoteType(currentRemote, this._$element.attr('data-type') || false);
 
 				if (['image', 'youtube', 'vimeo', 'instagram', 'video', 'url'].indexOf(currentType) < 0) return this._error(this._config.strings.type);
@@ -567,7 +568,7 @@ var Lightbox = (function ($) {
 				this._$lightboxContainer.css('height', maxHeight);
 				this._$modalDialog.css('width', 'auto').css('maxWidth', width);
 
-				this._$modal.modal('_handleUpdate');
+				this._$modal.modal('handleUpdate');
 				return this;
 			}
 		}], [{

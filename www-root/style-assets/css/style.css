@@ -8605,4 +8605,12 @@ header:after {
   background-color: #f4f5f6;
 }
 
+/* 
+ * Gallery Modal
+ * Extends or overwrites some of http://ashleydw.github.io/lightbox/
+ */
+.ekko-lightbox-item img {
+  width: 100%;
+}
+
 /*# sourceMappingURL=style.css.map */

@@ -710,3 +710,11 @@ header {
         background-color: $gray-lightest;
     }
 }
+
+/* 
+ * Gallery Modal
+ * Extends or overwrites some of http://ashleydw.github.io/lightbox/
+ */
+.ekko-lightbox-item {
+    img  {width: 100%;}
+}
