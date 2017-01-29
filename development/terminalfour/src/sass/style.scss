@@ -718,3 +718,27 @@ header {
 .ekko-lightbox-item {
     img  {width: 100%;}
 }
+.ekko-lightbox {
+    &.modal {
+
+    }
+    &.modal-backdrop {
+        &.in {
+            opacity: 0.76;
+        }
+    }
+    .modal-dialog {
+        top: 45%;
+    }
+    .modal-content {
+        color: $white;
+        background-color: $gray-dark;
+        border-bottom-color: #000;
+        border-radius: 0;
+                top: 50%;
+        transform: translate(-0%, -50%);
+    }
+    .modal-header {
+        border-bottom: none;
+    }
+}

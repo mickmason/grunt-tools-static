@@ -4,10 +4,18 @@
     /* Lightbox modal - Ekko-lightbox */
     $(document).on('click', '[data-toggle="lightbox"]', function(event) {
         event.preventDefault();
-        console.log('click '+event.target);
-        $(this).ekkoLightbox({}); 
+        $(this).ekkoLightbox({
+            onContentLoaded: function() {
+                console.log('loaded');
+                $('.modal-backdrop').addClass('ekko-lightbox');
+            },
+            alwaysShowClose: true  
+        })
     }); 
     
+    /* 
+     * Slick slider initialization
+     */
     
     /* Handle mobile nav and search */
     $('.header-navigation__mobile-search, .header-navigation__mobile-menu, .desktop-search').on('click', function(e) {
