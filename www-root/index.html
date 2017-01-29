@@ -282,9 +282,12 @@
             <div class="content-wrap">
                 <div class="media-gallery-block"> 
                     <h2 class="feature-heading">AIEF 2016 Media Gallery</h2>
-                    <article class="media-gallery-slider">
+                    <article class="media-gallery-slider"> 
                         <div class="gallery-item">
-                            <img class="gallery-item-image" src="style-assets/media/imgs/6-Mr-Bryan-Cuthbert-540px.jpg" alt="Mr Bryan Cuthbert" />
+                            <a href="http://localhost:9001/style-assets/media/imgs/6-Mr-Bryan-Cuthbert-540px.jpg" data-type="image" data-toggle="lightbox">
+                                <img class="gallery-item-image" data-toggle="lightbox" src="style-assets/media/imgs/6-Mr-Bryan-Cuthbert-540px.jpg" alt="Mr Bryan Cuthbert" />    
+                            </a>
+                            
                             <div class="gallery-item-caption">
                                     <h2 class="gallery-item-caption-text">Mr Bryan Cuthbert</h2>
                             </div>
@@ -340,9 +343,32 @@
         <!--** // Media gallery row ** -->          
     </div>
     <!--** // Main section .container **-->
-    <script src="style-assets/js/t4-scripts.min.js"></script>
-    <div class="media-lightbox">
-        
+    
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
     </div>
+  </div>
+</div>    
+    
+    
+    <script src="style-assets/js/t4-scripts.min.js"></script>
 </body>
 </html>

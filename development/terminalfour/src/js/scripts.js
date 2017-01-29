@@ -1,8 +1,22 @@
 (function t4mainfunction($global) { 
     'use strict' ;
+    
+    /* Lightbox modal - Ekko-lightbox */
+    $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+        event.preventDefault();
+        $(this).ekkoLightbox({
+            width: '66%',
+            height: '800px',
+            onContentLoaded: function(e) {
+                console.log('Loaded');
+                console.log(e.toString());
+            }
+        }); 
+    }); 
+    
+    
     /* Handle mobile nav and search */
     $('.header-navigation__mobile-search, .header-navigation__mobile-menu, .desktop-search').on('click', function(e) {
-        console.log('click');
         
         e.preventDefault();    
         var $self = $(this); 
@@ -11,6 +25,7 @@
         console.log($other);
         var $target = $('#'+$self.attr('data-target')); 
         if ($self.hasClass('desktop-search')) {
+            
              
             if ($self.hasClass('active')) {
                 $target.slideUp({duration: 300, easing: 'swing', complete: function(){
@@ -31,7 +46,7 @@
             }});
             
         } else if ($other.hasClass('active')) {
-            
+             
             var $otherTarget = $('#'+$other.attr('data-target')) ;
             console.log($otherTarget);
             $otherTarget.slideUp({ duration: 300, easing: 'swing', complete: function() {   
@@ -71,7 +86,7 @@
             var align = ($heroText.attr('data-align')) ? $heroText.attr('data-align') : "centre";
 
             $heroText.css({left: x+'%', top: y+'%', textAlign: align});
-            $(global).on(resize, function() {
+            $($global).on('resize', function() {
                 $heroText.css({left: x+'%', top: y+'%', textAlign: align});
             });
         } 
