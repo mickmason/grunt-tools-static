@@ -8257,7 +8257,7 @@ header:after {
   padding-left: 0;
   padding-right: 0;
   overflow: hidden;
-  border-bottom: 8px solid #005036;
+  border-bottom: 8px solid #029797;
 }
 .people-feature-person:hover .people-feature-overlay {
   top: 0;
@@ -8462,6 +8462,7 @@ header:after {
   padding: 1rem 1rem 1rem 1rem;
   margin: 0;
   background-color: #fff;
+  border-bottom: 4px solid #034961;
 }
 
 .gallery-next, .gallery-prev {

@@ -560,7 +560,7 @@ header {
     &:hover .people-feature-overlay {
         top: 0;
     }
-    border-bottom: 8px solid $brand-darker;
+    border-bottom: 8px solid #029797;
 
 }
 .people-feature-image {
@@ -695,6 +695,7 @@ header {
     @include rem-calc(padding, ($padding-small-vertical * 4), ($padding-small-horizontal * 2), ($padding-small-vertical * 4), ($padding-small-horizontal * 2));
     margin: 0;
     background-color: $white;
+    border-bottom: 4px solid #034961;
 }
 
 .gallery-next, .gallery-prev {
