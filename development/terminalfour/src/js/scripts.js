@@ -14,19 +14,7 @@
                 $('.modal-backdrop').addClass('ekko-lightbox');
                 
             },
-            onNavigate: function(target) {
-                
-                var $active = $('.gallery-active') ;
-                console.log('navigate to '+target+ ' this is active '+ $active.attr('class'));
-                $active.removeClass('gallery-active');
-                
-                target == 'right' ? $active.parent().next().find('[data-toggle="lightbox"]').addClass('gallery-active') : $active.parent().prev().find('[data-toggle="lightbox"]').addClass('.gallery-active') ;
-            },
-            alwaysShowClose: true,
-            onShown: function() {
-//                console.log('Show called. This active: '+ $('.gallery-active').attr('class'));
-//                $('.modal-footer').text( $('.gallery-active').attr('data-caption') ).show();
-            }
+            alwaysShowClose: true
         });
         $(this).addClass('gallery-active'); 
 

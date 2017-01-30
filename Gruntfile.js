@@ -80,7 +80,7 @@ module.exports = function(grunt) {
            banner: '\n/** \n * TERMINALFOUR custom and concatenated library scripts \n * Client: <%= pkg.clientName %>\n * Project: <%= pkg.projectName %>\n * Version: <%= pkg.version %>\n * Description: <%= pkg.description %>\n * Copyright <%= grunt.template.today("yyyy") %>\n * Created by <%= pkg.developer %>\n * on behalf of TERMINALFOUR\n * www.terminalfour.com\n*/\n',
         },
         dist: {
-          src: ['development/lib/jquery-3.1.1/jquery-3.1.1.min.js', 'development/lib/bootstrap.js', 'development/lib/slick/slick/slick.min.js', 'development/lib/ekko-lightbox/ekko-lightbox.js', 'development/terminalfour/src/js/scripts.js'],
+          src: ['development/lib/jquery-3.1.1/jquery-3.1.1.min.js', 'development/lib/bootstrap.min.js', 'development/lib/slick/slick/slick.min.js', 'jquery.matchHeight.js', 'development/lib/ekko-lightbox/ekko-lightbox.js', 'development/terminalfour/src/js/scripts.js'],
           dest: 'www-root/style-assets/js/t4-scripts.min.js'
         }
       },//concat
