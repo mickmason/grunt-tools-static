@@ -15,14 +15,10 @@
  *
  **/
 
-
-
 /* Page header */
 header {
     @include container-fixed; 
 }
-
-
 
 .header-row {
     @include make-row;
@@ -186,7 +182,6 @@ header {
             width: 36px;
         }
     }    
-
 }
 @media (min-width: $screen-md-min) {
     /* Switch header to desktop */
@@ -639,27 +634,6 @@ header {
     }
 }
 @media screen and (min-width: $screen-lg-min) {
-    .people-feature-person {
-//        @include make-lg-column(3,0);
-//         img {
-//            margin-bottom: 51px;
-//        }
-//        &:nth-child(2n) {
-//            border-right: 1px solid #000;
-//        }
-// 
-//        &:nth-child(3n) {
-//            border-right: 1px solid #000;
-//        }
-//        &:nth-child(4n) {
-//            border-right: none;
-//        }
-  
-    }
-    .people-feature-overlay {
-
-    }
-    
     .people-feature-about-link {
         position: absolute;
     }
