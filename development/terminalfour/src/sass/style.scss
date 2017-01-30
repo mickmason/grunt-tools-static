@@ -628,33 +628,36 @@ header {
         }
     }
     .people-feature-overlay {
+        padding-top: 24px;
         position: absolute;
         top: 78%;
-        top: calc(100% - 4rem);
+        top: calc(100% - 4.3rem);
+        
+    }
+    .people-feature-about-heading {
+        margin-bottom: 24px;
     }
 }
 @media screen and (min-width: $screen-lg-min) {
     .people-feature-person {
-        @include make-lg-column(3,0);
-         img {
-            margin-bottom: 51px;
-        }
-        &:nth-child(2n) {
-            border-right: 1px solid #000;
-        }
- 
-        &:nth-child(3n) {
-            border-right: 1px solid #000;
-        }
-        &:nth-child(4n) {
-            border-right: none;
-        }
+//        @include make-lg-column(3,0);
+//         img {
+//            margin-bottom: 51px;
+//        }
+//        &:nth-child(2n) {
+//            border-right: 1px solid #000;
+//        }
+// 
+//        &:nth-child(3n) {
+//            border-right: 1px solid #000;
+//        }
+//        &:nth-child(4n) {
+//            border-right: none;
+//        }
   
     }
     .people-feature-overlay {
-        position: absolute;
-        top: 82%;
-        top: calc(100% - 58px);
+
     }
     
     .people-feature-about-link {
@@ -662,7 +665,7 @@ header {
     }
     .people-feature-about-heading  {
         @include rem-calc(font-size, 16);
-        @include rem-calc(margin-bottom, 6);
+        
     }
     .people-feature-about-text {
         @include rem-calc(font-size, 12);
@@ -676,29 +679,58 @@ header {
  * Media Gallery 
  *
 **/
+/* Media gallery intro row */
 .media-gallery-intro {
- @include rem-calc(padding-bottom, ($padding-small-vertical * 4));
-}
-.media-gallery {
- @include rem-calc(padding-top, ($padding-small-vertical * 4));
+     @include rem-calc(padding-bottom, ($padding-small-vertical * 4));
+     
 }
 .media-gallery-intro-block {
     @include make-xs-column(12);
 }
-.media-gallery-block {
-    @include make-xs-column(12);
+/* Media gallery row */
+.media-gallery {
+    @include rem-calc(padding-top, ($padding-small-vertical * 4));
+    position: relative;
 }
-/* The gallery row */
+/* The slider */
 .media-gallery-slider {
-//    @include rem-calc(padding-top, 32);
-//    @include rem-calc(padding-bottom, 32);
+    position: relative;
+    /* Gradient fill to left and right */
+    &::before, &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        height: 100%;
+        top: 0;
+        width: 5%;
+        
+                z-index: 1000;
+        
+        /* Older browsers */
+        background-color: transparent;
+    }
+    &::before {
+        /* Thanks to http://colorzilla.com/gradient-editor */
+        background: -moz-linear-gradient(left,  rgba(228,229,230,1) 0%, rgba(255,255,255,0) 0%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(left,  rgba(228,229,230,1) 0%,rgba(255,255,255,0) 0%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to right,  rgba(228,229,230,1) 0%,rgba(255,255,255,0)) 0%; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4e5e6', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
+    }
+    &::after {
+        right: 0;
+        /* Thanks to http://colorzilla.com/gradient-editor */
+        background: -moz-linear-gradient(right,  rgba(228,229,230,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(right,  rgba(228,229,230,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to left,  rgba(228,229,230,1) 0%,rgba(255,255,255,0)) 100%; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4e5e6', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
+    }
 }
-/* Wrapper for each item */
+/* Gallery item */
 .gallery-item {
-    width: 100%;
+    width: 70%;
     @include rem-calc(margin, auto, 10);
-//    @include rem-calc(padding-left, 15);
-//    @include rem-calc(padding-right, 15);
+    @include rem-calc (padding-left, 15);
+    @include rem-calc (padding-right, 15);
     position: relative;
     .item-anchor {
         display: block;
@@ -712,13 +744,23 @@ header {
     position: relative;
 }
 /* Caption text div */
-.gallery-item-caption-text {
-    font-family: $sans-serif-semibold;
-    @include rem-calc(font-size, 18);
+.gallery-item-caption {
+
     @include rem-calc(padding, ($padding-small-vertical * 4), ($padding-small-horizontal * 2), ($padding-small-vertical * 4), ($padding-small-horizontal * 2));
     margin: 0;
     background-color: $white;
     border-bottom: 4px solid #034961;
+}
+.gallery-item-caption-heading {
+     font-family: $sans-serif-semibold;
+     @include rem-calc(font-size, 18);
+     margin-top: 0;
+    @include rem-calc(margin-bottom, 8);
+    
+}
+.gallery-item-caption-text {
+    margin-bottom: 0;
+    @include rem-calc(font-size, 16);
 }
 /* Play icon */
 .gallery-item-play {
@@ -727,12 +769,11 @@ header {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -70%);
-    z-index: 1000;
         
 }
+/* Gallery controls */
 .gallery-control {
         .dfa-icon {
-       
             height: 100%;
             @include border-radius(50%);
             background-color: $white;
@@ -746,27 +787,213 @@ header {
                 background-color: $gray-lightest;
             }       
         }
+        position: absolute;
+        top: 45%;
+        
+        z-index: 1100;
+        transform: translate(-0%, -50%);
         @include rem-calc(width, 38);
         @include rem-calc(height, 38);
         
 }
 /* Next and previous icons */
-.gallery-control__left, .gallery-control__right {
+.gallery-control__left {
+    left: 1%;
+}
+.gallery-control__right {
+    right: 1%;
+}
+@media screen and (min-width: 440px) {
+    .gallery-control {
+        top: 45%;
+        @include rem-calc(width, 42);
+        @include rem-calc(height, 42);
+    }
+}
+@media screen and (min-width: 1300px) {
+    .gallery-control__left {
+        left: 5%;
+    }
+    .gallery-control__right {
+        right: 5%;
+    }
+}
+@media screen and (min-width: 1400px) {
+    .gallery-control__left {
+        left: 6%;
+    }
+    .gallery-control__right {
+        right: 6%;
+    }
+}
+@media screen and (min-width: 1500px) {
+    .gallery-control__left {
+        left: 9%;
+    }
+    .gallery-control__right {
+        right: 9%;
+    }
+}
+@media screen and (min-width: 1600px) {
+    .gallery-control__left {
+        left: 12%;
+    }
+    .gallery-control__right {
+        right: 12%;
+    }
+}
+@media screen and (min-width: 1700px) {
+    .gallery-control__left {
+        left: 14%;
+    }
+    .gallery-control__right {
+        right: 14%;
+    }
+}
+@media screen and (min-width: 1800px) {
+    .gallery-control__left {
+        left: 16%;
+    }
+    .gallery-control__right {
+        right: 16%;
+    }
+}
+@media screen and (min-width: $screen-sm-min) {
+    .media-gallery-slider {
+        /* Gradient fill to left and right */
+        &::before, &::after {
+            width: 4%;
+        }
+    }
+    .gallery-item {
+        padding-left: 0;
+        padding-right: 0;
+        @include rem-calc(margin, 0, 12);
+    }
+    .gallery-item-caption-text {
+        margin-bottom: 0;
+        @include rem-calc(font-size, 16);
+    }
+}
 
-    //@include rem-calc(padding, ($padding-small-vertical * 0), ($padding-small-horizontal * 0.5), ($padding-small-vertical * 0), ($padding-small-horizontal * 0.5));
+@media screen and (min-width: $screen-md-min) {
+    .media-gallery-slider {
+        /* Gradient fill to left and right */
+        &::before, &::after {
+            width: 4%;
+        }
+    }
+     .gallery-item-caption-text {
+        margin-bottom: 0;
+        @include rem-calc(font-size, 14);
+    }
+}
+@media screen and (min-width: $screen-lg-min) {
+    .media-gallery-slider {
+        max-width: 1260px;
+        margin-left: auto;
+        margin-right: auto;
+        .slick-list {
+            overflow: visible;
+        }
+        &::before, &::after {
+            width: 27.25%;
+        }
+        &::before {
+            left: -27%;
+            background: -moz-linear-gradient(left,  rgba(228,229,230,1) 12%, rgba(255,255,255,0) 0%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(left,  rgba(228,229,230,1) 12%,rgba(255,255,255,0) 0%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to right,  rgba(228,229,230,1) 12%,rgba(255,255,255,0)) 0%; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4e5e6', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
+        }
+        &::after {
+            right: -27%;
+            background: -moz-linear-gradient(right,  rgba(228,229,230,1) 12%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(right,  rgba(228,229,230,1) 12%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to left,  rgba(228,229,230,1) 12%,rgba(255,255,255,0)) 100%; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4e5e6', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
+        }       
+    }
+}
 
+/* News features */
+.news-features-block {
+    @include make-xs-column(12);
+}
+.news-features-row {
+    @include make-row;
+}
+.news-feature {
+    @include make-xs-column(12);
+    @include rem-calc(margin-bottom, 16); 
+}
+
+@media screen and (min-width: $screen-sm-min) {
+    .news-feature {
+        @include make-xs-column(6);
+    }   
+}
+@media screen and (min-width: $screen-lg-min) {
+    .news-feature {
+        @include make-xs-column(3);
+    }   
 }
 
 /* 
- * Gallery Modal
- * Extends or overwrites some of http://ashleydw.github.io/lightbox/
+ *
+ * DFA Widget 
+ *
  */
+.dfa-widget {
+    border-bottom: 4px solid $gray-dark;
+    -webkit-box-shadow: 1px 2px 4px 1px rgba(50,50,50,0.53);
+    -moz-box-shadow: 1px 2px 4px 1px rgba(50,50,50,0.53);
+    box-shadow: 1px 2px 4px 1px rgba(50,50,50,0.53);
+}
+.dfa-widget-img {
+    @include img-responsive;
+    width: 100%;
+}
+.dfa-widget-body {
+    @include rem-calc(padding, ($padding-small-vertical * 5));
+    background-color: $white;
+}
+.dfa-widget-heading {
+    @include rem-calc(font-size, 22);
+    line-height: 1.24;
+    margin-top: 0;
+    @include rem-calc(margin-bottom, 1);
+    
+}
+.dfa-widget-date {
+    @include rem-calc(font-size, 16);
+    margin-top: 0;
+    @include rem-calc(margin-bottom, 1);
+    color: $gray-lighter;
+}
+
+.dfa-widget-anchor {
+    color: inherit;
+    &:hover, &:active, &:focus {
+        color: inherit;
+        text-decoration: none;
+    }
+}
+
+
+
+/* 
+ *
+ * Overriding libraries 
+ *
+ */
+/* Extends or overwrites some of http://ashleydw.github.io/lightbox/ */
 .ekko-lightbox-item {
     img  {width: 100%;}
 }
 .ekko-lightbox {
     &.modal {
-
+     z-index: 1200;
     }
     &.modal-backdrop {
         &.in {

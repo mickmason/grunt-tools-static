@@ -150,9 +150,9 @@ $table-border-color:            $text-color !default;
 
 $btn-font-weight:                normal !default;
 
-$btn-default-color:              $text-color !default;
-$btn-default-bg:                 transparent !default;
-$btn-default-border:             $text-color !default;
+$btn-default-color:              $white !default;
+$btn-default-bg:                 $brand-darker !default;
+$btn-default-border:             $brand-darker !default;
 
 $btn-primary-color:              #fff !default;
 $btn-primary-bg:                 $brand-primary !default;

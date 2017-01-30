@@ -2,26 +2,64 @@
     'use strict' ;
     
     /* Lightbox modal - Ekko-lightbox */
+//    $(document).on('load', '.modal-footer', function() {
+//        $(this).text( $('.gallery-active').attr('data-caption')).show();
+//        console.log('Footer text '+$('.modal-footer').text());
+//    });
+
     $(document).on('click', '[data-toggle="lightbox"]', function(event) {
         event.preventDefault();
         $(this).ekkoLightbox({
             onContentLoaded: function() {
-                console.log('loaded');
                 $('.modal-backdrop').addClass('ekko-lightbox');
+                
             },
-            alwaysShowClose: true
-        })
-    }); 
+            onNavigate: function(target) {
+                
+                var $active = $('.gallery-active') ;
+                console.log('navigate to '+target+ ' this is active '+ $active.attr('class'));
+                $active.removeClass('gallery-active');
+                
+                target == 'right' ? $active.parent().next().find('[data-toggle="lightbox"]').addClass('gallery-active') : $active.parent().prev().find('[data-toggle="lightbox"]').addClass('.gallery-active') ;
+            },
+            alwaysShowClose: true,
+            onShown: function() {
+//                console.log('Show called. This active: '+ $('.gallery-active').attr('class'));
+//                $('.modal-footer').text( $('.gallery-active').attr('data-caption') ).show();
+            }
+        });
+        $(this).addClass('gallery-active'); 
+
+    });
     
     /* 
      * Slick slider initialization
      * 
      */
     $('.slick-gallery').slick({
+        mobileFirst: true,
         prevArrow: '.arrow-left-icon.dfa-icon',
         nextArrow: '.arrow-right-icon.dfa-icon',
-        centerMode: true,
-        centerPadding: '20px'
+        
+        responsive: [ 
+        {
+            breakpoint: 1024,
+            settings: {
+                centerMode: true,
+                centerPadding: '30px',
+                slidesToShow: 3,
+                slidesToScroll: 3
+            }   
+        },
+        {
+            breakpoint: 768,
+            settings: {
+                centerMode: true,
+                centerPadding: '30px',
+                slidesToShow: 2,
+                slidesToScroll: 2
+            }
+        }]
     });
     
     
@@ -36,8 +74,6 @@
         console.log($other);
         var $target = $('#'+$self.attr('data-target')); 
         if ($self.hasClass('desktop-search')) {
-            
-             
             if ($self.hasClass('active')) {
                 $target.slideUp({duration: 300, easing: 'swing', complete: function(){
                         $self.removeClass('active') ;
