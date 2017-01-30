@@ -676,13 +676,22 @@ header {
  * Media Gallery 
  *
 **/
+.media-gallery-intro {
+ @include rem-calc(padding-bottom, ($padding-small-vertical * 4));
+}
+.media-gallery {
+ @include rem-calc(padding-top, ($padding-small-vertical * 4));
+}
+.media-gallery-intro-block {
+    @include make-xs-column(12);
+}
 .media-gallery-block {
     @include make-xs-column(12);
 }
 /* The gallery row */
 .media-gallery-slider {
-    @include rem-calc(padding-top, 32);
-    @include rem-calc(padding-bottom, 32);
+//    @include rem-calc(padding-top, 32);
+//    @include rem-calc(padding-bottom, 32);
 }
 /* Wrapper for each item */
 .gallery-item {

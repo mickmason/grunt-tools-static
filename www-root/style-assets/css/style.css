@@ -8698,6 +8698,25 @@ header:after {
  * Media Gallery 
  *
 **/
+.media-gallery-intro {
+  padding-bottom: 16px;
+  padding-bottom: 1rem;
+}
+
+.media-gallery {
+  padding-top: 16px;
+  padding-top: 1rem;
+}
+
+.media-gallery-intro-block {
+  position: relative;
+  float: left;
+  width: 100%;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
 .media-gallery-block {
   position: relative;
   float: left;
@@ -8708,13 +8727,6 @@ header:after {
 }
 
 /* The gallery row */
-.media-gallery-slider {
-  padding-top: 32px;
-  padding-top: 2rem;
-  padding-bottom: 32px;
-  padding-bottom: 2rem;
-}
-
 /* Wrapper for each item */
 .gallery-item {
   width: 100%;
