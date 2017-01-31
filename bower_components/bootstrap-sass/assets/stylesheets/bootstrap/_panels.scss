@@ -14,26 +14,63 @@
 
 // Panel contents
 .panel-body {
-  padding: $panel-body-padding;
+ @include rem-calc(padding, 22, $panel-body-padding);
+  
   @include clearfix;
+    .panel-body-title {
+        margin-top: 0;
+        @include rem-calc(margin-bottom, $panel-body-padding);
+    }
 }
 
+.feature-panel .panel-body {
+  padding: $feature-panel-body-padding;
+}
 // Optional heading
 .panel-heading {
-  padding: $panel-heading-padding;
-  border-bottom: 1px solid transparent;
-  @include border-top-radius(($panel-border-radius - 1));
+    
+    @include rem-calc(padding, $panel-heading-padding);
+      border-bottom: 1px solid transparent;
+      @include border-top-radius(($panel-border-radius - 1));
 
-  > .dropdown .dropdown-toggle {
-    color: inherit;
-  }
+      > .dropdown .dropdown-toggle {
+        color: inherit;
+      }
+}
+.feature-panel .panel-heading {
+    
+    @include rem-calc(padding, $feature-panel-heading-padding);
+    @include rem-calc(padding-right, 40);
+    background-image: url(../../style-assets/media/svg-imgs/circle_plus.svg);
+    background-repeat: no-repeat;
+    background-position: 98% ;
+    
+    &.active {
+        background-image: url(../../style-assets/media/svg-imgs/circle_minus.svg);
+    }
+    
+    @include rem-calc(background-size, 32);
+    border-bottom: 1px solid transparent;
+    @include border-top-radius(($panel-border-radius - 1));
+
+    > .dropdown .dropdown-toggle {
+      color: inherit;
+    }
+    
+    &.active {
+        
+    }
+    
+ 
 }
 
 // Within heading, strip any `h*` tag of its default margins for spacing.
 .panel-title {
+  font-family: $sans-serif-semibold;
   margin-top: 0;
   margin-bottom: 0;
-  font-size: ceil(($font-size-base * 1.125));
+  @include rem-calc(font-size, 18);
+
   color: inherit;
 
   > a,
@@ -43,7 +80,22 @@
   > .small > a {
     color: inherit;
   }
+    > a {
+        display: block;
+       
+        &:hover, &:focus {
+            color: darken($white, 20%);
+            text-decoration: none;
+        }
+        @include dfa-transition(color, 120, ease-out); 
+        
+    }
 }
+
+.feature-panel .panel-title {
+
+}
+
 
 // Optional footer (stays gray in every modifier class)
 .panel-footer {
@@ -228,7 +280,7 @@
     border-radius: $panel-border-radius;
 
     + .panel {
-      margin-top: 5px;
+        @include rem-calc(margin-top, 2);
     }
   }
 
@@ -247,6 +299,7 @@
       border-bottom: 1px solid $panel-inner-border;
     }
   }
+    
 }
 
 
@@ -269,3 +322,8 @@
 .panel-danger {
   @include panel-variant($panel-danger-border, $panel-danger-text, $panel-danger-heading-bg, $panel-danger-border);
 }
+.dfa-feature-panel {
+    @include panel-variant(none, $white, $gray-dark, none);
+}
+
+
