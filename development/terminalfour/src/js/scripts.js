@@ -50,6 +50,31 @@
         }]
     });
     
+    /* 
+     * BS Accordion http://getbootstrap.com/javascript/#collapse-example-accordion
+     */ 
+    if ($('.panel-group.dfa-accordion')) {
+            
+            $('.panel-collapse').on('show.bs.collapse', function() {
+                
+                $(this).siblings('.panel-heading').addClass('active');
+                
+            }).on('hide.bs.collapse', function() {
+                console.log('Show '+$(this));
+                $(this).siblings('.panel-heading').removeClass('active');
+            });
+            $('.panel-collapse').eq(0).collapse('show'); 
+    }
+
+    
+    /* 
+     * jQuery Match Height https://github.com/liabru/jquery-match-height
+     */
+    var matchHeightArray = ['.dfa-widget'];
+    $('.dfa-widget').matchHeight(); 
+    matchHeightArray.forEach(function($this, idx, arr) {
+        $($this).matchHeight();    
+    });
     
     
     /* Handle mobile nav and search */

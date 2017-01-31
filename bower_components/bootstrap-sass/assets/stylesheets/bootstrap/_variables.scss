@@ -150,9 +150,9 @@ $table-border-color:            $text-color !default;
 
 $btn-font-weight:                normal !default;
 
-$btn-default-color:              $white !default;
-$btn-default-bg:                 $brand-darker !default;
-$btn-default-border:             $brand-darker !default;
+$btn-default-color:              $text-color !default;
+$btn-default-bg:                 transparent !default;
+$btn-default-border:             $text-color !default;
 
 $btn-primary-color:              #fff !default;
 $btn-primary-bg:                 $brand-primary !default;
@@ -709,10 +709,12 @@ $list-group-link-heading-color: #333 !default;
 //##
 
 $panel-bg:                    #fff !default;
-$panel-body-padding:          15px !default;
-$panel-heading-padding:       10px 15px !default;
+$panel-body-padding:          ($padding-small-vertical * 3) !default;
+$feature-panel-body-padding:          ($padding-small-vertical * 4) !default;
+$panel-heading-padding:       ($padding-small-vertical * 3) !default;
+$feature-panel-heading-padding:       ($padding-small-vertical * 4) !default;
 $panel-footer-padding:        $panel-heading-padding !default;
-$panel-border-radius:         $border-radius-base !default;
+$panel-border-radius:         0 !default;
 
 //** Border color for elements within panels
 $panel-inner-border:          #ddd !default;
