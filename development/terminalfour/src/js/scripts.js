@@ -1,12 +1,11 @@
 (function t4mainfunction($global) { 
     'use strict' ;
-    
-    /* Lightbox modal - Ekko-lightbox */
-//    $(document).on('load', '.modal-footer', function() {
-//        $(this).text( $('.gallery-active').attr('data-caption')).show();
-//        console.log('Footer text '+$('.modal-footer').text());
-//    });
 
+    /* 
+     * Lightbox modal https://github.com/ashleydw/lightbox
+     * Extends Bootstrap Modal module
+     * Config
+     */
     $(document).on('click', '[data-toggle="lightbox"]', function(event) {
         event.preventDefault();
         $(this).ekkoLightbox({
@@ -19,10 +18,9 @@
         $(this).addClass('gallery-active'); 
 
     });
-    
     /* 
-     * Slick slider initialization
-     * 
+     * Slick slider initialization http://kenwheeler.github.io/slick/
+     * The best slider pugin in the world
      */
     $('.slick-gallery').slick({
         mobileFirst: true,
@@ -77,7 +75,10 @@
     });
     
     
-    /* Handle mobile nav and search */
+    /**! 
+     * Michael t4 
+     * Handle mobile nav and search 
+     */
     $('.header-navigation__mobile-search, .header-navigation__mobile-menu, .desktop-search').on('click', function(e) {
         
         e.preventDefault();    
@@ -153,5 +154,32 @@
 
     }
     
-
+    /**!
+     * Feature content block show/hide
+     */
+    $('.feature-bottom-opener .dfa-icon__with-label').on('click', function(e) {
+        e.stopPropagation();
+        var $this = $(this);
+        var $featureMore = $this.find('.feature-more');
+        var $featureLess = $this.find('.feature-less');
+        var $featureBody = $('.featured-content-section-body .featured-content-block');
+        var showHideDuration = 180;
+        var bodyDuration = 450;
+        if ($this.hasClass('active')) {
+            /* Hide feature bottom */
+            $featureLess.stop().fadeOut(showHideDuration, function() {
+                $featureMore.fadeIn(showHideDuration, function() {
+                     $this.removeClass('active');      
+                });    
+            });
+            $featureBody.stop().slideUp(bodyDuration, function() {});
+        } else {
+             $featureMore.stop().fadeOut(showHideDuration, function() {
+                $featureLess.fadeIn(showHideDuration, function() {
+                    $this.addClass('active');                       
+                });
+            }); 
+            $featureBody.stop().slideDown(bodyDuration, function() {});
+        }
+    });
 })(window); 
