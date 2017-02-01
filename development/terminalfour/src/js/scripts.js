@@ -163,8 +163,8 @@
         var $featureMore = $this.find('.feature-more');
         var $featureLess = $this.find('.feature-less');
         var $featureBody = $('.featured-content-section-body .featured-content-block');
-        var showHideDuration = 180;
-        var bodyDuration = 450;
+        var showHideDuration = 140;
+        var bodyDuration = 400;
         if ($this.hasClass('active')) {
             /* Hide feature bottom */
             $featureLess.stop().fadeOut(showHideDuration, function() {

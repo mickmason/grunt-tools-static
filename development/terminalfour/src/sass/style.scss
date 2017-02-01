@@ -926,10 +926,18 @@ header {
 }
 
 .featured-content-section-body {
+    padding-top: 0;
+    padding-bottom: 0;
+    overflow: hidden;
+    
     .featured-content-block {
         display: none;
+        @include rem-calc(padding-top, ($padding-small-vertical * 14.5));
+        @include rem-calc(padding-top, ($padding-small-vertical * 14.5));
     }
-    
+    .body-border-bottom {
+        border-bottom: 3.625rem solid #000;    
+    }
 }
 .featured-content-section-top {
     @include rem-calc(padding-bottom, ($padding-small-vertical * 21));  
@@ -945,11 +953,13 @@ header {
 .featured-content-block {
     overflow: hidden;
     @include make-xs-column(12);
+    float: none;
     z-index: 20;
 }
 .feature-bottom-opener {
     @include rem-calc(height, ($padding-small-vertical * 14.5));
-   
+    background-color: #000;
+    border-bottom: 1px solid $white;
     position: absolute;
     width: 100%;
     z-index: 20;
@@ -958,7 +968,7 @@ header {
     text-align: center;
     .dfa-icon-image {
         img {
-            @include rem-calc(height, ($padding-small-vertical * 6));
+            @include rem-calc(height, ($padding-small-vertical * 4));
         }
     }
     .dfa-icon__with-label { 
@@ -966,22 +976,28 @@ header {
        .feature-more { 
             display: inline;
         }
-       /* &.active {
-            .feature-more { 
-                display: none;
-            }
-        } */
         .feature-less { 
             display: none;
         }
-        /* &.active {
-            .feature-less { 
-                display: inline;
-            }
-        }*/
         &:hover {
             cursor: pointer;
         }
+    }
+    .dfa-icon-label {
+        @include rem-calc(font-size, 6);
+    }
+    /* Triangle at the bottom */
+    &::after {
+        content: "";
+        width: 0;
+        height: 0;
+
+        position: absolute;
+        bottom: -12px;    
+        border-bottom: none;
+        border-top:     12px solid $white;
+        border-left:    12px solid transparent;
+        border-right:   12px solid transparent;        
     }
 }
 .dfa-icon__with-label {
