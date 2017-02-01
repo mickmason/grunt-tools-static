@@ -157,7 +157,7 @@
     /**!
      * Feature content block show/hide
      */
-    $('.feature-bottom-opener .dfa-icon__with-label').on('click', function(e) {
+    $('.feature-bottom-opener').on('click', function(e) {
         e.stopPropagation();
         var $this = $(this);
         var $featureMore = $this.find('.feature-more');
@@ -179,7 +179,9 @@
                     $this.addClass('active');                       
                 });
             }); 
-            $featureBody.stop().slideDown(bodyDuration, function() {});
+            $featureBody.stop().slideDown(showHideDuration, function() {
+                console.log('animage d');
+            });
         }
     });
 })(window); 
