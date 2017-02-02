@@ -8034,6 +8034,10 @@ header:after {
   width: 30px;
   width: 1.875rem;
 }
+.secondary-nav-link .dfa-icon img, .secondary-nav__sub-link .dfa-icon img {
+  width: 30px;
+  width: 1.875rem;
+}
 .secondary-nav-link .dfa-icon .dfa-icon-image, .secondary-nav__sub-link .dfa-icon .dfa-icon-image {
   width: 100%;
 }
@@ -8921,6 +8925,7 @@ header:after {
   padding-top: 16px;
   padding-top: 1rem;
   position: relative;
+  overflow: hidden;
 }
 
 /* The slider */
@@ -8940,12 +8945,13 @@ header:after {
   background-color: transparent;
 }
 .media-gallery-slider::before {
+  left: 0;
   /* Thanks to http://colorzilla.com/gradient-editor */
-  background: -moz-linear-gradient(left, #e4e5e6 0%, rgba(255, 255, 255, 0) 0%);
+  background: -moz-linear-gradient(left, #e4e5e6 0%, rgba(255, 255, 255, 0) 100%);
   /* FF3.6-15 */
-  background: -webkit-linear-gradient(left, #e4e5e6 0%, rgba(255, 255, 255, 0) 0%);
+  background: -webkit-linear-gradient(left, #e4e5e6 0%, rgba(255, 255, 255, 0) 100%);
   /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to right, #e4e5e6 0%, rgba(255, 255, 255, 0)) 0%;
+  background: linear-gradient(to right, #e4e5e6 0%, rgba(255, 255, 255, 0)) 100%;
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4e5e6', endColorstr='#00ffffff',GradientType=1 );
   /* IE6-9 */
@@ -9049,6 +9055,12 @@ header:after {
 .gallery-control .dfa-icon:hover {
   cursor: pointer;
   background-color: #f4f5f6;
+}
+.gallery-control img {
+  width: 30px;
+  width: 1.875rem;
+  height: 30px;
+  height: 1.875rem;
 }
 
 /* Next and previous icons */
@@ -9168,26 +9180,26 @@ header:after {
     overflow: visible;
   }
   .media-gallery-slider::before, .media-gallery-slider::after {
-    width: 27.25%;
+    width: 50%;
   }
   .media-gallery-slider::before {
-    left: -27%;
-    background: -moz-linear-gradient(left, #e4e5e6 12%, rgba(255, 255, 255, 0) 0%);
+    left: -50%;
+    background: -moz-linear-gradient(left, #e4e5e6 40%, rgba(255, 255, 255, 0) 100%);
     /* FF3.6-15 */
-    background: -webkit-linear-gradient(left, #e4e5e6 12%, rgba(255, 255, 255, 0) 0%);
+    background: -webkit-linear-gradient(left, #e4e5e6 40%, rgba(255, 255, 255, 0) 100%);
     /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to right, #e4e5e6 12%, rgba(255, 255, 255, 0)) 0%;
+    background: linear-gradient(to right, #e4e5e6 40%, rgba(255, 255, 255, 0)) 100%;
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4e5e6', endColorstr='#00ffffff',GradientType=1 );
     /* IE6-9 */
   }
   .media-gallery-slider::after {
-    right: -27%;
-    background: -moz-linear-gradient(right, #e4e5e6 12%, rgba(255, 255, 255, 0) 100%);
+    right: -50%;
+    background: -moz-linear-gradient(right, #e4e5e6 40%, rgba(255, 255, 255, 0) 100%);
     /* FF3.6-15 */
-    background: -webkit-linear-gradient(right, #e4e5e6 12%, rgba(255, 255, 255, 0) 100%);
+    background: -webkit-linear-gradient(right, #e4e5e6 40%, rgba(255, 255, 255, 0) 100%);
     /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to left, #e4e5e6 12%, rgba(255, 255, 255, 0)) 100%;
+    background: linear-gradient(to left, #e4e5e6 40%, rgba(255, 255, 255, 0)) 100%;
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4e5e6', endColorstr='#00ffffff',GradientType=1 );
     /* IE6-9 */
@@ -9344,15 +9356,6 @@ header:after {
 }
 
 @media screen and (min-width: 768px) {
-  .news-features-block__two-col {
-    position: relative;
-    float: left;
-    width: 50%;
-    min-height: 1px;
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-
   .news-feature.news-feature__two-col, .news-feature.news-feature__four-col {
     position: relative;
     float: left;
@@ -9417,6 +9420,7 @@ header:after {
 .news-listing-entry {
   margin-bottom: 16px;
   margin-bottom: 1rem;
+  clear: both;
 }
 .news-listing-entry .news-date {
   margin-bottom: 0;
@@ -9428,6 +9432,7 @@ header:after {
 }
 
 .news-listing-entry-anchor {
+  display: block;
   color: inherit;
 }
 .news-listing-entry-anchor:hover, .news-listing-entry-anchor:active, .news-listing-entry-anchor:focus {
@@ -9514,23 +9519,13 @@ header:after {
     padding-top: 0.25rem;
   }
 
-  .news-two-and-listing .news-features-block__two-col {
-    position: relative;
-    min-height: 1px;
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-}
-@media screen and (min-width: 992px) and (min-width: 768px) {
-  .news-two-and-listing .news-features-block__two-col {
-    float: left;
-    width: 50%;
-  }
-}
-@media screen and (min-width: 992px) {
-  .news-two-and-listing .dfa-widget-heading {
-    font-size: 18px;
-    font-size: 1.125rem;
+  .news-two-and-listing {
+    /*        .news-features-block__two-col {
+              @include make-sm-column(6);  
+            }
+            .dfa-widget-heading {
+                   @include rem-calc(font-size, 18);   
+            }*/
   }
 
   .news-listing-heading {

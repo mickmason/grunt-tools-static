@@ -113,6 +113,9 @@ header {
     .dfa-icon {
         display: inline-block;
         @include rem-calc(width, 30);
+        img { 
+            @include rem-calc(width, 30); 
+        }
         .dfa-icon-image {
             width: 100%;
         }
@@ -780,6 +783,7 @@ header {
 .media-gallery {
     @include rem-calc(padding-top, ($padding-small-vertical * 4));
     position: relative;
+    overflow: hidden;
 }
 /* The slider */
 .media-gallery-slider {
@@ -799,10 +803,11 @@ header {
         background-color: transparent;
     }
     &::before {
+        left: 0;
         /* Thanks to http://colorzilla.com/gradient-editor */
-        background: -moz-linear-gradient(left,  rgba(228,229,230,1) 0%, rgba(255,255,255,0) 0%); /* FF3.6-15 */
-        background: -webkit-linear-gradient(left,  rgba(228,229,230,1) 0%,rgba(255,255,255,0) 0%); /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(to right,  rgba(228,229,230,1) 0%,rgba(255,255,255,0)) 0%; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        background: -moz-linear-gradient(left,  rgba(228,229,230,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(left,  rgba(228,229,230,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to right,  rgba(228,229,230,1) 0%,rgba(255,255,255,0)) 100%; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4e5e6', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
     }
     &::after {
@@ -882,6 +887,10 @@ header {
         transform: translate(-0%, -50%);
         @include rem-calc(width, 38);
         @include rem-calc(height, 38);
+        img {
+            @include rem-calc(width, 30);
+            @include rem-calc(height, 30);
+        }
         
 }
 /* Next and previous icons */
@@ -985,20 +994,20 @@ header {
             overflow: visible;
         }
         &::before, &::after {
-            width: 27.25%;
+            width: 50%;
         }
         &::before {
-            left: -27%;
-            background: -moz-linear-gradient(left,  rgba(228,229,230,1) 12%, rgba(255,255,255,0) 0%); /* FF3.6-15 */
-            background: -webkit-linear-gradient(left,  rgba(228,229,230,1) 12%,rgba(255,255,255,0) 0%); /* Chrome10-25,Safari5.1-6 */
-            background: linear-gradient(to right,  rgba(228,229,230,1) 12%,rgba(255,255,255,0)) 0%; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            left: -50%;
+            background: -moz-linear-gradient(left,  rgba(228,229,230,1) 40%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(left,  rgba(228,229,230,1) 40%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to right,  rgba(228,229,230,1) 40%,rgba(255,255,255,0)) 100%; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
             filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4e5e6', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
         }
         &::after {
-            right: -27%;
-            background: -moz-linear-gradient(right,  rgba(228,229,230,1) 12%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
-            background: -webkit-linear-gradient(right,  rgba(228,229,230,1) 12%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
-            background: linear-gradient(to left,  rgba(228,229,230,1) 12%,rgba(255,255,255,0)) 100%; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            right: -50%;
+            background: -moz-linear-gradient(right,  rgba(228,229,230,1) 40%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(right,  rgba(228,229,230,1) 40%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to left,  rgba(228,229,230,1) 40%,rgba(255,255,255,0)) 100%; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
             filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4e5e6', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
         }       
     }
@@ -1135,9 +1144,7 @@ $fc-padding-bottom: ($padding-small-vertical * 14.5);
 }
 
 @media screen and (min-width: $screen-sm-min) {
-    .news-features-block__two-col {
-            @include make-xs-column(6);
-    }
+    
     .news-feature {
         &.news-feature__two-col, &.news-feature__four-col  {
             @include make-xs-column(6);
@@ -1191,6 +1198,7 @@ $fc-padding-bottom: ($padding-small-vertical * 14.5);
 }
 .news-listing-entry {
     @include rem-calc(margin-bottom, 16);
+    clear: both;
     .news-date {
         margin-bottom: 0;
     }
@@ -1201,6 +1209,7 @@ $fc-padding-bottom: ($padding-small-vertical * 14.5);
 
 }
 .news-listing-entry-anchor {
+    display: block;
     color: inherit;
     &:hover, &:active, &:focus {
         color: inherit;
@@ -1271,12 +1280,12 @@ $fc-padding-bottom: ($padding-small-vertical * 14.5);
         }
     }
     .news-two-and-listing {
-        .news-features-block__two-col {
+/*        .news-features-block__two-col {
           @include make-sm-column(6);  
         }
         .dfa-widget-heading {
                @include rem-calc(font-size, 18);   
-        }
+        }*/
     }
     .news-listing-heading {
         margin-top: 0;
