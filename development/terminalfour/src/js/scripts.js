@@ -11,12 +11,10 @@
         $(this).ekkoLightbox({
             onContentLoaded: function() {
                 $('.modal-backdrop').addClass('ekko-lightbox');
-                
             },
             alwaysShowClose: true
         });
         $(this).addClass('gallery-active'); 
-
     });
     /* 
      * Slick slider initialization http://kenwheeler.github.io/slick/
@@ -48,15 +46,12 @@
         }]
     });
     
-    /* 
+    /*! 
      * BS Accordion http://getbootstrap.com/javascript/#collapse-example-accordion
      */ 
     if ($('.panel-group.dfa-accordion')) {
-            
             $('.panel-collapse').on('show.bs.collapse', function() {
-                
                 $(this).siblings('.panel-heading').addClass('active');
-                
             }).on('hide.bs.collapse', function() {
                 console.log('Show '+$(this));
                 $(this).siblings('.panel-heading').removeClass('active');
@@ -65,7 +60,7 @@
     }
 
     
-    /* 
+    /*! 
      * jQuery Match Height https://github.com/liabru/jquery-match-height
      */
     var matchHeightArray = ['.dfa-widget'];
@@ -80,10 +75,8 @@
      * Handle mobile nav and search 
      */
     $('.header-navigation__mobile-search, .header-navigation__mobile-menu, .desktop-search').on('click', function(e) {
-        
         e.preventDefault();    
         var $self = $(this); 
-        
         var $other = $('.header-navigation__mobile-search, .header-navigation__mobile-menu').not($self);
         console.log($other);
         var $target = $('#'+$self.attr('data-target')); 
@@ -91,25 +84,20 @@
             if ($self.hasClass('active')) {
                 $target.slideUp({duration: 300, easing: 'swing', complete: function(){
                         $self.removeClass('active') ;
-
                 }});
-            
             } else {
-                 $target.slideDown({duration: 300, easing: 'swing', complete: function() {
+                 $target.slideDown({duration: 300, complete: function() {
                     $self.addClass('active');
                 }});
             }
         }
         if ($self.hasClass('active')) {
-            $target.slideUp({duration: 300, easing: 'swing', complete: function(){
+            $target.slideUp({duration: 300, complete: function(){
                     $self.removeClass('active') ;
-                
             }});
             
         } else if ($other.hasClass('active')) {
-             
             var $otherTarget = $('#'+$other.attr('data-target')) ;
-            console.log($otherTarget);
             $otherTarget.slideUp({ duration: 300, easing: 'swing', complete: function() {   
                 $other.removeClass('active');
                 $target.slideDown({duration: 300, easing: 'swing', complete: function() {
@@ -121,9 +109,27 @@
                 $self.addClass('active'); 
             }});               
         }
+    });
+    /* Show-hide quicklinks */
+    $('.secondary-nav-dropdown').on('click', function(e) {
+        e.preventDefault();
+        var $this = $(this);
+        var $target = $this.find('.secondary-nav__sub');
+        if ($this.hasClass('active')) {
+            $this.removeClass('active') ;    
+            setTimeout(function() {
+                $target.slideUp({duration: 120});
+            }, 140); 
+            
+        } else {
+            
+                $this.addClass('active') ;    
+             setTimeout(function() {
+                $target.slideDown({duration: 120});
+            }, 140);       
+        }
 
     });
-    
     /* Site-wide search handlers */
     $('#search-submit-button').on('click', function(e){
         e.preventDefault();
@@ -139,7 +145,6 @@
     
     /* Postition hero text in tablet and bigger devices  */
     if ($('.hero-text')) {
-        console.log('there is a hero text element');
         if (window.outerWidth > 768) {
             var $heroText = $('.hero-text');
             var x = ($heroText.attr('data-posx')) ? $heroText.attr('data-posx') : 50 ;
@@ -151,7 +156,6 @@
                 $heroText.css({left: x+'%', top: y+'%', textAlign: align});
             });
         } 
-
     }
     
     /**!
@@ -169,19 +173,19 @@
             /* Hide feature bottom */
             $featureLess.stop().fadeOut(showHideDuration, function() {
                 $featureMore.fadeIn(showHideDuration, function() {
-                     $this.removeClass('active');      
+                     $this.removeClass('active');  
+                     $featureBody.stop().slideUp({duration: bodyDuration});
                 });    
             });
-            $featureBody.stop().slideUp(bodyDuration, function() {});
+            
         } else {
              $featureMore.stop().fadeOut(showHideDuration, function() {
                 $featureLess.fadeIn(showHideDuration, function() {
-                    $this.addClass('active');                       
+                    $this.addClass('active');     
+                     $featureBody.stop().slideDown({duration: showHideDuration});
                 });
             }); 
-            $featureBody.stop().slideDown(showHideDuration, function() {
-                console.log('animage d');
-            });
+           
         }
     });
 })(window); 
