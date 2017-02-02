@@ -110,48 +110,39 @@ header {
     a {
         display: block;
     }
-    .dfa-icon {
-        display: inline-block;
-        @include rem-calc(width, 30);
-        img { 
-            @include rem-calc(width, 30); 
-        }
-        .dfa-icon-image {
-            width: 100%;
-        }
-    }
 }
 .secondary-nav-link {
     display: inline-block;
     @include rem-calc(padding, ($padding-small-vertical * 2), ($padding-small-horizontal * 1));
     text-align: center;
+}
+.secondary-nav-dropdown {
+    &.active {
+        background-color: $white;
+    }
+    @include dfa-transition(background-color, 80, swing);
     
-    .close-menu {
+    @include rem-calc(padding-left, ($padding-small-vertical * 3));
+    @include rem-calc(padding-right, ($padding-small-vertical * 3));
+    position: relative;
+    
+    .dfa-icon {
+        display: inline-block;
+        @include rem-calc(width, 24);
+        img { 
+            @include rem-calc(width, 24); 
+        }
+        .dfa-icon-image {
+            width: 100%;
+        }
+    }
+    .open-menu {
         display: none;
     }
-    
-    &.secondary-nav-dropdown {
-        &.active {
-            background-color: $white;
- 
-        }
-        /*&.active {
-            &:hover, &:focus {
-                background-color: $white;
-            }
-        }
-        &:active, &:hover, &:focus {
-            background-color: $white;
-            background-color: rgba($white, 0.52);
-        }*/
-        @include dfa-transition(background-color, 110, swing);
-        
-        @include rem-calc(padding-left, ($padding-small-vertical * 3));
-        @include rem-calc(padding-right, ($padding-small-vertical * 3));
-        position: relative;
+    .close-menu {
+        display: inline;
     }
 }
-
 .secondary-nav__sub {
     display: none;
     @include rem-calc(padding, ($padding-small-vertical * 2), ($padding-small-horizontal * 2));
@@ -492,7 +483,8 @@ header {
     top: 48%;
     text-align: left;
     @include rem-calc(left, (15));
-    transform: translate(-0%, -50%);   
+
+    @include dfa-translate(-0%, -50%);
     z-index: 20;
     
     .hero-heading {
@@ -614,7 +606,8 @@ header {
         text-align: center;
         top: 30%;
         left: 50%;
-        transform: translate(-50%, -33%);    
+        /*transform: translate(-50%, -33%);*/    
+        @include dfa-translate(-50%, -33%);
         .hero-heading {
             font-family: "SourceSansBlack", sans-serif;     
             @include rem-calc(font-size, 72);  
@@ -858,22 +851,26 @@ header {
 }
 /* Play icon */
 .gallery-item-play {
-    width: 12%;
+    width: 30%;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -70%);
+    
+    @include dfa-translate(-50%, -100%);
 }
 /* Gallery controls */
 .gallery-control {
         .dfa-icon {
+            position: relative;
             height: 100%;
             @include border-radius(50%);
             background-color: $white;
             @include dfa-transition(background-color, 160, ease-in);
             .dfa-icon-image {
-                 margin-top: auto;
-            margin-bottom: auto;
+                top: 50%;
+                left: 50%;
+                position: relative;
+                @include dfa-translate(-86%, -50%);
             }
             &:hover {
                 cursor: pointer;
@@ -881,7 +878,7 @@ header {
             }       
         }
         position: absolute;
-        top: 45%;
+        top: 33%;
         
         z-index: 1100;
         transform: translate(-0%, -50%);
@@ -902,7 +899,21 @@ header {
 }
 @media screen and (min-width: 440px) {
     .gallery-control {
-        top: 45%;
+        top: 42%;
+        @include rem-calc(width, 42);
+        @include rem-calc(height, 42);
+    }
+}
+@media screen and (min-width: $screen-sm-min) {
+    .gallery-control {
+        top: 38%;
+        @include rem-calc(width, 42);
+        @include rem-calc(height, 42);
+    }
+}
+@media screen and (min-width: $screen-lg-min) {
+    .gallery-control {
+        top: 36%;
         @include rem-calc(width, 42);
         @include rem-calc(height, 42);
     }
@@ -1092,7 +1103,7 @@ $fc-padding-bottom: ($padding-small-vertical * 14.5);
         text-align: center;
         background-color: #000;
         /* Triangle at the bottom */
-        &::before {
+ /*       &::before {
             content: "";
             width: 0;
             height: 0;
@@ -1103,7 +1114,7 @@ $fc-padding-bottom: ($padding-small-vertical * 14.5);
             border-top:     12px solid $white;
             border-left:    12px solid transparent;
             border-right:   12px solid transparent;        
-        }
+        }*/
     }
 }
 @media screen and (min-width: $screen-sm-min) {
@@ -1147,7 +1158,7 @@ $fc-padding-bottom: ($padding-small-vertical * 14.5);
     
     .news-feature {
         &.news-feature__two-col, &.news-feature__four-col  {
-            @include make-xs-column(6);
+            @include make-sm-column(6);
         }
     }   
     .news-feature__four-col, .news-feature__two-col {
@@ -1156,9 +1167,9 @@ $fc-padding-bottom: ($padding-small-vertical * 14.5);
         }
     }
 }
-@media screen and (min-width: $screen-lg-min) {
+@media screen and (min-width: $screen-md-min) {
     .news-feature {
-        &.news-feature__two-col  {
+        &.news-feature__two-col {
             @include make-xs-column(6);    
         }
         &.news-feature__four-col {
@@ -1274,8 +1285,17 @@ $fc-padding-bottom: ($padding-small-vertical * 14.5);
 }
 
 @media screen and (min-width: $screen-md-min) {
+     .news-two-and-listing {
+        .news-features-block__two-col {
+          @include make-sm-column(6);  
+        }
+        .dfa-widget-heading {
+           @include rem-calc(font-size, 22);   
+        }
+    }
      .news-features-block__two-col {
         &.news-listing {
+            @include make-sm-column(6);  
             @include rem-calc(padding-top, 4);  
         }
     }
@@ -1294,10 +1314,6 @@ $fc-padding-bottom: ($padding-small-vertical * 14.5);
     .news-listing-entry {
         @include rem-calc(margin-bottom, 20);
     }
-
-//    .news-listing-entry-heading {
-//        @include rem-calc(margin-bottom, 8);
-//    }
  
 }
 
@@ -1365,6 +1381,57 @@ $fc-padding-bottom: ($padding-small-vertical * 14.5);
     }
 }
 
+/** 
+ * Footer 
+ *
+**/
+footer {
+    @include container-fixed;
+    background-color: $brand-primary;
+    color: $white;
+    a {
+        @include dfa-text-to-uppercase;
+        color: $white;
+        &:active, &:hover, &:focus {
+            color: $white;
+        }
+    }
+}
+.footer-row {
+    @include make-row;
+}
+.footer-links, .footer-address {
+     @include make-xs-column(12);
+     @include rem-calc(padding-bottom, 32);
+    text-align: center;
+    p, li {
+        @include rem-calc(margin-bottom, 8);
+    }
+         
+}
+.footer-links-list {
+    padding: 0;
+    margin: 0;
+    li {
+        list-style: none;
+    }
+    
+}
+@media screen and (min-width: $screen-sm-min) {
+    .footer-links, .footer-address {
+         @include make-xs-column(6)   
+    }
+    .footer-links {
+         text-align: left;
+    }
+    .footer-address {
+        text-align: right;
+        p {
+            margin-bottom: 0;
+        }
+        
+    }
+}
 
 /* Misc classes */
 .dfa-audio-link {
@@ -1409,3 +1476,4 @@ $fc-padding-bottom: ($padding-small-vertical * 14.5);
         border-bottom: none;
     }
 }
+
