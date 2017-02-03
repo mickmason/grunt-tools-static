@@ -8421,7 +8421,8 @@ header:after {
 
 /* Contains content width in rows  */
 .content-wrap {
-  max-width: 1200px;
+  max-width: 1440px;
+  max-width: 80rem;
   margin: 0 auto;
 }
 .content-wrap:before, .content-wrap:after {

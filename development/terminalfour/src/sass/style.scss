@@ -403,13 +403,14 @@ header {
 }
 .feature-heading {
     margin-top: 0;
-    @include rem-calc(margin-bottom, ($padding-small-vertical * 8)) ;
+    @include rem-calc(margin-bottom, ($padding-small-vertical * 8)) ; 
     
 }
 /* Contains content width in rows  */
 .content-wrap {
-    @include clearfix;
-    max-width: 1200px;  
+    @include clearfix;  
+    max-width: 1440px;
+    max-width: 80rem;
     margin: 0 auto;
 }
 /* Narrow content wrap */
