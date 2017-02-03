@@ -24,13 +24,10 @@
         mobileFirst: true,
         prevArrow: '.arrow-left-icon.dfa-icon',
         nextArrow: '.arrow-right-icon.dfa-icon',
-        
         responsive: [ 
         {
             breakpoint: 1024,
             settings: {
-                centerMode: true,
-                centerPadding: '30px',
                 slidesToShow: 3,
                 slidesToScroll: 3
             }   
@@ -39,7 +36,6 @@
             breakpoint: 768,
             settings: {
                 centerMode: true,
-                centerPadding: '30px',
                 slidesToShow: 2,
                 slidesToScroll: 2
             }
