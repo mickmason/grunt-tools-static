@@ -8723,19 +8723,6 @@ header:after {
     font-size: 5.25rem;
   }
 }
-@media screen and (min-width: 1200px) {
-  .hero-text .hero-heading {
-    font-size: 104px;
-    font-size: 6.5rem;
-    line-height: 0.96;
-    margin-bottom: 46px;
-    margin-bottom: 2.875rem;
-  }
-  .hero-text .hero-text-subtext {
-    font-size: 28px;
-    font-size: 1.75rem;
-  }
-}
 /** 
  * 
  * People feature

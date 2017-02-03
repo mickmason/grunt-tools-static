@@ -629,18 +629,6 @@ header {
         }
     }    
 }
-@media screen and (min-width: $screen-lg-min) {
-    .hero-text {
-        .hero-heading {
-            @include rem-calc(font-size, 104);
-            line-height: 0.96;
-            @include rem-calc(margin-bottom, 46); 
-        }
-        .hero-text-subtext {
-            @include rem-calc(font-size, 28);
-        }
-    }    
-}
 
 /** 
  * 
@@ -711,7 +699,6 @@ header {
         &:nth-child(2n) {
             border-right: none;
         }
-        
     } 
 }
 @media screen and (min-width:  $screen-md-min) {
