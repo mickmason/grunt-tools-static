@@ -7356,11 +7356,25 @@ header:after {
 }
 
 .feature-heading {
+  font-size: 28px;
+  font-size: 2rem;
   margin-top: 0;
   margin-bottom: 32px;
   margin-bottom: 2rem;
 }
 
+@media screen and (min-width: 768px) {
+  .feature-heading {
+    font-size: 32px;
+    font-size: 2rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .feature-heading {
+    font-size: 38px;
+    font-size: 2.11111rem;
+  }
+}
 /* Contains content width in rows  */
 .content-wrap {
   max-width: 1200px;
@@ -7563,8 +7577,8 @@ header:after {
 
 .hero-text__mobile .hero-heading__mobile {
   font-family: "SourceSansBlack", sans-serif;
-  font-size: 42px;
-  font-size: 2.625rem;
+  font-size: 36px;
+  font-size: 2.25rem;
 }
 .hero-text__mobile .hero-text-subtext {
   font-size: 18px;
@@ -7572,6 +7586,20 @@ header:after {
   font-family: "SourceSansSemiBold";
 }
 
+@screen and (min-width $screen-md-min) {
+  .hero-heading__mobile {
+    font-family: "SourceSansBlack", sans-serif;
+    font-size: 40px;
+    font-size: 2.5rem;
+  }
+}
+@screen and (min-width $screen-md-min) {
+  .hero-heading__mobile {
+    font-family: "SourceSansBlack", sans-serif;
+    font-size: 42px;
+    font-size: 2.625rem;
+  }
+}
 /* 
  * 
  * Intro section 
@@ -7595,8 +7623,8 @@ header:after {
   margin-top: 0;
   margin-bottom: 28px;
   margin-bottom: 1.75rem;
-  font-size: 40px;
-  font-size: 2.5rem;
+  font-size: 32px;
+  font-size: 2rem;
 }
 
 .intro-feature-heading__sub {
@@ -7683,6 +7711,11 @@ header:after {
     font-size: 84px;
     font-size: 5.25rem;
   }
+
+  .intro-feature-heading {
+    font-size: 36px;
+    font-size: 2.25rem;
+  }
 }
 @media screen and (min-width: 1200px) {
   .hero-text .hero-heading {
@@ -7695,6 +7728,11 @@ header:after {
   .hero-text .hero-text-subtext {
     font-size: 28px;
     font-size: 1.75rem;
+  }
+
+  .intro-feature-heading {
+    font-size: 42px;
+    font-size: 2.625rem;
   }
 }
 /** 
@@ -7969,13 +8007,13 @@ header:after {
 /* Gallery controls */
 .gallery-control {
   position: absolute;
-  top: 33%;
+  top: 45%;
   z-index: 1100;
   transform: translate(0%, -50%);
-  width: 38px;
-  width: 2.375rem;
-  height: 38px;
-  height: 2.375rem;
+  width: 48px;
+  width: 3.42857rem;
+  height: 48px;
+  height: 3.42857rem;
 }
 .gallery-control .dfa-icon {
   position: relative;
@@ -8004,10 +8042,7 @@ header:after {
   background-color: #f4f5f6;
 }
 .gallery-control img {
-  width: 30px;
-  width: 1.875rem;
-  height: 30px;
-  height: 1.875rem;
+  display: block;
 }
 
 /* Next and previous icons */

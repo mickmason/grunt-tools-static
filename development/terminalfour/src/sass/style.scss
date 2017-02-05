@@ -408,10 +408,22 @@ header {
     }
 }
 .feature-heading {
+    @include to-rem(font-size, 14,  28); 
     margin-top: 0;
     @include rem-calc(margin-bottom, ($padding-small-vertical * 8)) ;
-    
 }
+
+@media screen and (min-width: $screen-sm-min) {
+    .feature-heading {
+        @include to-rem(font-size, 16, 32); 
+    }
+}
+@media screen and (min-width: $screen-md-min) {
+    .feature-heading {
+        @include to-rem(font-size, 18, 38); 
+    }
+}
+
 /* Contains content width in rows  */
 .content-wrap {
     @include clearfix;
@@ -580,7 +592,7 @@ header {
 .hero-text__mobile {
     .hero-heading__mobile {
         font-family: "SourceSansBlack", sans-serif; 
-        @include rem-calc(font-size, 42);
+        @include rem-calc(font-size, 36);
     }
     .hero-text-subtext {
         @include rem-calc(font-size, 18);  
@@ -588,6 +600,18 @@ header {
     }  
 }
 
+@screen and (min-width $screen-md-min) {
+    .hero-heading__mobile {
+        font-family: "SourceSansBlack", sans-serif; 
+        @include rem-calc(font-size, 40);
+    }
+}
+@screen and (min-width $screen-md-min) {
+    .hero-heading__mobile {
+        font-family: "SourceSansBlack", sans-serif; 
+        @include rem-calc(font-size, 42);
+    }
+}
 
 /* 
  * 
@@ -603,7 +627,7 @@ header {
 .intro-feature-heading {
     margin-top: 0;
     @include rem-calc(margin-bottom, 28);
-    @include rem-calc(font-size, 40);
+    @include rem-calc(font-size, 32);
 }
 .intro-feature-heading__sub {
     margin-top: 0; 
@@ -652,6 +676,10 @@ header {
             @include rem-calc(font-size, 84);
         }
     }    
+    .intro-feature-heading {
+
+        @include rem-calc(font-size, 36);
+    }
 }
 @media screen and (min-width: $screen-lg-min) {
     .hero-text {
@@ -663,7 +691,11 @@ header {
         .hero-text-subtext {
             @include rem-calc(font-size, 28);
         }
-    }    
+    }  
+    .intro-feature-heading {
+
+        @include rem-calc(font-size, 42);
+    }
 }
 
 /** 
@@ -873,15 +905,15 @@ header {
             }       
         }
         position: absolute;
-        top: 33%;
+        top: 45%;
         
         z-index: 1100;
         transform: translate(-0%, -50%);
-        @include rem-calc(width, 38);
-        @include rem-calc(height, 38);
+        @include to-rem(width, 14, 48);
+        @include to-rem(height, 14, 48);
         img {
-            @include rem-calc(width, 30);
-            @include rem-calc(height, 30);
+            display: block;
+            
         }
         
 }

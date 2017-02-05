@@ -26,7 +26,7 @@
         nextArrow: '.arrow-right-icon.dfa-icon',
         responsive: [ 
         {
-            breakpoint: 1260,
+            breakpoint: 1440,
             settings: {
                 slidesToShow: 4,
                 slidesToScroll: 4
