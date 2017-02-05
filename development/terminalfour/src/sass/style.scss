@@ -129,6 +129,8 @@ header {
     .dfa-icon {
         display: inline-block;
         @include rem-calc(width, 24);
+        @include to-rem(width, 16, 27); 
+        @include to-rem(height, 16, 27); 
         img { 
             @include rem-calc(width, 24); 
         }
@@ -400,6 +402,10 @@ header {
     @include make-row;
     @include rem-calc(padding-top, ($padding-small-vertical * 8));
     @include rem-calc(padding-bottom, ($padding-small-vertical * 16)) ;
+    &.landing-feature-section--featured { 
+        padding-top: 0;
+        padding-bottom: 0;
+    }
 }
 .feature-heading {
     margin-top: 0;
@@ -414,11 +420,22 @@ header {
 }
 /* Narrow content wrap */
 @media screen and (min-width: $screen-sm-min) {
-    .content-wrap__narrow {
+    .content-wrap.content-wrap__narrow {
         @include rem-calc(max-width, 760); 
     }    
 }
-
+@media screen and (min-width: $screen-lg-min) {
+    .content-wrap {
+        @include rem-calc(max-width, 1200); 
+        @include to-rem(max-width, 18, 1200); 
+    }    
+    
+}
+@media screen and (min-width: $screen-xl-min) {
+    .content-wrap {
+        @include to-rem(max-width, 18, 1440); 
+    }    
+}
 /* SVG Icons */
 .dfa-icon, dfa-icon__with-label {
     display: flex;
@@ -429,6 +446,13 @@ header {
         @include rem-calc(margin, 0, auto);  
      
     }
+}
+.dfa-icon--quicklinks {
+    
+}
+.dfa-icon__svg {
+    width: 100%;
+    height: 100%;
 }
 .dfa-icon__with-label {
 
@@ -776,41 +800,12 @@ header {
 .media-gallery {
     @include rem-calc(padding-top, ($padding-small-vertical * 4));
     position: relative;
-    overflow: hidden;
+
 }
 /* The slider */
 .media-gallery-slider {
     position: relative;
-    /* Gradient fill to left and right */
-    &::before, &::after {
-        content: "";
-        display: block;
-        position: absolute;
-        height: 100%;
-        top: 0;
-        width: 5%;
-        
-                z-index: 1000;
-        
-        /* Older browsers */
-        background-color: transparent;
-    }
-    &::before {
-        left: 0;
-        /* Thanks to http://colorzilla.com/gradient-editor */
-        background: -moz-linear-gradient(left,  rgba(228,229,230,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
-        background: -webkit-linear-gradient(left,  rgba(228,229,230,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(to right,  rgba(228,229,230,1) 0%,rgba(255,255,255,0)) 100%; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4e5e6', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
-    }
-    &::after {
-        right: 0;
-        /* Thanks to http://colorzilla.com/gradient-editor */
-        background: -moz-linear-gradient(right,  rgba(228,229,230,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
-        background: -webkit-linear-gradient(right,  rgba(228,229,230,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(to left,  rgba(228,229,230,1) 0%,rgba(255,255,255,0)) 100%; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4e5e6', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
-    }
+    overflow: hidden;
 }
 /* Gallery item */
 .gallery-item {
@@ -967,12 +962,6 @@ header {
     }
 }
 @media screen and (min-width: $screen-sm-min) {
-    .media-gallery-slider {
-        /* Gradient fill to left and right */
-        &::before, &::after {
-            width: 4%;
-        }
-    }
     .gallery-item {
         padding-left: 0;
         padding-right: 0;
@@ -985,12 +974,6 @@ header {
 }
 
 @media screen and (min-width: $screen-md-min) {
-    .media-gallery-slider {
-        /* Gradient fill to left and right */
-        &::before, &::after {
-            width: 4%;
-        }
-    }
      .gallery-item-caption-text {
         margin-bottom: 0;
         @include rem-calc(font-size, 14);
@@ -1003,24 +986,12 @@ header {
         margin-right: auto;
         .slick-list {
             overflow: visible;
-        }
-        &::before, &::after {
-            width: 50%;
-        }
-        &::before {
-            left: -50%;
-            background: -moz-linear-gradient(left,  rgba(228,229,230,1) 40%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
-            background: -webkit-linear-gradient(left,  rgba(228,229,230,1) 40%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
-            background: linear-gradient(to right,  rgba(228,229,230,1) 40%,rgba(255,255,255,0)) 100%; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4e5e6', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
-        }
-        &::after {
-            right: -50%;
-            background: -moz-linear-gradient(right,  rgba(228,229,230,1) 40%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
-            background: -webkit-linear-gradient(right,  rgba(228,229,230,1) 40%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
-            background: linear-gradient(to left,  rgba(228,229,230,1) 40%,rgba(255,255,255,0)) 100%; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4e5e6', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
-        }       
+        }   
+    }
+}
+@media screen and (min-width: $screen-xl-min) {
+    .media-gallery-slider {
+        max-width: 1440px;
     }
 }
 
@@ -1031,9 +1002,12 @@ header {
 */
 .featured-content-section-top, featured-content-section-body {
     position: relative;
+    
 }
 $fc-padding-bottom: ($padding-small-vertical * 14.5);
 .featured-content-section-top {
+    @include rem-calc(padding-top, ($padding-small-vertical * 10.5));
+    
     @include rem-calc(padding-bottom, $fc-padding-bottom * 1.25);  
     background-repeat: no-repeat;
     background-size: cover;
@@ -1064,6 +1038,9 @@ $fc-padding-bottom: ($padding-small-vertical * 14.5);
             @include rem-calc(height, 18);
         }
     }
+    &:hover {
+            cursor: pointer;
+    }
     .dfa-icon__with-label { 
         margin-top: 0;
        .feature-more { 
@@ -1072,9 +1049,7 @@ $fc-padding-bottom: ($padding-small-vertical * 14.5);
         .feature-less { 
             display: none;
         }
-        &:hover {
-            cursor: pointer;
-        }
+
     }
     .dfa-icon-label {
 //        @include rem-calc(font-size, 6);

@@ -24,13 +24,17 @@
         mobileFirst: true,
         prevArrow: '.arrow-left-icon.dfa-icon',
         nextArrow: '.arrow-right-icon.dfa-icon',
-        
         responsive: [ 
+        {
+            breakpoint: 1260,
+            settings: {
+                slidesToShow: 4,
+                slidesToScroll: 4
+            }   
+        },
         {
             breakpoint: 1024,
             settings: {
-                centerMode: true,
-                centerPadding: '30px',
                 slidesToShow: 3,
                 slidesToScroll: 3
             }   
@@ -38,8 +42,6 @@
         {
             breakpoint: 768,
             settings: {
-                centerMode: true,
-                centerPadding: '30px',
                 slidesToShow: 2,
                 slidesToScroll: 2
             }
@@ -123,13 +125,8 @@
                 $target.slideUp({duration: duration, complete: function() {
                     $this.removeClass('active') ; 
                 }});
-                 
-                 
             }, timeout); 
-            
         } else {
-            
-            
              setTimeout(function() {
                 $target.slideDown({duration: duration});
                  $this.addClass('active') ;    

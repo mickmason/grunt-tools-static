@@ -140,15 +140,12 @@ module.exports = function(grunt) {
           svg: { // will add and overide the the default xmlns="http://www.w3.org/2000/svg" attribute to the resulting SVG
             viewBox : '0 0 100 100'
           },
-          cleanup: true,
-          convertNameToId: function(name) {
-            return name;
-         }
+          cleanup: 'style'
         },
         default : {
             
           files: {
-            'www-root/style-assets/media/svg/dfa-icons.svg': ['project-assets/svg-icons/*.svg'],
+            'www-root/style-assets/media/svg/dfa-icons.svg': ['development/terminalfour/src/media/svg-imgs/*.svg'],
           },
         },
       },
@@ -204,7 +201,7 @@ module.exports = function(grunt) {
       },//htmlcompile
       media: {
           files: ['development/terminalfour/src/media/**/*.*'],
-          tasks: ['copy:media']
+          tasks: ['copy:media', 'svgstore']
       }
       //Uncomment the region below to add HTML Validation into the project (Dont forget to add a comment on the line above after the HTML compile curly braces right before the comment)
       // html: {

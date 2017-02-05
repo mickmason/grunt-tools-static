@@ -1,0 +1,30 @@
+//Function to strip units from a values param
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+//Write rem and pixel values $rem = rem value, $base = based font size in px
+@mixin to-rem($property, $rem-vals..., $base: 16) {
+    $max: length($values);
+    $rem-values: '';
+    $px-values: '';
+    //@debug $values; 
+    @for $i from 1 through $max { 
+        $value: nth($values, $i);
+        @if $value == 'auto' {
+            $px-values: #{$px-values + $value};   
+            $rem-values: #{$rem-values + $value};
+        } @else {
+            $value: strip-unit($value);
+            $px-val = ($value * $base);
+            $px-values: #{$px-values + $px-val}px; 
+            $rem-values: #{$rem-values + $value}rem;    
+        }
+        
+        @if $i < $max {
+            $px-values: #{$px-values + " "};
+            $rem-values: #{$rem-values + " "};
+        }
+    }
+    #{$property}: #{$px-values};    
+    #{$property}: #{$rem-values};
+}

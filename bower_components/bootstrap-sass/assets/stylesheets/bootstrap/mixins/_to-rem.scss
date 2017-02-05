@@ -1,30 +1,22 @@
-//Coverts px values to em and rem, also returns the px value
-
-//Take a pixel value and covert to rem
-//Take up to 4 values and a property
-
-//@function strip-unit($num) {
-//  @return $num / ($num * 0 + 1);
-
-//}
+//Function to strip units from a values param
 @function strip-unit($num) {
   @return $num / ($num * 0 + 1);
 }
-@mixin rem-calc($property, $values...) {
-    $max: length($values);
+//Write rem and pixel values $rem = rem value, $base = based font size in px
+@mixin to-rem($property, $base: 16, $rem-vals...) {
+    $max: length($rem-vals);
     $rem-values: '';
     $px-values: '';
     //@debug $values; 
     @for $i from 1 through $max { 
-        
-        $value: nth($values, $i);
+        $value: nth($rem-vals, $i);
         @if $value == 'auto' {
             $px-values: #{$px-values + $value};   
             $rem-values: #{$rem-values + $value};
         } @else {
             $value: strip-unit($value);
             $px-values: #{$px-values + $value}px; 
-            $value: ($value / 16);
+            $value: ($value / $base);
             $rem-values: #{$rem-values + $value}rem;    
         }
         
@@ -33,8 +25,6 @@
             $rem-values: #{$rem-values + " "};
         }
     }
-
-    
     #{$property}: #{$px-values};    
     #{$property}: #{$rem-values};
 }
