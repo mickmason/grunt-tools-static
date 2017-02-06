@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "DFA Site Design"
+AuthUserFile /home/users/web/b2758/ipg.t4stagingcom/dfa_2017/.htpasswd
+Require valid-user

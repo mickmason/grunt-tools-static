@@ -15,8 +15,78 @@
 /**
  *
  * DFA Scaffolding
+ * Pages structure 
  *
  **/
+@mixin page-wrap($width-px: 1440, $width-rem: 80) {
+    max-width: #{$width-px}px;
+    max-width: #{$width-rem}rem;
+}
+/* 
+ * General page scaffolding 
+**/
+
+/* Contains content width in rows  */
+.content-wrap {
+    @include clearfix;  
+    @include page-wrap;
+    margin: 0 auto;
+}
+/* Narrow content wrap */
+@media screen and (min-width: $screen-sm-min) {
+    .content-wrap__narrow {
+        @include rem-calc(max-width, 760); 
+    }    
+}
+
+/* SVG Icons */
+.dfa-icon, dfa-icon__with-label {
+    display: flex;
+    flex-direction: column;
+    width: 100%; 
+    .dfa-icon-image {
+        width: 64%;
+        @include rem-calc(margin, 0, auto);  
+    }
+}
+.dfa-icon__with-label {
+    .dfa-icon-label {
+        text-align: center;
+        @include rem-calc(font-size, 12);
+        @include dfa-text-to-uppercase;
+        @include rem-calc(margin-top, 4); 
+    }
+}
+/* Transparent overlays */
+.transparent-image-overlay, .transparent-image-overlay__mid, .transparent-image-overlay__dark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background-color: $gray-dark;
+    filter: alpha(opacity=36); // IE 5-7
+    opacity: 0.36;
+}
+.transparent-image-overlay__mid {
+    filter: alpha(opacity=52); // IE 5-7
+    opacity: 0.52;
+}
+.transparent-image-overlay__dark {
+    filter: alpha(opacity=76); // IE 5-7
+    opacity: 0.76;
+}
+.landing-feature-section {
+    @include make-row;
+    @include rem-calc(padding-top, ($padding-small-vertical * 8));
+    @include rem-calc(padding-bottom, ($padding-small-vertical * 16)) ;
+}
+.feature-heading {
+    margin-top: 0;
+    @include rem-calc(margin-bottom, ($padding-small-vertical * 8)) ; 
+    
+}
 
 /* Page header */
 header {
@@ -411,7 +481,6 @@ header {
 .feature-heading {
     @include to-rem(font-size, 14,  28); 
     margin-top: 0;
-    @include rem-calc(margin-bottom, ($padding-small-vertical * 8)) ;
 }
 
 @media screen and (min-width: $screen-sm-min) {
@@ -427,8 +496,9 @@ header {
 
 /* Contains content width in rows  */
 .content-wrap {
-    @include clearfix;
-    max-width: 1200px;  
+    @include clearfix;  
+    max-width: 1440px;
+    max-width: 80rem;
     margin: 0 auto;
 }
 /* Narrow content wrap */
@@ -698,17 +768,6 @@ header {
         @include rem-calc(font-size, 40);
     }
 }
-@media screen and (min-width: $screen-xl-min) {
-    .hero-text {
-        .hero-heading {
-            @include rem-calc(font-size, 92);
-        }
-        .hero-text-subtext {
-            @include rem-calc(font-size, 24);
-        }
-    }  
-
-}
 
 /** 
  * 
@@ -779,7 +838,6 @@ header {
         &:nth-child(2n) {
             border-right: none;
         }
-        
     } 
 }
 @media screen and (min-width:  $screen-md-min) {
