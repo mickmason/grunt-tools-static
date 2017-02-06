@@ -10,6 +10,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+@import url(font-defs.css);
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -332,7 +333,7 @@ html {
 }
 
 body {
-  font-family: "SourceSansRegular", Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "SourceSans", Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.5;
   color: #323232;
@@ -450,99 +451,10 @@ hr {
     line-height: 1.5;
   }
 }
-/* Sans Serif font - Source Sans Pro - All weights (https://fonts.google.com/specimen/Source+Sans+Pro) */
-@font-face {
-  font-family: 'SourceSansExLight';
-  src: url("../media/fonts/source-sans-pro/EOT/SourceSansPro-ExtraLight.eot");
-  src: url("../media/fonts/source-sans-pro/EOT/SourceSansPro-ExtraLight.eot?#iefix") format("embedded-opentype"), url("../media/fonts/source-sans-pro/WOFF2/OTF/SourceSansPro-ExtraLight.otf.woff2") format("woff2"), url("../media/fonts/source-sans-pro/WOFF/OTF/SourceSansPro-ExtraLight.woff") format("woff"), url("../media/fonts/source-sans-pro/TTF/SourceSansPro-ExtraLight.ttf") format("truetype");
-}
-@font-face {
-  font-family: 'SourceSansExtLightIt';
-  src: url("../media/fonts/source-sans-pro/EOT/SourceSansPro-ExtraLightIt.eot");
-  src: url("../media/fonts/source-sans-pro/EOT/SourceSansPro-ExtraLightIt.eot?#iefix") format("embedded-opentype"), url("../media/fonts/source-sans-pro/WOFF2/OTF/SourceSansPro-ExtraLightIt.otf.woff2") format("woff2"), url("../media/fonts/source-sans-pro/WOFF/OTF/SourceSansPro-ExtraLightIt.woff") format("woff"), url("../media/fonts/source-sans-pro/TTF/SourceSansPro-ExtraLightIt.ttf") format("truetype");
-}
-@font-face {
-  font-family: 'SourceSansLight';
-  src: url("../media/fonts/source-sans-pro/EOT/SourceSansPro-Light.eot");
-  src: url("../media/fonts/source-sans-pro/EOT/SourceSansPro-Light.eot?#iefix") format("embedded-opentype"), url("../media/fonts/source-sans-pro/WOFF2/OTF/SourceSansPro-Light.otf.woff2") format("woff2"), url("../media/fonts/source-sans-pro/WOFF/OTF/SourceSansPro-Light.woff") format("woff"), url("../media/fonts/source-sans-pro/TTF/SourceSansPro-Light.ttf") format("truetype");
-}
-@font-face {
-  font-family: 'SourceSansLightIt';
-  src: url("../media/fonts/source-sans-pro/EOT/SourceSansPro-LightIt.eot");
-  src: url("../media/fonts/source-sans-pro/EOT/SourceSansPro-LightIt.eot?#iefix") format("embedded-opentype"), url("../media/fonts/source-sans-pro/WOFF2/OTF/SourceSansPro-LightIt.otf.woff2") format("woff2"), url("../media/fonts/source-sans-pro/WOFF/OTF/SourceSansPro-LightIt.woff") format("woff"), url("../media/fonts/source-sans-pro/TTF/SourceSansPro-LightIt.ttf") format("truetype");
-}
-@font-face {
-  font-family: 'SourceSansRegular';
-  src: url("../media/fonts/source-sans-pro/EOT/SourceSansPro-Regular.eot");
-  src: url("../media/fonts/source-sans-pro/EOT/SourceSansPro-Regular.eot?#iefix") format("embedded-opentype"), url("../media/fonts/source-sans-pro/WOFF2/OTF/SourceSansPro-Regular.otf.woff2") format("woff2"), url("../media/fonts/source-sans-pro/WOFF/OTF/SourceSansPro-Regular.woff") format("woff"), url("../media/fonts/source-sans-pro/TTF/SourceSansPro-Regular.ttf") format("truetype");
-}
-@font-face {
-  font-family: 'SourceSansRegularItal';
-  src: url("../media/fonts/source-sans-pro/EOT/SourceSansPro-It.eot");
-  src: url("../media/fonts/source-sans-pro/EOT/SourceSansPro-It.eot?#iefix") format("embedded-opentype"), url("../media/fonts/source-sans-pro/WOFF2/OTF/SourceSansPro-It.otf.woff2") format("woff2"), url("../media/fonts/source-sans-pro/WOFF/OTF/SourceSansPro-It.woff") format("woff"), url("../media/fonts/source-sans-pro/TTF/SourceSansPro-It.ttf") format("truetype");
-}
-@font-face {
-  font-family: 'SourceSansSemiBold';
-  src: url("../media/fonts/source-sans-pro/EOT/SourceSansPro-Semibold.eot");
-  src: url("../media/fonts/source-sans-pro/EOT/SourceSansPro-Semibold.eot?#iefix") format("embedded-opentype"), url("../media/fonts/source-sans-pro/WOFF2/OTF/SourceSansPro-Semibold.otf.woff2") format("woff2"), url("../media/fonts/source-sans-pro/WOFF/OTF/SourceSansPro-Semibold.woff") format("woff"), url("../media/fonts/source-sans-pro/TTF/SourceSansPro-Semibold.ttf") format("truetype");
-}
-@font-face {
-  font-family: 'SourceSansSemiBoldItal';
-  src: url("../media/fonts/source-sans-pro/EOT/SourceSansPro-SemiboldIt.eot");
-  src: url("../media/fonts/source-sans-pro/EOT/SourceSansPro-SemiboldIt.eot?#iefix") format("embedded-opentype"), url("../media/fonts/source-sans-pro/WOFF2/OTF/SourceSansPro-SemiboldIt.otf.woff2") format("woff2"), url("../media/fonts/source-sans-pro/WOFF/OTF/SourceSansPro-SemiboldIt.woff") format("woff"), url("../media/fonts/source-sans-pro/TTF/SourceSansPro-SemiboldIt.ttf") format("truetype");
-}
-@font-face {
-  font-family: 'SourceSansBold';
-  src: url("../media/fonts/source-sans-pro/EOT/SourceSansPro-Bold.eot");
-  src: url("../media/fonts/source-sans-pro/EOT/SourceSansPro-Bold.eot?#iefix") format("embedded-opentype"), url("../media/fonts/source-sans-pro/WOFF2/OTF/SourceSansPro-Bold.otf.woff2") format("woff2"), url("../media/fonts/source-sans-pro/WOFF/OTF/SourceSansPro-Bold.woff") format("woff"), url("../media/fonts/source-sans-pro/TTF/SourceSansPro-Bold.ttf") format("truetype");
-}
-@font-face {
-  font-family: 'SourceSansBoldItal';
-  src: url("../media/fonts/source-sans-pro/EOT/SourceSansPro-BoldIt.eot");
-  src: url("../media/fonts/source-sans-pro/EOT/SourceSansPro-BoldIt.eot?#iefix") format("embedded-opentype"), url("../media/fonts/source-sans-pro/WOFF2/OTF/SourceSansPro-BoldIt.otf.woff2") format("woff2"), url("../media/fonts/source-sans-pro/WOFF/OTF/SourceSansPro-BoldIt.woff") format("woff"), url("../media/fonts/source-sans-pro/TTF/SourceSansPro-BoldIt.ttf") format("truetype");
-}
-@font-face {
-  font-family: 'SourceSansBlack';
-  src: url("../media/fonts/source-sans-pro/EOT/SourceSansPro-Black.eot");
-  src: url("../media/fonts/source-sans-pro/EOT/SourceSansPro-Black.eot?#iefix") format("embedded-opentype"), url("../media/fonts/source-sans-pro/WOFF2/OTF/SourceSansPro-Black.otf.woff2") format("woff2"), url("../media/fonts/source-sans-pro/WOFF/OTF/SourceSansPro-Black.woff") format("woff"), url("../media/fonts/source-sans-pro/TTF/SourceSansPro-Black.ttf") format("truetype");
-}
-@font-face {
-  font-family: 'SourceSansBlackItal';
-  src: url("../media/fonts/source-sans-pro/EOT/SourceSansPro-BlackIt.eot");
-  src: url("../media/fonts/source-sans-pro/EOT/SourceSansPro-BlackIt.eot?#iefix") format("embedded-opentype"), url("../media/fonts/source-sans-pro/WOFF2/OTF/SourceSansPro-BlackIt.otf.woff2") format("woff2"), url("../media/fonts/source-sans-pro/WOFF/OTF/SourceSansPro-BlackIt.woff") format("woff"), url("../media/fonts/source-sans-pro/TTF/SourceSansPro-BlackIt.ttf") format("truetype");
-}
-/* 
- *    Serif font - Source Serif Pro - 5 weights (https://fonts.google.com/specimen/Source+Serif+Pro) 
- */
-@font-face {
-  font-family: 'SourceSerifLight';
-  src: url("../media/fonts/source-serif-pro/EOT/SourceSerifPro-Light.eot");
-  src: url("../media/fonts/source-serif-pro/EOT/SourceSerifPro-Light.eot?#iefix") format("embedded-opentype"), url("../media/fonts/source-serif-pro/WOFF2/SourceSerifPro-Light.otf.woff2") format("woff2"), url("../media/fonts/source-serif-pro/WOFF/SourceSerifPro-Light.woff") format("woff"), url("../media/fonts/source-serif-pro/TTF/SourceSerifPro-Light.ttf") format("truetype");
-}
-@font-face {
-  font-family: 'SourceSerifRegular';
-  src: url("../media/fonts/source-serif-pro/EOT/SourceSerifPro-Regular.eot");
-  src: url("../media/fonts/source-serif-pro/EOT/SourceSerifPro-Regular.eot?#iefix") format("embedded-opentype"), url("../media/fonts/source-serif-pro/WOFF2/SourceSerifPro-Regular.otf.woff2") format("woff2"), url("../media/fonts/source-serif-pro/WOFF/SourceSerifPro-Regular.woff") format("woff"), url("../media/fonts/source-serif-pro/TTF/SourceSerifPro-Regular.ttf") format("truetype");
-}
-@font-face {
-  font-family: 'SourceSerifSemiBold';
-  src: url("../media/fonts/source-serif-pro/EOT/SourceSerifPro-SemiBold.eot");
-  src: url("../media/fonts/source-serif-pro/EOT/SourceSerifPro-SemiBold.eot?#iefix") format("embedded-opentype"), url("../media/fonts/source-serif-pro/WOFF2/SourceSerifPro-SemiBold.otf.woff2") format("woff2"), url("../media/fonts/source-serif-pro/WOFF/SourceSerifPro-SemiBold.woff") format("woff"), url("../media/fonts/source-serif-pro/TTF/SourceSerifPro-SemiBold.ttf") format("truetype");
-}
-@font-face {
-  font-family: 'SourceSerifBold';
-  src: url("../media/fonts/source-serif-pro/EOT/SourceSerifPro-Bold.eot");
-  src: url("../media/fonts/source-serif-pro/EOT/SourceSerifPro-Bold.eot?#iefix") format("embedded-opentype"), url("../media/fonts/source-serif-pro/WOFF2/SourceSerifPro-Bold.otf.woff2") format("woff2"), url("../media/fonts/source-serif-pro/WOFF/SourceSerifPro-Bold.woff") format("woff"), url("../media/fonts/source-serif-pro/TTF/SourceSerifPro-Bold.ttf") format("truetype");
-}
-@font-face {
-  font-family: 'SourceSerifBlack';
-  src: url("../media/fonts/source-serif-pro/EOT/SourceSerifPro-Black.eot");
-  src: url("../media/fonts/source-serif-pro/EOT/SourceSerifPro-Black.eot?#iefix") format("embedded-opentype"), url("../media/fonts/source-serif-pro/WOFF2/SourceSerifPro-Black.otf.woff2") format("woff2"), url("../media/fonts/source-serif-pro/WOFF/SourceSerifPro-Black.woff") format("woff"), url("../media/fonts/source-serif-pro/TTF/SourceSerifPro-Black.ttf") format("truetype");
-}
 h1, h3, h4, h5, h6,
 .h1, .h3, .h4, .h5, .h6 {
-  font-family: "SourceSansBold", Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: inherit;
+  font-family: "SourceSans", Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
   line-height: 1.1;
   color: inherit;
 }
@@ -564,7 +476,7 @@ h6 .small,
 }
 
 h2, .h2 {
-  font-family: "SourceSansLight", Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "SourceSans", Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 200;
 }
 
@@ -5061,7 +4973,7 @@ button.list-group-item-danger.active:focus {
 }
 
 .panel-title {
-  font-family: "SourceSansSemiBold", Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "SourceSans", Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin-top: 0;
   margin-bottom: 0;
   font-size: 18px;
@@ -5665,7 +5577,7 @@ button.close {
   position: absolute;
   z-index: 1070;
   display: block;
-  font-family: "SourceSansRegular", Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "SourceSans", Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -5787,7 +5699,7 @@ button.close {
   display: none;
   max-width: 276px;
   padding: 1px;
-  font-family: "SourceSansRegular", Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "SourceSans", Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -6812,6 +6724,7 @@ button.close {
   }
 }
 /*# sourceMappingURL=ekko-lightbox.min.css.map */
+/* Font defs import */
 /**
  *
  * DFA Scaffolding
@@ -6864,7 +6777,7 @@ header:after {
 .header-title__text {
   display: none;
   margin: 0;
-  font-family: "SourceSansSemiBold", Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "SourceSans", Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.11em;
@@ -6942,7 +6855,8 @@ header:after {
  **/
 .secondary-navigation {
   width: 50%;
-  padding-right: 15px;
+  padding-right: 7px;
+  padding-right: 0.4375rem;
   float: left;
   display: none;
 }
@@ -6968,21 +6882,17 @@ header:after {
 
 .secondary-nav-link {
   display: inline-block;
-  padding: 8px 8px;
-  padding: 0.5rem 0.5rem;
+  padding: 8px 6px;
+  padding: 0.5rem 0.375rem;
   text-align: center;
 }
 
 .secondary-nav-dropdown {
-  -webkit-transition: background-color 80ms swing 0s;
-  -moz-transition: background-color 80ms swing 0s;
-  -o-transition: background-color 80ms swing 0s;
-  -ms-transition: background-color 80ms swing 0s;
-  transition: background-color 80ms swing 0s;
-  padding-left: 12px;
-  padding-left: 0.75rem;
-  padding-right: 12px;
-  padding-right: 0.75rem;
+  -webkit-transition: background-color 60ms swing 0s;
+  -moz-transition: background-color 60ms swing 0s;
+  -o-transition: background-color 60ms swing 0s;
+  -ms-transition: background-color 60ms swing 0s;
+  transition: background-color 60ms swing 0s;
   position: relative;
 }
 .secondary-nav-dropdown.active {
@@ -6990,8 +6900,6 @@ header:after {
 }
 .secondary-nav-dropdown .dfa-icon {
   display: inline-block;
-  width: 24px;
-  width: 1.5rem;
   width: 27px;
   width: 1.6875rem;
   height: 27px;
@@ -7089,7 +6997,8 @@ header:after {
 }
 
 /** 
- * Main navigation 
+ * Mobile navigation drop-down, switches to 
+ * desktop main navigation  > 996px  
 **/
 .main-nav {
   position: relative;
@@ -7445,9 +7354,9 @@ header:after {
   width: 100%;
   height: 100%;
   z-index: 10;
-  background-color: #323232;
-  filter: alpha(opacity=36);
-  opacity: 0.36;
+  background-color: #000;
+  filter: alpha(opacity=40);
+  opacity: 0.40;
 }
 
 .transparent-image-overlay__mid {
@@ -7466,6 +7375,9 @@ header:after {
 .hero-image-wrapper {
   position: relative;
   overflow: hidden;
+}
+.hero-image-wrapper .transparent-image-overlay {
+  display: none;
 }
 
 .hero-image {
@@ -7490,7 +7402,8 @@ header:after {
   color: #fff;
 }
 .hero-text .hero-heading {
-  font-family: "SourceSansBlack", sans-serif;
+  font-family: "SourceSans", sans-serif;
+  font-weight: 200;
   font-size: 64px;
   font-size: 4rem;
   line-height: 1;
@@ -7576,7 +7489,7 @@ header:after {
 }
 
 .hero-text__mobile .hero-heading__mobile {
-  font-family: "SourceSansBlack", sans-serif;
+  font-family: "SourceSans", sans-serif;
   font-size: 36px;
   font-size: 2.25rem;
 }
@@ -7588,14 +7501,14 @@ header:after {
 
 @screen and (min-width $screen-md-min) {
   .hero-heading__mobile {
-    font-family: "SourceSansBlack", sans-serif;
+    font-family: "SourceSans", sans-serif;
     font-size: 40px;
     font-size: 2.5rem;
   }
 }
 @screen and (min-width $screen-md-min) {
   .hero-heading__mobile {
-    font-family: "SourceSansBlack", sans-serif;
+    font-family: "SourceSans", sans-serif;
     font-size: 42px;
     font-size: 2.625rem;
   }
@@ -7679,6 +7592,10 @@ header:after {
   }
 }
 @media screen and (min-width: 768px) {
+  .hero-image-wrapper .transparent-image-overlay {
+    display: block;
+  }
+
   .hero-text {
     text-align: center;
     top: 30%;
@@ -7691,11 +7608,12 @@ header:after {
     transform: translate(-50%, -33%);
   }
   .hero-text .hero-heading {
-    font-family: "SourceSansBlack", sans-serif;
-    font-size: 72px;
-    font-size: 4.5rem;
-    margin-bottom: 28px;
-    margin-bottom: 1.75rem;
+    font-family: "SourceSans", sans-serif;
+    line-height: 0.96;
+    font-size: 38px;
+    font-size: 2.375rem;
+    margin-bottom: 22px;
+    margin-bottom: 1.375rem;
   }
 
   .hero-scroll {
@@ -7707,11 +7625,6 @@ header:after {
   }
 }
 @media screen and (min-width: 992px) {
-  .hero-text .hero-heading {
-    font-size: 84px;
-    font-size: 5.25rem;
-  }
-
   .intro-feature-heading {
     font-size: 36px;
     font-size: 2.25rem;
@@ -7719,20 +7632,27 @@ header:after {
 }
 @media screen and (min-width: 1200px) {
   .hero-text .hero-heading {
-    font-size: 104px;
-    font-size: 6.5rem;
-    line-height: 0.96;
-    margin-bottom: 46px;
-    margin-bottom: 2.875rem;
+    font-size: 76px;
+    font-size: 4.75rem;
   }
   .hero-text .hero-text-subtext {
-    font-size: 28px;
-    font-size: 1.75rem;
+    font-size: 20px;
+    font-size: 1.25rem;
   }
 
   .intro-feature-heading {
-    font-size: 42px;
-    font-size: 2.625rem;
+    font-size: 40px;
+    font-size: 2.5rem;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .hero-text .hero-heading {
+    font-size: 92px;
+    font-size: 5.75rem;
+  }
+  .hero-text .hero-text-subtext {
+    font-size: 24px;
+    font-size: 1.5rem;
   }
 }
 /** 
@@ -7809,7 +7729,7 @@ header:after {
 }
 
 .people-feature-about-heading {
-  font-family: "SourceSansSemiBold", Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "SourceSans", Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin-top: 0px;
   margin-top: 0rem;
   font-size: 18px;
@@ -7818,7 +7738,7 @@ header:after {
 
 .people-feature-about-link {
   color: inherit;
-  font-family: "SourceSansBold", Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "SourceSans", Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
   position: static;
   bottom: 8px;
   transform: translate(0, 0);
@@ -7977,7 +7897,7 @@ header:after {
 }
 
 .gallery-item-caption-heading {
-  font-family: "SourceSansSemiBold", Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "SourceSans", Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 18px;
   font-size: 1.125rem;
   margin-top: 0;
@@ -8400,13 +8320,17 @@ header:after {
 }
 
 .news-listing-heading {
-  font-family: "SourceSansBold", Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "SourceSans", Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
   margin-top: 0;
 }
 
 .news-listing-entry-anchor {
   display: block;
   color: inherit;
+}
+.news-listing-entry-anchor .news-listing-entry-heading {
+  font-weight: 600;
 }
 .news-listing-entry-anchor:hover, .news-listing-entry-anchor:active, .news-listing-entry-anchor:focus {
   color: inherit;
@@ -8444,7 +8368,7 @@ header:after {
   margin-top: 0.25rem;
   margin-bottom: 2px;
   margin-bottom: 0.125rem;
-  font-family: "SourceSansSemiBold", Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "SourceSans", Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1.2;
 }
 

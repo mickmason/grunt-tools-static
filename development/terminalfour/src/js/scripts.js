@@ -20,7 +20,7 @@
      * Slick slider initialization http://kenwheeler.github.io/slick/
      * The best slider pugin in the world
      */
-    $('.slick-gallery').slick({
+    $('.slick-gallery').slick({ 
         mobileFirst: true,
         prevArrow: '.arrow-left-icon.dfa-icon',
         nextArrow: '.arrow-right-icon.dfa-icon',
@@ -33,14 +33,14 @@
             }   
         },
         {
-            breakpoint: 1024,
+            breakpoint: 995,
             settings: {
                 slidesToShow: 3,
                 slidesToScroll: 3
             }   
         },
         {
-            breakpoint: 768,
+            breakpoint: 767,
             settings: {
                 slidesToShow: 2,
                 slidesToScroll: 2
@@ -116,20 +116,22 @@
     $('.secondary-nav-dropdown').on('click', function(e) {
         e.preventDefault();
         var $this = $(this);
-        var $target = $this.find('.secondary-nav__sub');
+        var $target = $this.find('.secondary-nav__sub'); 
         if ($this.hasClass('active')) {
             var timeout = 0;
-            var duration = 80;
-           
+            var durationDown = 80;
+            var durationUp = 80;
             setTimeout(function() {
-                $target.slideUp({duration: duration, complete: function() {
-                    $this.removeClass('active') ; 
+                $target.slideUp({duration: durationUp, easing: "easeOutCubic", complete: function() {
+                    $this.removeClass('active') ;  
                 }});
             }, timeout); 
         } else {
              setTimeout(function() {
-                $target.slideDown({duration: duration});
-                 $this.addClass('active') ;    
+                $target.slideDown({duration: durationDown, easing: "easeInCubic", complete: function() {
+                    $this.addClass('active') ;  
+                }}); 
+                 
             }, timeout);       
         }
 

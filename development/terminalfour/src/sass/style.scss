@@ -9,6 +9,9 @@
 @import "../../../lib/slick/slick/slick-theme.scss"; 
 @import "../../../lib/ekko-lightbox/ekko-lightbox.min.scss"; 
 
+/* Font defs import */
+@import url(font-defs.css); 
+
 /**
  *
  * DFA Scaffolding
@@ -92,7 +95,7 @@ header {
  **/
 .secondary-navigation {
     width: 50%;
-    padding-right: 15px;
+    @include rem-calc(padding-right, 7);
     float: left;
     display: none;
 }
@@ -113,22 +116,19 @@ header {
 }
 .secondary-nav-link {
     display: inline-block;
-    @include rem-calc(padding, ($padding-small-vertical * 2), ($padding-small-horizontal * 1));
+    @include rem-calc(padding, ($padding-small-vertical * 2), ($padding-small-horizontal * 0.75));
     text-align: center;
 }
 .secondary-nav-dropdown {
     &.active {
         background-color: $white;
     }
-    @include dfa-transition(background-color, 80, swing);
+    @include dfa-transition(background-color, 60, swing);
+
     
-    @include rem-calc(padding-left, ($padding-small-vertical * 3));
-    @include rem-calc(padding-right, ($padding-small-vertical * 3));
     position: relative;
-    
     .dfa-icon {
         display: inline-block;
-        @include rem-calc(width, 24);
         @include to-rem(width, 16, 27); 
         @include to-rem(height, 16, 27); 
         img { 
@@ -203,7 +203,8 @@ header {
     }
 }
 /** 
- * Main navigation 
+ * Mobile navigation drop-down, switches to 
+ * desktop main navigation  > 996px  
 **/
 .main-nav-row {}
 .main-nav {
@@ -486,9 +487,9 @@ header {
     width: 100%;
     height: 100%;
     z-index: 10;
-    background-color: $gray-dark;
-    filter: alpha(opacity=36); // IE 5-7
-    opacity: 0.36;
+    background-color: #000;
+    filter: alpha(opacity=40); // IE 5-7
+    opacity: 0.40;
 }
 .transparent-image-overlay__mid {
     filter: alpha(opacity=52); // IE 5-7
@@ -505,6 +506,7 @@ header {
 .hero-image-wrapper {
     position: relative;
     overflow: hidden;
+    .transparent-image-overlay { display: none;}
 }
 
 .hero-image {
@@ -524,7 +526,8 @@ header {
     z-index: 20;
     
     .hero-heading {
-        font-family: "SourceSansBlack", sans-serif;   
+        font-family: "SourceSans", sans-serif;   
+        font-weight: 200;
         @include rem-calc(font-size, 64);  
         line-height: 1;
         @include rem-calc(margin-bottom, 16);
@@ -591,7 +594,7 @@ header {
 }
 .hero-text__mobile {
     .hero-heading__mobile {
-        font-family: "SourceSansBlack", sans-serif; 
+        font-family: "SourceSans", sans-serif; 
         @include rem-calc(font-size, 36);
     }
     .hero-text-subtext {
@@ -602,13 +605,13 @@ header {
 
 @screen and (min-width $screen-md-min) {
     .hero-heading__mobile {
-        font-family: "SourceSansBlack", sans-serif; 
+        font-family: "SourceSans", sans-serif; 
         @include rem-calc(font-size, 40);
     }
 }
 @screen and (min-width $screen-md-min) {
     .hero-heading__mobile {
-        font-family: "SourceSansBlack", sans-serif; 
+        font-family: "SourceSans", sans-serif; 
         @include rem-calc(font-size, 42);
     }
 }
@@ -650,6 +653,12 @@ header {
     }
 }
 @media screen and (min-width: $screen-sm-min) {
+    .hero-image-wrapper {
+        .transparent-image-overlay {
+            display: block;
+    
+        }   
+    }
     .hero-text {
         text-align: center;
         top: 30%;
@@ -657,9 +666,10 @@ header {
         /*transform: translate(-50%, -33%);*/    
         @include dfa-translate(-50%, -33%);
         .hero-heading {
-            font-family: "SourceSansBlack", sans-serif;     
-            @include rem-calc(font-size, 72);  
-            @include rem-calc(margin-bottom, 28);
+            font-family: "SourceSans", sans-serif;   
+            line-height: 0.96;
+            @include rem-calc(font-size, 38);  
+            @include rem-calc(margin-bottom, 22);
         }
     }
     .hero-scroll {
@@ -670,32 +680,34 @@ header {
         }
     }   
 }
-@media screen and (min-width: $screen-md-min) {
-    .hero-text {
-        .hero-heading {
-            @include rem-calc(font-size, 84);
-        }
-    }    
+@media screen and (min-width: $screen-md-min) {   
     .intro-feature-heading {
-
         @include rem-calc(font-size, 36);
     }
 }
 @media screen and (min-width: $screen-lg-min) {
     .hero-text {
         .hero-heading {
-            @include rem-calc(font-size, 104);
-            line-height: 0.96;
-            @include rem-calc(margin-bottom, 46); 
+            @include rem-calc(font-size, 76);
         }
         .hero-text-subtext {
-            @include rem-calc(font-size, 28);
+            @include rem-calc(font-size, 20);
         }
     }  
     .intro-feature-heading {
-
-        @include rem-calc(font-size, 42);
+        @include rem-calc(font-size, 40);
     }
+}
+@media screen and (min-width: $screen-xl-min) {
+    .hero-text {
+        .hero-heading {
+            @include rem-calc(font-size, 92);
+        }
+        .hero-text-subtext {
+            @include rem-calc(font-size, 24);
+        }
+    }  
+
 }
 
 /** 
@@ -1222,18 +1234,21 @@ $fc-padding-bottom: ($padding-small-vertical * 14.5);
     }
 }
 .news-listing-heading {
-    font-family: $sans-serif-bold; 
+    font-family: $font-family-sans-serif;
+    font-weight: 700;
     margin-top: 0;
 
 }
 .news-listing-entry-anchor {
     display: block;
     color: inherit;
+    .news-listing-entry-heading {
+        font-weight: 600;
+    }
     &:hover, &:active, &:focus {
         color: inherit;
         text-decoration: none;
         .news-listing-entry-heading {
-            
             text-decoration: underline;
         }
     }
