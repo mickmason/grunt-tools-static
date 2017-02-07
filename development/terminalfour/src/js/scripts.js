@@ -129,9 +129,9 @@
         } else {
              setTimeout(function() {
                 $target.slideDown({duration: durationDown, easing: "easeInCubic", complete: function() {
-                    $this.addClass('active') ;  
+                    
                 }}); 
-                 
+                 $this.addClass('active') ;  
             }, timeout);       
         }
 
