@@ -1156,16 +1156,16 @@ var Lightbox = (function ($) {
         var $target = $this.find('.secondary-nav__sub'); 
         if ($this.hasClass('active')) {
             var timeout = 0;
-            var durationDown = 100;
-            var durationUp = 100;
+            var durationDown = 80;
+            var durationUp = 80;
             setTimeout(function() {
-                $target.stop().slideUp({duration: durationUp, complete: function() {
-                    $this.removeClass('active');
+                $target.slideUp({duration: durationUp, easing: "easeInCubic", complete: function() {
+                    $this.removeClass('active') ;
                 }});
-            }, timeout);  
+            }, timeout); 
         } else {
              setTimeout(function() {
-                $target.stop().slideDown({duration: durationDown, complete: function() { 
+                $target.slideDown({duration: durationDown, easing: "easeInCubic", complete: function() { 
                 }}); 
                 $this.addClass('active') ; 
             }, timeout);       
