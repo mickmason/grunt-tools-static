@@ -81,7 +81,11 @@ img {
 .img-responsive {
   @include img-responsive;
 }
-
+//Full width responsive images
+.img-responsive--fw {
+  @include img-responsive;
+  width: 100%;
+}
 // Rounded corners
 .img-rounded {
   border-radius: $border-radius-large;

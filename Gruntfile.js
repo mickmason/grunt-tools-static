@@ -68,8 +68,7 @@ module.exports = function(grunt) {
       },//options
       build: {
         src: 'development/terminalfour/src/js/scripts.js',
-        dest: 'development/terminalfour/src/js/scripts.min.js',
-              
+        dest: 'development/terminalfour/src/js/scripts.min.js',   
       },//build
       
       
@@ -192,7 +191,7 @@ module.exports = function(grunt) {
         files: ['development/terminalfour/src/js/scripts.js'],
         //Uncomment the line below and delete the other "tasks:['uglify:build'] to add JSHint into the project"
         //tasks: ['jshint','uglify:build']
-        tasks: ['uglify', 'concat']
+        tasks: ['concat:dist']
       },//scripts
 
       htmlcompile: {

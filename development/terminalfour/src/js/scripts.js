@@ -89,12 +89,12 @@
                 }});
             } else {
                  $target.slideDown({duration: 300, complete: function() {
-                    $self.addClass('active');
+                    $self.addClass('active'); 
                 }});
             }
         }
         if ($self.hasClass('active')) {
-            $target.slideUp({duration: 300, complete: function(){
+            $target.slideUp({duration: 300, complete: function(){  
                     $self.removeClass('active') ;
             }});
             
@@ -119,19 +119,25 @@
         var $target = $this.find('.secondary-nav__sub'); 
         if ($this.hasClass('active')) {
             var timeout = 0;
-            var durationDown = 80;
-            var durationUp = 80;
+            var durationDown = 100;
+            var durationUp = 100;
             setTimeout(function() {
-                $target.slideUp({duration: durationUp, easing: "easeOutCubic", complete: function() {
-                    $this.removeClass('active') ;  
+                $target.stop().slideUp({duration: durationUp, complete: function() {
+                    $this.removeClass('active');
                 }});
-            }, timeout); 
+            }, timeout);  
         } else {
              setTimeout(function() {
+<<<<<<< HEAD
                 $target.slideDown({duration: durationDown, easing: "easeInCubic", complete: function() {
                     
                 }}); 
                  $this.addClass('active') ;  
+=======
+                $target.stop().slideDown({duration: durationDown, complete: function() { 
+                }}); 
+                $this.addClass('active') ; 
+>>>>>>> f0da1f21cddf0771c6890e5e7b70e67aff5144f2
             }, timeout);       
         }
 
