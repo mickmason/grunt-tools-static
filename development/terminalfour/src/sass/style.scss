@@ -883,7 +883,7 @@ header {
         }
     }
     .people-feature-overlay {
-        padding-top: 24px;
+        padding-top: 20px;
         position: absolute;
         top: 78%;
         top: calc(100% - 4.3rem);
@@ -902,14 +902,14 @@ header {
         position: absolute;
     }
     .people-feature-about-heading  {
-        @include rem-calc(font-size, 16);
+        @include rem-calc(font-size, 20);
         
     }
     .people-feature-about-text {
-        @include rem-calc(font-size, 12);
+        @include to-rem(font-size, 18, 18);
     }
     .people-feature-about-link {
-        @include rem-calc(font-size, 14);
+        @include to-rem(font-size, 18, 18);
 
     }
 }
