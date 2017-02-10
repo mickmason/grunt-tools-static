@@ -84,38 +84,38 @@
         var $target = $('#'+$self.attr('data-target')); 
         if ($self.hasClass('desktop-search')) {
             if ($self.hasClass('active')) {
-                $target.slideUp({duration: 300, easing: 'swing', complete: function(){
+                $target.stop().slideUp({duration: 300, easing: 'swing', complete: function(){
                         $self.removeClass('active') ;
                 }});
             } else {
-                 $target.slideDown({duration: 300, complete: function() {
+                 $target.stop().slideDown({duration: 300, complete: function() {
                     $self.addClass('active'); 
                 }});
             }
         }
         if ($self.hasClass('active')) {
-            $target.slideUp({duration: 300, complete: function(){  
+            $target.stop().slideUp({duration: 300, complete: function(){  
                     $self.removeClass('active') ;
             }});
             
         } else if ($other.hasClass('active')) {
             var $otherTarget = $('#'+$other.attr('data-target')) ;
-            $otherTarget.slideUp({ duration: 300, easing: 'swing', complete: function() {   
+            $otherTarget.stop().slideUp({ duration: 300, easing: 'swing', complete: function() {   
                 $other.removeClass('active');
-                $target.slideDown({duration: 300, easing: 'swing', complete: function() {
+                $target.stop().slideDown({duration: 300, easing: 'swing', complete: function() {
                     $self.addClass('active');
                 }});
             }});
         } else {
-            $target.slideDown({duration: 300, easing: 'swing', complete: function() {
+            $target.stop().slideDown({duration: 300, easing: 'swing', complete: function() {
                 $self.addClass('active'); 
             }});               
         }
     });
     /* Show-hide quicklinks */
-    $('.secondary-nav-dropdown').on('click', function(e) {
+    $('.secondary-nav-dropdown > a').on('click', function(e) {
         e.preventDefault();
-        var $this = $(this);
+        var $this = $(this).parent('li');
         var $target = $this.find('.secondary-nav__sub'); 
         if ($this.hasClass('active')) {
             var timeout = 0;
@@ -128,16 +128,10 @@
             }, timeout);  
         } else {
              setTimeout(function() {
-<<<<<<< HEAD
-                $target.slideDown({duration: durationDown, easing: "easeInCubic", complete: function() {
-                    
-                }}); 
-                 $this.addClass('active') ;  
-=======
                 $target.stop().slideDown({duration: durationDown, complete: function() { 
                 }}); 
                 $this.addClass('active') ; 
->>>>>>> f0da1f21cddf0771c6890e5e7b70e67aff5144f2
+
             }, timeout);       
         }
 
@@ -159,10 +153,23 @@
     if ($('.hero-text')) {
         if (window.outerWidth > 768) {
             var $heroText = $('.hero-text');
-            var x = ($heroText.attr('data-posx')) ? $heroText.attr('data-posx') : 50 ;
-            var y = ($heroText.attr('data-posy')) ? $heroText.attr('data-posy') : 50;
-            var align = ($heroText.attr('data-align')) ? $heroText.attr('data-align') : "centre";
-
+            var x = ($heroText.attr('data-posx')) ? parseInt($heroText.attr('data-posx')) : 50 ;
+            var y = ($heroText.attr('data-posy')) ? parseInt($heroText.attr('data-posy')) : 30;
+            var align = '';
+            console.log(x);
+            if (x < 50) {
+                console.log('less than 50');
+                align = 'left';    
+            } else if (x > 50) {
+                console.log('greater than 50');
+                align = 'right';
+            } else {
+                console.log('default');
+                align = 'center';   
+            }
+            if (y > 50) {
+                $heroText.parent('.hero-image-wrapper').find('.hero-scroll').css({display: 'none'});    
+            }
             $heroText.css({left: x+'%', top: y+'%', textAlign: align});
             $($global).on('resize', function() {
                 $heroText.css({left: x+'%', top: y+'%', textAlign: align});
@@ -197,7 +204,12 @@
                      $featureBody.stop().slideDown({duration: showHideDuration});
                 });
             }); 
-           
         }
     });
+    
+    /**! Misc scripts for CMS build **/
+/*    $('#secondary-nav-dropdown').find('ul').eq(0).addClass('secondary-nav__sub').find('li').each(function($this) {
+        $this.addClass('secondary-nav__sub-link')  ;
+    });*/
+    
 })(window); 

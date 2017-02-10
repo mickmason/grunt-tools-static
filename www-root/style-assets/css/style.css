@@ -376,6 +376,13 @@ img {
   height: auto;
 }
 
+.img-responsive--fw {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  width: 100%;
+}
+
 .img-rounded {
   border-radius: 6px;
 }
@@ -6864,17 +6871,19 @@ header:after {
   padding-left: 15px;
   padding-right: 15px;
   padding-top: 12px;
+  padding-top: 0.85714rem;
   padding-bottom: 12px;
+  padding-bottom: 0.85714rem;
 }
 
 .header-title__text {
   display: none;
-  padding-top: 8px;
-  padding-top: 0.5rem;
+  padding-bottom: 8px;
+  padding-bottom: 0.5rem;
   margin: 0;
   font-size: 14px;
   font-size: 0.875rem;
-  font-size: 13px;
+  font-weight: 600;
   color: #006845;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -6929,20 +6938,6 @@ header:after {
   border-bottom: 4px solid #006845;
 }
 
-@media screen and (min-width: 992px) {
-  .header-title__text {
-    display: block;
-    margin: 0;
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 0.11em;
-    letter-spacing: 0.11rem;
-  }
-
-  .header-title--mobile {
-    display: none;
-  }
-}
 /**
  *    Mobile nav and search 
  **/
@@ -6956,10 +6951,10 @@ header:after {
   height: 72px;
 }
 
-.dfa-logo {
+.header-title__logo {
   max-width: 170px;
 }
-.dfa-logo.white-simple {
+.header-title__logo.header-title__logo--large {
   display: none;
 }
 
@@ -7002,7 +6997,6 @@ header:after {
  *    Desktop secondary nav 
  **/
 .secondary-navigation {
-  width: 50%;
   padding-right: 7px;
   padding-right: 0.4375rem;
   float: left;
@@ -7030,12 +7024,19 @@ header:after {
 
 .secondary-nav-link {
   display: inline-block;
-  padding: 8px 6px;
-  padding: 0.5rem 0.375rem;
+  padding-top: 12px;
+  padding-top: 0.85714rem;
+  padding-bottom: 12px;
+  padding-bottom: 0.85714rem;
+  padding-left: 6px;
+  padding-left: 0.42857rem;
+  padding-right: 6px;
+  padding-right: 0.42857rem;
   text-align: center;
 }
 
 .secondary-nav-dropdown {
+  padding-bottom: 0;
   -webkit-transition: background-color 60ms swing 0s;
   -moz-transition: background-color 60ms swing 0s;
   -o-transition: background-color 60ms swing 0s;
@@ -7065,6 +7066,9 @@ header:after {
 }
 .secondary-nav-dropdown .close-menu {
   display: inline;
+}
+.secondary-nav-dropdown#secondary-nav-dropdown > ul {
+  display: none;
 }
 
 .secondary-nav__sub {
@@ -7184,7 +7188,7 @@ header:after {
     height: 86px;
   }
 
-  .dfa-logo {
+  .header-title__logo {
     max-width: 234px;
   }
 
@@ -7216,30 +7220,32 @@ header:after {
   }
 
   .header-title {
-    width: 50%;
+    width: 35%;
     height: auto;
+    padding-top: 12px;
+    padding-top: 0.75rem;
+    padding-bottom: 12px;
+    padding-bottom: 0.75rem;
   }
 
   .header-title__text {
     display: block;
     margin: 0;
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 0.11em;
-    letter-spacing: 0.11rem;
+    font-size: 14px;
+    font-size: 0.875rem;
   }
 
   .header-title--mobile {
     display: none;
   }
 
-  .dfa-logo {
+  .header-title__logo {
     max-width: 300px;
   }
-  .dfa-logo.white-simple__stacked {
+  .header-title__logo.header-title__logo--small {
     display: none;
   }
-  .dfa-logo.white-simple {
+  .header-title__logo.header-title__logo--large {
     display: inline;
   }
 
@@ -7249,6 +7255,7 @@ header:after {
 
   .secondary-navigation {
     display: block;
+    width: 65%;
   }
 
   .dfa-site-search-input {
@@ -7285,7 +7292,8 @@ header:after {
   }
   .main-nav-list li {
     font-size: 18px;
-    display: inline-block;
+    display: block;
+    float: left;
     padding: 9px 24px 11px;
     border-bottom: none;
     border-right: 1px solid #323232;
@@ -7365,16 +7373,6 @@ header:after {
   }
 }
 @media (min-width: 1200px) {
-  .dfa-logo {
-    max-width: 300px;
-  }
-  .dfa-logo.white-simple__stacked {
-    display: none;
-  }
-  .dfa-logo.white-simple {
-    display: inline;
-  }
-
   .desktop-search .desktop-search-text {
     font-size: 14px;
     font-size: 0.77778rem;
@@ -8758,16 +8756,18 @@ footer a:active, footer a:hover, footer a:focus {
   padding-bottom: 2.25rem;
   text-align: center;
 }
-.footer-links p, .footer-address p {
-  margin-bottom: 2px;
-  margin-bottom: 0.125rem;
+
+.footer-address p {
+  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
 }
 
-.footer-links-list {
+.footer-links ul {
   padding: 0;
   margin: 0;
 }
-.footer-links-list li {
+.footer-links li {
   list-style: none;
 }
 
@@ -8793,9 +8793,6 @@ footer a:active, footer a:hover, footer a:focus {
 
   .footer-address {
     text-align: right;
-  }
-  .footer-address p {
-    margin-bottom: 0;
   }
 }
 /* Misc classes */

@@ -104,15 +104,15 @@ header {
 }
 .header-title {
     @include make-xs-column(8);
-    padding-top: ($padding-small-vertical * 3);
-    padding-bottom: ($padding-small-vertical * 3);
+    @include to-rem(padding-top, 14, ($padding-small-vertical * 3));
+    @include to-rem(padding-bottom, 14, ($padding-small-vertical * 3)); 
 }
 .header-title__text {
     display: none;
-    @include to-rem(padding-top, 16, ($padding-small-vertical * 2));
+    @include to-rem(padding-bottom, 16, ($padding-small-vertical * 2));
     margin: 0;
     @include to-rem(font-size, 16, 14);
-    font-size: $font-size-small;
+    font-weight: 600;
     color: $brand-primary;
     @include dfa-text-to-uppercase(0.1) ;
     &.header-title--mobile__text {
@@ -130,7 +130,6 @@ header {
  **/
 .header-title--mobile {
     @include make-row;
-    
 }
 .header-title--mobile__cols {
     @include make-xs-column(12);
@@ -138,18 +137,6 @@ header {
     @include to-rem(padding-top, 14, ($padding-small-vertical * 1));
     @include to-rem(padding-bottom, 14, ($padding-small-vertical * 1));
     border-bottom: 4px solid $brand-primary;
-}
-
-@media screen and (min-width: $screen-md-min) {
-    .header-title__text {
-        display: block;
-        margin: 0;
-        font-size: $font-size-small;
-        @include dfa-text-to-uppercase(0.11) ;
-    }
-    .header-title--mobile {
-        display: none;
-    }
 }
 
 /**
@@ -160,9 +147,9 @@ header {
     height: 72px;
 }
 
-.dfa-logo {
+.header-title__logo {
    max-width: 170px;
-    &.white-simple { display: none;}
+    &.header-title__logo--large { display: none;}
 }
 .header-navigation__mobile-search, .header-navigation__mobile-menu {
     padding: ($padding-small-vertical * 4) ($padding-small-horizontal / 2) ($padding-small-vertical * 3);
@@ -197,7 +184,6 @@ header {
  *    Desktop secondary nav 
  **/
 .secondary-navigation {
-    width: 50%;
     @include rem-calc(padding-right, 7);
     float: left;
     display: none;
@@ -219,10 +205,14 @@ header {
 }
 .secondary-nav-link {
     display: inline-block;
-    @include rem-calc(padding, ($padding-small-vertical * 2), ($padding-small-horizontal * 0.75));
+    @include to-rem(padding-top, 14, ($padding-small-vertical * 3));
+    @include to-rem(padding-bottom, 14, ($padding-small-vertical * 3));
+    @include to-rem(padding-left, 14, ($padding-small-horizontal * 0.75));
+    @include to-rem(padding-right, 14, ($padding-small-horizontal * 0.75));
     text-align: center;
 }
 .secondary-nav-dropdown {
+    padding-bottom: 0;
     &.active {
         background-color: $white;
     }
@@ -246,6 +236,9 @@ header {
     }
     .close-menu {
         display: inline;
+    }
+    &#secondary-nav-dropdown > ul {
+        display: none;
     }
 }
 .secondary-nav__sub {
@@ -288,10 +281,8 @@ header {
     padding: ($padding-small-vertical * 1) ($padding-small-horizontal / 2) ($padding-small-vertical * 1) ($padding-small-horizontal / 1);
     border: none;
     border-bottom: 1px solid $gray-dark;
-    
     &:focus {
         outline: none;
-
     }
 }
 .dfa-site-search-submit {
@@ -309,7 +300,6 @@ header {
  * Mobile navigation drop-down, switches to 
  * desktop main navigation  > 996px  
 **/
-.main-nav-row {}
 .main-nav {
     @include make-xs-column(12);
 }
@@ -330,21 +320,17 @@ header {
 }
 
 @media screen and (min-width: 379px) {
-    .header-navigation__mobile-menu {
-        
+    .header-navigation__mobile-menu {       
         margin-right: 15px;
     }
 }
-
-
 @media (min-width: $screen-sm-min) {
     .header-title, .header-navigation__mobile {
         height: 86px;
     }  
-    .dfa-logo {
+    .header-title__logo {
        max-width: 234px;
     }
-    
     .header-navigation__mobile-search, .header-navigation__mobile-menu {
         height: 86px;
         width: 66px ;
@@ -353,7 +339,6 @@ header {
             font-size: 12px;
         }
     }
-    
     .dfa-site-search-input {
         width: 92.5% ;
         font-size: 16px;
@@ -371,22 +356,23 @@ header {
         background-color: $gray-light;
     }
     .header-title {
-        width: 50%;
+        width: 35%;
         height: auto;
+        @include to-rem(padding-top, 16, ($padding-small-vertical * 3));
+        @include to-rem(padding-bottom, 16, ($padding-small-vertical * 3));
     }
     .header-title__text {
         display: block;
         margin: 0;
-        font-size: $font-size-small;
-        @include dfa-text-to-uppercase(0.11) ;
+        @include to-rem(font-size, 16,14);
     }
     .header-title--mobile {
         display: none;
     }
-    .dfa-logo {
+    .header-title__logo {
         max-width: 300px;
-        &.white-simple__stacked { display: none; }
-        &.white-simple { 
+        &.header-title__logo--small { display: none; }
+        &.header-title__logo--large { 
             display: inline;
         } 
     }
@@ -395,6 +381,7 @@ header {
     }
     .secondary-navigation {
         display: block;
+        width: 65%;
     }
     .dfa-site-search-input {
             font-size: $font-size-large;
@@ -417,7 +404,8 @@ header {
         margin: 0;
         li {
             font-size: $font-size-large;
-            display: inline-block;
+            display: block;
+            float: left;
             padding: ($padding-small-vertical * 2.5 - 1) ($padding-small-horizontal * 3) ($padding-small-vertical * 2.5 + 1)   ;
             border-bottom: none;
             border-right: 1px solid $gray-dark;
@@ -477,21 +465,11 @@ header {
             margin-right: auto;
             width: 34px;
         }
-        
     }
 }
 @media (min-width: $screen-lg-min) {
-    .dfa-logo {
-        max-width: 300px;
-        &.white-simple__stacked { display: none; }
-        &.white-simple { 
-            display: inline;
-        }
-    }
-
     .desktop-search .desktop-search-text {
         @include to-rem(font-size, 18, 14);
-
     }    
     .dfa-site-search-input {
         font-size: $font-size-large;
@@ -1534,18 +1512,21 @@ footer {
      @include make-xs-column(12);
      @include rem-calc(padding-bottom, 36);
     text-align: center;
-    p {
-        @include rem-calc(margin-bottom, 2);
-    }
-         
 }
-.footer-links-list {
-    padding: 0;
-    margin: 0;
-    li {
+.footer-address {
+    p {
+        @include rem-calc(margin-bottom, 8);
+        line-height: 1.4;
+    }   
+}
+.footer-links {
+    ul {
+        padding: 0;
+        margin: 0; 
+    }
+   li {
         list-style: none;
     }
-    
 }
 @media screen and (min-width: $screen-sm-min) {
     .footer-links, .footer-address {
@@ -1560,10 +1541,6 @@ footer {
     }
     .footer-address {
         text-align: right;
-        p {
-            margin-bottom: 0;
-        }
-        
     }
 }
 
