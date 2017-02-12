@@ -1,0 +1,14 @@
+/* IE styles */
+.dfa-icon__svg {
+  display: none;
+}
+.dfa-icon__svg.dfa-icon__svg--ie-fallback {
+  display: inline-block;
+}
+.dfa-icon__svg.dfa-icon__svg--ie-fallback img {
+  display: block;
+  width: 25px;
+  height: 25px;
+}
+
+/*# sourceMappingURL=style-ie.css.map */

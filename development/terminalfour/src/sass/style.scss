@@ -40,7 +40,37 @@
 }
 
 /* SVG Icons */
+.dfa-icon__svg--ie-fallback {
+    display: none;
+}
+.dfa-icon {
+        @include to-rem(width, 16, 27); 
+        @include to-rem(height, 16, 27); 
+    image {
+        display: none;
+    }
+    /* Qucklinks nav icon */
+    &.dfa-icon__svg--quicklinks  {
+
+        display: inline-block;
+        float: right;
+        @include to-rem(width, 18, 25);
+        @include to-rem(height, 18, 25);
+        margin-left: 6px;
+        position: relative;
+        z-index: 200;
+        fill: #006845;
+        img { 
+            @include rem-calc(width, 24); 
+        }
+            .dfa-icon-image {
+                    width: 100%;
+            }
+        }
+
+}
 .dfa-icon, dfa-icon__with-label {
+    display: inline-block;
     display: flex;
     flex-direction: column;
     width: 100%; 
@@ -57,6 +87,7 @@
         @include rem-calc(margin-top, 4); 
     }
 }
+
 /* Transparent overlays */
 .transparent-image-overlay, .transparent-image-overlay__mid, .transparent-image-overlay__dark {
     position: absolute;
@@ -64,7 +95,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 10;
+    z-index: 50;
     background-color: $gray-dark;
     filter: alpha(opacity=36); // IE 5-7
     opacity: 0.28;
@@ -204,6 +235,7 @@ header {
     }
 }
 .secondary-nav-link {
+    @include clearfix;
     display: inline-block;
     @include to-rem(padding-top, 14, ($padding-small-vertical * 3));
     @include to-rem(padding-bottom, 14, ($padding-small-vertical * 3));
@@ -218,19 +250,7 @@ header {
     }
     @include dfa-transition(background-color, 60, swing);
 
-    
     position: relative;
-    .dfa-icon {
-        display: inline-block;
-        @include to-rem(width, 16, 27); 
-        @include to-rem(height, 16, 27); 
-        img { 
-            @include rem-calc(width, 24); 
-        }
-        .dfa-icon-image {
-            width: 100%;
-        }
-    }
     .open-menu {
         display: none;
     }
@@ -248,7 +268,7 @@ header {
     position: absolute;
     right: 0;
     background-color: $white;
-    z-index: 50000;
+    z-index: 100;
 }
 .secondary-nav-link__sub-link {
     display: list-item;

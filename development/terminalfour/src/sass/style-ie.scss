@@ -1,0 +1,13 @@
+/* IE styles */
+.dfa-icon__svg {
+        display: none;
+    &.dfa-icon__svg--ie-fallback {
+            display: inline-block;
+        img {
+            display: block;
+            
+        width:  25px;
+        height: 25px;
+        }
+    }
+}

@@ -6,6 +6,11 @@
 	<title>Department of Foreign Affairs and trade</title>
 	<link rel="stylesheet" href="style-assets/css/style.css">
     
+   
+    <!--[if lte IE 11 ]>
+       <link rel="stylesheet" href="style-assets/css/style-ie.css">
+    <![endif]-->
+    
 </head>
 <body>
     <!--** Site header container **-->
@@ -31,13 +36,16 @@
                         <li class="secondary-nav-link"><a href="javascript:void()" title="DFA home">Embassies</a></li>
                         <li class="secondary-nav-link"><a href="javascript:void()" title="DFA home">An Other</a></li>
                         <li class="secondary-nav-link secondary-nav-dropdown" id="secondary-nav-dropdown"><a href="#" title="DFA home">Quicklinks
-                           <div class="dfa-icon">
+                           <div class="dfa-icon dfa-icon__svg--quicklinks">
                                 
-                                    <img class="open-menu" src="style-assets/media/svg-imgs/menu_dots_circle.svg" alt="Image" />
-                                    <img class="close-menu" src="style-assets/media/svg-imgs/menu_dots_circle_active.svg" alt="Image" />
-<!--                                    <svg class="dfa-icon__svg dfa-icon__svg--quicklinks">
-                                      <use href="style-assets/media/svg/dfa-icons.svg#menu_dots_circle_active"/>
-                                    </svg>-->
+                                    <!--<img class="open-menu" src="style-assets/media/svg-imgs/menu_dots_circle.svg" alt="Image" />
+                                    <img class="close-menu" src="style-assets/media/svg-imgs/menu_dots_circle_active.svg" alt="Image" />-->
+                                    <svg class="dfa-icon__svg ">
+                                        <use href="style-assets/media/svg/dfa-icons.svg#menu_dots_circle"></use>
+                                    </svg>
+                                    <svg class="dfa-icon__svg dfa-icon__svg--ie-fallback ">
+                                      <image href="style-assets/media/svg-imgs/menu_dots_circle.svg" src="style-assets/media/svg-imgs/menu_dots_circle.svg" width="25" height="25" />
+                                    </svg>
                                 
                             </div>
                            </a>

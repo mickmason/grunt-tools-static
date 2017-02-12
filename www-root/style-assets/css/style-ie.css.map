@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,eAAe;AACf,cAAe;EACP,OAAO,EAAE,IAAI;;AACjB,yCAA6B;EACrB,OAAO,EAAE,YAAY;;AACzB,6CAAI;EACA,OAAO,EAAE,KAAK;EAElB,KAAK,EAAG,IAAI;EACZ,MAAM,EAAE,IAAI",
+"sources": ["../../../development/terminalfour/src/sass/style-ie.scss"],
+"names": [],
+"file": "style-ie.css"
+}
