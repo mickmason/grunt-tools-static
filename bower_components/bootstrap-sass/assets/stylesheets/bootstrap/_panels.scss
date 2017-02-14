@@ -41,17 +41,7 @@
     
     @include rem-calc(padding, $feature-panel-heading-padding);
     @include rem-calc(padding-right, 40);
-    background-image: url(../../style-assets/media/svg-imgs/circle_plus.svg);
-    background-repeat: no-repeat;
-    background-position: 98% ;
-    
-    &.active {
-        background-image: url(../../style-assets/media/svg-imgs/circle_minus.svg);
-    }
-    
-    @include rem-calc(background-size, 32);
     border-bottom: 1px solid transparent;
-    @include border-top-radius(($panel-border-radius - 1));
 
     > .dropdown .dropdown-toggle {
       color: inherit;
@@ -324,6 +314,20 @@
 }
 .dfa-feature-panel {
     @include panel-variant(none, $white, $gray-dark, none);
+    
+    .panel-heading {
+        background-image: url(../../style-assets/media/svg-imgs/circle_plus.svg);
+        background-repeat: no-repeat;
+        background-position: 98% ;        
+        &.active {
+            background-image: url(../../style-assets/media/svg-imgs/circle_minus.svg);
+        }
+
+        @include rem-calc(background-size, 32);        
+        
+        
+    }
+
 }
 
 

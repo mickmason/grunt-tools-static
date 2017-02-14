@@ -12,7 +12,7 @@
             onContentLoaded: function() {
                 $('.modal-backdrop').addClass('ekko-lightbox');
             },
-            alwaysShowClose: true
+            alwaysShowClose: true 
         });
         $(this).addClass('gallery-active'); 
     });
@@ -158,18 +158,26 @@
             var align = '';
             console.log(x);
             if (x < 50) {
-                console.log('less than 50');
                 align = 'left';    
+                console.log($(window).outerWidth(true));
+                if ($(window).outerWidth(true) > 1620) {
+                    x = 40;
+                }
             } else if (x > 50) {
-                console.log('greater than 50');
+                console.log($(window).outerWidth(true));
+                if ($(window).outerWidth(true) > 1620) {
+                    x = 60;
+                }
                 align = 'right';
             } else {
-                console.log('default');
                 align = 'center';   
             }
             if (y > 50) {
                 $heroText.parent('.hero-image-wrapper').find('.hero-scroll').css({display: 'none'});    
             }
+            
+            
+            
             $heroText.css({left: x+'%', top: y+'%', textAlign: align});
             $($global).on('resize', function() {
                 $heroText.css({left: x+'%', top: y+'%', textAlign: align});
