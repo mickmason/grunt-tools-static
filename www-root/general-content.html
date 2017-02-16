@@ -1,4 +1,3 @@
-
     <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -148,26 +147,55 @@
     </header>
     <!--** Site header container **--> 
     <!--** Main section .container **-->
-    <div class="main-section">
-
-        
-        <!--** Intro row ** -->
-        <section class="intro-feature landing-feature-section" id="section-1">
+    <main class="main-section">
+        <!--** inner-page-breadcrumbs row -->
+        <section class="inner-page-breadcrumbs">
             <div class="content-wrap">
-                <div class="intro-feature-block"> 
-                     <h1 class="intro-feature-heading">Department of Foreign Affairs site redesign 2017</h1>   
-                     <h2>Pages:</h2>
-                     <ol>
-                         <li><a href="feature-landing.html">Feature landing page - AIEF</a></li>
-                         <li><a href="general-content.html">General content page</a></li>
-                     </ol>
-                </div>
-            </div>           
-
-        </section>         
-
-    </div>
-    <!--** // Main section .container **--> 
+                <!--** breadcrumbs ** -->
+                <nav class="inner-page-breadcrumbs__block" >
+                       <ul class="inner-page-breadcrumbs__nav">
+                           <li><a href="index.html">Home</a></li>
+                           <li>General content</li>
+                       </ul>
+                </nav>
+                <!--** // breadcrumbs ** -->
+            </div>
+            <!--** // content-wrap **-->
+        </section>
+        <!--** // inner-page-breadcrumbs row -->
+        <!--** Main body row **-->
+        <section class="main-body">
+           <div class="content-wrap">
+                <aside class="main-body__side-bar">
+                    <h3 class="heading--side-bar">In this section: 
+                        <img class="inner-navigation__show-more__icon" src="style-assets/media/svg-imgs/next_arrow.svg" alt="View more icon" />
+                        <img class="inner-navigation__show-less__icon" src="style-assets/media/svg-imgs/down_arrow.svg" alt="View more icon" />
+                    </h3>
+                    <ul class="inner-navigation">
+                        <li><a href="javascript:void">Section link #1</a></li>
+                        <li><a href="javascript:void">Section link #2</a></li>
+                        <li><span class="currentbranch0"><a href="javascript:void" >Section link #3</a></span>
+                           <a href="#" class="inner-navigation__show-more">
+                               <img class="inner-navigation__show-more__icon" src="style-assets/media/svg-imgs/next_arrow.svg" alt="View more icon" />
+                               <img class="inner-navigation__show-less__icon" src="style-assets/media/svg-imgs/down_arrow.svg" alt="View more icon" />
+                           </a>
+                            <ul>
+                                <li><a href="javascript:void">Section sub-link #1</a></li>
+                                <li><a href="javascript:void">Section sub-link #2</a></li>
+                                <li><a href="javascript:void">Section sub-link #3</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="javascript:void">Section link #4</a></li>
+                        <li><a href="javascript:void">Section link #5</a></li>
+                    </ul>
+                </aside>
+                <section class="main-body__main">
+                    <h1>Main body</h1>
+                </section>
+            </div>
+        </section>
+    </main>
+    <!--** // Main section .container **-->
          <footer>
              <div class="footer-row landing-feature-section">
                  <div class="content-wrap">

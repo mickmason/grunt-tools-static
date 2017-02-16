@@ -1,6 +1,17 @@
 (function t4mainfunction($global) { 
     'use strict' ;
-
+    /*
+     * Detect SVG support
+     *
+     */
+    function supportsSvg() {
+      var div = document.createElement('div');
+      div.innerHTML = '<svg/>';
+      return (div.firstChild && div.firstChild.namespaceURI) == 'http://www.w3.org/2000/svg';
+    }
+/*    if (supportsSvg()) {
+        $('body').addClass('no-svg'); 
+    }*/
     /* 
      * Lightbox modal https://github.com/ashleydw/lightbox
      * Extends Bootstrap Modal module
@@ -188,13 +199,14 @@
     /**!
      * Feature content block show/hide
      */
+    var showHideDuration = 140;
     $('.feature-bottom-opener').on('click', function(e) {
         e.stopPropagation();
         var $this = $(this);
         var $featureMore = $this.find('.feature-more');
         var $featureLess = $this.find('.feature-less');
         var $featureBody = $('.featured-content-section-body .featured-content-block');
-        var showHideDuration = 140;
+        
         var bodyDuration = 400;
         if ($this.hasClass('active')) {
             /* Hide feature bottom */
@@ -215,9 +227,29 @@
         }
     });
     
+
     /**! Misc scripts for CMS build **/
 /*    $('#secondary-nav-dropdown').find('ul').eq(0).addClass('secondary-nav__sub').find('li').each(function($this) {
         $this.addClass('secondary-nav__sub-link')  ;
     });*/
+
+    /**!
+     * General content inner navigation
+     */
+    $(document).on('click', '.inner-navigation__show-more', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $this = $(this);
+        if ($this.parent('li').hasClass('active')) {
+            $this.siblings('ul').stop().slideUp(200, function() {
+                $this.parent('li').removeClass('active');        
+            });    
+        } else {
+            $this.siblings('ul').eq(0).stop().slideDown({duration: 200, complete: function() {
+                $this.parent('li').stop().addClass('active');        
+            }});               
+        }  
+    });
+
     
 })(window); 

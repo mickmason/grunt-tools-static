@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* IE styles */
 .dfa-icon__svg {
   display: none;
@@ -9,6 +10,15 @@
   display: block;
   width: 25px;
   height: 25px;
+=======
+/* IE Styles */
+.dfa-logo {
+  height: 63px;
+}
+
+.header-navigation__mobile-icon img {
+  height: 26px;
+>>>>>>> mm-dev
 }
 
 /*# sourceMappingURL=style-ie.css.map */

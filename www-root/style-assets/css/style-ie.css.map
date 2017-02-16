@@ -1,6 +1,10 @@
 {
 "version": 3,
+<<<<<<< HEAD
 "mappings": "AAAA,eAAe;AACf,cAAe;EACP,OAAO,EAAE,IAAI;;AACjB,yCAA6B;EACrB,OAAO,EAAE,YAAY;;AACzB,6CAAI;EACA,OAAO,EAAE,KAAK;EAElB,KAAK,EAAG,IAAI;EACZ,MAAM,EAAE,IAAI",
+=======
+"mappings": "AAAA,eAAe;AAEf,SAAU;EACN,MAAM,EAAE,IAAI;;;AAEhB,mCAAoC;EAChC,MAAM,EAAE,IAAI",
+>>>>>>> mm-dev
 "sources": ["../../../development/terminalfour/src/sass/style-ie.scss"],
 "names": [],
 "file": "style-ie.css"

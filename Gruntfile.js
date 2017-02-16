@@ -92,6 +92,7 @@ module.exports = function(grunt) {
         files: {
           'www-root/style-assets/css/style.css': 'development/terminalfour/src/sass/style.scss',
           'www-root/style-assets/css/style-ie.css': 'development/terminalfour/src/sass/style-ie.scss'
+
         }//files
       }//dist
     },//sass
