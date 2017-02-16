@@ -3,12 +3,12 @@
 // --------------------------------------------------
 
 
-.breadcrumb {
-  padding: $breadcrumb-padding-vertical $breadcrumb-padding-horizontal;
+.breadcrumb, .inner-page-breadcrumbs__nav {
+  padding: $breadcrumb-padding-vertical 0;
   margin-bottom: $line-height-computed;
   list-style: none;
-  background-color: $breadcrumb-bg;
-  border-radius: $border-radius-base;
+  background-color: transparent;
+  border-radius: none; 
 
   > li {
     display: inline-block;

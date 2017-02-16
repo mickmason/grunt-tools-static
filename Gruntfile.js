@@ -90,7 +90,8 @@ module.exports = function(grunt) {
           style: 'expanded',
         },//options
         files: {
-          'www-root/style-assets/css/style.css': 'development/terminalfour/src/sass/style.scss'
+          'www-root/style-assets/css/style.css': 'development/terminalfour/src/sass/style.scss',
+            'www-root/style-assets/css/style-ie.css': 'development/terminalfour/src/sass/style-ie.scss'
         }//files
       }//dist
     },//sass
@@ -137,7 +138,8 @@ module.exports = function(grunt) {
         options: {
           
           svg: { // will add and overide the the default xmlns="http://www.w3.org/2000/svg" attribute to the resulting SVG
-            viewBox : '0 0 100 100'
+            viewBox : '0 0 100 100',
+            xmlns: 'http://www.w3.org/2000/svg'
           },
           cleanup: 'style'
         },
