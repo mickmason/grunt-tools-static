@@ -8883,4 +8883,9 @@ footer a:active, footer a:hover, footer a:focus {
   border-bottom: none;
 }
 
+/* Language switchers - from old site */
+.en .lang-switcher.en, .hu .lang-switcher.hu, .ie .lang-switcher.ie, .zh .lang-switcher.zh, .pl .lang-switcher.pl, .es .lang-switcher.es {
+  display: none;
+}
+
 /*# sourceMappingURL=style.css.map */
