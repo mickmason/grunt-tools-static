@@ -1567,12 +1567,13 @@ $fc-padding-bottom: ($padding-small-vertical * 14.5);
     @include make-md-column(3);
 }
 .heading--side-bar {
-     @include to-rem(font-size, 14, 16);
+    @include to-rem(font-size, 14, 16);
     font-weight: 600;
     margin: 0;
     
     @include to-rem(padding, 14, 14, 16);
     @include to-rem(margin-bottom, 14, 16); 
+    background-color: $gray-lightest;
     border: 1px solid $brand-primary;
     position: relative;
     
@@ -1671,11 +1672,13 @@ $fc-padding-bottom: ($padding-small-vertical * 14.5);
 @media screen and (min-width: $screen-md-min) {
     .heading--side-bar {
         border: none;
+        padding-top: 0;
         padding-left: 0;
         margin-bottom: 0;
         .inner-navigation__show-more__icon, .inner-navigation__show-less__icon {
              display: none !important;
         }
+        background: transparent;
         &:hover {
             background: transparent;
             cursor: default;
@@ -1697,7 +1700,6 @@ $fc-padding-bottom: ($padding-small-vertical * 14.5);
                         background-color: $gray-light;     
                     }
                 }
-
         }
         .inner-navigation__show-more__icon, .inner-navigation__show-less__icon {
             @include to-rem(width, 16, 20);
@@ -1817,12 +1819,34 @@ footer {
         border-bottom: none;
     }
 }
-
+/*
+ * Styling and classes adapded and carried over from Old Site
+ *
+ */
+/* Forms */
+.dfa-form {
+    @include to-rem(margin-bottom, 14, 16);
+    label, textarea, input[type='text'] {
+        display: block;
+        width: 100%;
+    }
+   input[type='text'], textarea {
+         @include to-rem(margin-bottom, 14, 16);
+    }
+}
+@media screen and (min-width: $screen-sm-min) {
+    .dfa-form {
+        @include to-rem(margin-bottom, 16, 16);
+    }   
+    label, textarea, input[type='text'] {
+        display: block;
+        @include to-rem(max-width, 16, 480);
+    }
+}
 /* Language switchers - from old site */
 .en .lang-switcher.en, .hu .lang-switcher.hu, .ie .lang-switcher.ie, .zh .lang-switcher.zh,  .pl .lang-switcher.pl, .es .lang-switcher.es { display: none; }
 
 /* Utility classes from old site */
-
 .casestudy-banner {
     margin: 10px 0;
     position: relative;
