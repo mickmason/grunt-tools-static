@@ -212,9 +212,9 @@
                     function returnFieldSpecificErrorMessage(name, error) {
 
                     if(name !== "undefined" && name !== null) {
-                    if(name.indexOf('[]') > -1) {
-                    name = name.replace('[]', '');
-                    }
+                        if(name.indexOf('[]') > -1) {
+                            name = name.replace('[]', '');
+                        }
                     }
 
                     return error.replace('{field}', validationFieldName[name]);
@@ -222,7 +222,7 @@
                     }
                     </script>
                     <style>
-                    .form_of_contact { display: none !important; }
+                        .form_of_contact { display: none !important; }
                     </style>
 
                     <form accept-charset="utf-8" enctype="multipart/form-data" method="POST" name="contact_form" class="eform dfb contact dfa-form dfa-form--contact" id="custom_contact_form_dod">
@@ -244,7 +244,7 @@
                             <label for="your_query">Your Query:</label>
                             <textarea name="your_query" class="required"></textarea>
                         </div>
-                        <div id="form-required-element-block">
+                        <div id="form-required-element-block" style="display: none">
                             <label for="enter_your_acceptance_of_the_terms_and_conditions_here">I agree to the tos</label>
                             <input type="checkbox" id="enter_your_acceptance_of_the_terms_and_conditions_here" name="enter_your_acceptance_of_the_terms_and_conditions_here">
                         </div>
