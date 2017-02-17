@@ -2632,7 +2632,7 @@ select[multiple].input-lg,
   background-image: none;
   border: 1px solid transparent;
   white-space: nowrap;
-  padding: 4px 8px;
+  padding: 4px 12px;
   font-size: 14px;
   line-height: 1.5;
   border-radius: 4px;
@@ -2923,6 +2923,15 @@ a.btn.disabled, fieldset[disabled] a.btn {
 .btn-danger .badge {
   color: #005036;
   background-color: #fff;
+}
+
+.dfa-btn--submit {
+  background-color: #006845;
+  color: #fff;
+}
+.dfa-btn--submit:hover {
+  color: #fff;
+  background-color: #005036;
 }
 
 .btn-link {
@@ -8914,6 +8923,7 @@ header:after {
   padding: 1rem 1.14286rem;
   margin-bottom: 16px;
   margin-bottom: 1.14286rem;
+  background-color: #f4f5f6;
   border: 1px solid #006845;
   position: relative;
 }
@@ -9019,8 +9029,10 @@ header:after {
 @media screen and (min-width: 992px) {
   .heading--side-bar {
     border: none;
+    padding-top: 0;
     padding-left: 0;
     margin-bottom: 0;
+    background: transparent;
   }
   .heading--side-bar .inner-navigation__show-more__icon, .heading--side-bar .inner-navigation__show-less__icon {
     display: none !important;
@@ -9221,6 +9233,36 @@ footer a:active, footer a:hover, footer a:focus {
   border-bottom: none;
 }
 
+/*
+ * Styling and classes adapded and carried over from Old Site
+ *
+ */
+/* Forms */
+.dfa-form {
+  margin-bottom: 16px;
+  margin-bottom: 1.14286rem;
+}
+.dfa-form label, .dfa-form textarea, .dfa-form input[type='text'] {
+  display: block;
+  width: 100%;
+}
+.dfa-form input[type='text'], .dfa-form textarea {
+  margin-bottom: 16px;
+  margin-bottom: 1.14286rem;
+}
+
+@media screen and (min-width: 768px) {
+  .dfa-form {
+    margin-bottom: 16px;
+    margin-bottom: 1rem;
+  }
+
+  label, textarea, input[type='text'] {
+    display: block;
+    max-width: 480px;
+    max-width: 30rem;
+  }
+}
 /* Language switchers - from old site */
 .en .lang-switcher.en, .hu .lang-switcher.hu, .ie .lang-switcher.ie, .zh .lang-switcher.zh, .pl .lang-switcher.pl, .es .lang-switcher.es {
   display: none;

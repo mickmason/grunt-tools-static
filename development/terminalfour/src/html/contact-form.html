@@ -1,0 +1,253 @@
+    @@include('site-header.html') 
+    <!--** Main section .container **-->
+    <main class="main-section">
+        <!--** inner-page-breadcrumbs row -->
+        <section class="inner-page-breadcrumbs">
+            <div class="content-wrap">
+                <!--** breadcrumbs ** -->
+                <nav class="inner-page-breadcrumbs__block" >
+                       <ul class="inner-page-breadcrumbs__nav">
+                           <li><a href="index.html">Home</a></li>
+                           <li>General content</li>
+                       </ul>
+                </nav>
+                <!--** // breadcrumbs ** -->
+            </div>
+            <!--** // content-wrap **-->
+        </section>
+        <!--** // inner-page-breadcrumbs row -->
+        <!--** Main body row **-->
+        <section class="main-body">
+           <div class="content-wrap">
+                @@include('inner-page-sidebar.html')
+                <section class="main-body__main">
+                    <a id="d.en.145893"></a>
+                    <h1 class="content-heading">Contact the Africa Ireland Economic Forum</h1>
+                    <p><strong>Use the form below to get in touch with us</strong>.</p>
+                    <p>Please note that your email address will be validated on entry.&nbsp;&zwnj;</p> 
+                    <script type="text/javascript" src="/2017-Redesign/media/DFA/styleassets/js/jquery.validate.min.js"></script>
+                    <script type="text/javascript">
+                    jQuery(document).ready(function() {
+
+                        /** New Work **/
+                        jQuery('#form-required-element-block').css('display', 'none');
+
+                        if(jQuery('#error-list ol li').length > 0) {
+                            jQuery('#error-list').css('display', 'block');
+                        }
+
+                        errorMessage = [];
+                        errorMessage['numeric_data_error'] = 'The {field} field must be numeric.';
+                        errorMessage['required_data_error'] = 'Please fill in the {field} field.';
+                        errorMessage['internal_error'] = 'There was an internal error.';
+                        errorMessage['chars_error'] = 'Please enter no more than 250 characters in the {field} field.';
+                        errorMessage['email_error'] = 'Please enter a full and valid email address.';
+
+                        validationFieldName = [];
+                        validationFieldName['your_name'] = 'Name';
+                        validationFieldName['your_email'] = 'Email';
+                        validationFieldName['your_query'] = 'Query';
+
+                        jQuery.extend(jQuery.validator.messages, {
+                            email: errorMessage['email_error'],
+                            required: errorMessage['required_data_error'],
+                            maxlength: errorMessage['chars_error']
+                        });
+
+
+                        function emailValidation(email) {
+                            reg = /^(([^<>()[]\.,;:s@"]+(.[^<>()[]\.,;:s@"]+)*)|(".+"))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/;
+                            if(!reg.test(email)) {
+                                return true;
+                            } else {
+                                return false;
+                            }
+                        }
+
+
+                        jQuery.validator.addMethod("emailOnly", 
+                            function(value, element) {
+                                if(value.length > 0) {
+                                    return emailValidation(value);
+                                } else {
+                                    return true;
+                                }
+                            }
+                        );
+
+
+                        jQuery.validator.addMethod("numberOnly", 
+                        function(value, element) {
+                        if(value.length > 0) {
+                        return /^[0-9]+$/.test(value);
+                        } else {
+                        return true;
+                        }
+                        }, 
+                        "This field can only contain numbers. Spaces and text are not allowed"
+                        );
+
+
+
+                        jQuery("#submitbtn").parents("form").validate({
+                        highlight: function(element, errorClass) {
+
+                        jQuery(element).addClass(errorClass);
+
+                        elementID = element.id;
+
+                        elementType = jQuery("#" + elementID).attr("type");
+
+
+                        if(elementType === "text") {
+                        jQuery("#" + elementID).addClass(errorClass);
+                        } else if(elementType === "radio") {
+                        jQuery("#" + elementID).parent('.radio-container').css('padding', '4px 20px 2px 5px').css('background-color', '#FFE9E9').css('border', '1px solid #FF8F8F').css('margin', '10px 5px 0 5px');
+                        } else if(elementType === "checkbox") {
+                        jQuery("#" + elementID).parents('.checkbox-container').css('padding', '4px 20px 2px 5px')
+                        .css('background-color', '#FFE9E9') .css('border', '1px solid #FF8F8F') .css('margin', '10px 5px 0 5px');
+
+                        } else {
+                            jQuery("#" + elementID).addClass(errorClass);
+                        }
+                        },
+                        unhighlight: function(element, errorClass) {
+                        elementID = element.id;
+                        elementType = jQuery("#" + elementID).attr("type");
+                        if(elementType === "radio") {
+                            jQuery("#" + elementID).parents('.radio-container').css('padding', '10px 0')
+                            .css('background-color', '')
+                            .css('border', 'none')
+                            .css('margin', '0');
+                        }
+
+                        if(elementType === "checkbox") {
+                            jQuery("#" + elementID).parents('.checkbox-container').css('padding', '10px 0')
+                            .css('background-color', '')
+                            .css('border', 'none')
+                            .css('margin', '0');
+                        }
+
+                        jQuery(element).removeClass(errorClass);
+                        },
+                          /* 
+                            Rules for populating error list
+                          */      
+
+                              errorContainer: "#error-list",
+                              errorLabelContainer: jQuery("#error-list ol"),
+                              wrapper: 'li',
+                            errorPlacement: function(error,element) { return true; },
+                            
+
+                          /* 
+                            Disables the automatic focus of the first invalid input field and instead pops you back to up to the top of the page where the error list is.
+                          */      
+                              focusInvalid: false,
+
+                              invalidHandler: function(form, validator) {
+
+                              var errors = validator.numberOfInvalids();
+                              if (errors) {
+                                return false;
+                                jQuery('#error-list').show();
+                               jQuery('body,html').animate({scrollTop:0},800);
+                              }
+                            }
+                        });
+
+                        jQuery('.numbers').each(function() {
+                            jQuery(this).rules('add', {
+                                required: true,
+                                numberOnly: true,
+                                maxlength: 250,
+                                messages: {
+                                required: returnFieldSpecificErrorMessage(jQuery(this).attr("name"), errorMessage['required_data_error']),
+                                numberOnly:  returnFieldSpecificErrorMessage(jQuery(this).attr("name"), errorMessage['numeric_data_error']),
+                                maxlength: returnFieldSpecificErrorMessage(jQuery(this).attr("name"), errorMessage['chars_error'])
+                                }
+                                });
+                        });
+
+
+                    jQuery('.required').each(function() {
+                    jQuery(this).rules('add', {
+                    required: true,
+                    maxlength: 250,
+                    messages: {
+                    required:   returnFieldSpecificErrorMessage(jQuery(this).attr("name"), errorMessage['required_data_error']),
+                    maxlength: returnFieldSpecificErrorMessage(jQuery(this).attr("name"), errorMessage['chars_error'])
+                    }
+                    });
+                    });
+
+                    jQuery('.notrequired').each(function() {
+                    jQuery(this).rules('add', {
+                    maxlength: 250,
+                    messages: {
+                    maxlength: returnFieldSpecificErrorMessage(jQuery(this).attr("name"), errorMessage['chars_error'])
+                    }
+                    });
+                    });
+
+                    jQuery('.email').each(function() {
+                    jQuery(this).rules('add', {
+                    required: true,
+                    emailOnly: true,
+                    maxlength: 250,
+                    required: true,
+                    messages: {
+                    emailOnly:  returnFieldSpecificErrorMessage(jQuery(this).attr("name"), errorMessage['email_error']),
+                    maxlength: returnFieldSpecificErrorMessage(jQuery(this).attr("name"), errorMessage['chars_error']),
+                    required:  returnFieldSpecificErrorMessage(jQuery(this).attr("name"), errorMessage['email_error']) }
+                    });
+                    });
+
+
+                    return false;
+
+                    });
+
+                    function returnFieldSpecificErrorMessage(name, error) {
+
+                    if(name !== "undefined" && name !== null) {
+                    if(name.indexOf('[]') > -1) {
+                    name = name.replace('[]', '');
+                    }
+                    }
+
+                    return error.replace('{field}', validationFieldName[name]);
+
+                    }
+                    </script>
+                    <style>
+                    .form_of_contact { display: none !important; }
+                    </style>
+
+                    <form accept-charset="utf-8" enctype="multipart/form-data" method="POST" name="contact_form" class="eform dfb contact dfa-form dfa-form--contact" id="custom_contact_form_dod"><div id="error-list" style="display: none;">
+
+                      <strong>Validating details.. </strong>
+
+                      <ol></ol>
+
+                    </div><div><label for="your_name">Your Name:</label><input autocomplete="off" type="text" name="your_name" id="your_name" class="required"></div><div><label for="your_email">Your Email:</label><input autocomplete="off" type="text" name="your_email" id="your_email" class="email"></div><div><label for="your_query">Your Query:</label><textarea name="your_query" class="required"></textarea></div>
+                    <div id="form-required-element-block">
+                        <label for="enter_your_acceptance_of_the_terms_and_conditions_here">I agree to the tos</label>
+                        <input type="checkbox" id="enter_your_acceptance_of_the_terms_and_conditions_here" name="enter_your_acceptance_of_the_terms_and_conditions_here">
+                    </div>
+
+                    <label style="display: none;" for="enter_your_email_address_here">Please enter your email address</label><input style="display: none;" type="text" id="enter_your_email_address_here" name="enter_your_email_address_here">
+
+                    <label for="enter_your_favourable_form_of_contact_here" class="form_of_contact">How would you like to be contacted?</label>
+                    <select class="form_of_contact" name="enter_your_favourable_form_of_contact_here">
+                        <option value=""></option>
+                        <option value="phone">Phone</option>
+                        <option value="email">Email</option>
+                    </select>
+                    <div class="submitarea"><input type="submit" id="submitbtn" class="dfa-form--contact__submit btn dfa-btn--submit" value="Submit"></div></form>
+                </section>
+            </div>
+        </section>
+    </main>
+    <!--** // Main section .container **-->
+    @@include('site-footer.html')

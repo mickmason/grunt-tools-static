@@ -240,8 +240,8 @@
     function addShowInnerNavHandler() {
        if ($(window).outerWidth(true) <= 991) {
             $('.heading--side-bar').on('click', function showHideInnerNav(e) {  
-                e.preventDefault();
-                e.stopPropagation();
+                e.preventDefault(); 
+                e.stopPropagation(); 
                 var $thisHeading = $(this);
                 if (!$thisHeading.hasClass('active')) {
                     $thisHeading.siblings('.inner-navigation').fadeIn(200, function() {

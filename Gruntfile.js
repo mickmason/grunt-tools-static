@@ -79,7 +79,7 @@ module.exports = function(grunt) {
            banner: '\n/** \n * TERMINALFOUR custom and concatenated library scripts \n * Client: <%= pkg.clientName %>\n * Project: <%= pkg.projectName %>\n * Version: <%= pkg.version %>\n * Description: <%= pkg.description %>\n * Copyright <%= grunt.template.today("yyyy") %>\n * Created by <%= pkg.developer %>\n * on behalf of TERMINALFOUR\n * www.terminalfour.com\n*/\n',
         },
         dist: {
-          src: ['development/lib/jquery-ui/jquery-ui.min.js',  'development/lib/bootstrap.min.js', 'development/lib/slick/slick/slick.min.js', 'development/lib/jquery-match-height/jquery.matchHeight.js', 'development/lib/ekko-lightbox/ekko-lightbox.js', 'development/terminalfour/src/js/scripts.js'], 
+          src: ['development/lib/jquery-ui/jquery-ui.min.js',  'development/lib/bootstrap.min.js', 'development/lib/jquery-validate/jquery-validate-1.10.1.min.js', 'development/lib/slick/slick/slick.min.js', 'development/lib/jquery-match-height/jquery.matchHeight.js', 'development/lib/ekko-lightbox/ekko-lightbox.js', 'development/terminalfour/src/js/scripts.js'], 
           dest: 'www-root/style-assets/js/t4-scripts.min.js'
         }
       },//concat
@@ -165,7 +165,7 @@ module.exports = function(grunt) {
     copy: {
       copyJsLibs: {
         files: [
-          {expand: true, cwd: 'development/lib/', src: ['jquery-3.1.1/jquery-3.1.1.min.js'], dest: 'www-root/style-assets/lib/', filter: 'isFile'}
+          {expand: true, cwd: 'development/lib/', src: ['jquery-3.1.1/jquery-3.1.1.min.js', 'jquery-validate/jquery-validate-1.10.1.min.js'], dest: 'www-root/style-assets/lib/', filter: 'isFile'}
         ]
       },//main
       media: {
@@ -195,6 +195,7 @@ module.exports = function(grunt) {
         //Uncomment the line below and delete the other "tasks:['uglify:build'] to add JSHint into the project"
         //tasks: ['jshint','uglify:build']
         tasks: ['concat:dist', 'copy:copyJsLibs']
+          
       },//scripts
 
       htmlcompile: {

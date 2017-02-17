@@ -17,7 +17,7 @@
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
   border: 1px solid transparent;
   white-space: nowrap;
-  @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $btn-border-radius-base);
+  @include button-size($padding-base-vertical, $padding-base-horizontal * 1.5, $font-size-base, $line-height-base, $btn-border-radius-base);
   @include user-select(none);
 
   &,
@@ -90,7 +90,14 @@ a.btn {
 .btn-danger {
   @include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
 }
-
+.dfa-btn--submit {
+    background-color: $brand-primary;
+    color: $white;
+    &:hover {
+        color: $white;
+        background-color: $brand-darker;
+    }
+}
 
 // Link buttons
 // -------------------------
