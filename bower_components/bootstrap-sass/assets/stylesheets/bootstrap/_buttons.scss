@@ -93,7 +93,7 @@ a.btn {
 .dfa-btn--submit {
     background-color: $brand-primary;
     color: $white;
-    &:hover {
+    &:hover, &:active, &:focus  {
         color: $white;
         background-color: $brand-darker;
     }

@@ -2929,7 +2929,7 @@ a.btn.disabled, fieldset[disabled] a.btn {
   background-color: #006845;
   color: #fff;
 }
-.dfa-btn--submit:hover {
+.dfa-btn--submit:hover, .dfa-btn--submit:active, .dfa-btn--submit:focus {
   color: #fff;
   background-color: #005036;
 }
