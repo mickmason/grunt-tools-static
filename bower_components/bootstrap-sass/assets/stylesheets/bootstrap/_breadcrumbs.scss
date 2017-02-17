@@ -5,7 +5,9 @@
 
 .breadcrumb, .inner-page-breadcrumbs__nav {
   padding: $breadcrumb-padding-vertical 0;
-  margin-bottom: $line-height-computed;
+  @include to-rem(margin-bottom, 16, 8);
+  @include to-rem(margin-bottom, 16, 8);
+  @include to-rem(font-size, 16, 14);
   list-style: none;
   background-color: transparent;
   border-radius: none; 
@@ -26,3 +28,4 @@
     color: $breadcrumb-active-color;
   }
 }
+

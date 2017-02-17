@@ -1,23 +1,8 @@
-<<<<<<< HEAD
-/* IE styles */
-.dfa-icon__svg {
-        display: none;
-    &.dfa-icon__svg--ie-fallback {
-            display: inline-block;
-        img {
-            display: block;
-            
-        width:  25px;
-        height: 25px;
-        }
-    }
-=======
-/* IE Styles */
 
+/* IE Styles */
 .dfa-logo {
     height: 63px;
 }
 .header-navigation__mobile-icon img {
     height: 26px; 
->>>>>>> mm-dev
 }

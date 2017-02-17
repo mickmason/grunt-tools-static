@@ -4185,7 +4185,12 @@ tbody.collapse.in {
 
 .breadcrumb, .inner-page-breadcrumbs__nav {
   padding: 8px 0;
-  margin-bottom: 21px;
+  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
+  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
+  font-size: 14px;
+  font-size: 0.875rem;
   list-style: none;
   background-color: transparent;
   border-radius: none;
@@ -7013,7 +7018,9 @@ header:after {
 }
 
 .header-title__logo {
-  max-width: 170px;
+  width: 100%;
+  height: 48px;
+  height: 3.42857rem;
 }
 .header-title__logo.header-title__logo--large {
   display: none;
@@ -7259,7 +7266,8 @@ header:after {
   }
 
   .header-title__logo {
-    max-width: 234px;
+    max-width: 300px;
+    max-width: 18.75rem;
   }
 
   .header-navigation__mobile-search, .header-navigation__mobile-menu {
@@ -7335,8 +7343,6 @@ header:after {
 
   .secondary-navigation {
     position: relative;
-    float: left;
-    width: 75%;
     min-height: 1px;
     padding-left: 15px;
     padding-right: 15px;
@@ -7345,6 +7351,23 @@ header:after {
     float: left;
     display: block;
     width: 65%;
+  }
+}
+@media (min-width: 992px) and (min-width: 992px) {
+  .secondary-navigation {
+    float: left;
+    width: 75%;
+  }
+}
+@media (min-width: 992px) {
+  .secondary-navigation .dfa-icon {
+    display: inline;
+  }
+  .secondary-navigation .close-menu {
+    width: 24px;
+    width: 1.5rem;
+    height: 24px;
+    height: 1.5rem;
   }
 
   .dfa-site-search-input {
@@ -7550,6 +7573,26 @@ header:after {
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
+}
+
+@media screen and (min-width: 992px) {
+  .inner-page-breadcrumbs__block {
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+@media screen and (min-width: 992px) and (min-width: 992px) {
+  .inner-page-breadcrumbs__block {
+    float: left;
+    width: 75%;
+  }
+}
+@media screen and (min-width: 992px) and (min-width: 992px) {
+  .inner-page-breadcrumbs__block {
+    margin-left: 25%;
+  }
 }
 
 /***
@@ -8880,19 +8923,25 @@ header:after {
 }
 .heading--side-bar .inner-navigation__show-more__icon, .heading--side-bar .inner-navigation__show-less__icon {
   position: absolute;
-  top: 18%;
+  top: 19%;
   right: 8px;
-  width: 30px;
-  width: 2.14286rem;
-  height: 30px;
-  height: 2.14286rem;
+  width: 28px;
+  width: 2rem;
+  height: 28px;
+  height: 2rem;
+}
+.heading--side-bar.active .inner-navigation__show-more__icon {
+  display: none;
+}
+.heading--side-bar.active .inner-navigation__show-less__icon {
+  display: inline;
 }
 
 .inner-navigation__show-more__icon, .inner-navigation__show-less__icon {
-  width: 22px;
-  width: 1.57143rem;
-  height: 22px;
-  height: 1.57143rem;
+  width: 18px;
+  width: 1.28571rem;
+  height: 18px;
+  height: 1.28571rem;
 }
 
 .inner-navigation__show-less__icon {
@@ -8900,6 +8949,7 @@ header:after {
 }
 
 .inner-navigation {
+  display: none;
   list-style-image: none;
 }
 .inner-navigation, .inner-navigation ul {
@@ -8973,9 +9023,16 @@ header:after {
     margin-bottom: 0;
   }
   .heading--side-bar .inner-navigation__show-more__icon, .heading--side-bar .inner-navigation__show-less__icon {
-    display: none;
+    display: none !important;
+  }
+  .heading--side-bar:hover {
+    background: transparent;
+    cursor: default;
   }
 
+  .inner-navigation {
+    display: block !important;
+  }
   .inner-navigation [class*='currentbranch'] {
     width: 85%;
     display: block;
@@ -9008,6 +9065,26 @@ header:after {
   .main-body__main {
     float: left;
     width: 75%;
+  }
+}
+.main-body__main .content-heading {
+  margin-top: 0;
+}
+
+@media screen and (min-width: 1200px) {
+  .main-body__main {
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: 48px;
+    margin-left: 2.66667rem;
+  }
+}
+@media screen and (min-width: 1200px) and (min-width: 992px) {
+  .main-body__main {
+    float: left;
+    width: 58.33333%;
   }
 }
 
@@ -9147,6 +9224,35 @@ footer a:active, footer a:hover, footer a:focus {
 /* Language switchers - from old site */
 .en .lang-switcher.en, .hu .lang-switcher.hu, .ie .lang-switcher.ie, .zh .lang-switcher.zh, .pl .lang-switcher.pl, .es .lang-switcher.es {
   display: none;
+}
+
+/* Utility classes from old site */
+.casestudy-banner {
+  margin: 10px 0;
+  position: relative;
+}
+
+.content .info {
+  border: medium none;
+  margin-left: 5px;
+  vertical-align: bottom;
+}
+
+.casestudy-banner .info {
+  background-color: #000;
+  bottom: 30px;
+  font-size: 20px;
+  left: 20px;
+  padding-bottom: 20px;
+  position: absolute;
+  width: 315px;
+}
+
+.casestudy-banner .info p {
+  color: #F0F0F0;
+  line-height: 23px;
+  margin: 0;
+  padding: 18px 15px 0 18px;
 }
 
 /*# sourceMappingURL=style.css.map */

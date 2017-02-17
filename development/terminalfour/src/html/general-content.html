@@ -25,13 +25,15 @@
                         <img class="inner-navigation__show-less__icon" src="style-assets/media/svg-imgs/down_arrow.svg" alt="View more icon" />
                     </h3>
                     <ul class="inner-navigation">
-                        <li><a href="javascript:void">Section link #1</a></li>
+                        <li><span class="currentbranch0"><a href="javascript:void" >Section link #1</a></span>
+                            <ul>
+                                <li><a href="javascript:void">Section sub-link #1</a></li>
+                                <li><a href="javascript:void">Section sub-link #2</a></li>
+                                <li><a href="javascript:void">Section sub-link #3</a></li>
+                            </ul>
+                        </li>
                         <li><a href="javascript:void">Section link #2</a></li>
                         <li><span class="currentbranch0"><a href="javascript:void" >Section link #3</a></span>
-                           <a href="#" class="inner-navigation__show-more">
-                               <img class="inner-navigation__show-more__icon" src="style-assets/media/svg-imgs/next_arrow.svg" alt="View more icon" />
-                               <img class="inner-navigation__show-less__icon" src="style-assets/media/svg-imgs/down_arrow.svg" alt="View more icon" />
-                           </a>
                             <ul>
                                 <li><a href="javascript:void">Section sub-link #1</a></li>
                                 <li><a href="javascript:void">Section sub-link #2</a></li>
@@ -41,9 +43,74 @@
                         <li><a href="javascript:void">Section link #4</a></li>
                         <li><a href="javascript:void">Section link #5</a></li>
                     </ul>
+                    <!-- Script adds show more/less links to inner navs with dropdowns -->
+                    <script>
+                        (function addShowMoreLessLinks() {
+                            /* Add show more, show less icons if there are nested links */
+                            var $showMoreAnchor = $('<a/>');
+                            $showMoreAnchor.addClass('inner-navigation__show-more');
+                            $showMoreAnchor.attr('href', '#');
+                            var $showMoreImg = $('<img />').attr('src','style-assets/media/svg-imgs/next_arrow.svg').attr('class', 'inner-navigation__show-more__icon').attr('alt', 'Show more links in this section');
+                            var $showShowImg = $('<img />').attr('src','style-assets/media/svg-imgs/down_arrow.svg').attr('class', 'inner-navigation__show-less__icon').attr('alt', 'Show fewer links in this section');
+                            $showMoreAnchor.append([$showMoreImg, $showShowImg]);
+                            $('.currentbranch0').after($showMoreAnchor);
+                        })();
+                    </script>
+                    
+                    
                 </aside>
                 <section class="main-body__main">
-                    <h1>Main body</h1>
+                    <a id="d.en.145893"></a>
+                    <h1 class="removebottomborder">Ireland 2016 Global and Diaspora Programme launched</h1>
+
+                      <div class="casestudy-banner">
+                        <img src="style-assets/media/imgs/global-diaspora-gpo-feature.jpg" alt="Ireland 2016 Global and Disapora" class="img-responsive" title="Ireland 2016 Global and Disapora" >
+                        <div class="info">
+                          <p>Extensive programme of events to take place around the world</p>
+                        </div>
+                      </div>
+                    <!-- End of Image t4Tag -->
+                    <p class="introduction"><a href="http://www.ireland.ie/">Ireland 2016</a> is an ambitious and wide-ranging national commemorative initiative, which will see an extensive programme of events take place in Ireland and around the world to mark the centenary of the Easter Rising of 1916, a key moment on Ireland’s path to independence. It is a once-in-a-century opportunity at home and overseas to explore, present, debate and reflect on Ireland then, now and to imagine the next 100 years.</p>
+                    <p><a href="https://www.dfa.ie/media/dfa/alldfawebsitemedia/ourrolesandpolicies/ourwork/Ireland-2016-Mission-Events-Summary.pdf">The Global and Diaspora Programme</a> is one of the seven strands of the overall Ireland 2016 programme. Through our network of Embassies and Consulates, we will mark this historic anniversary by organising an extensive range of events all around the world. <a href="https://www.dfa.ie/media/dfa/alldfawebsitemedia/ourrolesandpolicies/ourwork/Ireland-2016-Mission-Events-Summary.pdf">The Programme</a> includes flagship events that will showcase the best of traditional and contemporary Ireland across the full range of the arts, including theatre, literature, music and dance.</p>
+                    <blockquote>
+                    <p>It is a once-in-a-century opportunity at home and overseas to explore, present, debate and reflect on Ireland</p>
+                    </blockquote>
+                    <p class="postblock">Commemorating the 1916 Rising presents many opportunities to reflect on its many international dimensions. The Minister for Foreign Affairs and Trade, Mr Charlie Flanagan T.D., commented: <em>“Ireland in 1916 was, as it is now, a global island, a nation that both reflected and was engaged in the bigger international issues of the day. This is why I asked Ireland’s network of embassies and consulates to plan events which will engage our diaspora and friends abroad, as well as to present the Ireland of today to the world. And our diaspora and friends of Ireland around the world have already set to work with gusto.”</em></p>
+                    <p>The John F. Kennedy Center for the Performing Arts in Washington D.C. will host a three-week festival of Irish arts and culture</p>
+                    <p>The following are just some of the events that are currently being planned around the globe:</p>
+                    
+                    <ul>
+
+                    <li>The John F. Kennedy Center for the Performing Arts in <strong>Washington D.C.</strong>, in partnership with the Embassy of Ireland, will host a three-week festival of Irish arts and culture entitled ‘Ireland 100: Celebrating a Century of Irish Arts and Culture’ from 16 May to 5 June 2016.</li>
+
+                    <li>A concert featuring Irish classical musicians and singers will take place at the renowned <strong>London</strong> venue, the Wigmore Hall, in April 2016. Led by the Wigmore Hall’s Irish Director, John Gilhooly, this major concert will showcase the Irish contribution to classical music as part of the 2016 commemorations.</li>
+
+                    <li>Glucksman Ireland House at <strong>New York</strong> University (NYU) will present a series of public events commencing in autumn 2015 focusing on music, film, poetry, and prose. This series will culminate in a major academic conference on April 21-23 2016, which will explore the relationship between America and 1916, and will involve over twenty academic speakers from Ireland and across the United States.</li>
+
+                    <li>From March to July 2016, the Irish Embassy in <strong>Buenos Aires</strong> will hold schools’ essay and art competitions, which will encourage participants to reflect on themes that include the Easter Rising and Irish-Argentine relations. A schools’ ‘Gaelic Football Blitz’ will also take place.</li>
+
+                    <li>The Irish Embassy in the UAE, in partnership with the Danú theatre group, will host a series of cultural events to mark the 1916 Rising at The Madinat Theatre, in <strong>Dubai</strong>, on 22-23 April 2016. The programme will consist of a Seán O' Casey play along with Irish dancing, traditional Irish music and singing centred on the poetry and last letters of the leaders of the 1916 Rising.</li>
+
+                    <li>In <strong>Sydney</strong>, a series of performances of Seán O’Casey’s The Plough and the Stars will take place during the annual St Patrick’s Day Festival.</li>
+
+                    <li>Next year’s <strong>Paris</strong> International Beckett Festival will run for the entire month of March 2016 and will include a focus on the 1916 Rising. The Sixteen16 centennial programme will involve performances that respond to Samuel Beckett’s work by sixteen Irish artists or artistic groups from Ireland’s theatre, dance, literature, visual arts, music and film sectors.</li>
+                    <li>Glór na nGael and our Consulate General in <strong>Boston</strong> will hold a conference in June 2016 bringing together Irish language groups from across the US</li>
+                    <li>A range of commemorative events are planned for <strong>Rome, Berlin</strong> and other European cities including film screenings, writers’ events and theatre performances.</li>
+
+                    </ul>
+
+                    <blockquote>
+                    <p>This centenary is an opportunity “to consider the international dimension of events in Ireland a century ago.” Minister Flanagan</p>
+                    </blockquote>
+                    <p class="postblock">One of first events of the Global and Diaspora Programme, the commemorations of the death of Jeremiah O’Donovan Rossa took place in New York over this past weekend. The Irish Consulate, the GAA, the New York County Cork Association, the Ancient Order of Hibernians and many more groups, individuals and other friends of Ireland came together to remember O’Donovan Rossa and his place in our history and in the links between Ireland and the US.</p>
+                   
+                    <h3>Find out more</h3>
+                    <p><a href="javascript:void()">Check out the full programme of events</a>.</p>
+                    <p>Further information about&nbsp;<a href="javascript:void()">Ireland 2016</a>.</p>
+                    <p><a href="javascript:void()" class="external">Follow us on Twitter</a>&nbsp;for updates during the launch.</p>
+                    <p><a title="Home &amp;raquo; DFA &amp;raquo; News &amp;amp; Media &amp;raquo; Press releases &amp;raquo; Press release archive &amp;raquo; 2015 &amp;raquo; June &amp;raquo; Launch of the Ireland 2016 Global and Diaspora Programme" href="javascript:void()">Read more about the launch</a>.</p>
+                    <p><a title="Home &amp;raquo; DFA &amp;raquo; News &amp;amp; Media &amp;raquo; Speeches &amp;raquo; Speeches Archive &amp;raquo; 2015 &amp;raquo; June &amp;raquo; Speech by Minister Flanagan at the launch of the Ireland 2016 Global &amp;amp; Diaspora Programme" href="javascript:void()">Read Minister Flanagan’s speech at the launch</a>.</p>
+                    
                 </section>
             </div>
         </section>

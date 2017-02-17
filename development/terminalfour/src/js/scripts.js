@@ -236,7 +236,33 @@
     /**!
      * General content inner navigation
      */
-    $(document).on('click', '.inner-navigation__show-more', function(e) {
+    /* Show/hide inner nav in smaller resolutions max-width 991px */
+    function addShowInnerNavHandler() {
+       if ($(window).outerWidth(true) <= 991) {
+            $('.heading--side-bar').on('click', function showHideInnerNav(e) {  
+                e.preventDefault();
+                e.stopPropagation();
+                var $thisHeading = $(this);
+                if (!$thisHeading.hasClass('active')) {
+                    $thisHeading.siblings('.inner-navigation').fadeIn(200, function() {
+                        $thisHeading.addClass('active');
+                    });    
+                } else {
+                    $thisHeading.siblings('.inner-navigation').fadeOut(200, function() {
+                        $thisHeading.removeClass('active');
+                    });    
+                }
+                
+            });        
+       } else {
+          $('.heading--side-bar').off('click');
+       }
+    }
+    addShowInnerNavHandler();
+    $(window).on('resize', addShowInnerNavHandler);
+    
+    /* Click handler for links with nested links */
+    $(document).on('click', '.inner-navigation__show-more', function(e) { 
         e.preventDefault();
         e.stopPropagation();
         var $this = $(this);

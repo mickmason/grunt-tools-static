@@ -69,7 +69,6 @@
                     width: 100%;
             }
         }
-
 }
 .dfa-icon, dfa-icon__with-label {
     display: inline-block;
@@ -90,8 +89,6 @@
 }
 
 .svg-icon--dfa-logo--simple-horiz {
-
-
 }
 .dfa-icon__with-label {
     .dfa-icon-label {
@@ -210,7 +207,8 @@ header {
     height: 72px;
 }
 .header-title__logo {
-   max-width: 170px;
+    width: 100%;
+    @include to-rem(height, 14, 48);
     &.header-title__logo--large { display: none;}
 }
 .dfa-logo {
@@ -257,7 +255,6 @@ header {
 .secondary-navigation {
     @include rem-calc(padding-right, 7);
     float: left;
-
     display: none;
 }
 .secondary-nav-nav, .secondary-nav__sub {
@@ -391,10 +388,11 @@ header {
     .header-title, .header-navigation__mobile {
         height: 86px;
     }  
-
     .header-title__logo {
-       max-width: 234px;
+    @include to-rem(max-width, 16, 300);
+       
     }
+
     .header-navigation__mobile-search, .header-navigation__mobile-menu {
         height: 86px;
         width: 66px ;
@@ -434,7 +432,7 @@ header {
     .header-title--mobile {
         display: none;
     }
-    .header-title__logo {
+    .header-title__logo { 
         max-width: 300px;
         &.header-title__logo--small { display: none; }
         &.header-title__logo--large { 
@@ -445,11 +443,18 @@ header {
         display: none;
     }
     .secondary-navigation {
-        @include make-xs-column(9);
+        @include make-md-column(9);
         @include rem-calc(padding-right, 0);
         float: left;
         display: block;
         width: 65%;
+        .dfa-icon {
+            display: inline;
+        }
+        .close-menu {
+            @include to-rem(width, 16, 24);
+            @include to-rem(height, 16, 24);
+        }
     }
     .dfa-site-search-input {
             font-size: $font-size-large;
@@ -578,6 +583,13 @@ header {
 }
 .inner-page-breadcrumbs__block {
     @include make-xs-column(12);
+}
+
+@media screen and (min-width: $screen-md-min) {
+    .inner-page-breadcrumbs__block {
+        @include make-md-column(9);
+        @include make-md-column-offset(3);
+    }
 }
 
 /***
@@ -1570,22 +1582,31 @@ $fc-padding-bottom: ($padding-small-vertical * 14.5);
     }
     .inner-navigation__show-more__icon, .inner-navigation__show-less__icon {
         position: absolute;
-        top: 18%;
+        top: 19%;
         right: 8px;
-        @include to-rem(width, 14, 30);
-        @include to-rem(height, 14, 30);
+        @include to-rem(width, 14, 28);
+        @include to-rem(height, 14, 28);
+    }
+    &.active {
+        .inner-navigation__show-more__icon {
+            display: none;
+        } 
+        .inner-navigation__show-less__icon {
+            display: inline;
+        }
     }
 }
 
 .inner-navigation__show-more__icon, .inner-navigation__show-less__icon {
-        @include to-rem(width, 14, 22);
-        @include to-rem(height, 14, 22);
+        @include to-rem(width, 14, 18);
+        @include to-rem(height, 14, 18);
 }
 .inner-navigation__show-less__icon {
         display: none;
 }
 
 .inner-navigation {
+    display: none;
     list-style-image: none;
     &, ul {
         padding: 0;
@@ -1653,10 +1674,15 @@ $fc-padding-bottom: ($padding-small-vertical * 14.5);
         padding-left: 0;
         margin-bottom: 0;
         .inner-navigation__show-more__icon, .inner-navigation__show-less__icon {
-             display: none;
+             display: none !important;
+        }
+        &:hover {
+            background: transparent;
+            cursor: default;
         }
     }
     .inner-navigation {
+         display: block !important;
          [class*='currentbranch'] {
             width: 85%;
             display: block;
@@ -1682,6 +1708,16 @@ $fc-padding-bottom: ($padding-small-vertical * 14.5);
 
 .main-body__main {
     @include make-md-column(9);
+    .content-heading {margin-top: 0;}
+    
+}
+
+@media screen and (min-width: $screen-lg-min) {
+     .main-body__main {
+         @include make-md-column(7);
+        @include to-rem(margin-left, 18, 48);
+         
+    }   
 }
 /** 
  * Footer 
@@ -1784,3 +1820,30 @@ footer {
 
 /* Language switchers - from old site */
 .en .lang-switcher.en, .hu .lang-switcher.hu, .ie .lang-switcher.ie, .zh .lang-switcher.zh,  .pl .lang-switcher.pl, .es .lang-switcher.es { display: none; }
+
+/* Utility classes from old site */
+
+.casestudy-banner {
+    margin: 10px 0;
+    position: relative;
+}   
+.content .info {
+    border: medium none;
+    margin-left: 5px;
+    vertical-align: bottom;
+}
+.casestudy-banner .info {
+    background-color: #000;
+    bottom: 30px;
+    font-size: 20px;
+    left: 20px;
+    padding-bottom: 20px;
+    position: absolute;
+    width: 315px;
+}
+.casestudy-banner .info p {
+    color: #F0F0F0;
+    line-height: 23px;
+    margin: 0;
+    padding: 18px 15px 0 18px;
+}
