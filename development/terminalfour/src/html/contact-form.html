@@ -77,20 +77,21 @@
 
 
                         jQuery.validator.addMethod("numberOnly", 
-                        function(value, element) {
-                        if(value.length > 0) {
-                        return /^[0-9]+$/.test(value);
-                        } else {
-                        return true;
-                        }
-                        }, 
-                        "This field can only contain numbers. Spaces and text are not allowed"
+                            function(value, element) {
+                                if(value.length > 0) {
+                                    return /^[0-9]+$/.test(value);
+                                } else {
+                                    return true;
+                                }
+                            }, 
+                            "This field can only contain numbers. Spaces and text are not allowed"
                         );
 
 
 
                         jQuery("#submitbtn").parents("form").validate({
-                        highlight: function(element, errorClass) {
+                            console.log('validating');
+                            highlight: function(element, errorClass) {
 
                         jQuery(element).addClass(errorClass);
 
@@ -224,27 +225,42 @@
                     .form_of_contact { display: none !important; }
                     </style>
 
-                    <form accept-charset="utf-8" enctype="multipart/form-data" method="POST" name="contact_form" class="eform dfb contact dfa-form dfa-form--contact" id="custom_contact_form_dod"><div id="error-list" style="display: none;">
+                    <form accept-charset="utf-8" enctype="multipart/form-data" method="POST" name="contact_form" class="eform dfb contact dfa-form dfa-form--contact" id="custom_contact_form_dod">
+                      <div id="error-list" style="display: none;">
 
-                      <strong>Validating details.. </strong>
+                          <strong>Validating details.. </strong>
 
-                      <ol></ol>
+                          <ol></ol>
 
-                    </div><div><label for="your_name">Your Name:</label><input autocomplete="off" type="text" name="your_name" id="your_name" class="required"></div><div><label for="your_email">Your Email:</label><input autocomplete="off" type="text" name="your_email" id="your_email" class="email"></div><div><label for="your_query">Your Query:</label><textarea name="your_query" class="required"></textarea></div>
-                    <div id="form-required-element-block">
-                        <label for="enter_your_acceptance_of_the_terms_and_conditions_here">I agree to the tos</label>
-                        <input type="checkbox" id="enter_your_acceptance_of_the_terms_and_conditions_here" name="enter_your_acceptance_of_the_terms_and_conditions_here">
-                    </div>
+                        </div>
+                        <div>
+                            <label for="your_name">Your Name:</label>
+                            <input autocomplete="off" type="text" name="your_name" id="your_name" class="required">
+                        </div>
+                        <div>
+                            <label for="your_email">Your Email:</label>
+                            <input autocomplete="off" type="text" name="your_email" id="your_email" class="email"></div>
+                        <div>
+                            <label for="your_query">Your Query:</label>
+                            <textarea name="your_query" class="required"></textarea>
+                        </div>
+                        <div id="form-required-element-block">
+                            <label for="enter_your_acceptance_of_the_terms_and_conditions_here">I agree to the tos</label>
+                            <input type="checkbox" id="enter_your_acceptance_of_the_terms_and_conditions_here" name="enter_your_acceptance_of_the_terms_and_conditions_here">
+                        </div>
 
-                    <label style="display: none;" for="enter_your_email_address_here">Please enter your email address</label><input style="display: none;" type="text" id="enter_your_email_address_here" name="enter_your_email_address_here">
+                        <label style="display: none;" for="enter_your_email_address_here">Please enter your email address</label><input style="display: none;" type="text" id="enter_your_email_address_here" name="enter_your_email_address_here">
 
-                    <label for="enter_your_favourable_form_of_contact_here" class="form_of_contact">How would you like to be contacted?</label>
-                    <select class="form_of_contact" name="enter_your_favourable_form_of_contact_here">
-                        <option value=""></option>
-                        <option value="phone">Phone</option>
-                        <option value="email">Email</option>
-                    </select>
-                    <div class="submitarea"><input type="submit" id="submitbtn" class="dfa-form--contact__submit btn dfa-btn--submit" value="Submit"></div></form>
+                        <label for="enter_your_favourable_form_of_contact_here" class="form_of_contact">How would you like to be contacted?</label>
+                        <select class="form_of_contact" name="enter_your_favourable_form_of_contact_here">
+                            <option value=""></option>
+                            <option value="phone">Phone</option>
+                            <option value="email">Email</option>
+                        </select>    
+                        <div class="submitarea">
+                        <input type="submit" id="submitbtn" class="dfa-form--contact__submit btn dfa-btn--submit" value="Submit">
+                        </div>
+                    </form>
                 </section>
             </div>
         </section>
