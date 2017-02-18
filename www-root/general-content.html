@@ -9,8 +9,9 @@
    <!--[if lte IE 10]>
       <link href="style-assets/css/style-ie.css" rel="stylesheet" type="text/css">
     <![endif]-->
-<!--    <script src="style-assets/lib/jquery-3.1.1/jquery-3.1.1.min.js"></script>-->
+    
     <script src="style-assets/lib/jquery-3.1.1/jquery-3.1.1.min.js"></script>
+    <script src="style-assets/lib/jquery-validate/jquery-validate-1.10.1.min.js"></script>
 </head>
 <body>
        <!--** Site header container **-->
@@ -192,14 +193,20 @@
                     <!-- Script adds show more/less links to inner navs with dropdowns -->
                     <script>
                         (function addShowMoreLessLinks() {
+                          if ($('.multilevel-linkul-0')) {
+                            console.log('MLUL');
+                            var $mlUl = $('.multilevel-linkul-0');
                             /* Add show more, show less icons if there are nested links */
                             var $showMoreAnchor = $('<a/>');
                             $showMoreAnchor.addClass('inner-navigation__show-more');
                             $showMoreAnchor.attr('href', '#');
                             var $showMoreImg = $('<img />').attr('src','style-assets/media/svg-imgs/next_arrow.svg').attr('class', 'inner-navigation__show-more__icon').attr('alt', 'Show more links in this section');
-                            var $showShowImg = $('<img />').attr('src','style-assets/media/svg-imgs/down_arrow.svg').attr('class', 'inner-navigation__show-less__icon').attr('alt', 'Show fewer links in this section');
-                            $showMoreAnchor.append([$showMoreImg, $showShowImg]);
-                            $('.currentbranch0').after($showMoreAnchor);
+                            var $showLessImg = $('<img />').attr('src','style-assets/media/svg-imgs/down_arrow.svg').attr('class', 'inner-navigation__show-less__icon').attr('alt', 'Show fewer links in this section');
+                            $showMoreAnchor.append([$showMoreImg, $showLessImg]);
+                            $mlUl.each(function() {
+                                $(this).before($showMoreAnchor);
+                                });
+                            }
                         })();
                     </script>
                 </aside>;
