@@ -244,7 +244,7 @@ header {
     height: 72px;
 }
 .header-title__logo {
-    width: 100%;
+    //width: 100%;
     @include to-rem(height, 14, 48);
     &.header-title__logo--large { display: none;}
 }
@@ -456,7 +456,7 @@ header {
         background-color: $gray-light;
     }
     .header-title {
-        @include make-md-column(3);
+        @include make-md-column(4);
         height: auto;
         .svg-icon--dfa-logo {
             fill: $brand-primary;
@@ -481,7 +481,7 @@ header {
         display: none;
     }
     .secondary-navigation {
-        @include make-md-column(9);
+        @include make-md-column(8);
         @include rem-calc(padding-right, 0);
         float: left;
         display: block;
@@ -508,7 +508,7 @@ header {
         border-bottom: none;
     }
     .main-nav {
-        @include make-md-column(10);
+        @include make-md-column(10, 0);
     }
     .main-nav-list {
         padding: 0;
@@ -551,10 +551,11 @@ header {
             display: none;
         }
         .desktop-search-icon, .search-icon {
-            width: 34px;
             @include to-rem(width, 16, 32);
+            @include to-rem(height, 16, 32);
         }
         .desktop-search-icon {
+            @include to-rem(width, 16, 32);
             float: right;
         }
         .search-icon {
@@ -565,7 +566,6 @@ header {
     }
 }
 @media (min-width: $screen-lg-min) {
-
     .dfa-logo {
         max-width: 340px;
         @include to-rem( max-width, 18, 340);
@@ -576,13 +576,16 @@ header {
     }
     
     .desktop-search {
+        .desktop-search-anchor {
+            padding: ($padding-small-vertical * 1.5) ($padding-small-horizontal * 2.5) ($padding-small-vertical * 1.5) ($padding-small-horizontal * 3);
+        }
         .desktop-search-icon, .search-icon {
-            @include to-rem(width, 18, 32);
+            //@include to-rem(width, 18, 32);
         }
         .desktop-search-text {
             display: block;
             text-align: center;
-            @include to-rem(padding, 16, ($padding-small-vertical * 1.5), ($padding-small-horizontal * 1), ($padding-small-vertical * 1 + 1), ($padding-small-horizontal * 1.5));
+            @include to-rem(padding, 16, ($padding-small-vertical * 1.75), ($padding-small-horizontal * 1), ($padding-small-vertical * 0), ($padding-small-horizontal * 1.5));
             @include dfa-text-to-uppercase(0.1);
             @include to-rem(font-size, 16, 12);
             float: right;
@@ -631,7 +634,11 @@ header {
         @include make-md-column-offset(3);
     }
 }
-
+@media screen and (min-width: $screen-lg-min) {
+    .inner-page-breadcrumbs__nav {
+        @include to-rem(margin-left, 18, 48);
+    }
+}
 /***
  *
  * Landing page main body 
@@ -1629,7 +1636,6 @@ $fc-padding-bottom: ($padding-small-vertical * 14.5);
     
     &:hover {
         cursor: pointer;
-        background-color: $gray-light;
     }
     .inner-navigation__show-more__icon, .inner-navigation__show-less__icon {
         position: absolute;
@@ -1639,6 +1645,7 @@ $fc-padding-bottom: ($padding-small-vertical * 14.5);
         @include to-rem(height, 14, 28);
     }
     &.active {
+        margin-bottom: 0;
         .inner-navigation__show-more__icon {
             display: none;
         } 
@@ -1659,22 +1666,27 @@ $fc-padding-bottom: ($padding-small-vertical * 14.5);
 .inner-navigation {
     display: none;
     list-style-image: none;
-    &, ul {
-        padding: 0;
-        margin: 0;        
-    }
+
+    padding: 0;
+    margin: 0; 
+    @include to-rem(padding, 14, 16, 6, 0, 6); 
+    @include to-rem(margin-bottom, 14, 22); 
+    background-color: $gray-lightest;
     li {
         @include clearfix;
         list-style: none;
         li {
-            
             a {
                 @include to-rem(padding-left, 14, ($padding-small-vertical * 4)) ;
             }
         }
         > ul {
+            @include to-rem(padding-left, 16, 12);
+            @include to-rem(padding-bottom, 16, 12);
             display: none;
+            @include to-rem(font-size, 16, 15);
         }
+        
         &:last-child {
             border-bottom: none;
         }
@@ -1735,12 +1747,15 @@ $fc-padding-bottom: ($padding-small-vertical * 14.5);
         }
     }
     .inner-navigation {
+            @include to-rem(padding, 14, 0); 
+    
+    background-color: transparent;
          display: block !important;
-         [class*='currentbranch'] {
+         .inner-navigation__parent-link {
             width: 85%;
             display: block;
             float: left;
-             & + a {
+             & + .inner-navigation__show-more {
                     padding-left: 0;
                     padding-right: 0;
                     text-align: center;
@@ -1749,7 +1764,8 @@ $fc-padding-bottom: ($padding-small-vertical * 14.5);
                     &:hover {
                         background-color: $gray-light;     
                     }
-                }
+                     float: left;
+            }
         }
         .inner-navigation__show-more__icon, .inner-navigation__show-less__icon {
             @include to-rem(width, 16, 20);

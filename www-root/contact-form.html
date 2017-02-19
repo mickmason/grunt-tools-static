@@ -171,16 +171,16 @@
                         <img class="inner-navigation__show-less__icon" src="style-assets/media/svg-imgs/down_arrow.svg" alt="View more icon" />
                     </h3>
                     <ul class="inner-navigation">
-                        <li><span class="currentbranch0"><a href="javascript:void" >Section link #1</a></span>
-                            <ul>
+                        <li><a href="javascript:void" class="" >Section link #1</a>
+                            <ul class="multilevel-linkul-0">
                                 <li><a href="javascript:void">Section sub-link #1</a></li>
                                 <li><a href="javascript:void">Section sub-link #2</a></li>
                                 <li><a href="javascript:void">Section sub-link #3</a></li>
                             </ul>
                         </li>
                         <li><a href="javascript:void">Section link #2</a></li>
-                        <li><span class="currentbranch0"><a href="javascript:void" >Section link #3</a></span>
-                            <ul>
+                        <li><a href="javascript:void" >Section link #3</a>
+                            <ul class="multilevel-linkul-0">
                                 <li><a href="javascript:void">Section sub-link #1</a></li>
                                 <li><a href="javascript:void">Section sub-link #2</a></li>
                                 <li><a href="javascript:void">Section sub-link #3</a></li>
@@ -192,9 +192,9 @@
                     <!-- Script adds show more/less links to inner navs with dropdowns -->
                     <script>
                         (function addShowMoreLessLinks() {
-                          if ($('.multilevel-linkul-0')) {
-                            console.log('MLUL');
-                            var $mlUl = $('.multilevel-linkul-0');
+                          if ($('[class*="multilevel-linkul"]').length > 0) {
+                            console.log('MLUL '+$('[class*="multilevel-linkul"]').length);
+                            var $mlUl = $('[class*="multilevel-linkul"]');
                             /* Add show more, show less icons if there are nested links */
                             var $showMoreAnchor = $('<a/>');
                             $showMoreAnchor.addClass('inner-navigation__show-more');
@@ -202,9 +202,12 @@
                             var $showMoreImg = $('<img />').attr('src','style-assets/media/svg-imgs/next_arrow.svg').attr('class', 'inner-navigation__show-more__icon').attr('alt', 'Show more links in this section');
                             var $showLessImg = $('<img />').attr('src','style-assets/media/svg-imgs/down_arrow.svg').attr('class', 'inner-navigation__show-less__icon').attr('alt', 'Show fewer links in this section');
                             $showMoreAnchor.append([$showMoreImg, $showLessImg]);
-                            $mlUl.each(function() {
-                                $(this).before($showMoreAnchor);
-                                });
+                            $mlUl.each(function(idx) {
+                                console.log('MLUL '+idx);
+                                $(this).siblings('a').eq(0).addClass('inner-navigation__parent-link');
+                                
+                            });
+                            $mlUl.before($showMoreAnchor);
                             }
                         })();
                     </script>
