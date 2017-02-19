@@ -11,7 +11,6 @@
     <![endif]-->
     
     <script src="style-assets/lib/jquery-3.1.1/jquery-3.1.1.min.js"></script>
-    <script src="style-assets/lib/jquery-validate/jquery-validate-1.10.1.min.js"></script>
 </head>
 <body>
        <!--** Site header container **-->
@@ -216,7 +215,7 @@
                     <p><strong>Use the form below to get in touch with us</strong>.</p>
                     <p>Please note that your email address will be validated on entry.</p> 
                     
-                    <script type="text/javascript">
+                    <!--<script type="text/javascript">
                         jQuery(document).ready(function() {
                             /** New Work **/
                             jQuery('#form-required-element-block').css('display', 'none');
@@ -385,9 +384,9 @@
                     </script>
                     <style>
                         .form_of_contact { display: none !important; }
-                    </style>
+                    </style>-->
 
-                    <form accept-charset="utf-8" enctype="multipart/form-data" method="POST" name="contact_form" class="eform dfb contact dfa-form dfa-form--contact" id="custom_contact_form_dod">
+                    <form accept-charset="utf-8" enctype="multipart/form-data" method="POST" name="contact_form" class="eform dfb contact dfa-form dfa-form--contact dfa-form--valiatable" id="custom_contact_form_dod">
                       <div id="error-list" style="display: none;">
 
                           <strong>Validating details.. </strong>
@@ -401,7 +400,7 @@
                         </div>
                         <div>
                             <label for="your_email">Your Email:</label>
-                            <input autocomplete="off" type="text" name="your_email" id="your_email" class="email"></div>
+                            <input autocomplete="off" type="text" name="your_email" id="your_email" type="email" class="email"></div>
                         <div>
                             <label for="your_query">Your Query:</label>
                             <textarea name="your_query" class="required"></textarea>
@@ -411,7 +410,7 @@
                             <input type="checkbox" id="enter_your_acceptance_of_the_terms_and_conditions_here" name="enter_your_acceptance_of_the_terms_and_conditions_here">
                         </div>
 
-                        <label style="display: none;" for="enter_your_email_address_here">Please enter your email address</label>
+                        <!--<label style="display: none;" for="enter_your_email_address_here">Please enter your email address</label>
                         <input style="display: none;" type="text" id="enter_your_email_address_here" name="enter_your_email_address_here">
 
                         <label for="enter_your_favourable_form_of_contact_here" class="form_of_contact">How would you like to be contacted?</label>
@@ -419,20 +418,11 @@
                             <option value=""></option>
                             <option value="phone">Phone</option>
                             <option value="email">Email</option>
-                        </select>    
+                        </select>    -->
                         <div class="submitarea">
                             <input type="submit" id="submitbtn" class="dfa-form--contact__submit btn dfa-btn--submit" value="Submit">
                         </div>
                     </form>
-                    <script>
-                        $(function() {
-                            $('#submitbtn').on('click', function(e) {
-                                e.preventDefault();
-                                console.log('click '+$(this).parents('form').attr('class'));
-                                $(this).parents('form').valid();
-                            });
-                        });
-                    </script>
                 </section>
             </div>
         </section>
@@ -463,8 +453,6 @@
              </div>
 
          </footer>
-
-
         <script src="style-assets/js/t4-scripts.min.js"></script>
     </body>
 </html>

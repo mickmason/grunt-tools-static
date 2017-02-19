@@ -23,7 +23,44 @@
     max-width: #{$width-rem}rem;
 }
 
+blockquote {
+    font-style: italic;
+    @include to-rem(border-left-width, 16, 24);
+    border-left-color: $brand-darker;
+    background-color: $gray-lightest;
 
+    position: relative;
+    p {
+        @include to-rem(margin-bottom, 16, 8);
+         
+    }
+    p::before {
+        content: "\201D";
+        font-family: sans-serif;
+        font-weight: 600;
+        font-style: normal;
+        @include to-rem(font-size, 16, 36);
+        
+        color: $white;
+        position: absolute;
+        top: 9px;
+        @include to-rem(left, 16, -21);
+    }
+    .attribution {
+        font-style: normal;
+        font-weight: 600;
+        font-size: inherit;
+        font-size: 1rem;
+    }
+    
+}
+@media screen and (min-width: $screen-md-min) {
+    blockquote {
+        .attribution {
+            @include to-rem(font-size, 16, 14);
+        }
+    }
+}
 /* 
  * General page scaffolding 
 **/
@@ -360,6 +397,7 @@ header {
 **/
 .main-nav {
     @include make-xs-column(12);
+    a {font-weight: 400;}
 }
 .main-nav-list {
     padding: 0;
@@ -448,6 +486,7 @@ header {
         float: left;
         display: block;
         width: 65%;
+        a {font-weight: 400;}
         .dfa-icon {
             display: inline;
         }
@@ -580,6 +619,7 @@ header {
  **/
 .inner-page-breadcrumbs {
     @include make-row;
+    a {font-weight: 400;}
 }
 .inner-page-breadcrumbs__block {
     @include make-xs-column(12);
@@ -800,10 +840,10 @@ header {
     @include make-row;
 }
 .intro-feature-leftcol {
-    @include make-sm-column(6);
+    @include make-xs-column(12);
 } 
 .intro-feature-rightcol {
-    @include make-sm-column(6);
+    @include make-xs-column(12);
 } 
 @media screen and (min-width: 609px) {
     .hero-image-wrapper .transparent-image-overlay { 
@@ -835,6 +875,11 @@ header {
             height: 36px;
         }
     }   
+}
+@media screen and (min-width: 840px) {
+    .intro-feature-leftcol, .intro-feature-rightcol {
+        width: 50%;
+    }
 }
 @media screen and (min-width: $screen-md-min) {   
     .intro-feature-heading {
@@ -872,13 +917,14 @@ header {
 }
 /* Row contains all pictures */
 .people-row {
-    @include make-row(0);
+    @include make-row();
+    @include to-rem(margin, 14, auto, -15);
 }
 /* Each is a col */
  
 .people-feature-person {
     @include make-xs-column(12,0);
-    
+    background-color: $gray-dark;
     overflow: hidden;
     &:hover .people-feature-overlay {
         top: 0;
@@ -894,7 +940,6 @@ header {
 .people-feature-overlay {
     position: static;
     top: 100%;
-    height: 100%;
     width: 100%;
     @include rem-calc(padding, ($padding-small-vertical * 4), ($padding-small-horizontal), ($padding-small-vertical * 4), ($padding-small-horizontal));
     color: $white;
@@ -924,6 +969,9 @@ header {
     }
 }
 @media screen and (min-width:  $screen-sm-min) {
+    .people-row {
+        @include to-rem(margin, 14, auto, 0);
+    }
     .people-feature-person {
         @include make-sm-column(6,0);
         
@@ -949,6 +997,7 @@ header {
     }
     .people-feature-overlay {
         padding-top: 20px;
+        height: 100%;
         position: absolute;
         top: 78%;
         top: calc(100% - 4.3rem);
@@ -1565,6 +1614,7 @@ $fc-padding-bottom: ($padding-small-vertical * 14.5);
 }
 .main-body__side-bar {
     @include make-md-column(3);
+    a {font-weight: 400;}
 }
 .heading--side-bar {
     @include to-rem(font-size, 14, 16);

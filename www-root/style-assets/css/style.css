@@ -789,7 +789,7 @@ abbr[data-original-title] {
 }
 
 blockquote {
-  padding: 10.5px 21px;
+  padding: 16px 21px;
   margin: 0 0 21px;
   font-size: 17.5px;
   border-left: 5px solid #f4f5f6;
@@ -842,6 +842,10 @@ address {
   margin-bottom: 21px;
   font-style: normal;
   line-height: 1.5;
+}
+
+a {
+  font-weight: 600;
 }
 
 code,
@@ -6752,6 +6756,44 @@ button.close {
  * Pages structure 
  *
  **/
+blockquote {
+  font-style: italic;
+  border-left-width: 24px;
+  border-left-width: 1.5rem;
+  border-left-color: #005036;
+  background-color: #f4f5f6;
+  position: relative;
+}
+blockquote p {
+  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
+}
+blockquote p::before {
+  content: "\201D";
+  font-family: sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 36px;
+  font-size: 2.25rem;
+  color: #fff;
+  position: absolute;
+  top: 9px;
+  left: -21px;
+  left: -1.3125rem;
+}
+blockquote .attribution {
+  font-style: normal;
+  font-weight: 600;
+  font-size: inherit;
+  font-size: 1rem;
+}
+
+@media screen and (min-width: 992px) {
+  blockquote .attribution {
+    font-size: 14px;
+    font-size: 0.875rem;
+  }
+}
 /* 
  * General page scaffolding 
 **/
@@ -7246,6 +7288,9 @@ header:after {
   padding-left: 15px;
   padding-right: 15px;
 }
+.main-nav a {
+  font-weight: 400;
+}
 
 .main-nav-list {
   padding: 0;
@@ -7369,6 +7414,9 @@ header:after {
   }
 }
 @media (min-width: 992px) {
+  .secondary-navigation a {
+    font-weight: 400;
+  }
   .secondary-navigation .dfa-icon {
     display: inline;
   }
@@ -7573,6 +7621,9 @@ header:after {
 }
 .inner-page-breadcrumbs:after {
   clear: both;
+}
+.inner-page-breadcrumbs a {
+  font-weight: 400;
 }
 
 .inner-page-breadcrumbs__block {
@@ -7891,28 +7942,20 @@ header:after {
 
 .intro-feature-leftcol {
   position: relative;
+  float: left;
+  width: 100%;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
-}
-@media (min-width: 768px) {
-  .intro-feature-leftcol {
-    float: left;
-    width: 50%;
-  }
 }
 
 .intro-feature-rightcol {
   position: relative;
+  float: left;
+  width: 100%;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
-}
-@media (min-width: 768px) {
-  .intro-feature-rightcol {
-    float: left;
-    width: 50%;
-  }
 }
 
 @media screen and (min-width: 609px) {
@@ -7952,6 +7995,11 @@ header:after {
   }
   .hero-scroll img {
     height: 36px;
+  }
+}
+@media screen and (min-width: 840px) {
+  .intro-feature-leftcol, .intro-feature-rightcol {
+    width: 50%;
   }
 }
 @media screen and (min-width: 992px) {
@@ -7997,8 +8045,10 @@ header:after {
 
 /* Row contains all pictures */
 .people-row {
-  margin-left: 0;
-  margin-right: 0;
+  margin-left: -15px;
+  margin-right: -15px;
+  margin: auto -15px;
+  margin: auto -1.07143rem;
 }
 .people-row:before, .people-row:after {
   content: " ";
@@ -8016,6 +8066,7 @@ header:after {
   min-height: 1px;
   padding-left: 0;
   padding-right: 0;
+  background-color: #323232;
   overflow: hidden;
   border-bottom: 8px solid #029797;
 }
@@ -8034,7 +8085,6 @@ header:after {
 .people-feature-overlay {
   position: static;
   top: 100%;
-  height: 100%;
   width: 100%;
   padding: 16px 8px 16px 8px;
   padding: 1rem 0.5rem 1rem 0.5rem;
@@ -8074,6 +8124,11 @@ header:after {
 }
 
 @media screen and (min-width: 768px) {
+  .people-row {
+    margin: auto 0px;
+    margin: auto 0rem;
+  }
+
   .people-feature-person {
     position: relative;
     min-height: 1px;
@@ -8121,6 +8176,7 @@ header:after {
 
   .people-feature-overlay {
     padding-top: 20px;
+    height: 100%;
     position: absolute;
     top: 78%;
     top: calc(100% - 4.3rem);
@@ -8912,6 +8968,9 @@ header:after {
     float: left;
     width: 25%;
   }
+}
+.main-body__side-bar a {
+  font-weight: 400;
 }
 
 .heading--side-bar {

@@ -82,6 +82,17 @@
         $($this).matchHeight();    
     });
     
+    /*!
+     * Jquery validation http://jqueryvalidation.org/
+     *
+     */
+    $('.dfa-form--valiatable').validate({ 
+        errorClass: 'dfa-form__error-msg'
+    });
+    $.validator.addMethod("cRequired", $.validator.methods.required,
+   "Fill out the field goddamnit!");
+    $.validator.addClassRules("required",{ cRequired: true });
+    
     
     /**! 
      * Michael t4 
@@ -261,7 +272,7 @@
     addShowInnerNavHandler();
     $(window).on('resize', addShowInnerNavHandler);
     
-    /* Click handler for links with nested links */
+    /* Click handler for sidebar nav links with nested links */
     $(document).on('click', '.inner-navigation__show-more', function(e) { 
         e.preventDefault();
         e.stopPropagation();
