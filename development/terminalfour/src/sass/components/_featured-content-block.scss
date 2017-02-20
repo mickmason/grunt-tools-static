@@ -1,0 +1,103 @@
+/* 
+ *
+ * Feature content block
+ *
+*/
+.featured-content-section-top, featured-content-section-body {
+    position: relative; 
+}
+$fc-padding-bottom: ($padding-small-vertical * 14.5);
+.featured-content-section-top {
+    @include rem-calc(padding-top, ($padding-small-vertical * 10.5));
+    
+    @include rem-calc(padding-bottom, $fc-padding-bottom * 1.25);  
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: $white;
+    .featured-content-block {
+        position: relative;
+        z-index: 20;
+    }
+}
+.featured-content-block {
+    overflow: hidden;
+    @include make-xs-column(12);
+    float: none;
+    z-index: 20;
+}
+.feature-bottom-opener {
+    @include rem-calc(height, $fc-padding-bottom);
+    @include rem-calc(padding-top, 3); 
+    border-bottom: 1px solid $white;
+    position: absolute;
+    width: 100%;
+    z-index: 20;
+    bottom: 0;
+    text-align: center;
+    .dfa-icon-image {
+        img {
+            @include rem-calc(height, 18);
+        }
+    }
+    &:hover {
+            cursor: pointer;
+    }
+    .dfa-icon__with-label { 
+        margin-top: 0;
+       .feature-more { 
+            display: inline;
+        }
+        .feature-less { 
+            display: none;
+        }
+
+    }
+    .dfa-icon-label {
+//        @include rem-calc(font-size, 6);
+    }
+}
+.dfa-icon__with-label {
+    .featured-content-section-body {
+        
+    }
+}
+.featured-content-section-body {
+    padding-top: 0;
+    padding-bottom: 0;
+    position: relative;
+    @include rem-calc(padding-bottom, 58);
+    .featured-content-block {
+        display: none;
+        @include rem-calc(padding-top, ($padding-small-vertical * 14.5));
+        @include rem-calc(padding-bottom, $fc-padding-bottom);
+    }
+    .body-border-bottom {
+        width: 100%;
+        @include rem-calc(height, $fc-padding-bottom);
+        position: absolute;
+        bottom: 0;
+        text-align: center;
+        background-color: #000;
+    }
+}
+@media screen and (min-width: $screen-sm-min) {
+    .featured-content-section-body {
+        .body-border-bottom {
+            &::before {
+
+                @include rem-calc(top,  10);
+
+            }
+        }
+    }
+}
+@media screen and (min-width: $screen-lg-min) {
+    .featured-content-section-body {
+        .body-border-bottom {
+            &::before {
+                @include rem-calc(top,  9);
+            }
+        }
+    }
+}

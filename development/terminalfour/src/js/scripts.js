@@ -9,9 +9,6 @@
       div.innerHTML = '<svg/>';
       return (div.firstChild && div.firstChild.namespaceURI) == 'http://www.w3.org/2000/svg';
     }
-/*    if (supportsSvg()) {
-        $('body').addClass('no-svg'); 
-    }*/
     /* 
      * Lightbox modal https://github.com/ashleydw/lightbox
      * Extends Bootstrap Modal module
@@ -85,28 +82,57 @@
      * Jquery validation http://jqueryvalidation.org/
      *
      */
-    /* Validator compound rules */
+    
+    /* Custom email validation - from old build, by Gillian - not used just yet */
+    function emailValidation(email) {
+        reg = /^(([^<>()[]\.,;:s@"]+(.[^<>()[]\.,;:s@"]+)*)|(".+"))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/;
+        if(!reg.test(email)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    /* Validator rules */
     /* Required fields */
-    $.validator.addMethod('dfaRequired', $.validator.methods.required,
-   '**This field is required.');
+    $.validator.addMethod('dfaRequired', $.validator.methods.required, '**This field is required.');
     
     /* Email fields */
-    $.validator.addMethod('dfaEmail', $.validator.methods.email,
-   '* Please enter a valid email address format myname@example.com.');
+    $.validator.addMethod('dfaEmail', $.validator.methods.email, '* Please enter a valid email address format myname@example.com.');
+    
+//    function emailValidation(email) {
+//        var reg = /^(([^<>()[]\.,;:s@"]+(.[^<>()[]\.,;:s@"]+)*)|(".+"))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/;
+//        if(!reg.test(email)) {
+//            return true;
+//        } else {
+//            return false;
+//        }
+//    }
+    jQuery.validator.addMethod("emailOnly", 
+        function(value, element) {
+            if(value.length > 0) {
+                return emailValidation(value);
+            } else {
+                return true;
+            }
+        }
+    );  
+    
+    /* Number only inputs */
+    $.validator.addMethod('dfaNumeric', $.validator.methods.digits,
+   '* Please enter numeric data only');
     
     /* Associate rules with classes */
     $.validator.addClassRules('required', { dfaRequired: true });
-    $.validator.addClassRules('email', { dfaEmail: true  });  
+//    $.validator.addClassRules('email', { dfaEmail: true  });
+    $.validator.addClassRules('numeric', { dfaNumeric: true  });  
     
-    $('.dfa-form--valiatable').validate({ 
-        debug: true,
+    $('.dfa-form--valiatable').validate({
         errorClass: 'dfa-form-error',
         rules: {
-            
+            email: 'emailOnly'
         }
     });
-    
-    
     
     /**! 
      * Michael t4 

@@ -1,0 +1,213 @@
+/**
+ *
+ * Media Gallery 
+ *
+**/
+/* Media gallery intro row */
+.media-gallery-intro {
+     @include rem-calc(padding-bottom, ($padding-small-vertical * 4));
+     
+}
+.media-gallery-intro-block {
+    @include make-xs-column(12);
+}
+/* Media gallery row */
+.media-gallery {
+    @include rem-calc(padding-top, ($padding-small-vertical * 4));
+    position: relative;
+
+}
+/* The slider */
+.media-gallery-slider {
+    position: relative;
+    overflow: hidden;
+}
+/* Gallery item */
+.gallery-item {
+    width: 70%;
+    
+    @include rem-calc(margin, auto, 10);
+    @include rem-calc (padding-left, 15);
+    @include rem-calc (padding-right, 15);
+    position: relative;
+    .item-anchor {
+        display: block;
+        position: relative;
+    }
+}
+/* The image */ 
+.gallery-item-image {
+    @include img-responsive ;
+    width: 100%;  
+    position: relative;
+}
+/* Caption text div */
+.gallery-item-caption {
+    @include rem-calc(padding, ($padding-small-vertical * 4), ($padding-small-horizontal * 2), ($padding-small-vertical * 4), ($padding-small-horizontal * 2));
+    margin: 0;
+    background-color: $white;
+    border-bottom: 4px solid #034961;
+}
+.gallery-item-caption-heading {
+     font-family: $sans-serif-semibold;
+     @include rem-calc(font-size, 18);
+     margin-top: 0;
+    @include rem-calc(margin-bottom, 8);
+    
+}
+.gallery-item-caption-text {
+    margin-bottom: 0;
+    @include rem-calc(font-size, 16);
+}
+/* Play icon */
+.gallery-item-play {
+    width: 30%;
+    height: 150px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include dfa-translate(-50%, -100%);
+
+    .play-media {
+       height: 150px; 
+    }
+}
+/* Gallery controls */
+.gallery-control {
+        .dfa-icon {
+            position: relative;
+            height: 100%;
+            @include border-radius(50%);
+            background-color: $white;
+            @include dfa-transition(background-color, 160, ease-in);
+            .dfa-icon-image {
+                top: 50%;
+                left: 50%;
+                position: relative;
+                @include dfa-translate(-86%, -50%);
+            }
+            &:hover {
+                cursor: pointer;
+                background-color: $gray-lightest;
+            }       
+        }
+        position: absolute;
+        top: 45%;
+        transform: translate(-0%, -50%);
+        @include to-rem(width, 14, 48);
+        @include to-rem(height, 14, 48);
+        img {
+            display: block;
+            
+        }
+        
+}
+/* Next and previous icons */
+.gallery-control__left {
+    left: 1%;
+}
+.gallery-control__right {
+    right: 1%;
+}
+@media screen and (min-width: 440px) {
+    .gallery-control {
+        top: 42%;
+        @include rem-calc(width, 42);
+        @include rem-calc(height, 42);
+    }
+}
+@media screen and (min-width: $screen-sm-min) {
+    .gallery-control {
+        top: 38%;
+        @include rem-calc(width, 42);
+        @include rem-calc(height, 42);
+    }
+}
+@media screen and (min-width: $screen-lg-min) {
+    .gallery-control {
+        top: 36%;
+        @include rem-calc(width, 42);
+        @include rem-calc(height, 42);
+    }
+}
+@media screen and (min-width: 1300px) {
+    .gallery-control__left {
+        left: 5%;
+    }
+    .gallery-control__right {
+        right: 5%;
+    }
+}
+@media screen and (min-width: 1400px) {
+    .gallery-control__left {
+        left: 6%;
+    }
+    .gallery-control__right {
+        right: 6%;
+    }
+}
+@media screen and (min-width: 1500px) {
+    .gallery-control__left {
+        left: 9%;
+    }
+    .gallery-control__right {
+        right: 9%;
+    }
+}
+@media screen and (min-width: 1600px) {
+    .gallery-control__left {
+        left: 8%;
+    }
+    .gallery-control__right {
+        right: 8%;
+    }
+}
+@media screen and (min-width: 1700px) {
+    .gallery-control__left {
+        left: 9%;
+    }
+    .gallery-control__right {
+        right: 9%;
+    }
+}
+@media screen and (min-width: 1800px) {
+    .gallery-control__left {
+        left: 10%;
+    }
+    .gallery-control__right {
+        right: 10%;
+    }
+}
+@media screen and (min-width: $screen-sm-min) {
+    .gallery-item {
+        padding-left: 0;
+        padding-right: 0;
+        @include rem-calc(margin, 0, 12);
+    }
+    .gallery-item-caption-text {
+        margin-bottom: 0;
+        @include rem-calc(font-size, 16);
+    }
+}
+
+@media screen and (min-width: $screen-md-min) {
+     .gallery-item-caption-text {
+        margin-bottom: 0;
+        @include rem-calc(font-size, 14);
+    }
+}
+@media screen and (min-width: $screen-lg-min) {
+    .media-gallery-slider {
+        max-width: 1260px;
+        margin-left: auto;
+        margin-right: auto;
+        .slick-list {
+            overflow: visible;
+        }   
+    }
+}
+@media screen and (min-width: $screen-xl-min) {
+    .media-gallery-slider {
+        max-width: 1440px;
+    }
+}
