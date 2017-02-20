@@ -11,7 +11,6 @@
     <![endif]-->
     
     <script src="style-assets/lib/jquery-3.1.1/jquery-3.1.1.min.js"></script>
-    <script src="style-assets/lib/jquery-validate/jquery-validate-1.10.1.min.js"></script>
 </head>
 <body>
        <!--** Site header container **-->
@@ -172,16 +171,16 @@
                         <img class="inner-navigation__show-less__icon" src="style-assets/media/svg-imgs/down_arrow.svg" alt="View more icon" />
                     </h3>
                     <ul class="inner-navigation">
-                        <li><span class="currentbranch0"><a href="javascript:void" >Section link #1</a></span>
-                            <ul>
+                        <li><a href="javascript:void" class="" >Section link #1</a>
+                            <ul class="multilevel-linkul-0">
                                 <li><a href="javascript:void">Section sub-link #1</a></li>
                                 <li><a href="javascript:void">Section sub-link #2</a></li>
                                 <li><a href="javascript:void">Section sub-link #3</a></li>
                             </ul>
                         </li>
                         <li><a href="javascript:void">Section link #2</a></li>
-                        <li><span class="currentbranch0"><a href="javascript:void" >Section link #3</a></span>
-                            <ul>
+                        <li><a href="javascript:void" >Section link #3</a>
+                            <ul class="multilevel-linkul-0">
                                 <li><a href="javascript:void">Section sub-link #1</a></li>
                                 <li><a href="javascript:void">Section sub-link #2</a></li>
                                 <li><a href="javascript:void">Section sub-link #3</a></li>
@@ -193,9 +192,9 @@
                     <!-- Script adds show more/less links to inner navs with dropdowns -->
                     <script>
                         (function addShowMoreLessLinks() {
-                          if ($('.multilevel-linkul-0')) {
-                            console.log('MLUL');
-                            var $mlUl = $('.multilevel-linkul-0');
+                          if ($('[class*="multilevel-linkul"]').length > 0) {
+                            console.log('MLUL '+$('[class*="multilevel-linkul"]').length);
+                            var $mlUl = $('[class*="multilevel-linkul"]');
                             /* Add show more, show less icons if there are nested links */
                             var $showMoreAnchor = $('<a/>');
                             $showMoreAnchor.addClass('inner-navigation__show-more');
@@ -203,13 +202,16 @@
                             var $showMoreImg = $('<img />').attr('src','style-assets/media/svg-imgs/next_arrow.svg').attr('class', 'inner-navigation__show-more__icon').attr('alt', 'Show more links in this section');
                             var $showLessImg = $('<img />').attr('src','style-assets/media/svg-imgs/down_arrow.svg').attr('class', 'inner-navigation__show-less__icon').attr('alt', 'Show fewer links in this section');
                             $showMoreAnchor.append([$showMoreImg, $showLessImg]);
-                            $mlUl.each(function() {
-                                $(this).before($showMoreAnchor);
-                                });
+                            $mlUl.each(function(idx) {
+                                console.log('MLUL '+idx);
+                                $(this).siblings('a').eq(0).addClass('inner-navigation__parent-link');
+                                
+                            });
+                            $mlUl.before($showMoreAnchor);
                             }
                         })();
                     </script>
-                </aside>;
+                </aside>
                 <section class="main-body__main">
                     <a id="d.en.145893"></a>
                     <h1 class="removebottomborder content-heading">Ireland 2016 Global and Diaspora Programme launched</h1>
@@ -225,6 +227,7 @@
                     <p><a href="https://www.dfa.ie/media/dfa/alldfawebsitemedia/ourrolesandpolicies/ourwork/Ireland-2016-Mission-Events-Summary.pdf">The Global and Diaspora Programme</a> is one of the seven strands of the overall Ireland 2016 programme. Through our network of Embassies and Consulates, we will mark this historic anniversary by organising an extensive range of events all around the world. <a href="https://www.dfa.ie/media/dfa/alldfawebsitemedia/ourrolesandpolicies/ourwork/Ireland-2016-Mission-Events-Summary.pdf">The Programme</a> includes flagship events that will showcase the best of traditional and contemporary Ireland across the full range of the arts, including theatre, literature, music and dance.</p>
                     <blockquote>
                     <p>It is a once-in-a-century opportunity at home and overseas to explore, present, debate and reflect on Ireland</p>
+                    <p class="attribution">&mdash; Minister Flanagan</p>
                     </blockquote>
                     <p class="postblock">Commemorating the 1916 Rising presents many opportunities to reflect on its many international dimensions. The Minister for Foreign Affairs and Trade, Mr Charlie Flanagan T.D., commented: <em>“Ireland in 1916 was, as it is now, a global island, a nation that both reflected and was engaged in the bigger international issues of the day. This is why I asked Ireland’s network of embassies and consulates to plan events which will engage our diaspora and friends abroad, as well as to present the Ireland of today to the world. And our diaspora and friends of Ireland around the world have already set to work with gusto.”</em></p>
                     <p>The John F. Kennedy Center for the Performing Arts in Washington D.C. will host a three-week festival of Irish arts and culture</p>
@@ -292,8 +295,6 @@
              </div>
 
          </footer>
-
-
         <script src="style-assets/js/t4-scripts.min.js"></script>
     </body>
 </html>

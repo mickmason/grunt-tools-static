@@ -87,7 +87,7 @@ a.btn {
   @include button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border);
 }
 // Danger and error appear as red
-.btn-danger {
+.btn-danger { 
   @include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
 }
 .dfa-btn--submit {
