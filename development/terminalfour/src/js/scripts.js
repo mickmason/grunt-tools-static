@@ -66,7 +66,6 @@
             $('.panel-collapse').on('show.bs.collapse', function() {
                 $(this).siblings('.panel-heading').addClass('active');
             }).on('hide.bs.collapse', function() {
-                console.log('Show '+$(this));
                 $(this).siblings('.panel-heading').removeClass('active');
             });
             $('.panel-collapse').eq(0).collapse('show'); 
@@ -86,12 +85,27 @@
      * Jquery validation http://jqueryvalidation.org/
      *
      */
+    /* Validator compound rules */
+    /* Required fields */
+    $.validator.addMethod('dfaRequired', $.validator.methods.required,
+   '**This field is required.');
+    
+    /* Email fields */
+    $.validator.addMethod('dfaEmail', $.validator.methods.email,
+   '* Please enter a valid email address format myname@example.com.');
+    
+    /* Associate rules with classes */
+    $.validator.addClassRules('required', { dfaRequired: true });
+    $.validator.addClassRules('email', { dfaEmail: true  });  
+    
     $('.dfa-form--valiatable').validate({ 
-        errorClass: 'dfa-form__error-msg'
+        debug: true,
+        errorClass: 'dfa-form-error',
+        rules: {
+            
+        }
     });
-    $.validator.addMethod("cRequired", $.validator.methods.required,
-   "Fill out the field goddamnit!");
-    $.validator.addClassRules("required",{ cRequired: true });
+    
     
     
     /**! 
@@ -102,7 +116,6 @@
         e.preventDefault();    
         var $self = $(this); 
         var $other = $('.header-navigation__mobile-search, .header-navigation__mobile-menu').not($self);
-        console.log($other);
         var $target = $('#'+$self.attr('data-target')); 
         if ($self.hasClass('desktop-search')) {
             if ($self.hasClass('active')) {
@@ -156,7 +169,6 @@
 
             }, timeout);       
         }
-
     });
     /* Site-wide search handlers */
     $('#search-submit-button').on('click', function(e){
@@ -178,15 +190,12 @@
             var x = ($heroText.attr('data-posx')) ? parseInt($heroText.attr('data-posx')) : 50 ;
             var y = ($heroText.attr('data-posy')) ? parseInt($heroText.attr('data-posy')) : 30;
             var align = '';
-            console.log(x);
             if (x < 50) {
                 align = 'left';    
-                console.log($(window).outerWidth(true));
                 if ($(window).outerWidth(true) > 1620) {
                     x = 40;
                 }
             } else if (x > 50) {
-                console.log($(window).outerWidth(true));
                 if ($(window).outerWidth(true) > 1620) {
                     x = 60;
                 }

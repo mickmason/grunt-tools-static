@@ -193,7 +193,6 @@
                     <script>
                         (function addShowMoreLessLinks() {
                           if ($('[class*="multilevel-linkul"]').length > 0) {
-                            console.log('MLUL '+$('[class*="multilevel-linkul"]').length);
                             var $mlUl = $('[class*="multilevel-linkul"]');
                             /* Add show more, show less icons if there are nested links */
                             var $showMoreAnchor = $('<a/>');
@@ -203,9 +202,7 @@
                             var $showLessImg = $('<img />').attr('src','style-assets/media/svg-imgs/down_arrow.svg').attr('class', 'inner-navigation__show-less__icon').attr('alt', 'Show fewer links in this section');
                             $showMoreAnchor.append([$showMoreImg, $showLessImg]);
                             $mlUl.each(function(idx) {
-                                console.log('MLUL '+idx);
                                 $(this).siblings('a').eq(0).addClass('inner-navigation__parent-link');
-                                
                             });
                             $mlUl.before($showMoreAnchor);
                             }

@@ -73,6 +73,7 @@ a.btn {
 }
 .btn-primary {
   @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+     @include dfa-transition(color, 350, ease-out);
 }
 // Success appears as green
 .btn-success {
