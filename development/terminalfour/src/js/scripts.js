@@ -72,8 +72,15 @@
     /*! 
      * jQuery Match Height https://github.com/liabru/jquery-match-height
      */
-    var matchHeightArray = ['.dfa-widget', '.people-feature-person', '.people-feature-overlay'];
-    $('.dfa-widget').matchHeight(); 
+    var matchHeightArray = 
+        [
+            '.features-row--four-col .dfa-card, .features-row--four-col .dfa-card--widget__background', 
+            '.features-row--two-col .dfa-card, .features-row--two-col .dfa-card--widget__background', 
+            '.people-feature-person', 
+            '.people-feature-overlay',
+            '.gallery-item'
+        ];
+    // $('.dfa-widget').matchHeight(); 
     matchHeightArray.forEach(function($this, idx, arr) {
         $($this).matchHeight();    
     });
@@ -100,14 +107,6 @@
     /* Email fields */
     $.validator.addMethod('dfaEmail', $.validator.methods.email, '* Please enter a valid email address format myname@example.com.');
     
-//    function emailValidation(email) {
-//        var reg = /^(([^<>()[]\.,;:s@"]+(.[^<>()[]\.,;:s@"]+)*)|(".+"))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/;
-//        if(!reg.test(email)) {
-//            return true;
-//        } else {
-//            return false;
-//        }
-//    }
     jQuery.validator.addMethod("emailOnly", 
         function(value, element) {
             if(value.length > 0) {
@@ -232,9 +231,6 @@
             if (y > 50) {
                 $heroText.parent('.hero-image-wrapper').find('.hero-scroll').css({display: 'none'});    
             }
-            
-            
-            
             $heroText.css({left: x+'%', top: y+'%', textAlign: align});
             $($global).on('resize', function() {
                 $heroText.css({left: x+'%', top: y+'%', textAlign: align});
@@ -275,9 +271,10 @@
     
 
     /**! Misc scripts for CMS build **/
-/*    $('#secondary-nav-dropdown').find('ul').eq(0).addClass('secondary-nav__sub').find('li').each(function($this) {
-        $this.addClass('secondary-nav__sub-link')  ;
-    });*/
+    $('.secondary-nav-dropdown').find('ul').eq(0).addClass('secondary-nav__sub');
+    $('.secondary-nav-dropdown').find('li').each(function() {
+        $(this).addClass('secondary-nav-link__sub-link')  ;
+    });
 
     /**!
      * General content inner navigation
