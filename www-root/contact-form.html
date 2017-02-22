@@ -216,9 +216,13 @@
                     <p>Please note that your email address will be validated on entry.</p> 
                     <p>Elements marked <strong>*</strong> are required.</p> 
                     <form accept-charset="utf-8" enctype="multipart/form-data" method="POST" name="contact_form" class="eform dfb contact dfa-form dfa-form--contact dfa-form--valiatable" id="custom_contact_form_dod">
-                      <div id="error-list" style="display: none;">
-                          <strong>Validating details.. </strong>
-                          <ol></ol>
+                      <div id="error-list" class="dfa-form__errors" >
+                          <strong>You have some form errors:</strong>
+                          <ol>
+                              <li> Please fill in the name field</li>
+                              <li> Please enter a valid email address</li>
+                              <li> Please provide a query</li>
+                          </ol>
                         </div>
                         
                         <label for="your_name">*Your Name:</label>

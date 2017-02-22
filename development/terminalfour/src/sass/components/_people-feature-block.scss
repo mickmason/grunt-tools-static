@@ -19,7 +19,7 @@
     &:hover .people-feature-overlay {
         top: 0;
     }
-    border-bottom: 8px solid #029797;
+    border-bottom: 8px solid $gray-lighter;
 
 }
 .people-feature-image {
@@ -35,7 +35,6 @@
     color: $white;
     @include dfa-transition(top, 260, ease-out, 0);
     background-color: $gray-dark;
-    background-color: rgba($gray-dark, 1); 
 
 }
 .people-feature-about {
@@ -73,9 +72,10 @@
 }
 @media screen and (min-width:  $screen-md-min) {
     .people-feature-person {
+        background-color: transparent;
         @include make-md-column(4,0);
         img {
-            margin-bottom: 4rem;
+//            margin-bottom: 4rem;
         }
         &:nth-child(2n) {
             border-right: 1px solid #000;
@@ -88,6 +88,7 @@
     .people-feature-overlay {
         padding-top: 20px;
         height: 100%;
+        background-color: rgba($gray-dark, 0.76); 
         position: absolute;
         top: 78%;
         top: calc(100% - 4.3rem);

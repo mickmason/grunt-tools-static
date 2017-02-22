@@ -24,13 +24,17 @@
 }
 /* Gallery item */
 .gallery-item {
-    width: 70%;
-    top: 0;bottom: 0;
-    
-    @include rem-calc(margin, auto, 10);
-    @include rem-calc (padding-left, 15);
-    @include rem-calc (padding-right, 15);
     position: relative;
+    width: 60%;
+    top: 0;bottom: 0;
+    @include rem-calc(margin, auto, 10);
+    @include rem-calc (padding-left,   0px  );
+    @include rem-calc (padding-right,  0px  );
+    @include rem-calc (margin-left,   15px  );
+    @include rem-calc (margin-right,  15px  );
+    background-color: $white;
+    border-bottom: 4px solid $gray-dark;
+    
     .item-anchor {
         display: block;
         position: relative;
@@ -46,8 +50,6 @@
 .gallery-item-caption {
     @include rem-calc(padding, ($padding-small-vertical * 4), ($padding-small-horizontal * 2), ($padding-small-vertical * 4), ($padding-small-horizontal * 2));
     margin: 0;
-    background-color: $white;
-    border-bottom: 4px solid #034961;
 }
 .gallery-item-caption-heading {
      font-family: $sans-serif-semibold;

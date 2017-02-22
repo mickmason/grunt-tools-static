@@ -240,6 +240,10 @@ header {
     @include dfa-text-to-uppercase(0.1) ;
     &.header-title--mobile__text {
         display: block;
+        @include to-rem(font-size, 14, 18);
+        text-transform: none;
+        letter-spacing: normal;
+        color: $gray-dark;
         @include to-rem(padding-top, 16, ($padding-small-vertical * 0.75));
         @include to-rem(padding-bottom, 16, ($padding-small-vertical * 0.75));
     }
@@ -257,8 +261,8 @@ header {
 .header-title--mobile__cols {
     @include make-xs-column(12);
     color: $gray-dark;
-    @include to-rem(padding-top, 14, ($padding-small-vertical * 1));
-    @include to-rem(padding-bottom, 14, ($padding-small-vertical * 1));
+    @include to-rem(padding-top, 14, ($padding-small-vertical * 1.5));
+    @include to-rem(padding-bottom, 14, ($padding-small-vertical * 1.5));
     border-bottom: 4px solid $brand-primary;
 }
 
@@ -767,7 +771,8 @@ header {
 @import 'components/featured-content-block';
 
 
-
+//Forms
+@import 'components/dfa-forms';
 
 /*
  *
@@ -864,6 +869,9 @@ header {
         .news-listing-entry-heading {
             text-decoration: underline;
         }
+        .dfa-widget-body {
+            background-color: $gray-lightest;
+        }
     }
     @include clearfix;
 }
@@ -959,7 +967,8 @@ header {
 }
 .dfa-widget-body {
     @include rem-calc(padding, ($padding-small-vertical * 5), ($padding-small-vertical * 5));
-    background-color: $white;
+    
+    @include dfa-transition(background-color, 220, ease-out);
 }
 .dfa-widget-heading, .dfa-card__heading {
     @include rem-calc(font-size, 22);
@@ -981,6 +990,7 @@ header {
         color: inherit;
         text-decoration: none;
         .dfa-widget-heading, .dfa-card__heading { 
+            text-decoration: underline;
             color: $brand-darker;
         }
         .dfa-widget-btn, .dfa-card__btn {
@@ -1043,6 +1053,7 @@ header {
     }
     &.active {
         margin-bottom: 0;
+        background-color: $white;
         .inner-navigation__show-more__icon {
             display: none;
         } 
@@ -1297,47 +1308,11 @@ footer {
         border-bottom: none;
     }
 }
+
 /*
  * Styling and classes adapded and carried over from Old Site
  *
  */
-/* Forms */
-.dfa-form {
-    @include to-rem(margin-bottom, 14, 16);
-    label, textarea, input[type='text'] {
-        display: block;
-        width: 100%;        
-    }
-   textarea, input[type='text'] {
-        display: block;
-        width: 100%;
-        &.dfa-form-error {
-            margin-bottom: 4px
-        }        
-    }
-   input[type='text'], textarea {
-         @include to-rem(margin-bottom, 14, 16);
-    }
-    /* Error messages */
-    label {
-        &.dfa-form-error {
-            font-size: 0.9rem;
-            color: red;
-            margin-bottom: 12px;
-        }
-    }
-}
-
-
-@media screen and (min-width: $screen-sm-min) {
-    .dfa-form {
-        @include to-rem(margin-bottom, 16, 16);
-    }   
-    label, textarea, input[type='text'] {
-        display: block;
-        @include to-rem(max-width, 16, 480);
-    }
-}
 /* Language switchers - from old site */
 .en .lang-switcher.en, .hu .lang-switcher.hu, .ie .lang-switcher.ie, .zh .lang-switcher.zh,  .pl .lang-switcher.pl, .es .lang-switcher.es { display: none; }
 

@@ -1,0 +1,48 @@
+/* 2017 Forms */
+.dfa-form {
+    @include to-rem(margin-bottom, 14, 16);
+    label, textarea, input[type='text'] {
+        display: block;
+        width: 100%;        
+    }
+   textarea, input[type='text'] {
+        display: block;
+        width: 100%;
+        &.dfa-form-error {
+            margin-bottom: 4px
+        }        
+    }
+   input[type='text'], textarea {
+         @include to-rem(margin-bottom, 14, 16);
+    }
+    /* Error messages */
+    label {
+        &.dfa-form-error {
+            font-size: 0.9rem;
+            color: red;
+            margin-bottom: 12px;
+        }
+    }
+    .dfa-form__errors {
+        
+        background-color: $gray-lightest;
+        border: 2px solid darkred;
+        @include to-rem(padding, 16, 8, 12);
+        @include to-rem(margin-bottom, 16, 16);
+        @include to-rem(max-width, 16, 480);
+        label {
+            font-weight: 400;
+        }
+    }
+}
+
+
+@media screen and (min-width: $screen-sm-min) {
+    .dfa-form {
+        @include to-rem(margin-bottom, 16, 16);
+    }   
+    label, textarea, input[type='text'] {
+        display: block;
+        @include to-rem(max-width, 16, 480);
+    }
+}
