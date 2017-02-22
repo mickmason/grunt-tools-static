@@ -81,7 +81,7 @@
             '.gallery-item'
         ];
     // $('.dfa-widget').matchHeight(); 
-    matchHeightArray.forEach(function($this, idx, arr) {
+    matchHeightArray.forEach(function($this, idx, arr) { 
         $($this).matchHeight();    
     });
     
@@ -90,7 +90,7 @@
      *
      */
     
-    /* Custom email validation - from old build, by Gillian - not used just yet */
+    /* Custom email validation - from old build, by Gillian - not used just yet
     function emailValidation(email) {
         reg = /^(([^<>()[]\.,;:s@"]+(.[^<>()[]\.,;:s@"]+)*)|(".+"))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/;
         if(!reg.test(email)) {
@@ -98,13 +98,13 @@
         } else {
             return false;
         }
-    }
+    }  */
     
     /* Validator rules */
-    /* Required fields */
-    $.validator.addMethod('dfaRequired', $.validator.methods.required, '**This field is required.');
+    /* Required fields 
+    $.validator.addMethod('dfaRequired', $.validator.methods.required, '**This field is required.'); */
     
-    /* Email fields */
+    /* Email fields 
     $.validator.addMethod('dfaEmail', $.validator.methods.email, '* Please enter a valid email address format myname@example.com.');
     
     jQuery.validator.addMethod("emailOnly", 
@@ -115,23 +115,23 @@
                 return true;
             }
         }
-    );  
-    
-    /* Number only inputs */
+    );  */
+     
+    /* Number only inputs 
     $.validator.addMethod('dfaNumeric', $.validator.methods.digits,
-   '* Please enter numeric data only');
+   '* Please enter numeric data only');*/
     
-    /* Associate rules with classes */
+    /* Associate rules with classes 
     $.validator.addClassRules('required', { dfaRequired: true });
 //    $.validator.addClassRules('email', { dfaEmail: true  });
-    $.validator.addClassRules('numeric', { dfaNumeric: true  });  
+    $.validator.addClassRules('numeric', { dfaNumeric: true  });  */
     
-    $('.dfa-form--valiatable').validate({
+    /*$('.dfa-form--valiatable').validate({
         errorClass: 'dfa-form-error',
         rules: {
             email: 'emailOnly'
         }
-    });
+    });*/
     
     /**! 
      * Michael t4 
