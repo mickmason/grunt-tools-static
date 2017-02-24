@@ -42,13 +42,45 @@
                         <input autocomplete="off" type="text" name="your_email" id="your_email" type="email" class="email required">
                         <label for="your_query">*Your Query:</label>
                         <textarea name="your_query" id="your_query" class="required"></textarea>
+                        
+                        <label for="contact-method">How can we contact you?:</label>
+                        <div class="dfa-form__checkbox-container">
+                            <input type="checkbox" id="contact-method_1" class="notrequired" name="contact-method[]" value="1">
+                            <label class="dfa-form__checkbox-label" for="contact-method_1">Phone</label><br />
+                            <input type="checkbox" id="contact-method_2" class="notrequired" name="contact-method[]" value="2">
+                            <label class="dfa-form__checkbox-label" for="contact-method_2">Email</label><br />
+                            <input type="checkbox" id="contact-method_3" class="notrequired" name="contact-method[]" value="3">
+                            <label class="dfa-form__checkbox-label" for="contact-method_3">Text message</label><br />
+                            <input type="checkbox" id="contact-method_4" class="notrequired" name="contact-method[]" value="4">
+                            <label class="dfa-form__checkbox-label" for="contact-method_4">Letter</label><br />
+                            <input type="checkbox" id="contact-method_5" class="notrequired" name="contact-method[]" value="5">
+                            <label class="dfa-form__checkbox-label" for="contact-method_5">Carrier pidgeon</label><br />
+                        </div>
+                       
+                        <label for="rtyd">Are you Rovers til you die?:</label>
+                         <div class="dfa-form__radio-container">
+                            <input type="radio" id="rtyd_1" class="required" name="rtyd" value="1">
+                            <label class="dfa-form__radio-label" for="rtyd_1">Yes</label><br />
+                            <input type="radio" id="rtyd_2" class="required" name="rtyd" value="2">
+                            <label class="dfa-form__radio-label" for="rtyd_2">No - I know nothing</label><br />    
+                        </div>
+                        <label class="dfa-form__label-select" for="say-something">Say something here:</label>
+                        <select id="say-something" name="say-something" class="dfa-form__select required" >
+                            <option value="">-- Select --</option>
+                            <option value="1">SRFC|17:24</option>
+                            <option value="2">Super Hoops</option>
+                            <option value="3">Ireland's No. 1</option>
+                            <option value="4">Once a Hoop...</option>
+                        </select>
                             
+                        <!-- Honeypot -->    
                         <div id="form-required-element-block" style="display: none">
                             <label for="enter_your_acceptance_of_the_terms_and_conditions_here">I agree to the tos</label>
                             <input type="checkbox" id="enter_your_acceptance_of_the_terms_and_conditions_here" name="enter_your_acceptance_of_the_terms_and_conditions_here">
                         </div>
+                        <!-- end honeypot -->
                         <div class="submitarea">
-                            <input type="submit" id="submitbtn" class="dfa-form--contact__submit btn dfa-btn--submit" value="Submit">
+                            <input type="submit" id="submitbtn" class="dfa-form__submit-btn btn dfa-btn--submit" value="Submit">
                         </div>
                     </form>
                 </section>

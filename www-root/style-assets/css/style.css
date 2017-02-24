@@ -2640,8 +2640,9 @@ select[multiple].input-lg,
   background-image: none;
   border: 1px solid transparent;
   white-space: nowrap;
-  padding: 4px 12px;
+  padding: 5px 16px;
   font-size: 14px;
+  font-size: 1rem;
   line-height: 1.5;
   border-radius: 4px;
   -webkit-user-select: none;
@@ -2973,6 +2974,7 @@ a.btn.disabled, fieldset[disabled] a.btn {
 .btn-lg, .btn-group-lg > .btn {
   padding: 16px 16px;
   font-size: 18px;
+  font-size: 1.28571rem;
   line-height: 1.33333;
   border-radius: 6px;
 }
@@ -2980,6 +2982,7 @@ a.btn.disabled, fieldset[disabled] a.btn {
 .btn-sm, .btn-group-sm > .btn {
   padding: 4px 8px;
   font-size: 13px;
+  font-size: 0.92857rem;
   line-height: 1.5;
   border-radius: 4px;
 }
@@ -2987,6 +2990,7 @@ a.btn.disabled, fieldset[disabled] a.btn {
 .btn-xs, .btn-group-xs > .btn {
   padding: 1px 5px;
   font-size: 13px;
+  font-size: 0.92857rem;
   line-height: 1.5;
   border-radius: 4px;
 }
@@ -8672,27 +8676,56 @@ header:after {
 .dfa-form {
   margin-bottom: 16px;
   margin-bottom: 1.14286rem;
+  /* Form base */
+  /* Checkbox, radio button wrappers */
+  /* Select list */
   /* Error messages */
+  /** Errors list **/
+  /* Submit */
 }
-.dfa-form label, .dfa-form textarea, .dfa-form input[type='text'] {
+.dfa-form label:not(.dfa-form__label-select), .dfa-form textarea, .dfa-form input[type='text'] {
   display: block;
   width: 100%;
 }
-.dfa-form textarea, .dfa-form input[type='text'] {
-  display: block;
-  width: 100%;
+.dfa-form .dfa-form__label-select {
+  display: inline-block;
+  margin-right: 8px;
+  margin-right: 0.57143rem;
 }
-.dfa-form textarea.dfa-form-error, .dfa-form input[type='text'].dfa-form-error {
-  margin-bottom: 4px;
-}
-.dfa-form input[type='text'], .dfa-form textarea {
+.dfa-form textarea, .dfa-form input[type='text'], .dfa-form .dfa-form__checkbox-container, .dfa-form .dfa-form__radio-container, .dfa-form .dfa-form__select {
   margin-bottom: 16px;
   margin-bottom: 1.14286rem;
 }
-.dfa-form label.dfa-form-error {
+.dfa-form textarea.dfa-form__error, .dfa-form input[type='text'].dfa-form__error, .dfa-form .dfa-form__checkbox-container.dfa-form__error, .dfa-form .dfa-form__radio-container.dfa-form__error, .dfa-form .dfa-form__select.dfa-form__error {
+  border: 2px solid darkred;
+}
+.dfa-form .dfa-form__checkbox-container, .dfa-form .dfa-form__radio-container {
+  padding-left: 15px;
+  padding-left: 1.07143rem;
+}
+.dfa-form .dfa-form__checkbox-container.dfa-form__error, .dfa-form .dfa-form__radio-container.dfa-form__error {
+  padding-top: 4px;
+  padding-top: 0.28571rem;
+  padding-top: 4px;
+  padding-top: 0.28571rem;
+  border: 2px solid darkred;
+}
+.dfa-form .dfa-form__select {
+  margin-top: 4px;
+  margin-top: 0.28571rem;
+}
+.dfa-form .dfa-form__select.dfa-form__error {
+  border: 1px solid darkred;
+}
+.dfa-form label.dfa-form__error {
   font-size: 0.9rem;
-  color: red;
-  margin-bottom: 12px;
+}
+.dfa-form label.dfa-form__checkbox-label, .dfa-form label.dfa-form__radio-label {
+  float: none;
+  display: inline;
+  margin-right: 0;
+  font-weight: normal;
+  margin-left: 5px;
 }
 .dfa-form .dfa-form__errors {
   background-color: #f4f5f6;
@@ -8707,14 +8740,15 @@ header:after {
 .dfa-form .dfa-form__errors label {
   font-weight: 400;
 }
+.dfa-form .dfa-form__submit-btn {
+  margin-top: 8px;
+  margin-top: 0.57143rem;
+  margin-bottom: 16px;
+  margin-bottom: 1.14286rem;
+}
 
 @media screen and (min-width: 768px) {
-  .dfa-form {
-    margin-bottom: 16px;
-    margin-bottom: 1rem;
-  }
-
-  label, textarea, input[type='text'] {
+  label, textarea, input[type='text'], .dfa-form__checkbox-container, .dfa-form__radio-container {
     display: block;
     max-width: 480px;
     max-width: 30rem;
