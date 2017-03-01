@@ -74,11 +74,12 @@
      */
     var matchHeightArray = 
         [
+            '.landing-feature-section .dfa-card, .landing-feature-section .dfa-card__wrap',
             '.features-row--four-col .dfa-card, .features-row--four-col .dfa-card--widget__background', 
             '.features-row--two-col .dfa-card, .features-row--two-col .dfa-card--widget__background', 
             '.people-feature-person', 
             '.people-feature-overlay',
-            '.gallery-item'
+            '.gallery-item .dfa-card__wrap'
         ];
     // $('.dfa-widget').matchHeight(); 
     matchHeightArray.forEach(function($this, idx, arr) { 

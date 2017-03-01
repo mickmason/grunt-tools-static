@@ -81,9 +81,10 @@
             border-right: 1px solid #000;
         }
         border-right: 1px solid #000;
-        &:nth-child(3n) {
+        &:nth-child(3n), &:last-child {
             border-right: none;
         }
+        
     }
     .people-feature-overlay {
         padding-top: 20px;

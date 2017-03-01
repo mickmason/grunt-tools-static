@@ -32,12 +32,13 @@
     @include rem-calc (padding-right,  0px  );
     @include rem-calc (margin-left,   15px  );
     @include rem-calc (margin-right,  15px  );
-    background-color: $white;
-    border-bottom: 4px solid $gray-dark;
     
     .item-anchor {
         display: block;
         position: relative;
+    }
+    .dfa-card__wrap {
+       border-bottom: 4px solid $gray-dark;
     }
 }
 /* The image */ 

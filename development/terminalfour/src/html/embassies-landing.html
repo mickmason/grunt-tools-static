@@ -1,14 +1,54 @@
-    @@include('site-header.html')
+    @@include('structure/site-header.html')
     <!--** Main section .container **-->
     <div class="main-section">
-        
-        
-        
-        
-        
-        
-            
+        <!-- Plain cards -->
+        <div class="landing-feature-section landing-feature-section--four-col" style="">
+            <div class="content-wrap">
+                
+                <div class="landing-feature__block">
+                    <h1 class="landing-feature--heading">Supporting Irish People abroad</h1>
+                    <div class="landing-feature__row">
+                         @@include('components/dfa-card.html')   
+                         @@include('components/dfa-card.html')   
+                    </div>
+                    <p class="landing-feature__block__read-more"><a href="javascript:void(0)">More support overseas &gt;</a></p>
+                </div>
+            </div>
+        </div>
+        <!-- Plain cards -->
+        <!-- By the numbers -->
+        <div class="landing-feature-section landing-feature-section--four-col" style="background-color: #f3f4f5">
+            <div class="content-wrap">        
+                <div class="landing-feature__block">
+                <h1 class="landing-feature--heading">How are we doing?</h1>
+                   <div class="landing-feature__row">
+                        @@include('components/dfa-card--numbers.html')   
+                        @@include('components/dfa-card--numbers.html')   
+                        @@include('components/dfa-card--numbers.html')   
+                        @@include('components/dfa-card--numbers.html')
+                   </div>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- // By the numbers -->
+        <!-- Horizontal cards -->
+        <div class="landing-feature-section landing-feature-section--river" style="background-color: #e3e4e5">
+            <div class="content-wrap">        
+                <div class="landing-feature__block">
+                <h1 class="landing-feature--heading">Coming home</h1>
+                   <div class="landing-feature__row">
+                        @@include('components/dfa-card--horizontal.html')   
+                        @@include('components/dfa-card--horizontal.html')   
+                        @@include('components/dfa-card--horizontal.html')   
+                        @@include('components/dfa-card--horizontal.html')
+                   </div>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- Horizontal cards -->
     </div>
     <!--** // Main section .container **-->
      
-    @@include('site-footer.html')
+    @@include('structure/site-footer.html')

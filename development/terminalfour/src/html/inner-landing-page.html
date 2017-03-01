@@ -1,0 +1,47 @@
+    @@include('structure/site-header.html') 
+    <!--** Main section .container **-->
+    <main class="main-section">
+        <!--** inner-page-breadcrumbs row -->
+        <section class="inner-page-breadcrumbs">
+            <div class="content-wrap">
+                <!--** breadcrumbs ** -->
+                <nav class="inner-page-breadcrumbs__block" >
+                       <ul class="inner-page-breadcrumbs__nav">
+                           <li><a href="index.html">Home</a></li>
+                           <li>General content</li>
+                       </ul>
+                </nav>
+                <!--** // breadcrumbs ** -->
+            </div>
+            <!--** // content-wrap **-->
+        </section>
+        <!--** // inner-page-breadcrumbs row -->
+        <!--** Main body row **-->
+        <section class="main-body main-body--inner-landing">
+           <div class="content-wrap">
+                <aside class="main-body__side-bar">
+                    @@include('structure/inner-page-sidebar.html')
+                </aside>
+                <section class="main-body__main">
+                    <!-- Horizontal cards -->
+                    <div class="landing-feature-section landing-feature-section--river">
+                        <div class="content-wrap">        
+                            <div class="landing-feature__block">
+                            <h1 class="landing-feature--heading">Coming home</h1>
+                               <div class="landing-feature__row">
+                                    @@include('components/dfa-card--horizontal.html')   
+                                    @@include('components/dfa-card--horizontal.html')   
+                                    @@include('components/dfa-card--horizontal.html')   
+                                    @@include('components/dfa-card--horizontal.html')
+                               </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Horizontal cards -->
+                </section>
+            </div>
+        </section>
+    </main>
+    <!--** // Main section .container **-->
+    @@include('structure/site-footer.html')
