@@ -6886,6 +6886,9 @@ blockquote .attribution {
 .dfa-card__anchor:hover .dfa-card__btn, .dfa-card__anchor:active .dfa-card__btn, .dfa-card__anchor:focus .dfa-card__btn {
   color: #fff;
 }
+.dfa-card__anchor:hover .dfa-card__card-text, .dfa-card__anchor:active .dfa-card__card-text, .dfa-card__anchor:focus .dfa-card__card-text {
+  color: #005036;
+}
 .dfa-card__anchor:hover .dfa-card__date, .dfa-card__anchor:hover .dfa-card__btn, .dfa-card__anchor:active .dfa-card__date, .dfa-card__anchor:active .dfa-card__btn, .dfa-card__anchor:focus .dfa-card__date, .dfa-card__anchor:focus .dfa-card__btn {
   text-decoration: none;
 }
@@ -7173,7 +7176,6 @@ blockquote .attribution {
 .landing-feature__block__read-more {
   float: right;
   margin-bottom: 0;
-  font-size: 1.125rem;
   position: relative;
   bottom: -25px;
 }

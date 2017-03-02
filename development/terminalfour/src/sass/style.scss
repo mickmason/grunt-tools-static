@@ -115,6 +115,9 @@ blockquote {
         .dfa-card__btn {
             color: $white;
         }
+        .dfa-card__card-text {
+            color: $brand-darker;
+        }
         .dfa-card__date, .dfa-card__btn {
             text-decoration: none;
         }
@@ -325,9 +328,9 @@ blockquote {
 .landing-feature__block__read-more {
     float: right;
     margin-bottom: 0;
-    font-size: 1.125rem;
     position: relative;
     bottom: -25px;
+
 }
 .landing-feature__row {
     @include make-row;
