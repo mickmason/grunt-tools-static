@@ -78,7 +78,6 @@ blockquote {
     }    
 }
 
-
 /* Layouts */
 /* DFA Card - base */
 .dfa-card {
@@ -91,7 +90,6 @@ blockquote {
 .dfa-card__wrap {
     background-color: $white;
 }
-
 .dfa-card__card-text {
     @include to-rem(padding, 16, ($padding-small-vertical * 4), ($padding-small-horizontal * 2));
 }
@@ -144,7 +142,6 @@ blockquote {
     .dfa-card__card-text__text {
         @include to-rem(font-size, 18, 16);  
     }
-    
 }
 
 /* Horizontal card */
@@ -174,13 +171,25 @@ blockquote {
 .dfa-card--numbers {
     .dfa-card--media {
         position: relative;
+        background-color: $brand-primary;
+        @include to-rem(min-height, 16, 200);
+        background-position: top center;
+        background-size: cover;
     }
     .dfa-card__card-text {
         text-align: center;
     }
+    .dfa-card__card-text__heading {
+        @include to-rem(font-size, 14, 20);
+//        text-transform: uppercase;
+        font-weight: 600;
+    }
+    .dfa-card__card-text__text {
+        @include to-rem(font-size, 14, 16);
+    }
 }
 .dfa-card__numbers__number {
-    @include to-rem(font-size, 14, 60);
+    font-size: 72px;
     font-weight: 600;
     position: absolute;
     top: 50%;
@@ -189,8 +198,29 @@ blockquote {
     @include dfa-translate(-50%,-50%);
     color: $white;
 }
-
-
+@media screen and (min-width: $screen-sm-min) {
+    .dfa-card--numbers {
+            .dfa-card--media {
+                @include to-rem(min-height, 16, 200);
+            }
+        .dfa-card__card-text__heading {
+            @include to-rem(font-size, 16, 20);
+        }
+    }
+}
+@media screen and (min-width: $screen-lg-min) {
+    .dfa-card--numbers {
+        .dfa-card--media {
+            @include to-rem(min-height, 18, 200);
+        }
+        .dfa-card__card-text__heading {
+            @include to-rem(font-size, 18, 20);
+        }
+        .dfa-card__card-text__text {
+            @include to-rem(font-size, 18, 16);
+        }
+    }
+}
 /* Two col rows */
 
 /* Four col rows */

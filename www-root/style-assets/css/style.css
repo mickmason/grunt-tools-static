@@ -6952,14 +6952,27 @@ blockquote .attribution {
 /* Numbers card */
 .dfa-card--numbers .dfa-card--media {
   position: relative;
+  background-color: #006845;
+  min-height: 200px;
+  min-height: 12.5rem;
+  background-position: top center;
+  background-size: cover;
 }
 .dfa-card--numbers .dfa-card__card-text {
   text-align: center;
 }
+.dfa-card--numbers .dfa-card__card-text__heading {
+  font-size: 20px;
+  font-size: 1.42857rem;
+  font-weight: 600;
+}
+.dfa-card--numbers .dfa-card__card-text__text {
+  font-size: 16px;
+  font-size: 1.14286rem;
+}
 
 .dfa-card__numbers__number {
-  font-size: 60px;
-  font-size: 4.28571rem;
+  font-size: 72px;
   font-weight: 600;
   position: absolute;
   top: 50%;
@@ -6973,6 +6986,30 @@ blockquote .attribution {
   color: #fff;
 }
 
+@media screen and (min-width: 768px) {
+  .dfa-card--numbers .dfa-card--media {
+    min-height: 200px;
+    min-height: 12.5rem;
+  }
+  .dfa-card--numbers .dfa-card__card-text__heading {
+    font-size: 20px;
+    font-size: 1.25rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .dfa-card--numbers .dfa-card--media {
+    min-height: 200px;
+    min-height: 11.11111rem;
+  }
+  .dfa-card--numbers .dfa-card__card-text__heading {
+    font-size: 20px;
+    font-size: 1.11111rem;
+  }
+  .dfa-card--numbers .dfa-card__card-text__text {
+    font-size: 16px;
+    font-size: 0.88889rem;
+  }
+}
 /* Two col rows */
 /* Four col rows */
 @media screen and (min-width: 768px) {
