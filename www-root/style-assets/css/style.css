@@ -7072,7 +7072,6 @@ blockquote .attribution {
     min-height: 1px;
     padding-left: 15px;
     padding-right: 15px;
-    margin-bottom: auto;
   }
 }
 @media screen and (min-width: 992px) and (min-width: 992px) {
@@ -7088,7 +7087,6 @@ blockquote .attribution {
     min-height: 1px;
     padding-left: 15px;
     padding-right: 15px;
-    margin-bottom: auto;
   }
 }
 @media screen and (min-width: 992px) and (min-width: 992px) {
@@ -7192,6 +7190,7 @@ blockquote .attribution {
   padding-top: 2rem;
   padding-bottom: 64px;
   padding-bottom: 4rem;
+  /* padding overrides for some feature rows */
 }
 .landing-feature-section:before, .landing-feature-section:after {
   content: " ";
@@ -7199,6 +7198,10 @@ blockquote .attribution {
 }
 .landing-feature-section:after {
   clear: both;
+}
+.landing-feature-section.plain-cards-feature, .landing-feature-section.news-features, .landing-feature-section.horizontal-cards, .landing-feature-section.numbers-cards {
+  padding-bottom: 42px;
+  padding-bottom: 2.625rem;
 }
 
 .landing-feature__block {
@@ -7214,7 +7217,7 @@ blockquote .attribution {
   float: right;
   margin-bottom: 0;
   position: relative;
-  bottom: -25px;
+  bottom: -8px;
 }
 
 .landing-feature__row {

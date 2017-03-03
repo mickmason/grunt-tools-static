@@ -221,6 +221,7 @@ blockquote {
         }
     }
 }
+
 /* Two col rows */
 
 /* Four col rows */
@@ -264,13 +265,11 @@ blockquote {
     .features-row--four-col {
         .dfa-card {
             @include make-md-column(3);
-            margin-bottom: auto;
         }
     }    
     .landing-feature-section--four-col, .landing-feature-section--two-col {
         .dfa-card {
             @include make-md-column(3);
-            margin-bottom: auto;
         }
     }
 }
@@ -351,6 +350,10 @@ blockquote {
     @include make-row;
     @include rem-calc(padding-top, ($padding-small-vertical * 8));
     @include rem-calc(padding-bottom, ($padding-small-vertical * 16)) ;
+    /* padding overrides for some feature rows */
+    &.plain-cards-feature, &.news-features, &.horizontal-cards, &.numbers-cards {
+        @include rem-calc(padding-bottom, ($padding-small-vertical * 16) - 22) ;
+    }
 }
 .landing-feature__block {
     @include make-xs-column(12);
@@ -359,7 +362,7 @@ blockquote {
     float: right;
     margin-bottom: 0;
     position: relative;
-    bottom: -25px;
+    bottom: -8px;
 
 }
 .landing-feature__row {
