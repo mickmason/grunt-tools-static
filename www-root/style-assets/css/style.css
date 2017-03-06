@@ -5024,8 +5024,7 @@ button.list-group-item-danger.active:focus {
   transition: color 120ms ease-out 0s;
 }
 .panel-title > a:hover, .panel-title > a:focus {
-  color: #cccccc;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 .panel-footer {
@@ -5212,6 +5211,45 @@ button.list-group-item-danger.active:focus {
   margin-bottom: 0;
 }
 
+.panel-body h1, .panel-body h2, .panel-body h3, .panel-body h4, .panel-body h5, .panel-body h6 {
+  line-height: 1.2;
+}
+.panel-body h1:first-child, .panel-body h2:first-child, .panel-body h3:first-child, .panel-body h4:first-child, .panel-body h5:first-child, .panel-body h6:first-child {
+  margin-top: 0;
+}
+.panel-body h2 {
+  font-size: 18px;
+  font-size: 1.28571rem;
+}
+.panel-body h3, .panel-body h4, .panel-body h5, .panel-body h6 {
+  font-weight: 600;
+}
+.panel-body h3, .panel-body h4, .panel-body h5, .panel-body h6 {
+  font-size: 16px;
+  font-size: 1.14286rem;
+}
+.panel-body h4, .panel-body h5, .panel-body h6 {
+  font-size: 14px;
+  font-size: 1rem;
+}
+
+@media screen and (min-width: 992px) {
+  .panel-body h2 {
+    font-size: 20px;
+    font-size: 1.25rem;
+  }
+  .panel-body h3, .panel-body h4, .panel-body h5, .panel-body h6 {
+    font-weight: 600;
+  }
+  .panel-body h3, .panel-body h4, .panel-body h5, .panel-body h6 {
+    font-size: 18px;
+    font-size: 1.125rem;
+  }
+  .panel-body h4, .panel-body h5, .panel-body h6 {
+    font-size: 16px;
+    font-size: 1rem;
+  }
+}
 .panel-group {
   margin-bottom: 21px;
 }

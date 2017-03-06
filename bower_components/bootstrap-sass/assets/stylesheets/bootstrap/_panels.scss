@@ -74,17 +74,13 @@
         display: block;
        
         &:hover, &:focus {
-            color: darken($white, 20%);
-            text-decoration: none;
+            text-decoration: underline;
         }
         @include dfa-transition(color, 120, ease-out); 
         
     }
 }
 
-.feature-panel .panel-title {
-
-}
 
 
 // Optional footer (stays gray in every modifier class)
@@ -255,6 +251,45 @@
   }
 }
 
+//Headings etc in panels - MM T4
+.panel-body {
+    h1, h2, h3, h4, h5, h6 {
+        line-height: 1.2;
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+    h2 {
+        @include to-rem(font-size, 14, 18);
+    }
+    h3, h4, h5, h6 {
+       font-weight: 600;
+    }
+    h3, h4, h5, h6 {
+       @include to-rem(font-size, 14, 16);
+    }
+    h4, h5, h6 {
+       @include to-rem(font-size, 14, 14);
+    }
+}
+
+@media screen and (min-width: $screen-md-min) {
+    .panel-body {
+        h2 {
+            @include to-rem(font-size, 16, 20);
+        }
+        h3, h4, h5, h6 {
+           font-weight: 600;
+        }
+        h3, h4, h5, h6 {
+           @include to-rem(font-size, 16, 18);
+        }
+        h4, h5, h6 {
+           @include to-rem(font-size, 16, 16);
+        }        
+    }
+
+}
 
 // Collapsible panels (aka, accordion)
 //
