@@ -28,17 +28,38 @@
 }
 // Optional heading
 .panel-heading {
-    
-    @include rem-calc(padding, $panel-heading-padding);
-      border-bottom: 1px solid transparent;
-      @include border-top-radius(($panel-border-radius - 1));
+    a {
+        position: relative;
+        @include rem-calc(padding, $panel-heading-padding);
+        border-bottom: 1px solid transparent;
+        @include border-top-radius(($panel-border-radius - 1));
 
-      > .dropdown .dropdown-toggle {
-        color: inherit;
-      }
+        > .dropdown .dropdown-toggle {
+            color: inherit;
+        }
+
+         //Show more/less images
+        .panel-heading__show-less__icon {
+            display: none;
+        }
+        .panel-heading__show-more__icon, .panel-heading__show-less__icon {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            @include dfa-translate(-0%, -50%);
+            @include to-rem(width, 16, 24);
+        }
+    }
+    &.active {
+        .panel-heading__show-more__icon {
+            display: none;
+        }    
+        .panel-heading__show-less__icon {
+            display: inline;
+        }  
+    }
 }
 .feature-panel .panel-heading {
-    
     @include rem-calc(padding, $feature-panel-heading-padding);
     @include rem-calc(padding-right, 40);
     border-bottom: 1px solid transparent;
@@ -50,8 +71,18 @@
     &.active {
         
     }
-    
- 
+}
+
+@media screen and (min-width: $screen-lg-min) {
+    .panel-heading {
+        a {
+
+            .panel-heading__show-more__icon, .panel-heading__show-less__icon {
+
+                @include to-rem(width, 18, 28);
+            }
+        }
+    }
 }
 
 // Within heading, strip any `h*` tag of its default margins for spacing.
@@ -254,7 +285,7 @@
 //Headings etc in panels - MM T4
 .panel-body {
     h1, h2, h3, h4, h5, h6 {
-        line-height: 1.2;
+        line-height: 1.45;
         &:first-child {
             margin-top: 0;
         }
@@ -276,7 +307,7 @@
 @media screen and (min-width: $screen-md-min) {
     .panel-body {
         h2 {
-            @include to-rem(font-size, 16, 20);
+            @include to-rem(font-size, 16, 24);
         }
         h3, h4, h5, h6 {
            font-weight: 600;

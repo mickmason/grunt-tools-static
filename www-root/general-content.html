@@ -225,12 +225,15 @@
                     
                     <h2>Accordion</h2>
                     
-                    <div class="panel-group" id="accordion1" role="tablist" aria-multiselectable="true">
+                    <div class="panel-group dfa-accordion" id="accordion1" role="tablist" aria-multiselectable="true">
                         <!-- #panel1 -->
                         <div class="panel panel-default">
                             <div class="panel-heading"  id="panel-heading1">
                                 <h4 class="panel-title">
-                                    <a class="panel-heading__anchor" data-toggle="collapse" data-parent="#accordion1" href="#collapse1">Application Forms</a>
+                                    <a class="panel-heading__anchor" data-toggle="collapse" data-parent="#accordion1" href="#collapse1">Application Forms
+                                        <img src="style-assets/media/svg-imgs/circle_plus_gray-dark.svg" class="panel-heading__show-more__icon" alt="Show the panel body">
+                                        <img src="style-assets/media/svg-imgs/circle_minus_gray-dark.svg" class="panel-heading__show-less__icon" alt="Hide the panel body">
+                                    </a>
                                 </h4>
                             </div>
                             <!-- // #panel-heading1 -->
@@ -249,7 +252,10 @@
                         <div class="panel panel-default">
                             <div class="panel-heading" id="panel-heading1">
                                 <h4 class="panel-title">
-                                    <a class="panel-heading__anchor collapsed " data-toggle="collapse" data-parent="" href="#collapse1">Documentation</a>
+                                    <a class="panel-heading__anchor collapsed " data-toggle="collapse" data-parent="" href="#collapse1">Documentation
+                                        <img src="style-assets/media/svg-imgs/circle_plus_gray-dark.svg" class="panel-heading__show-more__icon" alt="Show the panel body">
+                                        <img src="style-assets/media/svg-imgs/circle_minus_gray-dark.svg" class="panel-heading__show-less__icon" alt="Hide the panel body">
+                                    </a>
                                 </h4>
                             </div>
                             <!-- // #panel-heading2 -->
@@ -325,7 +331,10 @@
                         <div class="panel panel-default">
                             <div class="panel-heading" id="panel-heading1">
                                 <h4 class="panel-title">
-                                    <a class="panel-heading__anchor collapsed " data-toggle="collapse" data-parent="#accordion1" href="#collapse1">Photographs</a>
+                                    <a class="panel-heading__anchor collapsed " data-toggle="collapse" data-parent="#accordion1" href="#collapse1">Photographs
+                                        <img src="style-assets/media/svg-imgs/circle_plus_gray-dark.svg" class="panel-heading__show-more__icon" alt="Show the panel body">
+                                        <img src="style-assets/media/svg-imgs/circle_minus_gray-dark.svg" class="panel-heading__show-less__icon" alt="Hide the panel body">
+                                    </a>
                                 </h4>
                             </div>
                             <!-- // #panel-heading2 -->
@@ -386,14 +395,12 @@
                         <!-- // #panel3 -->
                     </div><!-- #accordion1 -->
                     <script>
-                        
                         $('.panel-group').each(function(idx, el) {
-                            
                             var $thisAcc = $(el);
-                            console.log($thisAcc);
                             $thisAcc.attr('id', 'accordion'+idx);
                             $thisAcc.find('.panel').each(function(panelIdx, panelEl) {
                                 $(panelEl).find('.panel-heading').each(function(panelHeadIdx, panelHead) {
+                                    (panelIdx == 0) ? $(panelHead).addClass('active') : false;
                                     $(panelHead).attr('id', 'panel-heading'+panelIdx);
                                     $(panelHead).find('.panel-heading__anchor').attr({'data-parent': '#accordion'+idx, 'href': '#collapse'+panelIdx});
                                 });
@@ -403,8 +410,6 @@
                                 });
                             }); 
                         });
-                            
-                            
                     </script>
                     
                     <p><a href="https://www.dfa.ie/media/dfa/alldfawebsitemedia/ourrolesandpolicies/ourwork/Ireland-2016-Mission-Events-Summary.pdf">The Global and Diaspora Programme</a> is one of the seven strands of the overall Ireland 2016 programme. Through our network of Embassies and Consulates, we will mark this historic anniversary by organising an extensive range of events all around the world. <a href="https://www.dfa.ie/media/dfa/alldfawebsitemedia/ourrolesandpolicies/ourwork/Ireland-2016-Mission-Events-Summary.pdf">The Programme</a> includes flagship events that will showcase the best of traditional and contemporary Ireland across the full range of the arts, including theatre, literature, music and dance.</p>
