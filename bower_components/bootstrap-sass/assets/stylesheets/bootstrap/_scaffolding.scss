@@ -27,7 +27,7 @@ html {
 body {
   font-family: $font-family-base;
   font-size: $font-size-base;
-  line-height: $line-height-base;
+  line-height: 1.428571428571429;
   color: $text-color;
   background-color: $body-bg;
 }
@@ -187,7 +187,7 @@ hr {
     }
     body {
       font-size: $font-size-large;
-      line-height: $line-height-base;
+      line-height: 1.5555;
     }
 }
 
