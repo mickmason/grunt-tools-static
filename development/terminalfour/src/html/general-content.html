@@ -217,7 +217,6 @@
                                     $(panelHead).find('.panel-heading__anchor').attr({'data-parent': '#accordion'+idx, 'href': '#collapse'+panelIdx});
                                 });
                                 $(panelEl).find('.panel-collapse').each(function(panelCollapseIdx, panelCollapse) {
-                                    console.log(panelIdx);
                                    $(panelCollapse).attr('id', 'collapse'+panelIdx); 
                                 });
                             }); 

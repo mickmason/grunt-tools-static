@@ -1202,6 +1202,96 @@ header {
     }
 }
 
+/* 
+ * Partner logos
+ */
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+@mixin flex-direction($value) {
+    -webkit-flex-direction: $value;
+    -ms-flex-direction:     $value;
+    flex-direction:         $value;
+}
+@mixin flex-grow($value) {
+    -webkit-flex-grow: $value;
+    flex-grow:         $value;
+}   
+@mixin flex-basis($value) {
+    -webkit-flex-basis: $value;
+    flex-basis: $value;
+}
+@mixin align-items($value) {
+    -webkit-align-items: $value;
+    align-items:         $value;
+}
+.dfa-partner-logos {
+    .landing-feature__block {
+        @include to-rem(margin, 16, 16);
+    }
+}
+.dfa-partner-logos {
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+.dfa-partner-logos__item {
+    display: block;
+    margin: auto 8px;
+    list-style-image: none;
+    list-style: none;
+    a {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+    }
+}
+.dfa-partner-logos__image {
+    margin: 4px auto;
+    max-width: 100%;
+    
+    -webkit-filter:     grayscale(100%);
+    filter:             grayscale(100%);
+    -webkit-transition: 0.2s;
+    transition: 0.22s;
+    &:hover {
+        -webkit-filter: grayscale(0%);
+        filter:         grayscale(0%);
+    }
+}
+@media (min-width: $screen-sm-min) {
+    .dfa-partner-logos {
+        @include to-rem(margin, 16, 24, auto);
+        text-align: center;
+        @include flexbox();
+        @include flex-direction(row);
+        justify-content: space-between;
+        @include align-items(center);
+    }
+    .dfa-partner-logos__item {
+        
+        margin: auto 8px;
+        @include flex-grow(1);
+        @include flex-basis(12.5%);
+    } 
+    .no-flex {
+        .dfa-partner-logos__item {
+            max-width: 12.5%;
+            margin: auto;
+            display: inline-block;
+            padding: 0 8px;
+        }
+    }
+}
+@media (min-width: $screen-lg-min) {
+    .dfa-partner-logos {
+        @include to-rem(margin, 18, 32, auto);
+    }
+}
 /**
  * General content page
  *
@@ -1248,11 +1338,11 @@ header {
     }
 }
 .inner-navigation__show-more__icon, .inner-navigation__show-less__icon {
-        @include to-rem(width, 14, 18);
-        @include to-rem(height, 14, 18);
+    @include to-rem(width, 14, 18);
+    @include to-rem(height, 14, 18);
 }
 .inner-navigation__show-less__icon {
-        display: none;
+    display: none;
 }
 
 .inner-navigation {
