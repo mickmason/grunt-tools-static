@@ -107,6 +107,7 @@
     var matchHeightArray = 
         [
             '.landing-feature-section .dfa-card__wrap',
+            '.discovery-slider__slide__text, .discovery-slider__slide__img-wrap',
             '.features-row--four-col .dfa-card--widget__background', 
             '.features-row--two-col .dfa-card--widget__background', 
             '.people-feature-person', 

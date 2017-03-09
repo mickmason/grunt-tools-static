@@ -1,4 +1,4 @@
-    @@include('site-header.html') 
+    @@include('structure/site-header.html') 
     <!--** Main section .container **-->
     <main class="main-section">
         <!--** inner-page-breadcrumbs row -->
@@ -19,7 +19,10 @@
         <!--** Main body row **-->
         <section class="main-body">
            <div class="content-wrap">
+                <aside class="main-body__side-bar">               
                 @@include('structure/inner-page-sidebar.html')
+               </aside>
+                
                 <section class="main-body__main">
                     <a id="d.en.145893"></a>
                     <h1 class="content-heading">Contact the Africa Ireland Economic Forum</h1>
@@ -88,4 +91,4 @@
         </section>
     </main>
     <!--** // Main section .container **-->
-    @@include('site-footer.html')
+    @@include('structure/site-footer.html')
