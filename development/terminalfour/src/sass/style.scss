@@ -136,6 +136,30 @@ blockquote {
         }
     }
 }
+
+/* Content labels */
+.content-label {
+    position: relative;
+    padding-right: 0 !important;
+    font-weight: 100;
+    font-style: italic;
+    @include rem-calc(padding, 4, 0, 6, 0);
+    z-index: 10;
+}
+.content-label:after {
+  background: inherit;
+  bottom: 0;
+  content: '';
+  display: block;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  right: -6.4%;
+  transform: skewX(-14deg);
+  transform-origin: 100%;
+  
+}
 /* 
  * General page scaffolding 
      -- Structure
@@ -444,10 +468,15 @@ h5 {
 /*
  *   Discovery slider
  */
+.discovery-slider {
+    &.landing-feature-section {
+        @include rem-calc(padding-bottom, 36);
+    }
+}
 .discovery-slider__slide {
     @include make-xs-column(12, 0);
-    @media screen and (min-width: $screen-lg-min) {
-        @include make-lg-column(12); 
+    @media screen and (min-width: $screen-sm-min) {
+        @include make-sm-column(12); 
     }
 }
 .discovery-slider__slide__img-wrap {
@@ -475,37 +504,87 @@ h5 {
     }
 }
 .discovery-slider__slide__text {
+    position: relative;
     color: $white; 
     width: 100%;
     float: left;
-    @include to-rem(padding, 14, 14, 14, 0);
-    
-     background: rgb(0,80,54); /* Old browsers */
-        background: -moz-linear-gradient(45deg, rgba(0,80,54,1) 0%, rgba(0,104,69,1) 100%); /* FF3.6-15 */
-        background: -webkit-linear-gradient(45deg, rgba(0,80,54,1) 0%,rgba(0,104,69,1) 100%); /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(45deg, rgba(0,80,54,1) 0%,rgba(0,104,69,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#005036', endColorstr='#006845',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-    
+    @include to-rem(padding, 14, 20, 14, 54);
+    /* 45 deg gradient */
+    background: rgb(0,80,54); 
+    background: linear-gradient(-18deg, rgba(0,80,54,1) 0%,rgba(0,104,69,1) 100%); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#005036', endColorstr='#006845',GradientType=1 ); 
+    .read-more {
+        position: absolute;
+        margin: 0;
+        @include to-rem(right, 14, 14);
+        @include to-rem(bottom, 14, 14);
+        @media screen and (min-width: $screen-md-min) {
+           @include to-rem(bottom, 16, 16);
+        }
+        @media screen and (min-width: $screen-md-min) {
+           @include to-rem(bottom, 18, 18);
+        }
+    }
     @media screen and (min-width: $screen-md-min) {
        width: 33.33333%;
-       
-       @include to-rem(padding, 16, 12, 16);
+       @include to-rem(padding, 16, 12, 16, 54);
       
     }    
     @media screen and (min-width: $screen-lg-min) {
-       @include to-rem(padding, 18, 14, 18);
+       @include to-rem(padding, 18, 14, 18, 54);
     }    
     
 }
 .discovery-slider__text_cat {
-    margin-top: 0;
-    @include to-rem(font-size, 14, 22);
+    @include to-rem(font-size, 14, 16);
+    font-weight: 100;
+    margin: 0;
+    @include to-rem(margin-top, 14, 4);
+    @include to-rem(margin-bottom, 14, 20);
     @media screen and (min-width: $screen-md-min) {
        @include to-rem(font-size, 16, 22);
     }    
     @media screen and (min-width: $screen-md-min) {
+         @include to-rem(margin-top, 14, 10);
        @include to-rem(font-size, 18, 22);
-    }    
+    }
+    .content-label {
+        font-size: 14px;
+        margin-left: -16px;
+        padding-left: 16px;
+        padding-top: 2px;
+        padding-bottom: 3px;
+            
+        color: $brand-primary;
+        background-color: $white;
+        
+    }
+    & + h3 {
+        @include to-rem(margin-top, 14, 14);
+    }
+}
+.discovery-slider__controls {
+    @include clearfix;
+    margin: 8px 15px 0px; 
+    
+    
+    > div {
+        background-color: $brand-primary;
+        @include dfa-transition(background-color, 80);
+        &:hover, &:active, &:focus {
+            cursor: pointer;
+            background-color: $brand-darker;
+        }
+        width:     44px;
+        height:    44px;
+        margin-left: 1px;
+        padding: 6px;
+        float: right;
+        
+    }
+    .svg-img {
+        @include img-responsive;
+    }
 }
 
 

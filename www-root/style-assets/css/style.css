@@ -2962,6 +2962,22 @@ a.btn.disabled, fieldset[disabled] a.btn {
   background-color: #fff;
 }
 
+.btn-primary--reversed {
+  color: #006845;
+  background-color: white;
+  border-color: #005036;
+  -webkit-transition: all 80ms linear 0s;
+  -moz-transition: all 80ms linear 0s;
+  -o-transition: all 80ms linear 0s;
+  -ms-transition: all 80ms linear 0s;
+  transition: all 80ms linear 0s;
+}
+.btn-primary--reversed:hover, .btn-primary--reversed:active, .btn-primary--reversed:focus {
+  color: #fff;
+  background-color: rgba(0, 104, 69, 0);
+  border-color: #000402;
+}
+
 .dfa-btn--submit {
   background-color: #006845;
   color: #fff;
@@ -7667,6 +7683,31 @@ blockquote .attribution {
     font-size: 0.875rem;
   }
 }
+/* Content labels */
+.content-label {
+  position: relative;
+  padding-right: 0 !important;
+  font-weight: 100;
+  font-style: italic;
+  padding: 4px 0px 6px 0px;
+  padding: 0.25rem 0rem 0.375rem 0rem;
+  z-index: 10;
+}
+
+.content-label:after {
+  background: inherit;
+  bottom: 0;
+  content: '';
+  display: block;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  right: -6.4%;
+  transform: skewX(-14deg);
+  transform-origin: 100%;
+}
+
 /* 
  * General page scaffolding 
      -- Structure
@@ -9606,6 +9647,11 @@ h5.feature-heading, h5.landing-feature--heading {
 /*
  *   Discovery slider
  */
+.discovery-slider.landing-feature-section {
+  padding-bottom: 36px;
+  padding-bottom: 2.25rem;
+}
+
 .discovery-slider__slide {
   position: relative;
   float: left;
@@ -9614,7 +9660,7 @@ h5.feature-heading, h5.landing-feature--heading {
   padding-left: 0;
   padding-right: 0;
 }
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 768px) {
   .discovery-slider__slide {
     position: relative;
     min-height: 1px;
@@ -9622,7 +9668,7 @@ h5.feature-heading, h5.landing-feature--heading {
     padding-right: 15px;
   }
 }
-@media screen and (min-width: 1200px) and (min-width: 1200px) {
+@media screen and (min-width: 768px) and (min-width: 768px) {
   .discovery-slider__slide {
     float: left;
     width: 100%;
@@ -9663,40 +9709,60 @@ h5.feature-heading, h5.landing-feature--heading {
 }
 
 .discovery-slider__slide__text {
+  position: relative;
   color: #fff;
   width: 100%;
   float: left;
-  padding: 14px 14px 0px;
-  padding: 1rem 1rem 0rem;
+  padding: 20px 14px 54px;
+  padding: 1.42857rem 1rem 3.85714rem;
+  /* 45 deg gradient */
   background: #005036;
-  /* Old browsers */
-  background: -moz-linear-gradient(45deg, #005036 0%, #006845 100%);
-  /* FF3.6-15 */
-  background: -webkit-linear-gradient(45deg, #005036 0%, #006845 100%);
-  /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(45deg, #005036 0%, #006845 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background: linear-gradient(-18deg, #005036 0%, #006845 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#005036', endColorstr='#006845',GradientType=1 );
-  /* IE6-9 fallback on horizontal gradient */
+}
+.discovery-slider__slide__text .read-more {
+  position: absolute;
+  margin: 0;
+  right: 14px;
+  right: 1rem;
+  bottom: 14px;
+  bottom: 1rem;
+}
+@media screen and (min-width: 992px) {
+  .discovery-slider__slide__text .read-more {
+    bottom: 16px;
+    bottom: 1rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .discovery-slider__slide__text .read-more {
+    bottom: 18px;
+    bottom: 1rem;
+  }
 }
 @media screen and (min-width: 992px) {
   .discovery-slider__slide__text {
     width: 33.33333%;
-    padding: 12px 16px;
-    padding: 0.75rem 1rem;
+    padding: 12px 16px 54px;
+    padding: 0.75rem 1rem 3.375rem;
   }
 }
 @media screen and (min-width: 1200px) {
   .discovery-slider__slide__text {
-    padding: 14px 18px;
-    padding: 0.77778rem 1rem;
+    padding: 14px 18px 54px;
+    padding: 0.77778rem 1rem 3rem;
   }
 }
 
 .discovery-slider__text_cat {
-  margin-top: 0;
-  font-size: 22px;
-  font-size: 1.57143rem;
+  font-size: 16px;
+  font-size: 1.14286rem;
+  font-weight: 100;
+  margin: 0;
+  margin-top: 4px;
+  margin-top: 0.28571rem;
+  margin-bottom: 20px;
+  margin-bottom: 1.42857rem;
 }
 @media screen and (min-width: 992px) {
   .discovery-slider__text_cat {
@@ -9706,9 +9772,57 @@ h5.feature-heading, h5.landing-feature--heading {
 }
 @media screen and (min-width: 992px) {
   .discovery-slider__text_cat {
+    margin-top: 10px;
+    margin-top: 0.71429rem;
     font-size: 22px;
     font-size: 1.22222rem;
   }
+}
+.discovery-slider__text_cat .content-label {
+  font-size: 14px;
+  margin-left: -16px;
+  padding-left: 16px;
+  padding-top: 2px;
+  padding-bottom: 3px;
+  color: #006845;
+  background-color: #fff;
+}
+.discovery-slider__text_cat + h3 {
+  margin-top: 14px;
+  margin-top: 1rem;
+}
+
+.discovery-slider__controls {
+  margin: 8px 15px 0px;
+}
+.discovery-slider__controls:before, .discovery-slider__controls:after {
+  content: " ";
+  display: table;
+}
+.discovery-slider__controls:after {
+  clear: both;
+}
+.discovery-slider__controls > div {
+  background-color: #006845;
+  -webkit-transition: background-color 80ms linear 0s;
+  -moz-transition: background-color 80ms linear 0s;
+  -o-transition: background-color 80ms linear 0s;
+  -ms-transition: background-color 80ms linear 0s;
+  transition: background-color 80ms linear 0s;
+  width: 44px;
+  height: 44px;
+  margin-left: 1px;
+  padding: 6px;
+  float: right;
+}
+.discovery-slider__controls > div:hover, .discovery-slider__controls > div:active, .discovery-slider__controls > div:focus {
+  cursor: pointer;
+  background-color: #005036;
+}
+.discovery-slider__controls .svg-img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 /* 

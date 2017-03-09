@@ -91,6 +91,17 @@ a.btn {
 .btn-danger { 
   @include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
 }
+.btn-primary--reversed { 
+  color: $brand-primary;
+  background-color:  rgba($white, 1);
+  border-color: $brand-darker;
+    &:hover, &:active, &:focus {
+      color: $white;
+      background-color:  rgba($brand-primary, 0.0);
+      border-color: darken($brand-darker, 15%); 
+    }
+  @include dfa-transition(all, 80);
+}
 .dfa-btn--submit {
     background-color: $brand-primary;
     color: $white;
@@ -99,6 +110,7 @@ a.btn {
         background-color: $brand-darker;
     }
 }
+
 
 // Link buttons
 // -------------------------

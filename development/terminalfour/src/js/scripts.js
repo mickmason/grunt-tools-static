@@ -55,6 +55,9 @@
             }
         }]
     });
+    /*$('.discovery-slider__slider').slick({
+        
+    });*/
     
     /*! 
      * BS Accordion http://getbootstrap.com/javascript/#collapse-example-accordion
