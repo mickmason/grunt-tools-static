@@ -1127,6 +1127,80 @@ header {
     @include rem-calc(font-size, 14);  
 }
 
+/* Press relases */
+.press-release__summary {
+    @include to-rem(margin-top, 14, 20);
+    @include to-rem(margin-bottom, 14, 20);
+
+    @include to-rem(padding, 14, $cline-height-xs * 0.75, $cline-height-xs / 2, 0);
+    color: $gray;
+    background-color: $gray-lightest;
+    border: 1px solid $gray-light;
+    .press-release__summary__heading {
+        @include to-rem(font-size, 14, 16);
+        margin-top: 0;
+    }
+        font-weight: 200;
+    ul,
+    p {
+    
+        line-height: $cline-height-xs;
+    }
+    ul {
+       
+        @include to-rem(margin-bottom, 14, $cline-height-xs);
+    }
+    p {
+        @include to-rem(margin-bottom, 14, 14);
+    }    
+    @media screen and (min-width: $screen-sm-min) {
+        @include to-rem(margin-top,     16, 24);
+        @include to-rem(margin-bottom,  16, 24);
+        @include to-rem(padding, 16, $cline-height-sm * 0.75, $cline-height-sm / 2, 0);
+        h3 {
+            @include to-rem(font-size, 16, 18);
+        }
+        ul,
+        p {
+            line-height: $cline-height-sm;
+        }
+        ul {
+            
+            @include to-rem(margin-bottom, 16, $cline-height-sm);
+        }
+        p {
+            @include to-rem(margin-bottom, 16, 16);
+        }
+    }
+    @media screen and (min-width: $screen-lg-min) {
+        @include to-rem(margin-top,     18, 28);
+        @include to-rem(margin-bottom,  18, 28);
+        @include to-rem(padding, 18, $cline-height-lg * 0.75, $cline-height-lg / 2, 0);
+        ul,
+        p {
+            line-height: $cline-height-lg;
+        }
+        ul {
+            
+            @include to-rem(margin-bottom, 18, $cline-height-lg);
+        }
+        h3 {
+            @include to-rem(font-size, 18, 20);
+        }
+        p {
+            @include to-rem(margin-bottom, 18, 18);
+        }
+    }
+}
+.press-release__pub-image {
+    @include to-rem(margin, 16, 36, 0);
+    text-align: center;
+    img {
+        @include img-responsive;
+        margin: 0 auto;
+    }
+}
+
 /* 
  * DFA Widget Card
  */
@@ -1139,10 +1213,7 @@ header {
 .dfa-card--widget__background {
     background-color: $white;
     border-bottom: 6px solid $gray-light;
-  
-    
 }
-
 .dfa-card--dropshadow {
     .dfa-card--widget__wrap {
         @include dfa-box-shadow;
