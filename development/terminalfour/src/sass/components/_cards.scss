@@ -11,6 +11,7 @@
 }
 .dfa-card__wrap {
     background-color: $white;
+    @include clearfix;
 }
 .dfa-card__card-text {
     @include to-rem(padding, 16, ($padding-small-vertical * 4), ($padding-small-horizontal * 2));

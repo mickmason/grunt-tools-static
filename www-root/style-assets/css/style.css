@@ -2966,11 +2966,11 @@ a.btn.disabled, fieldset[disabled] a.btn {
   color: #006845;
   background-color: white;
   border-color: #005036;
-  -webkit-transition: all 80ms linear 0s;
-  -moz-transition: all 80ms linear 0s;
-  -o-transition: all 80ms linear 0s;
-  -ms-transition: all 80ms linear 0s;
-  transition: all 80ms linear 0s;
+  -webkit-transition: all 60ms linear 0s;
+  -moz-transition: all 60ms linear 0s;
+  -o-transition: all 60ms linear 0s;
+  -ms-transition: all 60ms linear 0s;
+  transition: all 60ms linear 0s;
 }
 .btn-primary--reversed:hover, .btn-primary--reversed:active, .btn-primary--reversed:focus {
   color: #fff;
@@ -7687,8 +7687,9 @@ blockquote .attribution {
 .content-label {
   position: relative;
   padding-right: 0 !important;
-  font-weight: 100;
+  font-weight: 200;
   font-style: italic;
+  background-color: #fff;
   padding: 4px 0px 6px 0px;
   padding: 0.25rem 0rem 0.375rem 0rem;
   z-index: 10;
@@ -7806,6 +7807,28 @@ blockquote .attribution {
   margin-top: 0;
   margin-bottom: 24px;
   margin-bottom: 1.5rem;
+}
+.feature-heading .landing-feature__block__read-more, .landing-feature--heading .landing-feature__block__read-more {
+  bottom: 0;
+  display: none;
+  float: right;
+  margin: 0;
+  margin-top: 9px;
+  margin-top: 0.64286rem;
+  font-size: 14px;
+  font-size: 1rem;
+  color: #006845;
+}
+@media screen and (min-width: 465px) {
+  .feature-heading .landing-feature__block__read-more, .landing-feature--heading .landing-feature__block__read-more {
+    display: inline-block;
+  }
+}
+@media screen and (min-width: 992px) {
+  .feature-heading .landing-feature__block__read-more, .landing-feature--heading .landing-feature__block__read-more {
+    margin-top: 14px;
+    margin-top: 0.875rem;
+  }
 }
 
 h1.feature-heading, h1.landing-feature--heading {
@@ -7959,6 +7982,13 @@ h5.feature-heading, h5.landing-feature--heading {
 
 .dfa-card__wrap {
   background-color: #fff;
+}
+.dfa-card__wrap:before, .dfa-card__wrap:after {
+  content: " ";
+  display: table;
+}
+.dfa-card__wrap:after {
+  clear: both;
 }
 
 .dfa-card__card-text {
@@ -9675,6 +9705,15 @@ h5.feature-heading, h5.landing-feature--heading {
   }
 }
 
+.discovery-slider__slide .media-play-icon {
+  z-index: 10;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
 .discovery-slider__slide__img-wrap {
   position: relative;
   width: 100%;
@@ -9708,23 +9747,36 @@ h5.feature-heading, h5.landing-feature--heading {
   }
 }
 
-.discovery-slider__slide__text {
-  position: relative;
-  color: #fff;
-  width: 100%;
-  float: left;
-  padding: 20px 14px 54px;
-  padding: 1.42857rem 1rem 3.85714rem;
+.discovery-slider__slide__bg {
   /* 45 deg gradient */
   background: #005036;
   background: linear-gradient(-18deg, #005036 0%, #006845 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#005036', endColorstr='#006845',GradientType=1 );
 }
+.discovery-slider__slide__bg:before, .discovery-slider__slide__bg:after {
+  content: " ";
+  display: table;
+}
+.discovery-slider__slide__bg:after {
+  clear: both;
+}
+
+.discovery-slider__slide__text {
+  color: #fff;
+  width: 100%;
+  float: left;
+  padding: 20px 14px 54px;
+  padding: 1.42857rem 1rem 3.85714rem;
+}
+.discovery-slider__slide__text a {
+  color: inherit;
+}
 .discovery-slider__slide__text .read-more {
   position: absolute;
+  color: #006845;
   margin: 0;
-  right: 14px;
-  right: 1rem;
+  right: 26px;
+  right: 1.85714rem;
   bottom: 14px;
   bottom: 1rem;
 }
@@ -9754,46 +9806,79 @@ h5.feature-heading, h5.landing-feature--heading {
   }
 }
 
+/* Text only slide */
+.discovery-slider__text-only .discovery-slider__slide__text {
+  width: 100%;
+}
+
+@media screen and (min-width: 992px) {
+  .discovery-slider__text-only__body {
+    -moz-columns: 2 auto;
+    -webkit-columns: 2 auto;
+    columns: 2 auto;
+    -moz-column-gap: 2 auto;
+    -webkit-column-gap: 2 auto;
+    column-gap: 2rem;
+  }
+}
+
+.no-columns .discovery-slider__slide.discovery-slider__text-only .discovery-slider__slide__text {
+  float: none;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.discovery-slider__slide__text {
+  margin: 0 auto;
+}
+
 .discovery-slider__text_cat {
-  font-size: 16px;
-  font-size: 1.14286rem;
-  font-weight: 100;
+  font-size: 14px;
+  font-size: 1rem;
   margin: 0;
-  margin-top: 4px;
-  margin-top: 0.28571rem;
   margin-bottom: 20px;
   margin-bottom: 1.42857rem;
 }
 @media screen and (min-width: 992px) {
   .discovery-slider__text_cat {
-    font-size: 22px;
-    font-size: 1.375rem;
+    font-size: 16px;
+    font-size: 1rem;
   }
 }
 @media screen and (min-width: 992px) {
   .discovery-slider__text_cat {
     margin-top: 10px;
     margin-top: 0.71429rem;
-    font-size: 22px;
-    font-size: 1.22222rem;
+    font-size: 18px;
+    font-size: 1rem;
   }
 }
 .discovery-slider__text_cat .content-label {
-  font-size: 14px;
   margin-left: -16px;
   padding-left: 16px;
   padding-top: 2px;
   padding-bottom: 3px;
-  color: #006845;
+  color: #323232;
   background-color: #fff;
+}
+.discovery-slider__text_cat .content-label:hover, .discovery-slider__text_cat .content-label:active, .discovery-slider__text_cat .content-label:focus {
+  color: #006845;
 }
 .discovery-slider__text_cat + h3 {
   margin-top: 14px;
   margin-top: 1rem;
 }
 
+@media screen and (min-width: 768px) {
+  .discovery-slider__text_heading {
+    font-size: 28px;
+    font-size: 1.75rem;
+  }
+}
+
 .discovery-slider__controls {
   margin: 8px 15px 0px;
+  margin: 0.57143rem 1.07143rem 0rem;
 }
 .discovery-slider__controls:before, .discovery-slider__controls:after {
   content: " ";
@@ -9809,8 +9894,8 @@ h5.feature-heading, h5.landing-feature--heading {
   -o-transition: background-color 80ms linear 0s;
   -ms-transition: background-color 80ms linear 0s;
   transition: background-color 80ms linear 0s;
-  width: 44px;
-  height: 44px;
+  width: 32px;
+  height: 32px;
   margin-left: 1px;
   padding: 6px;
   float: right;
@@ -9818,6 +9903,18 @@ h5.feature-heading, h5.landing-feature--heading {
 .discovery-slider__controls > div:hover, .discovery-slider__controls > div:active, .discovery-slider__controls > div:focus {
   cursor: pointer;
   background-color: #005036;
+}
+@media screen and (min-width: 768px) {
+  .discovery-slider__controls > div {
+    width: 40px;
+    height: 40px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .discovery-slider__controls > div {
+    width: 42px;
+    height: 42px;
+  }
 }
 .discovery-slider__controls .svg-img {
   display: block;

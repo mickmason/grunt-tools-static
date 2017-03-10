@@ -100,7 +100,7 @@ a.btn {
       background-color:  rgba($brand-primary, 0.0);
       border-color: darken($brand-darker, 15%); 
     }
-  @include dfa-transition(all, 80);
+  @include dfa-transition(all, 60);
 }
 .dfa-btn--submit {
     background-color: $brand-primary;
