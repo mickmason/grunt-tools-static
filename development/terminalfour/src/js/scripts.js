@@ -9,6 +9,20 @@
       div.innerHTML = '<svg/>';
       return (div.firstChild && div.firstChild.namespaceURI) == 'http://www.w3.org/2000/svg';
     }
+    
+    /*
+    * Load SVG via AJAX
+    */
+    var ajax = new XMLHttpRequest();
+    ajax.open("GET", "style-assets/media/svg/dfa-icons.svg", true);
+    ajax.send();
+    ajax.onload = function(e) {
+      var div = document.createElement("div");
+      div.setAttribute('class', 'dfa-icons-stack');
+      div.innerHTML = ajax.responseText;
+      document.body.insertBefore(div, document.body.childNodes[0]);
+    }
+    
     /* 
      * Lightbox modal https://github.com/ashleydw/lightbox
      * Extends Bootstrap Modal module

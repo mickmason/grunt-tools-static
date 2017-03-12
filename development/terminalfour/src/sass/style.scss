@@ -30,6 +30,13 @@
 .dfa-icon__svg--ie-fallback {
     display: none;
 }
+.dfa-icons-stack {
+    display: none;
+}
+.dfa-svg-icon {
+    width: 100%;
+    height: 100%;
+}
 .dfa-icon {
         @include to-rem(width, 16, 27); 
         @include to-rem(height, 16, 27); 
@@ -650,6 +657,9 @@ h5 {
     }
     .svg-img {
         @include img-responsive;
+    }
+    .dfa-svg-icon {
+        fill: $white;
     }
 }
 
