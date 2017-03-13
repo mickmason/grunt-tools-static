@@ -36,6 +36,10 @@
 .dfa-svg-icon {
     width: 100%;
     height: 100%;
+    text {
+        display: none;
+        margin-left: -100000px;
+    }
 }
 .dfa-icon {
         @include to-rem(width, 16, 27); 
@@ -98,8 +102,8 @@
     opacity: 0.40;
 }
 .transparent-image-overlay--light {
-    filter: alpha(opacity=20); // IE 5-7
-    opacity: 0.20;
+    filter: alpha(opacity=28); // IE 5-7
+    opacity: 0.28;
 }
 .transparent-image-overlay__mid {
     filter: alpha(opacity=52); // IE 5-7
@@ -402,7 +406,6 @@ h5 {
 //Two-col intro
 @import 'components/two-col-intro-block';
 
-
 //People feature
 @import 'components/people-feature-block';
 
@@ -492,200 +495,157 @@ h5 {
     }
 }
 
+@import 'components/discovery-slider';
 
 /*
- *   Discovery slider
+ *    Discovery accordion-tabs compontent
+ *    Accordion first then tabs > 1024px
  */
-.discovery-slider {
-    &.landing-feature-section {
-        @include rem-calc(padding-bottom, 36);
+
+/* The tabs */
+.accordion-tabs__tabs {
+    display: none;
+    margin: 0;
+    padding: 0;
+    @include clearfix;
+    list-style: none;
+}
+.accordion-tabs__tabs__item {
+    position: relative;
+     background-color: $brand-primary;
+    color: $white;
+    @include to-rem(padding, 14, 12);
+    @include to-rem(font-size, 14, 16);
+    font-weight: 200;
+    display: block;
+    float: left;
+    text-align: center;
+    border-top:     1px solid $gray-dark;
+	border-left:    1px solid $gray-dark;
+	border-bottom:  1px solid $gray-dark;
+    cursor: pointer;
+    &:last-child {
+        border-right: 1px solid #333;
+    }
+    &.active {
+        background-color: $gray-lightest;
+        border-bottom: none;
+        color: $gray-dark;
+    }
+    @include dfa-transition(background-color, 120);
+
+    &:not(.active):hover, &:not(.active):active, &:not(.active):focus {
+        color: $gray-dark; 
+        background-color: $white;
+    }
+    bottom: -1px;
+}
+/* The body content container */
+.accordion-tabs__body-container {
+    
+}
+/* One accordion heading hidden > 1024px */
+.accordion-tabs__panel-heading {
+    @include clearfix;
+    border-left: 1px solid $gray-dark;
+    border-right: 1px solid $gray-dark;
+    border-bottom: 1px solid $gray-dark;
+    &:first-child {
+        border-top: 1px solid $gray-dark;
+    }
+    color: $white;
+    background-color: $brand-darker;
+    @include to-rem(padding, 14, 12);
+    font-weight: 200;
+    margin: 0;
+    &:hover {
+        cursor: pointer;
+    }
+    @include dfa-transition(background-color, 100);
+    &.active {
+        .accordion-tabs__panel-heading__show-more {
+            display: none;
+        }
+        .accordion-tabs__panel-heading__show-less {
+            display: block;
+        }
     }
 }
-.discovery-slider__slide {
-    @include make-xs-column(12, 0);
-    @media screen and (min-width: $screen-sm-min) {
-        @include make-sm-column(12); 
-    }
-    .media-play-icon {
-        z-index: 10;
-        @include dfa-translate(-50%, -50%);
-    }
+/* Accordions Show more/less */ 
+.accordion-tabs__panel-heading__show-more, .accordion-tabs__panel-heading__show-less {
+    width: 10%;
+    @include to-rem(max-height, 14, 24); 
+    @include to-rem(max-width, 14, 24); 
+    fill: $white;
+    float: right;
+}
+.accordion-tabs__panel-heading__show-less {
+    display: none;
 }
 
-.discovery-slider__slide__img-wrap {
-    position: relative;
-    width: 100%;
-    float: left;
-    overflow: hidden;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    @media screen and (min-width: $screen-md-min) {
-        width: 66.66666%;
-        min-height: 460px;
-    }
- 
-}
-.discovery-slider__slide__img {
-    width: 100%;
-    @media screen and (min-width: $screen-md-min) {
-        width: auto;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        @include dfa-translate(-50%, -50%);
-    }
-}
-.discovery-slider__slide__bg {
-    position: relative;
+.accordion-tabs__tab-content {
+    display: none;
     @include clearfix;
-    width: 100%;
-    /* 45 deg gradient */
-    background: rgb(0,80,54); 
-    background: linear-gradient(-18deg, rgba(0,80,54,1) 0%,rgba(0,104,69,1) 100%); 
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#005036', endColorstr='#006845',GradientType=1 ); 
-}
-.discovery-slider__slide__text {
-    
-    color: $white; 
-    width: 100%;
-    float: left;
-    @include to-rem(padding, 14, 20, 14, 54);
-    
-    a {
-        color: inherit; 
-    }
-    .read-more {
-        position: absolute;
-        color: $brand-primary;
-        margin: 0;
-        @include to-rem(right, 14, 26);
-        @include to-rem(bottom, 14, 14);
-        @media screen and (min-width: $screen-md-min) {
-           @include to-rem(bottom, 16, 16);
-        }
-        @media screen and (min-width: $screen-md-min) {
-           @include to-rem(bottom, 18, 18);
-        }
-    }
-    @media screen and (min-width: $screen-md-min) {
-       width: 33.33333%;
-       @include to-rem(padding, 16, 12, 16, 54);
-      
-    }    
-    @media screen and (min-width: $screen-lg-min) {
-       @include to-rem(padding, 18, 14, 18, 54);
-    }    
-    
-}
-/* Text only slide */
-.discovery-slider__text-only {
-    .discovery-slider__slide__bg {
-        background-position: center center;
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
-    .transparent-image-overlay--light {
-        z-index: 0;
+    background-color: $gray-lightest; 
+    border: 1px solid $gray-dark;
+    border-top: none;
+    .gallery-item-play {
+        @include dfa-translate(-50%, -50%);
     }
     .discovery-slider__slide__text {
-        position: relative;
-        z-index: 10;
-        width: 100%;
-        @media screen and (min-width: $screen-lg-min) {
-            float: none; 
-            width: 83.3333333%;
-            margin: 0 auto;
-        }
-    }
-    
-
-}
-.discovery-slider__text-only__body {
-    @media screen and (min-width: $screen-md-min) {
-        @include dfa-columns(2, auto, 2rem); 
-    }
-}  
-.no-columns .discovery-slider__slide.discovery-slider__text-only .discovery-slider__slide__text {
-    float: none;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-
-.discovery-slider__slide__text {
-    
-    margin: 0 auto;
-}
-.discovery-slider__text_cat {
-    @include to-rem(font-size, 14, 14);
-    
-    margin: 0;
-    
-    @include to-rem(margin-bottom, 14, 20);
-    @media screen and (min-width: $screen-md-min) {
-       @include to-rem(font-size, 16, 16);
-    }    
-    @media screen and (min-width: $screen-md-min) {
-         @include to-rem(margin-top, 14, 10);
-       @include to-rem(font-size, 18, 18);
-    }
-    .content-label {
-        margin-left: -16px;
-        padding-left: 16px;
-        padding-top: 2px;
-        padding-bottom: 3px;
-            
         color: $gray-dark;
-        &:hover, &:active, &:focus {
-            color: $brand-primary;
-        }
-        background-color: $white;
-        
     }
-    & + h3 {
-        @include to-rem(margin-top, 14, 14);
+    .discovery-slider__text-only--bg-image {
+        .discovery-slider__slide__text {
+            color: $white;
+        }
     }
 }
-.discovery-slider__text_heading {
-    @media screen and (min-width: $screen-sm-min) {
-        @include to-rem(font-size, 16, 28);    
-    }
-}
-.discovery-slider__controls {
-    @include clearfix;
-    @include to-rem(margin, 14, 8, 15, 0);
-    > div {
-        background-color: $brand-primary;
-        @include dfa-transition(background-color, 80);
-        &:hover, &:active, &:focus {
-            cursor: pointer;
-            background-color: $brand-darker;
-        }
-        width:     32px;
-        height:    32px;
-        margin-left: 1px;
-        padding: 6px;
-        float: right;
-        @media screen and (min-width: $screen-sm-min) {
-            width:     40px;
-            height:    40px;
-        }
-        @media screen and (min-width: $screen-lg-min) {
-            width:     42px;
-            height:    42px;
-        }
-        
-    }
-    .svg-img {
-        @include img-responsive;
-    }
-    .dfa-svg-icon {
-        fill: $white;
+.accordion-tabs {
+    .discovery-slider__slide__bg {
+        background-image: none;
     }
 }
 
 
+/* Switch to tabs */
+@media screen and (min-width: $screen-md-min) {
+    .accordion-tabs {
+        .discovery-slider__slide__bg {
+            /* 45 deg gradient */
+            background: rgb(0,80,54); 
+            background: linear-gradient(-18deg, rgba(0,80,54,1) 0%,rgba(0,104,69,1) 100%); 
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#005036', endColorstr='#006845',GradientType=1 ); 
+         }        
+    }
+    .accordion-tabs__tabs {
+        display: block;
+         
+    }
+    .accordion-tabs__panel-heading {
+        display: none;
+    }
+    .accordion-tabs__tab-content__media, .accordion-tabs__tab-content__text {
+        @include make-md-column(6);
+    }
+    
+    .accordion-tabs__tab-content {
+        display: none;
+        @include clearfix;
+        background-color: $gray-lightest; 
+        border-top: 1px solid $gray-dark;
+        .gallery-item-play {
+            @include dfa-translate(-50%, -50%);
+        }
+        .discovery-slider__slide__text {
+            color: $white;
+        }
+        .discovery-slider__text-only {
+                padding: 0;
+        }
+    }    
+
+}
 /* 
  * Partner logos
  */

@@ -7571,6 +7571,10 @@ header:after {
   width: 100%;
   height: 100%;
 }
+.dfa-svg-icon text {
+  display: none;
+  margin-left: -100000px;
+}
 
 .dfa-icon {
   width: 27px;
@@ -7645,8 +7649,8 @@ header:after {
 }
 
 .transparent-image-overlay--light {
-  filter: alpha(opacity=20);
-  opacity: 0.20;
+  filter: alpha(opacity=28);
+  opacity: 0.28;
 }
 
 .transparent-image-overlay__mid {
@@ -8957,6 +8961,7 @@ h5.feature-heading, h5.landing-feature--heading {
   position: absolute;
   top: 50%;
   left: 50%;
+  z-index: 10;
   -webkit-transform: translate(-50%, -100%);
   -moz-transform: translate(-50%, -100%);
   -o-transform: translate(-50%, -100%);
@@ -9693,12 +9698,16 @@ h5.feature-heading, h5.landing-feature--heading {
 
 /*
  *   Discovery slider
+ *   A standard slide has an image, text, a label about the content category and CTA button
+ *   There can be a video or an image - video opens in a lightbox
+ *   A text only version can be used  it can have the green gradient background or a background image - the text is columnized > 1024px s
  */
 .discovery-slider.landing-feature-section {
   padding-bottom: 36px;
   padding-bottom: 2.25rem;
 }
 
+/* A slide */
 .discovery-slider__slide {
   position: relative;
   float: left;
@@ -9731,6 +9740,7 @@ h5.feature-heading, h5.landing-feature--heading {
   transform: translate(-50%, -50%);
 }
 
+/* Wrapper for the image to contain it and make sure it's the same height as the text block @ greater than 1024px */
 .discovery-slider__slide__img-wrap {
   position: relative;
   width: 100%;
@@ -9747,6 +9757,7 @@ h5.feature-heading, h5.landing-feature--heading {
   }
 }
 
+/* The image */
 .discovery-slider__slide__img {
   width: 100%;
 }
@@ -9764,6 +9775,7 @@ h5.feature-heading, h5.landing-feature--heading {
   }
 }
 
+/* Background gradient - can also be a background image in text-only slides */
 .discovery-slider__slide__bg {
   position: relative;
   width: 100%;
@@ -9780,10 +9792,12 @@ h5.feature-heading, h5.landing-feature--heading {
   clear: both;
 }
 
+/* Standard text - pulls right > 1024px */
 .discovery-slider__slide__text {
   color: #fff;
   width: 100%;
   float: left;
+  margin: 0 auto;
   padding: 20px 14px 54px;
   padding: 1.42857rem 1rem 3.85714rem;
 }
@@ -9826,6 +9840,11 @@ h5.feature-heading, h5.landing-feature--heading {
 }
 
 /* Text only slide */
+.discovery-slider__text-only {
+  /* Background image support */
+  /* If there is a bg image do this */
+  /* The slide text */
+}
 .discovery-slider__text-only .discovery-slider__slide__bg {
   background-position: center center;
   background-size: cover;
@@ -9847,6 +9866,7 @@ h5.feature-heading, h5.landing-feature--heading {
   }
 }
 
+/* Text-only slide text */
 @media screen and (min-width: 992px) {
   .discovery-slider__text-only__body {
     -moz-columns: 2 auto;
@@ -9858,16 +9878,14 @@ h5.feature-heading, h5.landing-feature--heading {
   }
 }
 
+/* If no columns */
 .no-columns .discovery-slider__slide.discovery-slider__text-only .discovery-slider__slide__text {
   float: none;
   max-width: 800px;
   margin: 0 auto;
 }
 
-.discovery-slider__slide__text {
-  margin: 0 auto;
-}
-
+/* The content category */
 .discovery-slider__text_cat {
   font-size: 14px;
   font-size: 1rem;
@@ -9905,6 +9923,7 @@ h5.feature-heading, h5.landing-feature--heading {
   margin-top: 1rem;
 }
 
+/* The text heading */
 @media screen and (min-width: 768px) {
   .discovery-slider__text_heading {
     font-size: 28px;
@@ -9912,6 +9931,7 @@ h5.feature-heading, h5.landing-feature--heading {
   }
 }
 
+/* Slider controls - slick */
 .discovery-slider__controls {
   margin: 8px 15px 0px;
   margin: 0.57143rem 1.07143rem 0rem;
@@ -9961,6 +9981,203 @@ h5.feature-heading, h5.landing-feature--heading {
   fill: #fff;
 }
 
+/*
+ *    Discovery accordion-tabs compontent
+ *    Accordion first then tabs > 1024px
+ */
+/* The tabs */
+.accordion-tabs__tabs {
+  display: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.accordion-tabs__tabs:before, .accordion-tabs__tabs:after {
+  content: " ";
+  display: table;
+}
+.accordion-tabs__tabs:after {
+  clear: both;
+}
+
+.accordion-tabs__tabs__item {
+  position: relative;
+  background-color: #006845;
+  color: #fff;
+  padding: 12px;
+  padding: 0.85714rem;
+  font-size: 16px;
+  font-size: 1.14286rem;
+  font-weight: 200;
+  display: block;
+  float: left;
+  text-align: center;
+  border-top: 1px solid #323232;
+  border-left: 1px solid #323232;
+  border-bottom: 1px solid #323232;
+  cursor: pointer;
+  -webkit-transition: background-color 120ms linear 0s;
+  -moz-transition: background-color 120ms linear 0s;
+  -o-transition: background-color 120ms linear 0s;
+  -ms-transition: background-color 120ms linear 0s;
+  transition: background-color 120ms linear 0s;
+  bottom: -1px;
+}
+.accordion-tabs__tabs__item:last-child {
+  border-right: 1px solid #333;
+}
+.accordion-tabs__tabs__item.active {
+  background-color: #f4f5f6;
+  border-bottom: none;
+  color: #323232;
+}
+.accordion-tabs__tabs__item:not(.active):hover, .accordion-tabs__tabs__item:not(.active):active, .accordion-tabs__tabs__item:not(.active):focus {
+  color: #323232;
+  background-color: #fff;
+}
+
+/* The body content container */
+/* One accordion heading hidden > 1024px */
+.accordion-tabs__panel-heading {
+  border-left: 1px solid #323232;
+  border-right: 1px solid #323232;
+  border-bottom: 1px solid #323232;
+  color: #fff;
+  background-color: #005036;
+  padding: 12px;
+  padding: 0.85714rem;
+  font-weight: 200;
+  margin: 0;
+  -webkit-transition: background-color 100ms linear 0s;
+  -moz-transition: background-color 100ms linear 0s;
+  -o-transition: background-color 100ms linear 0s;
+  -ms-transition: background-color 100ms linear 0s;
+  transition: background-color 100ms linear 0s;
+}
+.accordion-tabs__panel-heading:before, .accordion-tabs__panel-heading:after {
+  content: " ";
+  display: table;
+}
+.accordion-tabs__panel-heading:after {
+  clear: both;
+}
+.accordion-tabs__panel-heading:first-child {
+  border-top: 1px solid #323232;
+}
+.accordion-tabs__panel-heading:hover {
+  cursor: pointer;
+}
+.accordion-tabs__panel-heading.active .accordion-tabs__panel-heading__show-more {
+  display: none;
+}
+.accordion-tabs__panel-heading.active .accordion-tabs__panel-heading__show-less {
+  display: block;
+}
+
+/* Accordions Show more/less */
+.accordion-tabs__panel-heading__show-more, .accordion-tabs__panel-heading__show-less {
+  width: 10%;
+  max-height: 24px;
+  max-height: 1.71429rem;
+  max-width: 24px;
+  max-width: 1.71429rem;
+  fill: #fff;
+  float: right;
+}
+
+.accordion-tabs__panel-heading__show-less {
+  display: none;
+}
+
+.accordion-tabs__tab-content {
+  display: none;
+  background-color: #f4f5f6;
+  border: 1px solid #323232;
+  border-top: none;
+}
+.accordion-tabs__tab-content:before, .accordion-tabs__tab-content:after {
+  content: " ";
+  display: table;
+}
+.accordion-tabs__tab-content:after {
+  clear: both;
+}
+.accordion-tabs__tab-content .gallery-item-play {
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.accordion-tabs__tab-content .discovery-slider__slide__text {
+  color: #323232;
+}
+.accordion-tabs__tab-content .discovery-slider__text-only--bg-image .discovery-slider__slide__text {
+  color: #fff;
+}
+
+.accordion-tabs .discovery-slider__slide__bg {
+  background-image: none;
+}
+
+/* Switch to tabs */
+@media screen and (min-width: 992px) {
+  .accordion-tabs .discovery-slider__slide__bg {
+    /* 45 deg gradient */
+    background: #005036;
+    background: linear-gradient(-18deg, #005036 0%, #006845 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#005036', endColorstr='#006845',GradientType=1 );
+  }
+
+  .accordion-tabs__tabs {
+    display: block;
+  }
+
+  .accordion-tabs__panel-heading {
+    display: none;
+  }
+
+  .accordion-tabs__tab-content__media, .accordion-tabs__tab-content__text {
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+@media screen and (min-width: 992px) and (min-width: 992px) {
+  .accordion-tabs__tab-content__media, .accordion-tabs__tab-content__text {
+    float: left;
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .accordion-tabs__tab-content {
+    display: none;
+    background-color: #f4f5f6;
+    border-top: 1px solid #323232;
+  }
+  .accordion-tabs__tab-content:before, .accordion-tabs__tab-content:after {
+    content: " ";
+    display: table;
+  }
+  .accordion-tabs__tab-content:after {
+    clear: both;
+  }
+  .accordion-tabs__tab-content .gallery-item-play {
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  .accordion-tabs__tab-content .discovery-slider__slide__text {
+    color: #fff;
+  }
+  .accordion-tabs__tab-content .discovery-slider__text-only {
+    padding: 0;
+  }
+}
 /* 
  * Partner logos
  */
