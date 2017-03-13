@@ -7644,6 +7644,11 @@ header:after {
   opacity: 0.40;
 }
 
+.transparent-image-overlay--light {
+  filter: alpha(opacity=20);
+  opacity: 0.20;
+}
+
 .transparent-image-overlay__mid {
   filter: alpha(opacity=52);
   opacity: 0.52;
@@ -9760,6 +9765,8 @@ h5.feature-heading, h5.landing-feature--heading {
 }
 
 .discovery-slider__slide__bg {
+  position: relative;
+  width: 100%;
   /* 45 deg gradient */
   background: #005036;
   background: linear-gradient(-18deg, #005036 0%, #006845 100%);
@@ -9819,7 +9826,17 @@ h5.feature-heading, h5.landing-feature--heading {
 }
 
 /* Text only slide */
+.discovery-slider__text-only .discovery-slider__slide__bg {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.discovery-slider__text-only .transparent-image-overlay--light {
+  z-index: 0;
+}
 .discovery-slider__text-only .discovery-slider__slide__text {
+  position: relative;
+  z-index: 10;
   width: 100%;
 }
 @media screen and (min-width: 1200px) {
