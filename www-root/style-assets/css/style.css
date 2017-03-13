@@ -9822,6 +9822,13 @@ h5.feature-heading, h5.landing-feature--heading {
 .discovery-slider__text-only .discovery-slider__slide__text {
   width: 100%;
 }
+@media screen and (min-width: 1200px) {
+  .discovery-slider__text-only .discovery-slider__slide__text {
+    float: none;
+    width: 83.3333333%;
+    margin: 0 auto;
+  }
+}
 
 @media screen and (min-width: 992px) {
   .discovery-slider__text-only__body {
