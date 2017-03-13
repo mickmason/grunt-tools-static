@@ -569,7 +569,13 @@ h5 {
 .discovery-slider__text-only {
     .discovery-slider__slide__text {
         width: 100%;
+        @media screen and (min-width: $screen-lg-min) {
+            float: none;
+            width: 83.3333333%;
+            margin: 0 auto;
+        }
     }
+    
 
 }
 .discovery-slider__text-only__body {
