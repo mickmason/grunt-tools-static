@@ -1,0 +1,141 @@
+/*
+ *    Discovery accordion-tabs compontent
+ *    Accordion first then tabs > 1024px
+ */
+
+/* The tabs */
+.accordion-tabs__tabs {
+    position: relative;
+    display: none;
+    margin: 0;
+    padding: 0;
+    @include clearfix;
+    list-style: none;
+    z-index: 10;
+}
+.accordion-tabs__tabs__item {
+    position: relative;
+     background-color: $brand-primary;
+    color: $white;
+    @include to-rem(padding, 14, 10, 14); 
+    @include to-rem(font-size, 14, 16);
+    font-weight: 200;
+    display: block;
+    float: left;
+    text-align: center;
+    border-top:     1px solid $gray-dark;
+	border-left:    1px solid $gray-dark;
+	border-bottom:  1px solid $gray-dark;
+    cursor: pointer;
+    &:last-child {
+        border-right: 1px solid #333;
+    }
+    &.active {
+        background-color: $white;
+        border-bottom-color: $white;
+        color: $gray-dark;
+    }
+    @include dfa-transition(background-color, 120);
+
+    &:not(.active):hover, &:not(.active):active, &:not(.active):focus {
+        color: $gray-dark; 
+        background-color: $gray-lightest;
+    }
+    bottom: -1px;
+}
+
+/* Accordion heading hidden > 1024px */
+.accordion-tabs__panel-heading {
+    @include clearfix;
+    @include to-rem(margin-bottom, 14, 4);
+    @include to-rem(font-size, 14, 18);
+    border-left: 1px solid $gray-dark;
+    border-right: 1px solid $gray-dark;
+    border-bottom: 1px solid $gray-dark;
+    border-left: 1px solid $gray-dark;
+    &:first-child {
+        border-top: 1px solid $gray-dark;
+    }
+    color: $white;
+    background-color: $brand-darker;
+    @include to-rem(padding, 14, 12);
+    font-weight: 200;
+    margin: 0;
+    &:hover {
+        cursor: pointer;
+    }
+    @include dfa-transition(background-color, 100);
+    &.active {
+        .accordion-tabs__panel-heading__show-more {
+            display: none;
+        }
+        .accordion-tabs__panel-heading__show-less {
+            display: block;
+        }
+    }
+}
+/* Accordions Show more/less */ 
+.accordion-tabs__panel-heading__show-more, .accordion-tabs__panel-heading__show-less {
+    width: 10%;
+    @include to-rem(max-height, 14, 20); 
+    @include to-rem(max-width, 14, 20); 
+    fill: $white;
+    float: right;
+}
+.accordion-tabs__panel-heading__show-less {
+    display: none;
+}
+
+.accordion-tabs__tab-content {
+    display: none;
+    @include clearfix;
+    @include to-rem(padding, 14, 14);
+    background-color: $white; 
+    border: 1px solid $gray-dark;
+    border-top: none;
+    .gallery-item-play {
+        @include dfa-translate(-50%, -50%);
+    }
+
+}
+.accordion-tabs {
+    .discovery-slider__slide__bg {
+        
+        &.bg-gradient {
+            background-image: none;    
+        }
+    }
+}
+
+/* Switch to tabs */
+@media screen and (min-width: $screen-md-min) {
+    .accordion-tabs {
+        .discovery-slider__slide__bg {
+            &.bg-gradient {
+                /* 45 deg gradient */
+                background: rgb(0,80,54); 
+                background: linear-gradient(-18deg, rgba(0,80,54,1) 0%,rgba(0,104,69,1) 100%); 
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#005036', endColorstr='#006845',GradientType=1 ); 
+            }
+         }        
+    }
+    .accordion-tabs__tabs {
+        display: block;
+         
+    }
+    .accordion-tabs__panel-heading {
+        display: none;
+    }
+    .accordion-tabs__tab-content__media, .accordion-tabs__tab-content__text {
+        @include make-md-column(6);
+    }
+    
+    .accordion-tabs__tab-content {
+        
+        border-top: 1px solid $gray-dark;
+        
+        .discovery-slider__text-only {
+                padding: 0;
+        }
+    }    
+}

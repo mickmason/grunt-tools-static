@@ -43,19 +43,15 @@
     z-index: 20;
 }
 .people-feature-about-heading {
-    font-family: $sans-serif-semibold;
+    font-weight: 600;
     @include rem-calc(margin-top, 0);
     @include rem-calc(font-size, 18);
 }
 .people-feature-about-link {
-    color: inherit;
-    font-family: $sans-serif-bold;
     position: static;
     bottom: 8px;
     transform: translate(0, 0);
-    &:hover, &:focus, &:active {
-        color: inherit;
-    }
+
 }
 @media screen and (min-width:  $screen-sm-min) {
     .people-row {

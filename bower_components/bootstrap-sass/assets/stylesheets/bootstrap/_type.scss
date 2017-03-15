@@ -46,9 +46,35 @@ h6, .h6 {
   }
 }
 
-h1, .h1 { font-size: $font-size-h1; }
-h2, .h2 { font-size: $font-size-h2; }
-h3, .h3 { font-size: $font-size-h3; }
+h1, .h1 { 
+    @include to-rem(font-size, 14, 28);
+    @media screen and (min-width: $screen-sm-min) {
+        @include to-rem(font-size, 16, 32);
+    }
+    @media screen and (min-width: $screen-md-min) {
+        @include to-rem(font-size, 18, 36);
+    }
+
+}
+h2, .h2 { 
+    @include to-rem(font-size, 14, 24);
+    @media screen and (min-width: $screen-sm-min) {
+        @include to-rem(font-size, 16, 28);
+    }
+    @media screen and (min-width: $screen-md-min) {
+        @include to-rem(font-size, 18, 32);
+    }
+
+}
+h3, .h3 { 
+    @include to-rem(font-size, 14, 18);
+    @media screen and (min-width: $screen-sm-min) {
+        @include to-rem(font-size, 16, 24);
+    }
+    @media screen and (min-width: $screen-md-min) {
+        @include to-rem(font-size, 18, 24);
+    } 
+}
 h4, .h4 { font-size: $font-size-h4; }
 h5, .h5 { font-size: $font-size-h5; }
 h6, .h6 { font-size: $font-size-h6; }
@@ -58,18 +84,16 @@ h6, .h6 { font-size: $font-size-h6; }
 // -------------------------
 
 p {
-  @include to-rem(margin, 14, 0, 0, 20);
+  @include to-rem(margin, 14, 0, 0, 16);
 }
 
 @media screen and (min-width: $screen-sm-min) {
 
     p {
-      @include to-rem(margin-bottom, 16, 24);
+      @include to-rem(margin-bottom, 16, 16);
     }   
 }
-@media screen and (min-width: $screen-lg-min) {
-  
-}
+
 .lead {
   margin-bottom: $line-height-computed;
   font-size: floor(($font-size-base * 1.15));

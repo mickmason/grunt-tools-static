@@ -8,16 +8,16 @@
     &.landing-feature-section {
         @include rem-calc(padding-bottom, 36);
     }
+    .gallery-item-play {
+        @include dfa-translate(-50%, -50%);
+    }
 }
 /* A slide */
 .discovery-slider__slide {
     @include make-xs-column(12, 0);
     @media screen and (min-width: $screen-sm-min) {
         @include make-sm-column(12); 
-    }
-    .media-play-icon {
-        z-index: 10;
-        @include dfa-translate(-50%, -50%);
+        
     }
 }
 /* Wrapper for the image to contain it and make sure it's the same height as the text block @ greater than 1024px */
@@ -50,14 +50,43 @@
     position: relative;
     @include clearfix;
     width: 100%;
-    /* 45 deg gradient */
-    background: rgb(0,80,54); 
-    background: linear-gradient(-18deg, rgba(0,80,54,1) 0%,rgba(0,104,69,1) 100%); 
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#005036', endColorstr='#006845',GradientType=1 ); 
+    background-color: $white;
+    &.bg-gradient, &.bg-image {
+        .discovery-slider__slide__text {
+            color: $white;
+            border-bottom: none;
+        }
+        .discovery-slider__text_cat {
+            .content-label {
+                background-color: $white;
+                color: $gray-dark;
+            }
+        }
+       
+    }
+    &.bg-gradient {
+        /* 45 deg gradient */
+        background: rgb(0,80,54); 
+        background-image: linear-gradient(-18deg, rgba(0,80,54,1) 0%,rgba(0,104,69,1) 100%); 
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#005036', endColorstr='#006845',GradientType=1 ); 
+        
+    }
+    &.bg-image {
+         .btn {
+            color: $white;
+            background-color: transparent;
+            border-color: $white;
+            &:hover, &:active, &:focus {
+                color: $gray-dark;
+                background-color: $white;
+                background-color: rgba(258, 258, 258, 0.8);   
+            }
+        }
+    }
 }
 /* Standard text - pulls right > 1024px */
 .discovery-slider__slide__text {
-    color: $white; 
+    color: $gray-dark; 
     width: 100%;
     float: left;
     margin: 0 auto;
@@ -98,7 +127,7 @@
         background-repeat: no-repeat;
     }
     /* If there is a bg image do this */
-    .transparent-image-overlay--light {
+    .transparent-image-overlay {
         z-index: 0;
     }
     /* The slide text */
@@ -144,11 +173,11 @@
         padding-top: 2px;
         padding-bottom: 3px;
             
-        color: $gray-dark;
+        color: $gray;
         &:hover, &:active, &:focus {
             color: $brand-primary;
         }
-        background-color: $white;
+        background-color: $gray-light;
         
     }
     & + h3 {
