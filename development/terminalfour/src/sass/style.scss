@@ -437,11 +437,12 @@ h5 {
         font-weight: 200;
     ul,
     p {
-    
         line-height: $cline-height-xs;
     }
     ul {
-       
+        font-weight: 400;
+        padding-left: 0;
+        @include rem-calc(margin-left, 20);
         @include to-rem(margin-bottom, 14, $cline-height-xs);
     }
     p {

@@ -9700,6 +9700,10 @@ h5.feature-heading, h5.landing-feature--heading {
   line-height: 20px;
 }
 .press-release__summary ul {
+  font-weight: 400;
+  padding-left: 0;
+  margin-left: 20px;
+  margin-left: 1.25rem;
   margin-bottom: 20px;
   margin-bottom: 1.42857rem;
 }
