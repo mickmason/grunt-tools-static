@@ -118,6 +118,7 @@
      */
     var matchHeightArray = 
         [
+            '.dfa-card--horizontal .dfa-card__wrap, .dfa-card--horizontal .dfa-card__media',
             '.landing-feature-section .dfa-card__wrap',
             '.features-row--four-col .dfa-card--widget__background', 
             '.features-row--two-col .dfa-card--widget__background', 

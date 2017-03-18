@@ -102,13 +102,14 @@ a.btn {
     }
 }
 .btn-primary--reversed { 
-  color: $brand-primary;
+  color: $brand-darker;
   background-color:  rgba($white, 1);
   border-color: $brand-darker;
     &:hover, &:active, &:focus {
       color: $white;
-      background-color:  rgba($brand-primary, 0.0);
-      border-color: darken($brand-darker, 15%); 
+      background-color:  $brand-darker;
+      background-color:  rgba($brand-darker, 0.8);
+      border-color: $gray-dark; 
     }
   @include dfa-transition(all, 60);
 }
