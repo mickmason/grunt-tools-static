@@ -9,6 +9,8 @@
 @import "../../../lib/slick/slick/slick-theme.scss"; 
 @import "../../../lib/ekko-lightbox/ekko-lightbox.min.scss"; 
 
+
+
 /* Font defs import */
 @import url(font-defs.css); 
 
@@ -22,6 +24,35 @@
 @mixin page-wrap($width-px: 1440, $width-rem: 80) {
     max-width: #{$width-px}px;
     max-width: #{$width-rem}rem;
+}
+/* Flexbox mixins */
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+@mixin flex-direction($value) {
+    -webkit-flex-direction: $value;
+    -ms-flex-direction:     $value;
+    flex-direction:         $value;
+}
+@mixin flex-grow($value) {
+    -webkit-flex-grow: $value;
+    flex-grow:         $value;
+}   
+@mixin flex-basis($value) {
+    -webkit-flex-basis: $value;
+    flex-basis: $value;
+}
+@mixin align-items($value) {
+    -webkit-align-items: $value;
+    align-items:         $value;
+}
+@mixin justify-content($value) {
+    -webkit-justify-content: $value;
+    justify-content:         $value;
 }
 /* 
  * Global components
@@ -561,30 +592,8 @@ h5 {
 /* 
  * Partner logos
  */
-@mixin flexbox() {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-}
-@mixin flex-direction($value) {
-    -webkit-flex-direction: $value;
-    -ms-flex-direction:     $value;
-    flex-direction:         $value;
-}
-@mixin flex-grow($value) {
-    -webkit-flex-grow: $value;
-    flex-grow:         $value;
-}   
-@mixin flex-basis($value) {
-    -webkit-flex-basis: $value;
-    flex-basis: $value;
-}
-@mixin align-items($value) {
-    -webkit-align-items: $value;
-    align-items:         $value;
-}
+
+
 .dfa-partner-logos {
     .landing-feature__block {
         @include to-rem(margin, 16, 16);

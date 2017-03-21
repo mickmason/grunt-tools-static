@@ -247,6 +247,12 @@
 /* 
  * Card rows
  */
+/* Flex row */
+.landing-feature-section--flex {
+    .landing-feature__row {
+        display: flex;
+    }
+}
 /* Two col rows */
 
 /* Four col rows */
@@ -280,10 +286,30 @@
             }
         }    
     }
-    .landing-feature-section--four-col, .landing-feature-section--two-col, .landing-feature-section--river {
+    .landing-feature-section--four-col, .landing-feature-section--two-col, .landing-feature-section--river, .landing-feature-section--flex {
         .dfa-card {
             @include make-sm-column(6);
         }
+    }
+    .landing-feature-section--flex {
+        .landing-feature__row {
+            @include flex-direction(row);
+            @include align-items(center);
+            @include justify-content(space-around);
+            .dfa-card {
+                float: none;
+            }
+        }
+    }
+    .no-flex {
+        .landing-feature-section--flex {
+            .landing-feature__row {
+   
+                .dfa-card {
+                    float: left;
+                }
+            }
+        }   
     }
 }
 @media screen and (min-width: $screen-md-min) {
@@ -292,9 +318,10 @@
             @include make-md-column(3);
         }
     }    
-    .landing-feature-section--four-col, .landing-feature-section--two-col {
+    .landing-feature-section--four-col, .landing-feature-section--two-col, .landing-feature-section--flex {
         .dfa-card {
             @include make-md-column(3);
         }
     }
+    
 }

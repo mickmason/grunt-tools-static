@@ -7607,6 +7607,7 @@ header:after {
     padding: 0.5rem 1.5rem 0.6875rem;
   }
 }
+/* Flexbox mixins */
 /* 
  * Global components
  */
@@ -8346,6 +8347,11 @@ h5.feature-heading, h5.landing-feature--heading {
 /* 
  * Card rows
  */
+/* Flex row */
+.landing-feature-section--flex .landing-feature__row {
+  display: flex;
+}
+
 /* Two col rows */
 /* Four col rows */
 @media screen and (min-width: 768px) {
@@ -8388,7 +8394,7 @@ h5.feature-heading, h5.landing-feature--heading {
     font-size: 0.875rem;
   }
 
-  .landing-feature-section--four-col .dfa-card, .landing-feature-section--two-col .dfa-card, .landing-feature-section--river .dfa-card {
+  .landing-feature-section--four-col .dfa-card, .landing-feature-section--two-col .dfa-card, .landing-feature-section--river .dfa-card, .landing-feature-section--flex .dfa-card {
     position: relative;
     min-height: 1px;
     padding-left: 15px;
@@ -8396,12 +8402,30 @@ h5.feature-heading, h5.landing-feature--heading {
   }
 }
 @media screen and (min-width: 768px) and (min-width: 768px) {
-  .landing-feature-section--four-col .dfa-card, .landing-feature-section--two-col .dfa-card, .landing-feature-section--river .dfa-card {
+  .landing-feature-section--four-col .dfa-card, .landing-feature-section--two-col .dfa-card, .landing-feature-section--river .dfa-card, .landing-feature-section--flex .dfa-card {
     float: left;
     width: 50%;
   }
 }
 
+@media screen and (min-width: 768px) {
+  .landing-feature-section--flex .landing-feature__row {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+  }
+  .landing-feature-section--flex .landing-feature__row .dfa-card {
+    float: none;
+  }
+
+  .no-flex .landing-feature-section--flex .landing-feature__row .dfa-card {
+    float: left;
+  }
+}
 @media screen and (min-width: 992px) {
   .features-row--four-col .dfa-card {
     position: relative;
@@ -8418,7 +8442,7 @@ h5.feature-heading, h5.landing-feature--heading {
 }
 
 @media screen and (min-width: 992px) {
-  .landing-feature-section--four-col .dfa-card, .landing-feature-section--two-col .dfa-card {
+  .landing-feature-section--four-col .dfa-card, .landing-feature-section--two-col .dfa-card, .landing-feature-section--flex .dfa-card {
     position: relative;
     min-height: 1px;
     padding-left: 15px;
@@ -8426,7 +8450,7 @@ h5.feature-heading, h5.landing-feature--heading {
   }
 }
 @media screen and (min-width: 992px) and (min-width: 992px) {
-  .landing-feature-section--four-col .dfa-card, .landing-feature-section--two-col .dfa-card {
+  .landing-feature-section--four-col .dfa-card, .landing-feature-section--two-col .dfa-card, .landing-feature-section--flex .dfa-card {
     float: left;
     width: 25%;
   }
