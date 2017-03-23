@@ -502,9 +502,26 @@ h5 {
         
     }  
 } 
+.accordion-tabs__tab-content--country {
 
+    h1 {
+         @include rem-calc(font-size, 28);  
+    }
+    h2 {
+         @include rem-calc(font-size, 20); 
+        font-weight: 700;
+    }
+    h3 {
+         @include rem-calc(font-size, 16);  
+    }    
+    h4 {
+        @include rem-calc(font-size, 16);  
+        color: $gray;
+        
+    }
+}
 /* Styling overrides for old tabs until they are retired */
-.country-travel__old-tabs_tab-body, .accordion-tabs__tab-content--country {
+.country-travel__old-tabs_tab-body {
     
     @include clearfix;    
     @include rem-calc(margin-top, $padding-small-vertical * 8);
