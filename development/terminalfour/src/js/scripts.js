@@ -89,6 +89,29 @@
             });
 //            $('.panel-collapse').eq(0).collapse('show'); 
     }
+    
+    /*! 
+     * jQuery Match Height https://github.com/liabru/jquery-match-height
+     */
+    var matchHeightArray = 
+        [
+            '.dfa-card--horizontal .dfa-card__wrap, .dfa-card--horizontal .dfa-card__media',
+            '.landing-feature-section .dfa-card__wrap',
+            '.features-row--four-col .dfa-card--widget__background', 
+            '.features-row--two-col .dfa-card--widget__background', 
+            '.people-feature-person', 
+            '.people-feature-overlay',
+            '.gallery-item .dfa-card__wrap'
+        ];
+    // $('.dfa-widget').matchHeight(); 
+    matchHeightArray.forEach(function($this, idx, arr) { 
+        $($this).matchHeight();    
+    });
+    
+  
+    /**! 
+     * Michael t4 
+     */
     /*!
      *  Desaturate/saturate images
      */
@@ -113,27 +136,7 @@
         $("html").addClass('no-flex');
     }
     
-    /*! 
-     * jQuery Match Height https://github.com/liabru/jquery-match-height
-     */
-    var matchHeightArray = 
-        [
-            '.dfa-card--horizontal .dfa-card__wrap, .dfa-card--horizontal .dfa-card__media',
-            '.landing-feature-section .dfa-card__wrap',
-            '.features-row--four-col .dfa-card--widget__background', 
-            '.features-row--two-col .dfa-card--widget__background', 
-            '.people-feature-person', 
-            '.people-feature-overlay',
-            '.gallery-item .dfa-card__wrap'
-        ];
-    // $('.dfa-widget').matchHeight(); 
-    matchHeightArray.forEach(function($this, idx, arr) { 
-        $($this).matchHeight();    
-    });
-    
-  
     /**! 
-     * Michael t4 
      * Handle mobile nav and search 
      */
     $('.header-navigation__mobile-search, .header-navigation__mobile-menu, .desktop-search').on('click', function(e) {

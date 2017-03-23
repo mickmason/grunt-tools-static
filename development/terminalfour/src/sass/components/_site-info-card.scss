@@ -1,0 +1,55 @@
+/*
+ * Site info card
+ */
+.info-card {
+    &.landing-feature-section {
+        @include rem-calc(padding-top, 0);
+        @include rem-calc(padding-bottom, 0);
+    }
+    .content-wrap {
+           @include to-rem(padding-top, 14, 0);
+           @include to-rem(padding-bottom, 14, 0);
+    }
+    hr {
+      border-color: $gray-dark;  
+      border-width: 2px;
+    }
+    .top-hr {
+        margin-top: 0;
+        @include rem-calc(margin-bottom, 32);
+    }
+    .bottom-hr {
+        margin-bottom: 0;
+        @include rem-calc(margin-top, 32);   
+    }
+}
+    
+.info-card__address, .info-card__address__misc, .info-card__person {
+    @include make-xs-column(12);
+    @include to-rem(margin-bottom, 14, 20);
+    > h3 {
+        margin-top: 0;
+        @include to-rem(margin-bottom, 14, 14);
+        font-weight: 600;
+        @media screen and (min-width: $screen-md-min) {
+            @include to-rem(font-size, 18, 22);
+        }    
+    }
+    @media screen and (min-width: $screen-md-min) {
+        @include make-md-column(4);
+        margin-bottom: 0;
+    }
+}
+.info-card__person {
+    a {
+            font-weight: 400;
+            color: inherit;
+            &:hover {
+                color: $brand-primary;
+            }
+        }
+    p {
+        @include to-rem(margin-top, 14, 14);
+        
+    }
+}
