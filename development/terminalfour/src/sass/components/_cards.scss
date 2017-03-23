@@ -105,6 +105,7 @@
             left: 50%;
             @include dfa-translate(-50%, -50%);
             @include rem-calc(max-height, ($padding-small-vertical * 10)); 
+            @include rem-calc(min-height, 28); 
         }
         &:hover {
             .dfa-card__wrap {   
@@ -251,6 +252,7 @@
 .landing-feature-section--flex {
     .landing-feature__row {
         display: flex;
+        @include flex-direction(column);
     }
 }
 /* Two col rows */

@@ -186,11 +186,11 @@ blockquote {
 /* Content labels */
 .content-label {
     position: relative;
-    padding-right: 0 !important;
+    
     font-weight: 200;
     font-style: italic; 
     background-color: $white;
-    @include rem-calc(padding, 4, 0, 6, 0);
+    @include rem-calc(padding, 4, 2, 6, 2);
     z-index: 10;
 }
 .content-label:after {
@@ -451,149 +451,79 @@ h5 {
 @import 'components/dfa-forms';
 //Landing pages news features
 @import 'components/landing-page-news';
-
-/* Press relases */
-.press-release__summary {
-    @include to-rem(margin-top, 14, 20);
-    @include to-rem(margin-bottom, 14, 20);
-
-    @include to-rem(padding, 14, $cline-height-xs * 0.75, $cline-height-xs / 2, 0);
-    color: $gray;
-    background-color: $gray-lightest;
-    border: 1px solid $gray-light;
-    .press-release__summary__heading {
-        @include to-rem(font-size, 14, 16);
-        margin-top: 0;
-    }
-        font-weight: 200;
-    ul,
-    p {
-        line-height: $cline-height-xs;
-    }
-    ul {
-        font-weight: 400;
-        padding-left: 0;
-        @include rem-calc(margin-left, 20);
-        @include to-rem(margin-bottom, 14, $cline-height-xs);
-    }
-    p {
-        @include to-rem(margin-bottom, 14, 14);
-    }    
-    @media screen and (min-width: $screen-sm-min) {
-        @include to-rem(margin-top,     16, 24);
-        @include to-rem(margin-bottom,  16, 24);
-        @include to-rem(padding, 16, $cline-height-sm * 0.75, $cline-height-sm / 2, 0);
-        h3 {
-            @include to-rem(font-size, 16, 18);
-        }
-        ul,
-        p {
-            line-height: $cline-height-sm;
-        }
-        ul {
-            
-            @include to-rem(margin-bottom, 16, $cline-height-sm);
-        }
-        p {
-            @include to-rem(margin-bottom, 16, 16);
-        }
-    }
-    @media screen and (min-width: $screen-lg-min) {
-        @include to-rem(margin-top,     18, 28);
-        @include to-rem(margin-bottom,  18, 28);
-        @include to-rem(padding, 18, $cline-height-lg * 0.75, $cline-height-lg / 2, 0);
-        ul,
-        p {
-            line-height: $cline-height-lg;
-        }
-        ul {
-            
-            @include to-rem(margin-bottom, 18, $cline-height-lg);
-        }
-        h3 {
-            @include to-rem(font-size, 18, 20);
-        }
-        p {
-            @include to-rem(margin-bottom, 18, 18);
-        }
-    }
-}
-.press-release__pub-image {
-    @include to-rem(margin, 16, 36, 0);
-    text-align: center;
-    img {
-        @include img-responsive;
-        margin: 0 auto;
-    }
-}
+//News content
+@import 'components/press-releases';
 
 @import 'components/discovery-slider';
 @import 'components/accordion-tabs';
+@import 'components/site-info-card';
 
 /*
- * Embassies info card
- *
+ * Country travel info content
  */
+.country-travel-info__heading {
+    @include rem-calc(padding-bottom, $padding-small-vertical * 4);
+    border-bottom: 2px solid $gray;
+}
+.country-travel-info__flag {
+    max-width: 18%;
+    @include rem-calc(margin-right, $padding-small-horizontal);
+}
+.country-travel-info__summary {
+    @include rem-calc(font-size, 18);
+}
+.country-travel-info__datestamp {
+    color: $gray;
+    @include rem-calc(font-size, 12);
+}
+.country-travel-info__status {
+    display: inline-block;
+    color: $white;
+    background-color: #008552 ;
+    @include rem-calc(padding, $padding-small-vertical, $padding-small-horizontal);
+    @include rem-calc(margin-bottom, $padding-small-horizontal * 3);
+    &.country-travel-info__high-caution {
+        background-color: #fcbd02 ;
+    }
+    &.country-travel-info__avoid-travel {
+        background-color: #ff8120 ;
+    }
+    &.country-travel-info__do-not-travel {
+        background-color: #cc0000 ;
+    }
+}
 
-.info-card {
-    &.landing-feature-section {
-        @include rem-calc(padding-top, 0);
-        @include rem-calc(padding-bottom, 0);
-    }
-    .content-wrap {
-           @include to-rem(padding-top, 14, 0);
-           @include to-rem(padding-bottom, 14, 0);
-    }
-    hr {
-      border-color: $gray-dark;  
-      border-width: 2px;
-    }
-    .top-hr {
-        margin-top: 0;
-        @include rem-calc(margin-bottom, 32);
-    }
-    .bottom-hr {
-        margin-bottom: 0;
-        @include rem-calc(margin-top, 32);
-        
-        
-    }
+/* Styling overrides for old tabs until they are retired */
+.country-travel__old-tabs_tab-body {
+    @include clearfix;
+    .back-to-top-link {
+        @include rem-calc(padding-bottom, $padding-small-vertical * 5);
+        border-bottom: 1px solid $gray-lightest;
+    }    
 }
-    
-.info-card__address, .info-card__address__misc, .info-card__person {
-    @include make-xs-column(12);
-    @include to-rem(margin-bottom, 14, 20);
-    > h3 {
-        margin-top: 0;
-        @include to-rem(margin-bottom, 14, 14);
-        font-weight: 600;
-        @media screen and (min-width: $screen-md-min) {
-            @include to-rem(font-size, 18, 22);
-        }    
-    }
-    @media screen and (min-width: $screen-md-min) {
-        @include make-md-column(4);
-        margin-bottom: 0;
-    }
-}
-.info-card__person {
+
+.back-to-top-link {
+    @include clearfix;
     a {
-            font-weight: 400;
-            color: inherit;
-            &:hover {
-                color: $brand-primary;
-            }
-        }
-    p {
-        @include to-rem(margin-top, 14, 14);
-        
+        text-align: right;
+        display: block;
+        float: right;
+    }
+    .back-to-top-link__icon {
+        display: inline-block;
+        @include rem-calc(height, 16);
+        @include rem-calc(width, 16);
+        @include rem-calc(margin-left, $padding-small-vertical);
+        svg {
+            fill: inherit; 
+             @include rem-calc(padding-top, $padding-small-vertical);
+        }   
     }
 }
+
 /* 
  * Partner logos
  */
-
-
 .dfa-partner-logos {
     .landing-feature__block {
         @include to-rem(margin, 16, 16);
@@ -997,3 +927,6 @@ footer {
     margin: 0;
     padding: 18px 15px 0 18px;
 }
+
+/* Print only class */
+.print-only { display: none;}
