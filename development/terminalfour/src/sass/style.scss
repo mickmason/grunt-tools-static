@@ -462,6 +462,7 @@ h5 {
  * Country travel info content
  */
 .country-travel-info__heading {
+    margin-top: 0;
     @include rem-calc(padding-bottom, $padding-small-vertical * 4);
     border-bottom: 2px solid $gray;
 }
@@ -493,13 +494,37 @@ h5 {
     }
 }
 
+
+.accordion-tabs__tabs__item {
+    &.accordion-tabs--country__tabs__item {
+        @include rem-calc(font-size, 16);
+        @include rem-calc(padding, $padding-small-vertical * 2, $padding-small-horizontal * 1.5);    
+        
+    }  
+} 
+
 /* Styling overrides for old tabs until they are retired */
-.country-travel__old-tabs_tab-body {
-    @include clearfix;
-    .back-to-top-link {
-        @include rem-calc(padding-bottom, $padding-small-vertical * 5);
-        border-bottom: 1px solid $gray-lightest;
+.country-travel__old-tabs_tab-body, .accordion-tabs__tab-content--country {
+    
+    @include clearfix;    
+    @include rem-calc(margin-top, $padding-small-vertical * 8);
+    @include rem-calc(padding-bottom, $padding-small-vertical * 4);
+    h1 {
+         @include rem-calc(font-size, 28);  
+    }
+    h2 {
+         @include rem-calc(font-size, 20); 
+        font-weight: 700;
+    }
+    h3 {
+         @include rem-calc(font-size, 16);  
     }    
+    h4 {
+        @include rem-calc(font-size, 16);  
+        color: $gray;
+        
+    }
+    border-bottom: 1px solid $gray-lightest;
 }
 
 .back-to-top-link {

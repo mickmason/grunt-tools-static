@@ -10433,6 +10433,7 @@ h5.feature-heading, h5.landing-feature--heading {
  * Country travel info content
  */
 .country-travel-info__heading {
+  margin-top: 0;
   padding-bottom: 16px;
   padding-bottom: 1rem;
   border-bottom: 2px solid #565656;
@@ -10474,18 +10475,45 @@ h5.feature-heading, h5.landing-feature--heading {
   background-color: #cc0000;
 }
 
+.accordion-tabs__tabs__item.accordion-tabs--country__tabs__item {
+  font-size: 16px;
+  font-size: 1rem;
+  padding: 8px 12px;
+  padding: 0.5rem 0.75rem;
+}
+
 /* Styling overrides for old tabs until they are retired */
-.country-travel__old-tabs_tab-body:before, .country-travel__old-tabs_tab-body:after {
+.country-travel__old-tabs_tab-body, .accordion-tabs__tab-content--country {
+  margin-top: 32px;
+  margin-top: 2rem;
+  padding-bottom: 16px;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #f4f5f6;
+}
+.country-travel__old-tabs_tab-body:before, .country-travel__old-tabs_tab-body:after, .accordion-tabs__tab-content--country:before, .accordion-tabs__tab-content--country:after {
   content: " ";
   display: table;
 }
-.country-travel__old-tabs_tab-body:after {
+.country-travel__old-tabs_tab-body:after, .accordion-tabs__tab-content--country:after {
   clear: both;
 }
-.country-travel__old-tabs_tab-body .back-to-top-link {
-  padding-bottom: 20px;
-  padding-bottom: 1.25rem;
-  border-bottom: 1px solid #f4f5f6;
+.country-travel__old-tabs_tab-body h1, .accordion-tabs__tab-content--country h1 {
+  font-size: 28px;
+  font-size: 1.75rem;
+}
+.country-travel__old-tabs_tab-body h2, .accordion-tabs__tab-content--country h2 {
+  font-size: 20px;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.country-travel__old-tabs_tab-body h3, .accordion-tabs__tab-content--country h3 {
+  font-size: 16px;
+  font-size: 1rem;
+}
+.country-travel__old-tabs_tab-body h4, .accordion-tabs__tab-content--country h4 {
+  font-size: 16px;
+  font-size: 1rem;
+  color: #565656;
 }
 
 .back-to-top-link:before, .back-to-top-link:after {
