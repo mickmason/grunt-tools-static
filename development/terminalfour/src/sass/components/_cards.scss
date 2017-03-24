@@ -47,7 +47,29 @@
 .dfa-card--dropshadow {
     .dfa-card__wrap {
          @include dfa-box-shadow;
+         background-color: #fbfcfd;
+         transition: all 0.18s cubic-bezier(.25,.8,.25,1);    
+
     }
+    
+    .dfa-svg-icon {
+        fill: $brand-primary;
+        fill: rgba($brand-primary, 0.8);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        @include dfa-translate(-50%, -50%);
+        @include rem-calc(max-height, ($padding-small-vertical * 10)); 
+        @include rem-calc(min-height, 28); 
+    }    
+    &:hover {
+        .dfa-card__wrap {   
+            background-color: $white;
+        }
+        .dfa-svg-icon {
+            fill: rgba($brand-primary, 1);
+        }
+    }    
 }
 @media screen and (min-width: $screen-sm-min) {
     .dfa-card__card-text__heading {

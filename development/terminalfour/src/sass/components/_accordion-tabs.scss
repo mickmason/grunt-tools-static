@@ -4,6 +4,11 @@
  */
 
 /* The tabs */
+.accordion-tabs {
+//    h1, h2, h3, h4, h5, p, ul, ol, blockquote {
+//    max-width: none;
+//    }
+}
 .accordion-tabs__tabs {
     position: relative;
     display: none;
@@ -12,6 +17,7 @@
     @include clearfix;
     list-style: none;
     z-index: 10;
+    max-width: none;
 }
 .accordion-tabs__tabs__item {
     position: relative;
@@ -100,7 +106,6 @@
 }
 .accordion-tabs {
     .discovery-slider__slide__bg {
-        
         &.bg-gradient {
             background-image: none;    
         }
@@ -108,7 +113,7 @@
 }
 
 /* Switch to tabs */
-@media screen and (min-width: $screen-md-min) {
+@media screen and (min-width: $screen-lg-min) {
     .accordion-tabs {
         .discovery-slider__slide__bg {
             &.bg-gradient {
@@ -117,11 +122,10 @@
                 background: linear-gradient(-18deg, rgba(0,80,54,1) 0%,rgba(0,104,69,1) 100%); 
                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#005036', endColorstr='#006845',GradientType=1 ); 
             }
-         }        
+         }         
     }
     .accordion-tabs__tabs {
         display: block;
-         
     }
     .accordion-tabs__panel-heading {
         display: none;
@@ -129,13 +133,10 @@
     .accordion-tabs__tab-content__media, .accordion-tabs__tab-content__text {
         @include make-md-column(6);
     }
-    
     .accordion-tabs__tab-content {
-        
         border-top: 1px solid $gray-dark;
-        
         .discovery-slider__text-only {
                 padding: 0;
         }
-    }    
+    } 
 }

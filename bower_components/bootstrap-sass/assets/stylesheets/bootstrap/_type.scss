@@ -16,11 +16,13 @@ h1, h3, h4, h5, h6,
     font-weight: normal;
     line-height: 1;
     color: $headings-small-color;
-  }    
+  }
+  max-width: $text-max-width;
 }
 h2, .h2 { 
     font-family: $font-family-sans-light;
     font-weight: $headings-font-light;
+     max-width: $text-max-width;
 }
 
 h1, .h1,
@@ -85,6 +87,7 @@ h6, .h6 { font-size: $font-size-h6; }
 
 p {
   @include to-rem(margin, 14, 0, 0, 16);
+  max-width: $text-max-width;
 }
 
 @media screen and (min-width: $screen-sm-min) {
@@ -198,6 +201,7 @@ ol {
   ol {
     margin-bottom: 0;
   }
+  max-width: $text-max-width;
   @media screen and (min-width: $screen-sm-min) {
       padding-bottom: ($cline-height-sm / 2);
   }  
@@ -232,6 +236,7 @@ ol {
 dl {
   margin-top: 0; // Remove browser default
   margin-bottom: $line-height-computed;
+  max-width: $text-max-width;
 }
 dt,
 dd {
@@ -290,7 +295,7 @@ blockquote {
   margin: 0 0 $line-height-computed;
   font-size: $blockquote-font-size;
   border-left: 5px solid $blockquote-border-color;
-
+  max-width: $text-max-width;
   p,
   ul,
   ol {

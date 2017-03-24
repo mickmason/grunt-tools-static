@@ -415,6 +415,7 @@ hr {
   margin-bottom: 20px;
   border: 0;
   border-top: 1px solid #f4f5f6;
+  max-width: 820px;
 }
 
 .sr-only {
@@ -469,6 +470,7 @@ h1, h3, h4, h5, h6,
   font-weight: 700;
   line-height: 1.1;
   color: inherit;
+  max-width: 820px;
 }
 h1 small,
 h1 .small, h3 small,
@@ -490,6 +492,7 @@ h6 .small,
 h2, .h2 {
   font-family: "SourceSans", Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 200;
+  max-width: 820px;
 }
 
 h1, .h1,
@@ -594,6 +597,7 @@ h6, .h6 {
 p {
   margin: 0px 0px 16px;
   margin: 0rem 0rem 1.14286rem;
+  max-width: 820px;
 }
 
 @media screen and (min-width: 768px) {
@@ -775,6 +779,7 @@ ul,
 ol {
   margin-top: 0;
   margin-bottom: 10px;
+  max-width: 820px;
 }
 ul ul,
 ul ol,
@@ -808,6 +813,7 @@ ol ol {
 dl {
   margin-top: 0;
   margin-bottom: 20px;
+  max-width: 820px;
 }
 
 dt,
@@ -860,6 +866,7 @@ blockquote {
   margin: 0 0 20px;
   font-size: 17.5px;
   border-left: 5px solid #f4f5f6;
+  max-width: 820px;
 }
 blockquote p:last-child,
 blockquote ul:last-child,
@@ -7294,6 +7301,7 @@ header:after {
 .main-nav-list {
   padding: 0;
   margin: 0;
+  max-width: none;
 }
 .main-nav-list li {
   padding: 8px 8px;
@@ -8102,6 +8110,8 @@ h5.feature-heading, h5.landing-feature--heading {
 .dfa-card--dropshadow .dfa-card__wrap {
   box-shadow: 1px 2px 4px 1px rgba(50, 50, 50, 0.53);
   transition: all 0.18s cubic-bezier(0.25, 0.8, 0.25, 1);
+  background-color: #fbfcfd;
+  transition: all 0.18s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 .dfa-card--dropshadow .dfa-card__wrap:hover {
   -webkit-box-shadow: 1px 4px 12px 2px rgba(50, 50, 50, 0.36);
@@ -8110,6 +8120,28 @@ h5.feature-heading, h5.landing-feature--heading {
 }
 .dfa-card--dropshadow .dfa-card__wrap:hover .dfa-widget-heading, .dfa-card--dropshadow .dfa-card__wrap:hover .dfa-card__heading {
   color: #005036;
+}
+.dfa-card--dropshadow .dfa-svg-icon {
+  fill: #006845;
+  fill: rgba(0, 104, 69, 0.8);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  max-height: 40px;
+  max-height: 2.5rem;
+  min-height: 28px;
+  min-height: 1.75rem;
+}
+.dfa-card--dropshadow:hover .dfa-card__wrap {
+  background-color: #fff;
+}
+.dfa-card--dropshadow:hover .dfa-svg-icon {
+  fill: #006845;
 }
 
 @media screen and (min-width: 768px) {
@@ -9882,6 +9914,9 @@ h5.feature-heading, h5.landing-feature--heading {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+.discovery-slider .landing-feature--heading {
+  max-width: none;
+}
 
 /* A slide */
 .discovery-slider__slide {
@@ -9988,6 +10023,10 @@ h5.feature-heading, h5.landing-feature--heading {
   margin: 0 auto;
   padding: 20px 14px 54px;
   padding: 1.42857rem 1rem 3.85714rem;
+}
+.discovery-slider__slide__text h1, .discovery-slider__slide__text h2, .discovery-slider__slide__text h3, .discovery-slider__slide__text h4, .discovery-slider__slide__text h5, .discovery-slider__slide__text h6 {
+  page-break-after: avoid;
+  break-after: avoid-column;
 }
 .discovery-slider__slide__text a:not(.btn) {
   color: inherit;
@@ -10181,6 +10220,7 @@ h5.feature-heading, h5.landing-feature--heading {
   padding: 0;
   list-style: none;
   z-index: 10;
+  max-width: none;
 }
 .accordion-tabs__tabs:before, .accordion-tabs__tabs:after {
   content: " ";
@@ -10311,7 +10351,7 @@ h5.feature-heading, h5.landing-feature--heading {
 }
 
 /* Switch to tabs */
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 1200px) {
   .accordion-tabs .discovery-slider__slide__bg.bg-gradient {
     /* 45 deg gradient */
     background: #005036;
@@ -10334,14 +10374,14 @@ h5.feature-heading, h5.landing-feature--heading {
     padding-right: 15px;
   }
 }
-@media screen and (min-width: 992px) and (min-width: 992px) {
+@media screen and (min-width: 1200px) and (min-width: 992px) {
   .accordion-tabs__tab-content__media, .accordion-tabs__tab-content__text {
     float: left;
     width: 50%;
   }
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 1200px) {
   .accordion-tabs__tab-content {
     border-top: 1px solid #323232;
   }
@@ -10352,6 +10392,9 @@ h5.feature-heading, h5.landing-feature--heading {
 /*
  * Site info card
  */
+.info-card hr {
+  max-width: none;
+}
 .info-card.landing-feature-section {
   padding-top: 0px;
   padding-top: 0rem;
@@ -10501,6 +10544,12 @@ h5.feature-heading, h5.landing-feature--heading {
   color: #565656;
 }
 
+@media screen and (min-width: 1440px) {
+  .accordion-tabs__tabs__item.accordion-tabs--country__tabs__item {
+    font-size: 18px;
+    font-size: 1.125rem;
+  }
+}
 /* Styling overrides for old tabs until they are retired */
 .country-travel__old-tabs_tab-body {
   margin-top: 32px;
