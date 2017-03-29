@@ -11,6 +11,9 @@
     .gallery-item-play {
         @include dfa-translate(-50%, -50%);
     }
+    .landing-feature--heading {
+        max-width: none;
+    }
 }
 /* A slide */
 .discovery-slider__slide {
@@ -91,7 +94,10 @@
     float: left;
     margin: 0 auto;
     @include to-rem(padding, 14, 20, 14, 54);
-    
+    h1, h2, h3, h4, h5, h6 {
+        page-break-after: avoid;
+        break-after: avoid-column;
+    }
     a:not(.btn) {
         color: inherit; 
     }

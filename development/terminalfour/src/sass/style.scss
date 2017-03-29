@@ -528,6 +528,16 @@ h5 {
         
     }
 }
+
+@media screen and (min-width: $screen-xl-min) {
+    .accordion-tabs__tabs__item {
+        &.accordion-tabs--country__tabs__item {
+            @include rem-calc(font-size, 18);
+        }  
+    }     
+}
+
+
 /* Styling overrides for old tabs until they are retired */
 .country-travel__old-tabs_tab-body {
     
