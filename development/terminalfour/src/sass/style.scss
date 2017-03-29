@@ -38,6 +38,12 @@
     -ms-flex-direction:     $value;
     flex-direction:         $value;
 }
+@mixin flex-flow($dir: row, $wrap: wrap) {
+    -webkit-flex-flow: $dir $wrap;
+    -ms-flex-flow:     $dir $wrap;
+    flex-flow:         $dir $wrap;
+}    
+
 @mixin flex-grow($value) {
     -webkit-flex-grow: $value;
     flex-grow:         $value;
@@ -461,10 +467,14 @@ h5 {
 /*
  * Country travel info content
  */
-.country-travel-info__heading {
+.country-travel-info__heading, .landing-page-title {
     margin-top: 0;
     @include rem-calc(padding-bottom, $padding-small-vertical * 4);
     border-bottom: 2px solid $gray;
+}
+.landing-page-title {
+    
+    border-bottom: 1px solid $gray-light;
 }
 .country-travel-info__flag {
     max-width: 18%;
@@ -493,13 +503,11 @@ h5 {
         background-color: #cc0000 ;
     }
 }
-
-
+/* Accordion tabs used for country travel information */
 .accordion-tabs__tabs__item {
     &.accordion-tabs--country__tabs__item {
         @include rem-calc(font-size, 16);
         @include rem-calc(padding, $padding-small-vertical * 2, $padding-small-horizontal * 1.5);    
-        
     }  
 } 
 .accordion-tabs__tab-content--country {
@@ -543,6 +551,127 @@ h5 {
     }
     border-bottom: 1px solid $gray-lightest;
 }
+
+/* 
+ * A-Z listings and filters 
+ */
+//wraps the filters
+.a-z-listing__filters-wrap {
+    @include clearfix;
+}
+//filters label
+.a-z-listing__filter__label {
+    display: block;
+    font-weight: 400;
+    @include rem-calc(margin-bottom, $padding-small-vertical * 2);
+    
+    max-width: none;
+    
+}
+.a-z-listing__filter__label__text {
+    color: $gray-lighter;
+    @include rem-calc(font-size, 12px);
+    text-transform: uppercase;
+}
+//filters input label
+.a-z-listing__filter__input {
+    display: inline-block;
+    width: 100%;
+    @include rem-calc(margin-top, $padding-small-vertical);
+    
+}
+select.a-z-listing__filter__input {
+    height: 30px;
+}
+//All of the countries
+.a-z-filters__listing {
+    @include make-row();
+    @include flexbox();
+    @include flex-direction(column);
+    @include flex-flow(row, wrap);
+    @include justify-content(flex-start);
+    @include rem-calc(margin-top, $padding-small-vertical * 7.5)   ; 
+}
+//Wraps each letter listing
+.a-z-filters__listing__letter {
+    width: 100%;
+    padding: 0 15px;
+    @include rem-calc(margin-bottom, $padding-small-vertical * 3);
+}
+.no-flex {
+    .a-z-filters__listing {
+        @include make-row();
+    }
+    .a-z-filters__listing__letter {
+        @include make-xs-column(12);    
+    }
+    
+}
+//Listing for a letter eg "A"
+.a-z-filters__listing__letter-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.a-z-filters__listing__letter-list__item--hidden, .a-z__item--hidden__text, .a-z__item--hidden__region {
+    display: none;
+}
+.a-z-listing__filters__clear-all {
+    clear: both;
+    margin-top: 12px;
+    svg {
+        fill: darken(#801515, 5%);
+        
+        width: 16px;
+        height: 16px;
+        margin-right: 4px;
+    }
+    
+    &:hover {
+        cursor: pointer;
+        svg {
+            fill: #AA3939;
+        }    
+    }
+}
+@media screen and (min-width: $screen-sm-min) {
+
+    
+    
+     .a-z-listing__filter__label {
+         width: 47.98927613941%;
+         margin-left: 4.02144772118%;
+         float: left;
+         &:first-child {
+             margin-left: 0;
+         }
+
+     } 
+    .a-z-filters__listing__letter  {
+        width: 47.98927613941%;
+        
+    }
+    .no-flex {
+        .a-z-filters__listing__letter {
+            @include make-sm-column(6);
+        }
+    }
+    
+}
+
+
+@media screen and (min-width: $screen-lg-min) {
+     .a-z-filters__listing {
+         @include justify-content(flex-start);
+    }
+    .a-z-filters__listing__letter  {
+        width: 33.3333333%;
+        
+    }
+    
+    
+}
+
 
 .back-to-top-link {
     @include clearfix;
