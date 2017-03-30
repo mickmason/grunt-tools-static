@@ -122,6 +122,24 @@ header {
     margin-top: ($padding-small-vertical) ;
     width: 100%;
 }
+/* Mobile secondary nav */
+.mobile-secondary-nav-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    @include to-rem(margin-top, 14, $padding-small-vertical * 4.5);
+    .mobile-secondary-nav-link {
+        @include to-rem(padding, 14, $padding-small-vertical * 1.5, $padding-small-vertical * 2);
+    }
+    ul {
+        
+        @include to-rem(padding-left, 14, $padding-small-vertical * 5);
+    }
+    .secondary-nav-link__sub-link {
+        border-bottom: none;
+        @include to-rem(padding, 14, $padding-small-vertical * 1, $padding-small-vertical * 1.5);
+    }
+}
 /**
  *    Desktop secondary nav 
  **/

@@ -125,7 +125,61 @@
         @include rem-calc(margin-top, 4); 
     }
 }
+/* 
+ * Section titles 
+ */
+.landing-feature-section {
+    
+    &.section-title {
+        padding: 0;
+        padding-bottom: 12px;
+    }
+}
+.section-title__wrap {
+    @include make-xs-column(12);
+}
+.section-title__heading {
+    max-width: none;
+    font-weight: 200;
+    @include to-rem(font-size, 14, 30);
+    @include to-rem(margin-top, 14, 20);
+    @include to-rem(margin-bottom, 14, 14);
+    line-height: 1.2;
+}
+.section-title__text {
+    max-width: none;
+    @include rem-calc(font-size, 18);
+    @include to-rem(margin-bottom, 14, 28);
+}
+.section-title__bottom-rule {
+    margin-bottom: 0;
+    max-width: none;
+    border-color: $gray;
+    border-width: 1px;
+}
+@media screen and (min-width: $screen-sm-min) {
+    .section-title__heading {
+        font-weight: 200;
+        @include to-rem(font-size, 16, 38);
+        @include to-rem(margin-top, 14, 20);
+        @include to-rem(margin-bottom, 14, 14);
+        line-height: 1.2;
+    }
+    .section-title__text {
+        @include to-rem(margin-bottom, 16, 24);
+    }    
+}
+@media screen and (min-width: $screen-sm-min) {
+    .section-title__heading {
+        font-weight: 200;
+        //@include to-rem(font-size, 14, 30);
 
+        line-height: 1.2;
+    }
+    .section-title__text {
+        @include to-rem(margin-bottom, 16, 24);
+    }    
+}
 /* Transparent image overlays */
 .transparent-image-overlay, .transparent-image-overlay__mid, .transparent-image-overlay__dark {
     position: absolute;
@@ -630,17 +684,21 @@ select.a-z-listing__filter__input {
     clear: both;
     margin-top: 12px;
     svg {
-        fill: darken(#801515, 5%);
+        fill: #801515;
         
-        width: 16px;
-        height: 16px;
+        width: 14px;
+        height: 14px;
         margin-right: 4px;
     }
-    
+    a {
+        color: $gray-dark;
+        @include rem-calc(font-size, 15);
+        font-weight: 400;
+    }
     &:hover {
         cursor: pointer;
         svg {
-            fill: #AA3939;
+           fill: darken(#801515, 5%);
         }    
     }
 }

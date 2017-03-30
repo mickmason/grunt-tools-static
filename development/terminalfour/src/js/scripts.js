@@ -319,7 +319,128 @@
         
     
     });
+    /**!
+     * A-Z Filters
+     */
+    /* Each entry is wrapped in a div */
+    var $allLists = $('.a-z-filters__listing__letter');
+    var region;
+    /* 
+     * Checks if all of the li entries in a div are hidden 
+     * $list is the UL containing a list of entries
+     */
+    function checkIfAllHidden($listDiv) {
+        var $listItems = $listDiv.find('.a-z-filters__listing__letter-list__item');
+        console.log($listItems.length);
+        console.log($listDiv.data('label'));
+        var countHidden = 0;
+        $listItems.each(function(idx, $thisLi) {
+            if ($($thisLi).hasClass('a-z__item--hidden__region') || $($thisLi).hasClass('a-z__item--hidden__text')) {
+                countHidden++ ;
+            }
+
+        });
+        if (countHidden === $listItems.length) {
+            $listDiv.hide();
+        } else {
+            $listDiv.show()
+        }  
+        
+    }// end checkIfAllHidden()
+    function clearAllFilters() {
+        $allLists.each(function() {
+            $allLists.find('li').each(function() {
+                var $thisLi = $(this);
+                $thisLi.removeClass('a-z__item--hidden__text');
+                $thisLi.removeClass('a-z__item--hidden__region');
+            });
+            $(this).show();
+        });    
+        $('#a-z__text-filter').val('');
+    }
+    function clearAllTextFilters() {
+        $allLists.each(function() {
+            $allLists.find('li').each(function() {
+                var $thisLi = $(this);
+                $thisLi.removeClass('a-z__item--hidden__text');
+                checkIfAllHidden($thisLi.parents('.a-z-filters__listing__letter'));
+            });
+            
+        });    
+    }
+    /* Clear all filters - show all lis and divs which are hidden */
+    $('.a-z-listing__filters__clear-all, .a-z-listing__filters__clear-all a').on('click', function(event) {
+        event.preventDefault();
+        clearAllFilters();
+    });
     
+    /* Text filter - fires on keyup */
+    $('#a-z__text-filter').on('keyup', function() {
+        var value = $(this).val().toLowerCase();
+        if (value === '') {
+            clearAllTextFilters();
+            return true;
+        }
+    
+        /* Go through each li - do a substring search for the input text */
+        $allLists.find('li').each(function() {
+            var $thisLi = $(this);
+            var thisText = $(this).text().toLowerCase();
+            /* Show any which have been previously hidden by text filter */
+            $thisLi.removeClass('a-z__item--hidden__text');
+            if (thisText.indexOf(value) === -1) {
+                /* If match - don't do anything if it has been previously hidden by region filter */
+                if (!$($thisLi).hasClass('a-z__item--hidden__region')) {
+                    $thisLi.addClass('a-z__item--hidden__text');
+                }
+                checkIfAllHidden($thisLi.parents('.a-z-filters__listing__letter'));
+            }
+            
+        });
+        console.log('-- ** --');
+    });
+    /* Region filter */
+    $('#travel-a-z__region-filter').on('change', function(event) {
+        event.preventDefault();
+        /* Clear the text filter input */
+        $('#a-z__text-filter').val('');
+        var $thisSelect = $(this);
+        region = $thisSelect.val();
+        
+        if (region === 'all') {
+            /* Show all previously hidden by the region filter */
+            $allLists.each(function() {
+                $(this).find('li').each(function() {
+                    var $thisLi = $(this);
+                    if ($thisLi.hasClass('a-z__item--hidden__region')) {
+                        $thisLi.removeClass('a-z__item--hidden__region');
+                    }
+                });
+                $(this).show();
+            });
+            return true;
+        }
+        /* Iterate over each letter div */
+        $allLists.each(function() {
+            var hiddenCount = 0;
+            var childLisLen = $(this).find('li').length;
+            
+            $(this).find('li').each(function() {
+                var $thisLi = $(this);
+                $thisLi.removeClass('a-z__item--hidden__text');
+                if ($thisLi.attr('data-region') !== region) {
+                    if (!$thisLi.hasClass('a-z__item--hidden__region')) {
+                        $thisLi.addClass('a-z__item--hidden__region');
+                    }
+                    hiddenCount++;
+                } else if ($thisLi.hasClass('a-z__item--hidden__region')) {
+                    $thisLi.removeClass('a-z__item--hidden__region');
+                }
+            });
+            checkIfAllHidden($(this));
+            //(hiddenCount == childLisLen) ? $(this).hide() : $(this).show() ;
+        });
+    });
     /**! Misc scripts for CMS build **/
     $('.secondary-nav-dropdown').find('ul').eq(0).addClass('secondary-nav__sub');
     $('.secondary-nav-dropdown').find('li').each(function() {
