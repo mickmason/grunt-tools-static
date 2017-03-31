@@ -21,12 +21,15 @@
     @include rem-calc(margin-bottom, 8);
     @include to-rem(font-size, 14, 16);
 }
-
+.dfa-card__card-text__heading, .dfa-card__card-text__text {
+    @include dfa-transition(all, 200, cubic-bezier(0.420, 0.000, 0.580, 1.000));
+}
 .dfa-card__card-text__text {
     margin-bottom: 0;
     @include rem-calc(font-size, 16);
 }
 .dfa-card__anchor {
+    @include clearfix;
     color: $gray-dark;
     font-weight: 400;
     &:hover, &:active, &:focus {
@@ -44,6 +47,7 @@
         }
     }
 }
+
 .dfa-card--dropshadow {
     .dfa-card__wrap {
          @include dfa-box-shadow;
@@ -121,7 +125,7 @@
         }
         .dfa-svg-icon {
             fill: $brand-primary;
-            fill: rgba($brand-primary, 0.8);
+            fill: $gray-dark;
             position: absolute;
             top: 50%;
             left: 50%;
@@ -134,12 +138,27 @@
                 background-color: $white;
             }
             .dfa-svg-icon {
-                fill: rgba($brand-primary, 1);
+                fill: $brand-primary;
             }
         }
     }    
 }
-
+/* Plain card */
+.dfa-card {
+    //Has an icon
+    &.dfa-card--plain {
+        
+        .dfa-svg-icon {
+            fill: $gray-dark;
+            @include dfa-transition(all, 200, cubic-bezier(0.420, 0.000, 0.580, 1.000));
+        }
+        &:hover, &:focus, &:active {
+            .dfa-svg-icon {
+                fill: $brand-primary;
+            }   
+        } 
+    }
+}
 /* Numbers card */
 .dfa-card--numbers {
     .dfa-card--media {
@@ -152,6 +171,8 @@
     .dfa-card__card-text {
         text-align: center;
     }
+    
+    
     .dfa-card__card-text__heading {
         @include to-rem(font-size, 14, 20);
 //        text-transform: uppercase;
@@ -270,18 +291,47 @@
 /* 
  * Card rows
  */
+@import 'flex-mixins'; 
 /* Flex row */
-.landing-feature-section--flex {
+.landing-feature-section--flex  {
     .landing-feature__row {
         display: flex;
         @include flex-direction(column);
+  
+
     }
 }
+.landing-feature-section--flex-stretch {
+    .landing-feature__row {
+        @include align-items(stretch);
+    }
+}
+.landing-feature-section--flex-space-between {
+    .landing-feature__row {
+        @include justify-content(space-between);
+    }
+    
+}
+@media screen and (min-width: $screen-sm-min) {
+     .landing-feature-section--flex, .landing-feature-section--flex-stretch, .landing-feature-section--flex-space-between, .landing-feature-section--flex-space-around  {
+        .landing-feature__row {
+            @include flex-direction(row);
+        }
+    }
+}
+@media screen and (min-width: $screen-lg-min) {
+    .landing-feature-section--flex-space-between {
+        .dfa-card {
+            max-width: 25%;
+        }
+
+    }
+}
+
 /* Two col rows */
 
 /* Four col rows */
 @media screen and (min-width: $screen-sm-min) {
-    
     .features-row--four-col, .features-row--two-col {
         .dfa-card {
             @include make-sm-column(6);
@@ -342,7 +392,7 @@
             @include make-md-column(3);
         }
     }    
-    .landing-feature-section--four-col, .landing-feature-section--two-col, .landing-feature-section--flex {
+    .landing-feature-section--four-col, .landing-feature-section--two-col {
         .dfa-card {
             @include make-md-column(3);
         }

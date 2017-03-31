@@ -33,33 +33,8 @@
   display: -webkit-flex;
   display: flex;
 }
-@mixin flex-direction($value) {
-    -webkit-flex-direction: $value;
-    -ms-flex-direction:     $value;
-    flex-direction:         $value;
-}
-@mixin flex-flow($dir: row, $wrap: wrap) {
-    -webkit-flex-flow: $dir $wrap;
-    -ms-flex-flow:     $dir $wrap;
-    flex-flow:         $dir $wrap;
-}    
+@import 'components/flex-mixins';
 
-@mixin flex-grow($value) {
-    -webkit-flex-grow: $value;
-    flex-grow:         $value;
-}   
-@mixin flex-basis($value) {
-    -webkit-flex-basis: $value;
-    flex-basis: $value;
-}
-@mixin align-items($value) {
-    -webkit-align-items: $value;
-    align-items:         $value;
-}
-@mixin justify-content($value) {
-    -webkit-justify-content: $value;
-    justify-content:         $value;
-}
 /* 
  * Global components
  */
@@ -647,6 +622,17 @@ h5 {
 select.a-z-listing__filter__input {
     height: 30px;
 }
+//A-Z Alphabet
+.a-z-listing__alphabet {
+    @include rem-calc(margin-top, 24);
+    background-color: $gray-lightest;
+    padding: 0 15px;
+    p { margin-bottom: 0;}
+}
+.a-z-listing__alphabet_letters {
+    @include list-inline;
+    margin-bottom: 0;
+}
 //All of the countries
 .a-z-filters__listing {
     @include make-row();
@@ -655,12 +641,13 @@ select.a-z-listing__filter__input {
     @include flex-flow(row, wrap);
     @include justify-content(flex-start);
     @include rem-calc(margin-top, $padding-small-vertical * 7.5)   ; 
+    @include rem-calc(margin-bottom, $padding-small-vertical * 9)   ; 
 }
 //Wraps each letter listing
 .a-z-filters__listing__letter {
     width: 100%;
     padding: 0 15px;
-    @include rem-calc(margin-bottom, $padding-small-vertical * 3);
+    @include rem-calc(margin-bottom, $padding-small-vertical * 5);
 }
 .no-flex {
     .a-z-filters__listing {
@@ -670,6 +657,13 @@ select.a-z-listing__filter__input {
         @include make-xs-column(12);    
     }
     
+}
+//h4 heading for each letter
+.a-z-filters__listing__heading {
+    font-weight: 400;
+    @include rem-calc(font-size, 24);
+    @include rem-calc(margin-bottom, 12);
+    color: $gray;
 }
 //Listing for a letter eg "A"
 .a-z-filters__listing__letter-list {
@@ -703,21 +697,21 @@ select.a-z-listing__filter__input {
     }
 }
 @media screen and (min-width: $screen-sm-min) {
-
-    
-    
      .a-z-listing__filter__label {
-         width: 47.98927613941%;
-         margin-left: 4.02144772118%;
-         float: left;
+         width: 50%;
+ 
          &:first-child {
              margin-left: 0;
          }
-
      } 
     .a-z-filters__listing__letter  {
         width: 47.98927613941%;
-        
+        @include rem-calc(margin-bottom, 24);
+    }
+    //h4 heading for each letter
+    .a-z-filters__listing__heading {
+        @include rem-calc(font-size, 36);
+        @include rem-calc(margin-bottom, 18);
     }
     .no-flex {
         .a-z-filters__listing__letter {

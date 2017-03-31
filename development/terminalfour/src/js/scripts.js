@@ -122,7 +122,7 @@
     /* Test for CSS columns */
     testEl = $('<div />');
     if (testEl.css('column-width') !== "" && testEl.css('WebkitColumnWidth') !== "" && testEl.css('MozColumnWidth') !== "") {        
-        console.log("No cols "+testEl.css('column-width')); 
+        
         $("html").addClass('no-columns'); 
     } 
     /* 
@@ -130,9 +130,7 @@
      */
     testEl = $('<div />');
     if (testEl.css('flex') === "" || testEl.css('msFlex') === "") {
-      console.log('Flex');
     } else if (testEl.css('flex') !== "" || testEl.css('msFlex') !== "") {
-        console.log('Flex');
         $("html").addClass('no-flex');
     }
     
@@ -325,20 +323,25 @@
     /* Each entry is wrapped in a div */
     var $allLists = $('.a-z-filters__listing__letter');
     var region;
+    /* For the A-Z links - add hrefs for each letter */
+    var hrefPrefix= '#a-z-letter__';
+    var $thisA ;
+    $('.a-z-listing__alphabet').find('a').each(function(idx, thisA) {
+        $thisA = $(thisA);
+        console.log(idx + ' ' +$thisA.text() );
+        $thisA.attr({'href': hrefPrefix + $thisA.text()});
+    });
     /* 
      * Checks if all of the li entries in a div are hidden 
      * $list is the UL containing a list of entries
      */
     function checkIfAllHidden($listDiv) {
         var $listItems = $listDiv.find('.a-z-filters__listing__letter-list__item');
-        console.log($listItems.length);
-        console.log($listDiv.data('label'));
         var countHidden = 0;
         $listItems.each(function(idx, $thisLi) {
             if ($($thisLi).hasClass('a-z__item--hidden__region') || $($thisLi).hasClass('a-z__item--hidden__text')) {
                 countHidden++ ;
             }
-
         });
         if (countHidden === $listItems.length) {
             $listDiv.hide();
@@ -357,6 +360,7 @@
             $(this).show();
         });    
         $('#a-z__text-filter').val('');
+        $('#travel-a-z__region-filter').val('all');
     }
     function clearAllTextFilters() {
         $allLists.each(function() {
@@ -397,7 +401,6 @@
             }
             
         });
-        console.log('-- ** --');
     });
     /* Region filter */
     $('#travel-a-z__region-filter').on('change', function(event) {
