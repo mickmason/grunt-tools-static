@@ -150,7 +150,8 @@ header {
 }
 .secondary-nav-nav, .secondary-nav__sub {
     margin: 0;
-    padding: 0
+    padding: 0;
+    max-width: none; 
 }
 .secondary-nav-nav {
     text-align: right;

@@ -558,6 +558,10 @@ h5 {
     }
 }
 
+.accordion-tabs--country-info {
+    @include rem-calc(margin-bottom, $padding-small-vertical * 5);
+}
+
 @media screen and (min-width: $screen-xl-min) {
     .accordion-tabs__tabs__item {
         &.accordion-tabs--country__tabs__item {

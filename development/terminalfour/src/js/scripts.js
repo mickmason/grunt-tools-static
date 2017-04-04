@@ -452,7 +452,84 @@
     $('.secondary-nav-dropdown').find('li').each(function() {
         $(this).addClass('secondary-nav-link__sub-link');
     });
+    
+    /**! 
+     *  Migrated and adapted scripts for country information
+     *  Gets all of the .updated-dates on the page, gets the latest one and uses that as the last updated time for the information. 
+     */
+    //Two date utils - get the Month based of a 0 index number; Get the full name of the month based off the same
+    function getMonthNumber(val) {
+        var month = [];
+        month["Jan"] = 0;
+        month["Feb"] = 1;
+        month["Mar"] = 2;
+        month["Apr"] = 3;
+        month["May"] = 4;
+        month["Jun"] = 5;
+        month["Jul"] = 6;
+        month["Aug"] = 7;
+        month["Sep"] = 8;
+        month["Oct"] = 9;
+        month["Nov"] = 10;
+        month["Dec"] = 11;
+        return month[val];
+    }
+    function getMonthName(val) {
+        var month = [];
+        month[0]="January";
+        month[1]="February";
+        month[2]="March";
+        month[3]="April";
+        month[4]="May";
+        month[5]="June";
+        month[6]="July";
+        month[7]="August";
+        month[8]="September";
+        month[9]="October";
+        month[10]="November";
+        month[11]="December";
+        return month[val];
+    }
 
+    if($('.country-travel-info__status').length != 0 && jQuery('body#en-lang').length != 0 && jQuery('.updated-date').length != 0) {
+		var updated = [];
+		$.each($('.updated-date'), function() {
+			var date = $(this).text();
+			date = date.split(" ");
+			var month = getMonthNumber(date[2]);
+			var day = date[1];
+			var year = date[3];
+			
+			date = new Date(year, month, day, 12, 12).getTime();
+			updated.push(date);
+		});
+		
+		$.unique(updated);
+		updated = Math.max.apply(Math, updated);
+		
+		updated = new Date(updated);
+		var updated_date = updated.getDate();
+		var updated_month = getMonthName(updated.getMonth());
+		var updated_year = updated.getFullYear();
+		
+		var updated_full_date = updated_date + " " + updated_month + " " + updated_year;
+		
+		var today = new Date();
+		var today_date = today.getDate() ;
+		var today_month = getMonthName(today.getMonth());
+		var today_year = today.getFullYear();
+		
+		var todays_full_date = today_date + " " + today_month + " " + today_year;
+		
+		var newDiv = "<p class='country-travel-info__datestamp' id='updated-data-travel-advice'>"
+		newDiv += "<span id='still_current_title'>Still current at: </span>"
+		newDiv += "<span id='still_current_value'>" + todays_full_date + "</span><br />"
+		newDiv += "<span id='updated_title'>Updated: </span>"
+		newDiv +=  "<span id='updated_value'>" + updated_full_date + "</span></p>";
+		
+          $(newDiv).insertAfter(".country-travel-info__summary");
+		
+	}
     /**!
      * General content inner navigation
      */
