@@ -516,7 +516,7 @@ h5 {
     color: $gray;
     @include rem-calc(font-size, 12);
 }
-.country-travel-info__status {
+/*.country-travel-info__status {
     display: inline-block;
     color: $white;
     background-color: #008552 ;
@@ -530,6 +530,82 @@ h5 {
     }
     &.country-travel-info__do-not-travel {
         background-color: #cc0000 ;
+    }
+}*/
+.country-travel-info__status {
+    
+}
+/* Legacy country travel status information */
+.security-status {
+    color: $white;
+    @include rem-calc(padding, $padding-small-vertical * 4-2);
+    @include rem-calc(margin-bottom, $padding-small-vertical * 5);
+    background-color: $brand-primary;
+    border: 1px solid darken($brand-primary, 2%);
+    ul {
+        @include list-unstyled;
+        margin: 0;
+        padding: 0;
+        
+    }
+    li {
+        background-color: $white;
+        @include rem-calc(padding, $padding-small-vertical * 2, $padding-small-vertical * 3);
+        color: $gray-dark;
+    }
+    h3 {
+        margin-top: 0; 
+    }
+    .security-status__status--normal {}
+    .security-status__status--high-caution {
+        display: none;
+    }
+    .security-status__status--avoid {
+        display: none;
+    }
+    .security-status__status--do-not {
+        display: none;
+    }
+    .security-status__more-info {
+        @include rem-calc(font-size, 14);
+        text-align: right;
+        @include rem-calc(margin-top, $padding-small-vertical * 2+2);
+        margin-bottom: 0;
+        a { 
+            color: $white; 
+            font-weight: 400;
+        }
+    }
+    &.high-caution, &.avoid,  &.do-not {
+        .security-status__status--normal {
+            display: none;
+        }
+    }
+    &.high-caution {
+        background-color: #fcbd02;
+        border-color: darken(#fcbd02, 2%);
+        .security-status__status--high-caution {
+            display: list-item;
+        }
+    }
+    &.avoid {
+        background-color: #ff8120;
+        border-color: darken(#ff8120, 5%);
+        .security-status__status--high-caution {
+            display: list-item;
+        }
+    }
+    &.do-not {
+        background-color: #cc0000;
+        border-color: darken(#cc0000, 5%);
+        .security-status__status--do-not {
+            display: list-item;
+        }
+    }
+}
+@media screen and (min-width: $screen-md-min) {
+    .security-status {
+        @include rem-calc(max-width, 320);
     }
 }
 /* Accordion tabs used for country travel information */
@@ -559,6 +635,7 @@ h5 {
 }
 
 .accordion-tabs--country-info {
+    @include rem-calc(margin-top, $padding-small-vertical * 6);
     @include rem-calc(margin-bottom, $padding-small-vertical * 5);
 }
 
@@ -630,7 +707,7 @@ select.a-z-listing__filter__input {
 .a-z-listing__alphabet {
     @include rem-calc(margin-top, 24);
     background-color: $gray-lightest;
-    padding: 0 15px;
+    padding: 4px 15px;
     p { margin-bottom: 0;}
 }
 .a-z-listing__alphabet_letters {
