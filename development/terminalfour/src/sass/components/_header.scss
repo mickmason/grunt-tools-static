@@ -23,6 +23,12 @@ header {
        
     }
 }
+.header-title--text-only {
+    .header-title__logo {
+        display: block;
+        @include make-row;
+    }
+}
 .header-title__text {
     display: none;
     @include to-rem(padding-bottom, 16, ($padding-small-vertical * 2));
@@ -41,6 +47,7 @@ header {
         @include to-rem(padding-bottom, 16, ($padding-small-vertical * 0.75));
     }
 }
+
 .header-link__home {
     display: inline-block;
     @include clearfix;
@@ -58,15 +65,12 @@ header {
     @include to-rem(padding-bottom, 14, ($padding-small-vertical * 1.5));
     border-bottom: 4px solid $brand-primary;
 }
-
-
 @media screen and (min-width: $screen-md-min) {
     .header-title__text {
         display: block;
         margin: 0;
         font-size: $font-size-small;
         @include dfa-text-to-uppercase(0.11) ;
-        
     }
     .header-title--mobile {
         display: none;
@@ -88,7 +92,6 @@ header {
     height: 54px;
     &.white-simple { display: none;}
     width: 100%;
-
 }
 .header-navigation__mobile-search, .header-navigation__mobile-menu {
     padding: ($padding-small-vertical * 4) ($padding-small-horizontal / 2) ($padding-small-vertical * 3);
@@ -122,7 +125,8 @@ header {
     margin-top: ($padding-small-vertical) ;
     width: 100%;
 }
-/* Mobile secondary nav */
+
+/* Mobile secondary nav */ 
 .mobile-secondary-nav-nav {
     list-style: none;
     margin: 0;
@@ -137,7 +141,60 @@ header {
     }
     .secondary-nav-link__sub-link {
         border-bottom: none;
-        @include to-rem(padding, 14, $padding-small-vertical * 1, $padding-small-vertical * 1.5);
+        @include to-rem(padding, 14, $padding-small-vertical * 1, $padding-small-horizontal * 0);
+    }
+    
+    .secondary-nav__sub {
+        @include to-rem(margin-top, 14, $padding-small-vertical * 2);
+        @include to-rem(padding-left, 14, $padding-small-horizontal);
+        display: block;
+        position: static;
+        background-color: $gray-lightest;
+        li {
+            
+        }
+        .dfa-svg-icon {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            @include to-rem(margin-right, 14, $padding-small-horizontal / 2);
+            
+        }
+        svg {
+            height: 12px;
+            width: 12px;
+            fill: $brand-darker;
+        }
+    }
+    .secondary-nav-dropdown {
+        @include to-rem(margin-top, 14, $padding-small-vertical * 3);    
+    }
+    .mob-secondary-nav-dropdown__anchor {
+        font-weight: 700;
+        &:hover, &:active, &:focus {
+            text-decoration: none;
+        }
+    }
+    .dfa-icon {
+        display: inline-block;
+        width: 5%;
+        float: right;
+        
+        svg {
+            fill: $brand-primary;
+            height: 20px;
+        }
+    }
+}
+/* Moble lang switchers */
+.mobile-nav__lang-switchers {
+    @include list-unstyled() ;
+    background-color: $gray-lightest;
+    @include to-rem(padding-top, 14, $padding-small-vertical);
+    @include to-rem(padding-bottom, 14, $padding-small-vertical);
+    .mobile-secondary-nav-link {
+        @include to-rem(padding-left, 14, $padding-small-horizontal*2);
+        @include to-rem(padding-right, 14, $padding-small-horizontal*2);
     }
 }
 /**
@@ -263,11 +320,15 @@ header {
     margin: 0;
     max-width: none;
     li {
+        
         padding: ($padding-small-vertical * 2) ($padding-small-horizontal / 1)   ;
         border-bottom: 1px solid $gray-light;
         list-style-type: none;   
         &:last-child {
             border-bottom: none;
+        }
+        > a {
+            font-weight: 700
         }
     }
 }
@@ -290,7 +351,6 @@ header {
     @include to-rem(max-width, 16, 300);
        
     }
-
     .header-navigation__mobile-search, .header-navigation__mobile-menu {
         height: 86px;
         width: 66px ;
@@ -330,12 +390,23 @@ header {
     .header-title--mobile {
         display: none;
     }
+    .header-title--text-only {}
     .header-title__logo { 
         max-width: 300px;
         &.header-title__logo--small { display: none; }
         &.header-title__logo--large { 
             display: inline;
         } 
+    }
+    .header-title--text-only {
+        .header-title__logo { 
+            max-width: 300px;
+            &.header-title__logo--small { display: inline; }
+            &.header-title__logo--large { 
+                display: none;
+            } 
+        }
+        
     }
     .header-navigation__mobile {
         display: none;
@@ -356,7 +427,7 @@ header {
         }
     }
     .dfa-site-search-input {
-            font-size: $font-size-large;
+        font-size: $font-size-large;
     }
     
     /* Mobile nav switch to desktop */
@@ -368,13 +439,15 @@ header {
         border-bottom: none;
     }
     .main-nav {
-        @include make-md-column(10, 0);
+        @include make-md-column(11, 0);
+        
     }
     .main-nav-list {
         padding: 0;
         margin: 0;
         li {
             font-size: $font-size-large;
+            font-weight: 400;
             display: block;
             float: left;
             @include to-rem(padding, 16, ($padding-small-vertical * 2.5 - 1), ($padding-small-horizontal * 1.5), ($padding-small-vertical * 2.5 + 1));
@@ -387,6 +460,7 @@ header {
             }
             a {
                 color: $white;
+                font-weight: 400;
             }
             &:hover {
                 background-color: $brand-darker ;
@@ -394,7 +468,7 @@ header {
         }
     }
     .desktop-search {
-        @include make-md-column(2, 0);
+        @include make-md-column(1, 0);
         display: block;
         float: right;
         width: 48px ;
@@ -424,6 +498,9 @@ header {
             margin-right: auto;
         }
     }
+    .mobile-secondary-nav-nav, .mobile-nav__lang-switchers {
+        display: none;
+    }
 }
 @media (min-width: $screen-lg-min) {
     .dfa-logo {
@@ -434,8 +511,11 @@ header {
             display: inline;
         }
     }
-    
+    .main-nav {
+        @include make-md-column(10, 0);
+    }
     .desktop-search {
+        @include make-md-column(2, 0);
         .desktop-search-anchor {
             padding: ($padding-small-vertical * 1.5) ($padding-small-horizontal * 2.5) ($padding-small-vertical * 1.5) ($padding-small-horizontal * 3);
         }
