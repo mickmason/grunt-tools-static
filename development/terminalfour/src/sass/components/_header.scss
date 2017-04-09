@@ -310,6 +310,7 @@ header {
 /** 
  * Mobile navigation drop-down, switches to 
  * desktop main navigation  > 996px  
+ * Also Mega menu in desktop
 **/
 .main-nav {
     @include make-xs-column(12);
@@ -332,6 +333,27 @@ header {
         }
     }
 }
+.main-nav__drop-down {
+    width: 100%;
+    z-index: 400;
+    position: absolute;
+    top: 48px;
+    left: 0;
+    display: none;
+    a {color: $brand-darker;}
+}
+/* Mega drop-down */
+.main-nav-list {
+    > li {
+        position: relative;
+        &.hover {
+            .main-nav__drop-down { 
+                display: block;
+            }
+        }
+    }
+}
+
 .desktop-search {
     display: none;
 }

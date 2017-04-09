@@ -7378,6 +7378,7 @@ header:after {
 /** 
  * Mobile navigation drop-down, switches to 
  * desktop main navigation  > 996px  
+ * Also Mega menu in desktop
 **/
 .main-nav {
   position: relative;
@@ -7406,6 +7407,26 @@ header:after {
 }
 .main-nav-list li > a {
   font-weight: 700;
+}
+
+.main-nav__drop-down {
+  width: 100%;
+  z-index: 400;
+  position: absolute;
+  top: 48px;
+  left: 0;
+  display: none;
+}
+.main-nav__drop-down a {
+  color: #005036;
+}
+
+/* Mega drop-down */
+.main-nav-list > li {
+  position: relative;
+}
+.main-nav-list > li.hover .main-nav__drop-down {
+  display: block;
 }
 
 .desktop-search {
