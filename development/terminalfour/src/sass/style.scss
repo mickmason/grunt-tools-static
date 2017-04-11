@@ -1083,6 +1083,7 @@ select.a-z-listing__filter__input {
 .main-body__main {
     @include make-md-column(9);
     .content-heading {margin-top: 0;}
+
 }
 
 @media screen and (min-width: $screen-lg-min) {
