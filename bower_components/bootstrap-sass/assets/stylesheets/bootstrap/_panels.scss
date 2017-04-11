@@ -33,21 +33,27 @@
         @include rem-calc(padding, $panel-heading-padding);
         border-bottom: 1px solid transparent;
         @include border-top-radius(($panel-border-radius - 1));
- 
+         
         > .dropdown .dropdown-toggle {
-            color: inherit;
+            /*color: inherit;*/
         }
 
          //Show more/less images
         .panel-heading__show-less__icon {
             display: none;
         }
+        
         .panel-heading__show-more__icon, .panel-heading__show-less__icon {
             position: absolute;
             right: 8px;
             top: 50%;
             @include dfa-translate(-0%, -50%);
             @include to-rem(width, 16, 24);
+            max-height: 28px;
+            .dfa-svg-icon {
+                max-height: 28px;
+                fill: $brand-darker;
+            }
         }
     }
     &.active {
@@ -60,14 +66,25 @@
     }
 }
 .feature-panel .panel-heading {
-    @include rem-calc(padding, $feature-panel-heading-padding);
-    @include rem-calc(padding-right, 40);
+    @include rem-calc(padding, $padding-small-vertical*2, $padding-small-horizontal);
     border-bottom: 1px solid transparent;
-
+    .panel-heading__anchor {
+        color: $white;
+    }
     > .dropdown .dropdown-toggle {
       color: inherit;
     }
     
+    .panel-heading__show-more__icon, .panel-heading__show-less__icon {
+        
+        height: 32px;
+        width: 32px;
+        svg {
+            fill: $white;
+            height: 32px;
+            width: 32px;
+        }
+    }
     &.active {
         
     }
@@ -103,7 +120,10 @@
   }
     > a {
         display: block;
-       
+        &.panel-heading__anchor {
+            color: $brand-darker;
+            font-weight: 600;
+        }
         &:hover, &:focus {
             text-decoration: underline;
         }
@@ -329,7 +349,7 @@
 
 .panel-group {
   margin-bottom: $line-height-computed;
-
+  max-width: 820px;
   // Tighten up margin so it's only between panels
   .panel {
     margin-bottom: 0;
