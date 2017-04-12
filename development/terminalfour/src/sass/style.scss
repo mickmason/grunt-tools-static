@@ -657,7 +657,7 @@ h5 {
 }
 
 /* Styling overrides for old tabs until they are retired */
-.country-travel__old-tabs_tab-body {
+.country-travel__old-tabs_tab-body { 
     
     @include clearfix;    
     @include rem-calc(margin-top, $padding-small-vertical * 8);

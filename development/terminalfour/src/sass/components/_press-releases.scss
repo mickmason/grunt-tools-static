@@ -101,7 +101,7 @@
         p {
             @include to-rem(margin-bottom, 16, 16);
         }
-    }
+    } 
     @media screen and (min-width: $screen-lg-min) {
         @include to-rem(margin-top,     18, 28);
         @include to-rem(margin-bottom,  18, 28);
@@ -124,9 +124,22 @@
 }
 .press-release__pub-image {
     @include to-rem(margin, 16, 36, 0);
+    max-width: 820px;
     text-align: center;
     img {
         @include img-responsive;
         margin: 0 auto;
     }
+}
+.press-release__pub-image__description {
+    color: $gray;
+    font-style: italic;
+    @include rem-calc(font-size, $padding-small-vertical);
+    @include rem-calc(font-size, 14);
+}
+
+
+/* Old styling overrides */
+.dfa-tags-old {
+    display: none;
 }

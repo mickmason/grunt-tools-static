@@ -10192,6 +10192,7 @@ h5.feature-heading, h5.landing-feature--heading {
 .press-release__pub-image {
   margin: 36px 0px;
   margin: 2.25rem 0rem;
+  max-width: 820px;
   text-align: center;
 }
 .press-release__pub-image img {
@@ -10199,6 +10200,20 @@ h5.feature-heading, h5.landing-feature--heading {
   max-width: 100%;
   height: auto;
   margin: 0 auto;
+}
+
+.press-release__pub-image__description {
+  color: #565656;
+  font-style: italic;
+  font-size: 4px;
+  font-size: 0.25rem;
+  font-size: 14px;
+  font-size: 0.875rem;
+}
+
+/* Old styling overrides */
+.dfa-tags-old {
+  display: none;
 }
 
 /*
