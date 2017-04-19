@@ -31,6 +31,20 @@
         }   
     }
 }
+.dfa-card--widget {
+    &.dfa-card--widget--w-image {
+        .press-release__label {
+            position: absolute;
+            @include rem-calc(top, 20);
+            
+        }
+    }
+    .press-release__label {
+            @include rem-calc(margin-top, 18);
+            margin-bottom: 0;
+            @include rem-calc(font-size, 14);    
+   }
+}
 .press-release__date {
     display: block;
     color: $gray;

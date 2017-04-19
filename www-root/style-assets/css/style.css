@@ -9768,7 +9768,7 @@ h5.feature-heading, h5.landing-feature--heading {
  *
  * Landing pages news
  */
-.news-features-block {
+.news-features-block, .news-features-outer-block {
   position: relative;
   float: left;
   width: 100%;
@@ -9777,15 +9777,15 @@ h5.feature-heading, h5.landing-feature--heading {
   padding-right: 15px;
 }
 
-.news-features-row {
+.news-features-row, .news-features__header-row {
   margin-left: -15px;
   margin-right: -15px;
 }
-.news-features-row:before, .news-features-row:after {
+.news-features-row:before, .news-features-row:after, .news-features__header-row:before, .news-features__header-row:after {
   content: " ";
   display: table;
 }
-.news-features-row:after {
+.news-features-row:after, .news-features__header-row:after {
   clear: both;
 }
 
@@ -10072,6 +10072,19 @@ h5.feature-heading, h5.landing-feature--heading {
   padding-left: 0.75rem;
   padding-right: 8px;
   padding-right: 0.5rem;
+}
+
+.dfa-card--widget.dfa-card--widget--w-image .press-release__label {
+  position: absolute;
+  top: 20px;
+  top: 1.25rem;
+}
+.dfa-card--widget .press-release__label {
+  margin-top: 18px;
+  margin-top: 1.125rem;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 .press-release__date {

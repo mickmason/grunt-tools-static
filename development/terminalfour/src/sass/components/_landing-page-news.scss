@@ -2,12 +2,13 @@
  *
  * Landing pages news
  */
-.news-features-block {
+.news-features-block, .news-features-outer-block {
     @include make-xs-column(12);
 }
-.news-features-row {
+.news-features-row, .news-features__header-row {
     @include make-row;
 }
+
 .news-feature {
     @include make-xs-column(12);
     @include rem-calc(margin-bottom, 16); 
