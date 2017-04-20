@@ -256,8 +256,11 @@
     @include rem-calc(margin-bottom, ($padding-small-vertical * 5.5)); 
     color: $gray-lighter;
 }
-.dfa-widget-anchor, .news-listing-entry-anchor {
+.dfa-widget-anchor {
     font-weight: 400;
+}
+.dfa-widget-anchor, .news-listing-entry-anchor {
+    
     color: inherit;
     &:hover, &:active, &:focus {
         color: inherit;

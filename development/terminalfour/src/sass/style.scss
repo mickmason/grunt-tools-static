@@ -456,12 +456,12 @@ h5 {
 }
 @media screen and (min-width: $screen-lg-min) {
     .main-body--general-content {   
-        .main-body__main {
+        /*.main-body__main {
             @include to-rem(margin-left, 18, 48);
         }
         .inner-page-breadcrumbs__nav {
             @include to-rem(margin-left, 18, 48);
-        }
+        }*/
     }
 }
 
@@ -654,6 +654,13 @@ h5 {
         height: auto !important;
         max-width: 100%;
     }    
+    .landing-feature-section {
+        @include rem-calc(padding-top, 12);
+        .feature-heading {
+            line-height: 1.24;
+            @include rem-calc(margin-bottom, 24);
+        }
+    }
 }
 
 /* Styling overrides for old tabs until they are retired */
@@ -1096,7 +1103,7 @@ select.a-z-listing__filter__input {
 
 @media screen and (min-width: $screen-lg-min) {
     .main-body__main {
-        @include make-md-column(7);
+        @include make-md-column(9);
     }   
     /* 
      * Inner landing page 

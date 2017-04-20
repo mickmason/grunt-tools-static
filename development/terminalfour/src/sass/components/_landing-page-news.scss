@@ -70,9 +70,16 @@
 }
 .news-listing-entry {
     @include rem-calc(margin-bottom, 16);
+    @include clearfix ;
     clear: both;
     .news-date {
         margin-bottom: 0;
+    }
+    .press-release__label {
+        color: $gray-dark;
+        font-style: italic;
+        @include rem-calc(margin-top, 4);
+        @include rem-calc(margin-bottom, 4);
     }
 }
 .news-listing-heading {
@@ -84,9 +91,7 @@
 .news-listing-entry-anchor {
     display: block;
     color: inherit;
-    .news-listing-entry-heading {
-        font-weight: 600;
-    }
+    font-weight: 600;
     &:hover, &:active, &:focus {
         color: inherit;
         text-decoration: none;
@@ -103,7 +108,7 @@
     }
     
 }
-.news-listing-entry-img {
+.news-listing-entry-img { 
     width: 26%;
     img {
         max-width: 100%;

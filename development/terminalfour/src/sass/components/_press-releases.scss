@@ -5,6 +5,10 @@
     .tags {
         display: none;
     }
+    .content-heading, .press-release__label {
+        @include rem-calc(margin-bottom, 16px);
+    }    
+    
 }
 .press-release__label {
     color: $white;
@@ -14,7 +18,7 @@
         color: inherit;
     }
     .content-label {
-        @include rem-calc(padding, $padding-small-vertical, $padding-small-horizontal / 2, $padding-small-vertical, $padding-small-horizontal);
+        @include rem-calc(padding, $padding-small-vertical, $padding-small-horizontal, $padding-small-vertical, $padding-small-horizontal *1.5);
         background-color: $gray;
     }
     &.press-release__label--speech {
@@ -25,9 +29,19 @@
     &.press-release__label--news {
         .content-label {
             
+            background-color: $white;
+            color: $brand-primary;
+        }   
+    }
+    &.press-release__label--press-release {
+        .content-label {
             background-color: $brand-primary;
-            @include rem-calc(padding-left, $padding-small-horizontal * 1.5);
-             @include rem-calc(padding-right, $padding-small-horizontal);
+        }   
+    }
+   &.press-release__label--speech {
+        .content-label {
+            background-color: #000;
+            color: $white;
         }   
     }
 }
@@ -35,12 +49,24 @@
     &.dfa-card--widget--w-image {
         .press-release__label {
             position: absolute;
-            @include rem-calc(top, 20);
-            
+            @include rem-calc(top, 0);
         }
     }
     .press-release__label {
-            @include rem-calc(margin-top, 18);
+            @include rem-calc(margin-top, 20);
+            margin-bottom: 0;
+            @include rem-calc(font-size, 14);    
+   }
+}
+.news-feature {
+    &.news-feature--w-image {
+        .press-release__label {
+            position: absolute;
+            @include rem-calc(top, 0);
+        }
+    }
+    .press-release__label {
+            @include rem-calc(margin-top, 20);
             margin-bottom: 0;
             @include rem-calc(font-size, 14);    
    }
@@ -74,8 +100,8 @@
 .press-release__summary {
     @include to-rem(margin-top, 14, 20);
     @include to-rem(margin-bottom, 14, 20);
-
     @include to-rem(padding, 14, $cline-height-xs * 0.75, $cline-height-xs / 2, 0);
+    max-width: 820px;
     color: $gray;
     background-color: $gray-lightest;
     border: 1px solid $gray-light;
@@ -152,6 +178,72 @@
     @include rem-calc(font-size, 14);
 }
 
+/* Press release related */
+.news-related-news {
+    @include make-row();  
+    @include rem-calc(margin-top, 48); 
+    .news-listing-entry-anchor {
+        &:hover {
+            color: $brand-primary;
+        }
+    }
+}
+.news-related-news__heading {
+    @include make-xs-column(12);
+    
+}
+.news-related-news__heading__text {
+    margin-top: 0;
+    font-weight: 700;
+}
+.news-related-news__article {
+    @include make-xs-column(12);
+    .dfa-card__date {
+        margin-bottom: 0;
+    }
+    .press-release__label {
+        @include rem-calc(margin-top, 0);
+        @include rem-calc(margin-bottom, 9px);
+    }
+    
+    &.news-feature--w-image {
+        .news-related-news__article__heading {
+            @include rem-calc(margin-bottom, 8px);
+        }
+        .press-release__label {
+            @include rem-calc(margin-top, 12px);
+        }
+        
+    }
+}
+
+.news-related-news__article__image {
+    @include img-responsive--fw;
+    display: inline-block;
+}
+.news-related-news__article__image {
+    margin-top: 0;
+    @include rem-calc(margin-bottom, 12);
+}
+.news-related-news__article__heading, .news-related-news__other-news__heading {
+    line-height: 1.24;
+    margin-top: 0;
+}
+.news-related-news__other-news__heading {
+    @include rem-calc(font-size, 18);
+    margin-bottom: 0;
+}
+.news-related-news__article__heading {
+
+    @include rem-calc(margin-bottom, 12);
+    @include rem-calc(font-size, 20);
+}
+@media screen and (min-width: $screen-sm-min) {
+    .news-related-news__article {
+        @include make-sm-column(4);
+        margin-bottom: 0;
+    }
+}
 
 /* Old styling overrides */
 .dfa-tags-old {
