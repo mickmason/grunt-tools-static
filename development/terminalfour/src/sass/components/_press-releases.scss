@@ -1,13 +1,33 @@
 /* 
  * Press relases, news and speeches content
  */
+
+@mixin skew-label() {
+    background: inherit;
+    bottom: 0;
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+    right: -6.4%;
+    transform: skewX(-14deg);
+    transform-origin: 100%;
+} 
+
 .press-release {
     .tags {
         display: none;
     }
     .content-heading, .press-release__label {
         @include rem-calc(margin-bottom, 16px);
-    }    
+    }  
+    .content-label {
+        &::after {
+            @include skew-label;
+        }
+    }
     
 }
 .press-release__label {
@@ -15,6 +35,7 @@
     @include rem-calc(font-size, 13);
     @include rem-calc(margin-bottom, $padding-small-vertical * 2);
     a {
+        font-weight: 400;
         color: inherit;
     }
     .content-label {
@@ -27,33 +48,37 @@
         }   
     }
     &.press-release__label--news {
-        .content-label, .content-label--plain {
-            
-            background-color: $white;
-            color: $brand-primary;
+        .content-label, .content-label--plain { 
+            background-color: $gray;
+            color: $white;
+            border: 1px solid $brand-primary;
         }  
-        .content-label--plain {
-           border: 1px solid $brand-primary;
-       }
     }
     &.press-release__label--press-release {
         .content-label, .content-label--plain  {
+            color: $white;
             background-color: $brand-primary;
         }   
     }
    &.press-release__label--speech {
         .content-label, .content-label--plain {
-            background-color: #000;
+            background-color: #C63600;
             color: $white;
         }   
        
     }
 }
 .dfa-card--widget {
+    .content-label {
+        &::after {
+            @include skew-label;
+        }
+    }
     &.dfa-card--widget--w-image {
         .press-release__label {
             position: absolute;
             @include rem-calc(top, 0);
+            
         }
     }
     .press-release__label {
@@ -81,6 +106,24 @@
     @include rem-calc(font-size, 14);
     @include rem-calc(margin-bottom, $padding-small-vertical * 3);
 }
+
+/* Content labels */
+.content-label {
+    position: relative;
+    font-weight: 200;
+    font-style: italic; 
+    background-color: $white;
+    @include rem-calc(padding, 4, 2, 6, 2);
+    z-index: 10;
+}
+.content-label--plain {
+    @include rem-calc(padding, 4, 8);
+    border-radius: 4px;
+}
+.content-label--plain-text {
+    font-style: italic;
+}
+
 /* News misc */
 .news-date {
     color: $gray-lighter;
@@ -272,12 +315,36 @@
         @include rem-calc(margin-top, 4);
         @include rem-calc(margin-bottom, 8);
     }
-   
-   
+    &.skew-label {
+        .content-label {
+            @include rem-calc(padding, 4, 8);
+            border-radius: 0px;
+            border: none;
+            &::after {
+                @include skew-label;
+            }
+        }    
+    }
+    .content-label {
+        @include rem-calc(padding, 4, 8);
+        border-radius: 4px;
+    }
 }
 .news-features-block__two-col {
      .news-listing-entry {
         @include rem-calc(margin-bottom, 16);
+        .press-release__label {
+            .content-label {
+                padding: 0;
+                border: none;
+                font-style: italic;
+                color: $gray-dark;
+                background-color: transparent;        
+                &::after {
+                    background-color: transparent;        
+                }
+            }        
+        }
     }
     .news-listing-heading {
         @include rem-calc(margin-bottom, 16);
@@ -285,6 +352,7 @@
     .news-listing-entry-heading, .press-release__label, .news-date {
         margin-bottom: 0;
     }
+
 }
 .news-listing-heading {
     font-family: $font-family-sans-serif;
@@ -378,7 +446,11 @@
         @include rem-calc(font-size, 20);
         @include rem-calc(margin-bottom, 12);
     }
-    
+    .content-label {
+        &::after {
+            @include skew-label;
+        }
+    }
 }
 .news-related-news__heading {
     @include make-xs-column(12);
