@@ -12,6 +12,7 @@
 .accordion-tabs__tabs {
     position: relative;
     display: none;
+
     margin: 0;
     padding: 0;
     @include clearfix;
@@ -59,6 +60,7 @@
     border-right: 1px solid $gray-dark;
     border-bottom: 1px solid $gray-dark;
     border-left: 1px solid $gray-dark;
+    max-width: none;
     &:first-child {
         border-top: 1px solid $gray-dark;
     }
@@ -94,6 +96,9 @@
 
 .accordion-tabs__tab-content {
     display: none;
+    &.active {
+        display: block;
+    }
     @include clearfix;
     @include to-rem(padding, 14, 14);
     background-color: $white; 

@@ -13,16 +13,23 @@
     /*
     * Load SVG via AJAX
     */
-    var ajax = new XMLHttpRequest();
-    ajax.open("GET", "style-assets/media/svg/dfa-icons.svg", true);
-    ajax.send();
-    ajax.onload = function(e) {
-      var div = document.createElement("div");
-      div.setAttribute('class', 'dfa-icons-stack');
-      div.innerHTML = ajax.responseText;
-      document.body.insertBefore(div, document.body.childNodes[0]);
-    }
+    var $ajax = new XMLHttpRequest();
+    $ajax.open("GET", "style-assets/media/svg/dfa-icons.svg", true);
+    $ajax.onreadystatechange = loadSVGs;
+    $ajax.send();
     
+    function loadSVGs() {
+      if ($ajax.readyState === 4) {
+          if ($ajax.status === 200) {
+            var div = document.createElement("div");
+            div.setAttribute('class', 'dfa-icons-stack');
+            div.innerHTML = $ajax.responseText;
+            document.body.insertBefore(div, document.body.childNodes[0]);    
+          } else {
+            $('html').addClass('no-svg');     
+          }
+      }
+    }
     /* 
      * Lightbox modal https://github.com/ashleydw/lightbox
      * Extends Bootstrap Modal module
@@ -173,10 +180,10 @@
         }
     });
     /* Show-hide quicklinks */
-    $('.secondary-nav-dropdown > a').on('click', function(e) {
+    $('.secondary-nav-dropdown > a').not('.mob-secondary-nav-dropdown__anchor').on('click', function(e) {
         e.preventDefault();
         var $this = $(this).parent('li');
-        var $target = $this.find('.secondary-nav__sub'); 
+        var $target = $this.find('.secondary-nav__sub');  
         if ($this.hasClass('active')) {
             var timeout = 0;
             var durationDown = 100;
@@ -263,7 +270,10 @@
              $featureMore.stop().fadeOut(showHideDuration, function() {
                 $featureLess.fadeIn(showHideDuration, function() {
                     $this.addClass('active');     
-                     $featureBody.stop().slideDown({duration: showHideDuration});
+                     $featureBody.stop().slideDown({duration: showHideDuration, complete: function() {
+                         console.log('slide down callback');
+                         $(this).css({height: 'auto'});
+                     }});
                 });
             }); 
         }
@@ -326,11 +336,14 @@
     /* For the A-Z links - add hrefs for each letter */
     var hrefPrefix= '#a-z-letter__';
     var $thisA ;
-    $('.a-z-listing__alphabet').find('a').each(function(idx, thisA) {
-        $thisA = $(thisA);
-        console.log(idx + ' ' +$thisA.text() );
-        $thisA.attr({'href': hrefPrefix + $thisA.text()});
-    });
+    
+    $('.a-z-listing__alphabet').find('li').each(function(idx, thisLi) {
+        var $thisLi = $(thisLi);
+        console.log(idx + ' ' +$thisLi.text() );
+        $thisLi.addClass('a-z-listing__alphabet_letter');
+        $thisLi.children('a').attr({'href': hrefPrefix + $thisLi.children('a').text()});
+    })
+    $('.a-z-listing__alphabet').find('ul').eq(0).addClass('a-z-listing__alphabet_letters');
     /* 
      * Checks if all of the li entries in a div are hidden 
      * $list is the UL containing a list of entries
@@ -449,7 +462,84 @@
     $('.secondary-nav-dropdown').find('li').each(function() {
         $(this).addClass('secondary-nav-link__sub-link');
     });
+    
+    /**! 
+     *  Migrated and adapted scripts for country information
+     *  Gets all of the .updated-dates on the page, gets the latest one and uses that as the last updated time for the information. 
+     */
+    //Two date utils - get the Month based of a 0 index number; Get the full name of the month based off the same
+    function getMonthNumber(val) {
+        var month = [];
+        month["Jan"] = 0;
+        month["Feb"] = 1;
+        month["Mar"] = 2;
+        month["Apr"] = 3;
+        month["May"] = 4;
+        month["Jun"] = 5;
+        month["Jul"] = 6;
+        month["Aug"] = 7;
+        month["Sep"] = 8;
+        month["Oct"] = 9;
+        month["Nov"] = 10;
+        month["Dec"] = 11;
+        return month[val];
+    }
+    function getMonthName(val) {
+        var month = [];
+        month[0]="January";
+        month[1]="February";
+        month[2]="March";
+        month[3]="April";
+        month[4]="May";
+        month[5]="June";
+        month[6]="July";
+        month[7]="August";
+        month[8]="September";
+        month[9]="October";
+        month[10]="November";
+        month[11]="December";
+        return month[val];
+    }
 
+    if($('.country-travel-info__status').length != 0 && jQuery('body#en-lang').length != 0 && jQuery('.updated-date').length != 0) {
+		var updated = [];
+		$.each($('.updated-date'), function() {
+			var date = $(this).text();
+			date = date.split(" ");
+			var month = getMonthNumber(date[2]);
+			var day = date[1];
+			var year = date[3];
+			
+			date = new Date(year, month, day, 12, 12).getTime();
+			updated.push(date);
+		});
+		
+		$.unique(updated);
+		updated = Math.max.apply(Math, updated);
+		
+		updated = new Date(updated);
+		var updated_date = updated.getDate();
+		var updated_month = getMonthName(updated.getMonth());
+		var updated_year = updated.getFullYear();
+		
+		var updated_full_date = updated_date + " " + updated_month + " " + updated_year;
+		
+		var today = new Date();
+		var today_date = today.getDate() ;
+		var today_month = getMonthName(today.getMonth());
+		var today_year = today.getFullYear();
+		
+		var todays_full_date = today_date + " " + today_month + " " + today_year;
+		
+		var newDiv = "<p class='country-travel-info__datestamp' id='updated-data-travel-advice'>"
+		newDiv += "<span id='still_current_title'>Still current at: </span>"
+		newDiv += "<span id='still_current_value'>" + todays_full_date + "</span><br />"
+		newDiv += "<span id='updated_title'>Updated: </span>"
+		newDiv +=  "<span id='updated_value'>" + updated_full_date + "</span></p>";
+		
+          $(newDiv).insertAfter(".country-travel-info__summary");
+		
+	}
     /**!
      * General content inner navigation
      */

@@ -218,30 +218,7 @@ blockquote {
     }
 }
 
-/* Content labels */
-.content-label {
-    position: relative;
-    
-    font-weight: 200;
-    font-style: italic; 
-    background-color: $white;
-    @include rem-calc(padding, 4, 2, 6, 2);
-    z-index: 10;
-}
-.content-label:after {
-  background: inherit;
-  bottom: 0;
-  content: '';
-  display: block;
-  height: 100%;
-  width: 100%;
-  z-index: -1;
-  position: absolute;
-  right: -6.4%;
-  transform: skewX(-14deg);
-  transform-origin: 100%;
-  
-}
+
 /* 
  * General page scaffolding 
      -- Structure
@@ -456,12 +433,12 @@ h5 {
 }
 @media screen and (min-width: $screen-lg-min) {
     .main-body--general-content {   
-        .main-body__main {
+        /*.main-body__main {
             @include to-rem(margin-left, 18, 48);
         }
         .inner-page-breadcrumbs__nav {
             @include to-rem(margin-left, 18, 48);
-        }
+        }*/
     }
 }
 
@@ -516,7 +493,7 @@ h5 {
     color: $gray;
     @include rem-calc(font-size, 12);
 }
-.country-travel-info__status {
+/*.country-travel-info__status {
     display: inline-block;
     color: $white;
     background-color: #008552 ;
@@ -531,7 +508,84 @@ h5 {
     &.country-travel-info__do-not-travel {
         background-color: #cc0000 ;
     }
+}*/
+.country-travel-info__status {
+    
 }
+/* Legacy country travel status information */
+.security-status {
+    color: $white;
+    @include rem-calc(padding, $padding-small-vertical * 4-2);
+    @include rem-calc(margin-bottom, $padding-small-vertical * 5);
+    background-color: $brand-primary;
+    border: 1px solid darken($brand-primary, 2%);
+    @include rem-calc(max-width, 320);
+    ul {
+        @include list-unstyled;
+        margin: 0;
+        padding: 0;
+        
+    }
+    li {
+        background-color: $white;
+        @include rem-calc(padding, $padding-small-vertical * 2, $padding-small-vertical * 3);
+        color: $gray-dark;
+    }
+    h3 {
+        margin-top: 0; 
+        @include rem-calc(font-size, 18);
+        font-weight: 600;
+        @include rem-calc(margin-bottom, $padding-small-vertical * 2);
+    
+    }
+    .security-status__status--normal {}
+    .security-status__status--high-caution {
+        display: none;
+    }
+    .security-status__status--avoid {
+        display: none;
+    }
+    .security-status__status--do-not {
+        display: none;
+    }
+    .security-status__more-info {
+        @include rem-calc(font-size, 14);
+        text-align: right;
+        @include rem-calc(margin-top, $padding-small-vertical * 2+2);
+        margin-bottom: 0;
+        a { 
+            color: $white; 
+            font-weight: 400;
+        }
+    }
+    &.high-caution, &.avoid,  &.do-not {
+        .security-status__status--normal {
+            display: none;
+        }
+    }
+    &.high-caution {
+        background-color: #fcbd02;
+        border-color: darken(#fcbd02, 2%);
+        .security-status__status--high-caution {
+            display: list-item;
+        }
+    }
+    &.avoid {
+        background-color: #ff8120;
+        border-color: darken(#ff8120, 5%);
+        .security-status__status--high-caution {
+            display: list-item;
+        }
+    }
+    &.do-not {
+        background-color: #cc0000;
+        border-color: darken(#cc0000, 5%);
+        .security-status__status--do-not {
+            display: list-item;
+        }
+    }
+}
+
 /* Accordion tabs used for country travel information */
 .accordion-tabs__tabs__item {
     &.accordion-tabs--country__tabs__item {
@@ -558,6 +612,11 @@ h5 {
     }
 }
 
+.accordion-tabs--country-info {
+    @include rem-calc(margin-top, $padding-small-vertical * 6);
+    @include rem-calc(margin-bottom, $padding-small-vertical * 5);
+}
+
 @media screen and (min-width: $screen-xl-min) {
     .accordion-tabs__tabs__item {
         &.accordion-tabs--country__tabs__item {
@@ -565,10 +624,24 @@ h5 {
         }  
     }     
 }
-
+/* Legacy images */
+.main-body__main {
+    .dfa-img--old {
+        width: auto !important;
+        height: auto !important;
+        max-width: 100%;
+    }    
+    .landing-feature-section {
+        @include rem-calc(padding-top, 12);
+        .feature-heading {
+            line-height: 1.24;
+            @include rem-calc(margin-bottom, 24);
+        }
+    }
+}
 
 /* Styling overrides for old tabs until they are retired */
-.country-travel__old-tabs_tab-body {
+.country-travel__old-tabs_tab-body { 
     
     @include clearfix;    
     @include rem-calc(margin-top, $padding-small-vertical * 8);
@@ -626,7 +699,7 @@ select.a-z-listing__filter__input {
 .a-z-listing__alphabet {
     @include rem-calc(margin-top, 24);
     background-color: $gray-lightest;
-    padding: 0 15px;
+    padding: 4px 15px;
     p { margin-bottom: 0;}
 }
 .a-z-listing__alphabet_letters {
@@ -1002,11 +1075,12 @@ select.a-z-listing__filter__input {
 .main-body__main {
     @include make-md-column(9);
     .content-heading {margin-top: 0;}
+
 }
 
 @media screen and (min-width: $screen-lg-min) {
     .main-body__main {
-        @include make-md-column(7);
+        @include make-md-column(9);
     }   
     /* 
      * Inner landing page 

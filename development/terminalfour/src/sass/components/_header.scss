@@ -1,4 +1,6 @@
+
 /* Page header */
+@import 'flex-mixins';
 header {
     @include container-fixed; 
 }
@@ -23,6 +25,12 @@ header {
        
     }
 }
+.header-title--text-only {
+    .header-title__logo {
+        display: block;
+        @include make-row;
+    }
+}
 .header-title__text {
     display: none;
     @include to-rem(padding-bottom, 16, ($padding-small-vertical * 2));
@@ -41,6 +49,7 @@ header {
         @include to-rem(padding-bottom, 16, ($padding-small-vertical * 0.75));
     }
 }
+
 .header-link__home {
     display: inline-block;
     @include clearfix;
@@ -58,15 +67,12 @@ header {
     @include to-rem(padding-bottom, 14, ($padding-small-vertical * 1.5));
     border-bottom: 4px solid $brand-primary;
 }
-
-
 @media screen and (min-width: $screen-md-min) {
     .header-title__text {
         display: block;
         margin: 0;
         font-size: $font-size-small;
         @include dfa-text-to-uppercase(0.11) ;
-        
     }
     .header-title--mobile {
         display: none;
@@ -88,7 +94,6 @@ header {
     height: 54px;
     &.white-simple { display: none;}
     width: 100%;
-
 }
 .header-navigation__mobile-search, .header-navigation__mobile-menu {
     padding: ($padding-small-vertical * 4) ($padding-small-horizontal / 2) ($padding-small-vertical * 3);
@@ -122,7 +127,8 @@ header {
     margin-top: ($padding-small-vertical) ;
     width: 100%;
 }
-/* Mobile secondary nav */
+
+/* Mobile secondary nav */ 
 .mobile-secondary-nav-nav {
     list-style: none;
     margin: 0;
@@ -137,7 +143,60 @@ header {
     }
     .secondary-nav-link__sub-link {
         border-bottom: none;
-        @include to-rem(padding, 14, $padding-small-vertical * 1, $padding-small-vertical * 1.5);
+        @include to-rem(padding, 14, $padding-small-vertical * 1, $padding-small-horizontal * 0);
+    }
+    
+    .secondary-nav__sub {
+        @include to-rem(margin-top, 14, $padding-small-vertical * 2);
+        @include to-rem(padding-left, 14, $padding-small-horizontal);
+        display: block;
+        position: static;
+        background-color: $gray-lightest;
+        li {
+            
+        }
+        .dfa-svg-icon {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            @include to-rem(margin-right, 14, $padding-small-horizontal / 2);
+            
+        }
+        svg {
+            height: 12px;
+            width: 12px;
+            fill: $brand-darker;
+        }
+    }
+    .secondary-nav-dropdown {
+        @include to-rem(margin-top, 14, $padding-small-vertical * 3);    
+    }
+    .mob-secondary-nav-dropdown__anchor {
+        font-weight: 700;
+        &:hover, &:active, &:focus {
+            text-decoration: none;
+        }
+    }
+    .dfa-icon {
+        display: inline-block;
+        width: 5%;
+        float: right;
+        
+        svg {
+            fill: $brand-primary;
+            height: 20px;
+        }
+    }
+}
+/* Moble lang switchers */
+.mobile-nav__lang-switchers {
+    @include list-unstyled() ;
+    background-color: $gray-lightest;
+    @include to-rem(padding-top, 14, $padding-small-vertical);
+    @include to-rem(padding-bottom, 14, $padding-small-vertical);
+    .mobile-secondary-nav-link {
+        @include to-rem(padding-left, 14, $padding-small-horizontal*2);
+        @include to-rem(padding-right, 14, $padding-small-horizontal*2);
     }
 }
 /**
@@ -150,7 +209,8 @@ header {
 }
 .secondary-nav-nav, .secondary-nav__sub {
     margin: 0;
-    padding: 0
+    padding: 0;
+    max-width: none; 
 }
 .secondary-nav-nav {
     text-align: right;
@@ -252,26 +312,137 @@ header {
 /** 
  * Mobile navigation drop-down, switches to 
  * desktop main navigation  > 996px  
+ * Also Mega menu in desktop
 **/
 .main-nav {
     @include make-xs-column(12);
-    a {font-weight: 400;}
+    > a {font-weight: 400;}
 }
 .main-nav-list {
     padding: 0;
     margin: 0;
     max-width: none;
-    li {
-        padding: ($padding-small-vertical * 2) ($padding-small-horizontal / 1)   ;
+    > li {
         border-bottom: 1px solid $gray-light;
         list-style-type: none;   
         &:last-child {
             border-bottom: none;
         }
+        > a {
+            display: inline-block;
+            padding: ($padding-small-vertical * 2) ($padding-small-horizontal / 1)   ;
+            font-weight: 700
+        }
+        
+       
+        
     }
 }
 .desktop-search {
     display: none;
+}
+
+/* 
+ * Mega drop-down 
+ */
+.main-nav__drop-down {
+    width: 100%;
+    z-index: 400;
+    /*position: absolute;*/
+    top: 48px;
+    left: 0;
+    display: none !important; 
+    @include rem-calc(padding-top, 4);
+    ul {
+        margin: 0;
+        padding: 0;
+        li {
+            a { font-weight: 400;}
+        }
+    }
+    .main-nav__drop-down__link {
+        &:last-child {
+            border-bottom: 1px solid $gray-light;
+        } 
+
+    }
+}
+.main-nav__drop-down__content {
+    display: flex;
+    @include flex-direction(row);
+    @include align-content(stretch);
+    width: 100%;
+    margin: 0 -15px;
+}
+.main-nav__drop-down__links, .main-nav__drop-down__features {
+    display: flex;
+    @include flex-direction(column);
+    min-width: 50%;
+    padding: 0 15px;
+}
+//.main-nav__drop-down__links {
+//    @include flex-grow(2);
+//}
+/* Each block of links */
+.main-nav__drop-down__links-block {
+    &:last-child {
+         .main-nav__drop-down__link {
+            &:last-child {
+                border-bottom: none;
+            } 
+        }
+    }
+}
+
+.main-nav__drop-down__link__show-more {
+    display: none;
+    .dfa-svg-icon { 
+        fill: $white;
+        max-height:    12px;
+        max-width:     12px;
+    }
+}
+.main-nav__drop-down__link__mob-minus, .main-nav__drop-down__link__mob-plus {
+    .dfa-svg-icon {
+        fill: $brand-primary;
+    }
+} 
+.main-nav__drop-down__link__mob-minus {
+    display: none;
+}
+.main-nav__drop-down__header {
+    display: none;
+    a {
+        color: $gray-dark;    
+    }
+}
+.main-nav__drop-down__link {
+    padding-top: 0;
+    padding-bottom: 0;
+    border-bottom: 1px solid $gray-light;
+    list-style-type: none;   
+    &:last-child {
+        border-bottom: none;
+    }
+    > a {
+        display: inline-block;
+        padding: ($padding-small-vertical * 2) ($padding-small-horizontal / 1)   ;    
+    }
+    
+}
+/* Main nav drop-down features */
+.main-nav__drop-down__features {
+    display: none;
+}
+
+.main-nav-list {
+    > li {
+        &.main-hover {
+            .main-nav__drop-down { 
+                display: block;
+            }
+        }
+    }
 }
 
 @media screen and (min-width: 379px) {
@@ -289,7 +460,6 @@ header {
     @include to-rem(max-width, 16, 300);
        
     }
-
     .header-navigation__mobile-search, .header-navigation__mobile-menu {
         height: 86px;
         width: 66px ;
@@ -329,12 +499,22 @@ header {
     .header-title--mobile {
         display: none;
     }
+    .header-title--text-only {}
     .header-title__logo { 
         max-width: 300px;
         &.header-title__logo--small { display: none; }
         &.header-title__logo--large { 
             display: inline;
         } 
+    }
+    .header-title--text-only {
+        .header-title__logo { 
+            max-width: 300px;
+            &.header-title__logo--small { display: inline; }
+            &.header-title__logo--large { 
+                display: none;
+            } 
+        }
     }
     .header-navigation__mobile {
         display: none;
@@ -355,9 +535,8 @@ header {
         }
     }
     .dfa-site-search-input {
-            font-size: $font-size-large;
+        font-size: $font-size-large;
     }
-    
     /* Mobile nav switch to desktop */
     .main-nav-row {
         padding-top: 0;
@@ -365,18 +544,23 @@ header {
         background-color: $brand-primary;
         display: block;
         border-bottom: none;
+        position: relative;
+        nav {
+            @include clearfix ;
+        }
     }
     .main-nav {
-        @include make-md-column(10, 0);
+        @include make-md-column(11, 0);
     }
     .main-nav-list {
+        @include clearfix;
         padding: 0;
         margin: 0;
-        li {
+        > li {
             font-size: $font-size-large;
+            font-weight: 400;
             display: block;
             float: left;
-            @include to-rem(padding, 16, ($padding-small-vertical * 2.5 - 1), ($padding-small-horizontal * 1.5), ($padding-small-vertical * 2.5 + 1));
             border-bottom: none;
             border-right: 1px solid $gray-dark;
             list-style-type: none;  
@@ -384,16 +568,61 @@ header {
             &:last-child {
                 border-right: none;
             }
-            a {
-                color: $white;
+            > a {
+                @include to-rem(padding, 16, ($padding-small-vertical * 2), ($padding-small-horizontal * 2.5), ($padding-small-vertical * 2.5 + 1));
+                 color: $white;
+                font-weight: 400;
             }
             &:hover {
                 background-color: $brand-darker ;
             }
         }
     }
+    /* Main nav dropdown */
+    .main-nav__drop-down {
+        position: absolute;
+        left: 15px;
+        @include make-row;   
+        .main-nav__drop-down__link {
+            &:last-child {
+                border-bottom: none;
+            } 
+
+        }
+    }
+    .main-nav__drop-down__features {
+        display: block;
+    }
+    .main-nav__drop-down__header-block {
+        /*@include make-md-column(12);*/
+    }
+    .main-nav__drop-down__links {
+        @include flex-direction(row);
+    }
+    .main-nav__drop-down__links-block, main-nav__drop-down__feature-block {
+        /*@include make-md-column(3);*/
+        
+    }
+    .main-nav__drop-down__link  {
+       
+        a {
+            padding: ($padding-small-vertical * 2) ($padding-small-horizontal / 1)   ;  
+            padding-left: 0       ;      
+        }
+        
+    }
+    .main-nav__drop-down__link__show-more {
+        display: inline-block;
+    }
+    .main-nav__drop-down__link__mob-minus, .main-nav__drop-down__link__mob-plus {
+        display: none;
+    }
+    .main-nav__drop-down__header {
+        display: block;
+    }
+    /* Search display */
     .desktop-search {
-        @include make-md-column(2, 0);
+        @include make-md-column(1, 0);
         display: block;
         float: right;
         width: 48px ;
@@ -423,6 +652,9 @@ header {
             margin-right: auto;
         }
     }
+    .mobile-secondary-nav-nav, .mobile-nav__lang-switchers {
+        display: none;
+    }
 }
 @media (min-width: $screen-lg-min) {
     .dfa-logo {
@@ -433,8 +665,19 @@ header {
             display: inline;
         }
     }
-    
+    .main-nav {
+        
+        position: static;
+        > li {
+            > a {
+                 @include to-rem(padding, 16, ($padding-small-vertical * 2), ($padding-small-horizontal * 3), ($padding-small-vertical * 2.5 + 1));    
+            }
+        }
+    }
+              
+     
     .desktop-search {
+        
         .desktop-search-anchor {
             padding: ($padding-small-vertical * 1.5) ($padding-small-horizontal * 2.5) ($padding-small-vertical * 1.5) ($padding-small-horizontal * 3);
         }
@@ -442,7 +685,7 @@ header {
             //@include to-rem(width, 18, 32);
         }
         .desktop-search-text {
-            display: block;
+            
             text-align: center;
             @include to-rem(padding, 16, ($padding-small-vertical * 1.75), ($padding-small-horizontal * 1), ($padding-small-vertical * 0), ($padding-small-horizontal * 1.5));
             @include dfa-text-to-uppercase(0.1);
@@ -458,18 +701,25 @@ header {
         padding-bottom: ($padding-small-vertical * 1.5) ;
     }
     .header-title {
-        @include make-md-column(4);
+        @include make-lg-column(4);
         height: auto;
     }    
     .secondary-navigation {
-        @include make-xs-column(8);
+        @include make-lg-column(8);
         @include rem-calc(padding-right, 0);
         float: left;
         display: block;
     }
-    .main-nav-list {
-        li {
-            @include to-rem(padding, 16, ($padding-small-vertical * 2), ($padding-small-horizontal * 3), ($padding-small-vertical * 2.5 + 1));
+    
+}
+@media screen and (min-width: 1340px) {
+    .main-nav {
+        width: 83.333333%;
+    }
+    .desktop-search {
+        width: 16.6666667%; 
+        .desktop-search-text {
+            display: block;
         }
     }
 }
