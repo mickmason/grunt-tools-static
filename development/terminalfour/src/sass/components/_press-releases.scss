@@ -28,7 +28,24 @@
             @include skew-label;
         }
     }
-    
+}
+
+/* Media labels */
+/* Content labels */
+.content-label {
+    position: relative;
+    font-weight: 200;
+    font-style: italic; 
+    background-color: $white;
+    @include rem-calc(padding, 4, 2, 6, 2);
+    z-index: 10;
+}
+.content-label--plain {
+    @include rem-calc(padding, 4, 8);
+    border-radius: 4px;
+}
+.content-label--plain-text {
+    font-style: italic;
 }
 .press-release__label {
     color: $white;
@@ -51,7 +68,6 @@
         .content-label, .content-label--plain { 
             background-color: $gray;
             color: $white;
-            border: 1px solid $brand-primary;
         }  
     }
     &.press-release__label--press-release {
@@ -107,22 +123,14 @@
     @include rem-calc(margin-bottom, $padding-small-vertical * 3);
 }
 
-/* Content labels */
-.content-label {
-    position: relative;
-    font-weight: 200;
-    font-style: italic; 
-    background-color: $white;
-    @include rem-calc(padding, 4, 2, 6, 2);
-    z-index: 10;
+.press-release__hr {
+    @include rem-calc(margin-top, 40);
+    margin-left: 0;
+    margin-bottom: 0;
+    margin-right: 0;
 }
-.content-label--plain {
-    @include rem-calc(padding, 4, 8);
-    border-radius: 4px;
-}
-.content-label--plain-text {
-    font-style: italic;
-}
+
+
 
 /* News misc */
 .news-date {
@@ -441,7 +449,7 @@
 /* Press release related */
 .news-related-news {
     @include make-row();  
-    @include rem-calc(margin-top, 48); 
+    @include rem-calc(margin-top, 24); 
     .news-listing-entry-heading {
         @include rem-calc(font-size, 20);
         @include rem-calc(margin-bottom, 12);

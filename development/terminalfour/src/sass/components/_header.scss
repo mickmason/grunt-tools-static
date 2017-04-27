@@ -1,5 +1,6 @@
 
 /* Page header */
+@import 'flex-mixins';
 header {
     @include container-fixed; 
 }
@@ -350,6 +351,7 @@ header {
     /*position: absolute;*/
     top: 48px;
     left: 0;
+    display: none !important; 
     @include rem-calc(padding-top, 4);
     ul {
         margin: 0;
@@ -358,7 +360,40 @@ header {
             a { font-weight: 400;}
         }
     }
+    .main-nav__drop-down__link {
+        &:last-child {
+            border-bottom: 1px solid $gray-light;
+        } 
+
+    }
 }
+.main-nav__drop-down__content {
+    display: flex;
+    @include flex-direction(row);
+    @include align-content(stretch);
+    width: 100%;
+    margin: 0 -15px;
+}
+.main-nav__drop-down__links, .main-nav__drop-down__features {
+    display: flex;
+    @include flex-direction(column);
+    min-width: 50%;
+    padding: 0 15px;
+}
+//.main-nav__drop-down__links {
+//    @include flex-grow(2);
+//}
+/* Each block of links */
+.main-nav__drop-down__links-block {
+    &:last-child {
+         .main-nav__drop-down__link {
+            &:last-child {
+                border-bottom: none;
+            } 
+        }
+    }
+}
+
 .main-nav__drop-down__link__show-more {
     display: none;
     .dfa-svg-icon { 
@@ -395,6 +430,11 @@ header {
     }
     
 }
+/* Main nav drop-down features */
+.main-nav__drop-down__features {
+    display: none;
+}
+
 .main-nav-list {
     > li {
         &.main-hover {
@@ -529,8 +569,8 @@ header {
                 border-right: none;
             }
             > a {
-                @include to-rem(padding, 16, ($padding-small-vertical * 2.5 - 1), ($padding-small-horizontal * 1.5), ($padding-small-vertical * 2.5 + 1));
-                color: $white;
+                @include to-rem(padding, 16, ($padding-small-vertical * 2), ($padding-small-horizontal * 2.5), ($padding-small-vertical * 2.5 + 1));
+                 color: $white;
                 font-weight: 400;
             }
             &:hover {
@@ -543,15 +583,28 @@ header {
         position: absolute;
         left: 15px;
         @include make-row;   
+        .main-nav__drop-down__link {
+            &:last-child {
+                border-bottom: none;
+            } 
+
+        }
+    }
+    .main-nav__drop-down__features {
+        display: block;
     }
     .main-nav__drop-down__header-block {
-        @include make-md-column(12);
+        /*@include make-md-column(12);*/
+    }
+    .main-nav__drop-down__links {
+        @include flex-direction(row);
     }
     .main-nav__drop-down__links-block, main-nav__drop-down__feature-block {
-        @include make-md-column(3);
+        /*@include make-md-column(3);*/
+        
     }
     .main-nav__drop-down__link  {
-        border-bottom: none;
+       
         a {
             padding: ($padding-small-vertical * 2) ($padding-small-horizontal / 1)   ;  
             padding-left: 0       ;      
@@ -613,12 +666,18 @@ header {
         }
     }
     .main-nav {
-        @include make-md-column(10, 0);
         
         position: static;
+        > li {
+            > a {
+                 @include to-rem(padding, 16, ($padding-small-vertical * 2), ($padding-small-horizontal * 3), ($padding-small-vertical * 2.5 + 1));    
+            }
+        }
     }
+              
+     
     .desktop-search {
-        @include make-md-column(2, 0);
+        
         .desktop-search-anchor {
             padding: ($padding-small-vertical * 1.5) ($padding-small-horizontal * 2.5) ($padding-small-vertical * 1.5) ($padding-small-horizontal * 3);
         }
@@ -626,7 +685,7 @@ header {
             //@include to-rem(width, 18, 32);
         }
         .desktop-search-text {
-            display: block;
+            
             text-align: center;
             @include to-rem(padding, 16, ($padding-small-vertical * 1.75), ($padding-small-horizontal * 1), ($padding-small-vertical * 0), ($padding-small-horizontal * 1.5));
             @include dfa-text-to-uppercase(0.1);
@@ -642,20 +701,25 @@ header {
         padding-bottom: ($padding-small-vertical * 1.5) ;
     }
     .header-title {
-        @include make-md-column(4);
+        @include make-lg-column(4);
         height: auto;
     }    
     .secondary-navigation {
-        @include make-xs-column(8);
+        @include make-lg-column(8);
         @include rem-calc(padding-right, 0);
         float: left;
         display: block;
     }
-    .main-nav-list {
-        > li {
-            > a {
-                @include to-rem(padding, 16, ($padding-small-vertical * 2), ($padding-small-horizontal * 3), ($padding-small-vertical * 2.5 + 1));
-            }
+    
+}
+@media screen and (min-width: 1340px) {
+    .main-nav {
+        width: 83.333333%;
+    }
+    .desktop-search {
+        width: 16.6666667%; 
+        .desktop-search-text {
+            display: block;
         }
     }
 }
