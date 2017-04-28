@@ -7440,10 +7440,11 @@ header:after {
 .main-nav__drop-down {
   width: 100%;
   z-index: 400;
+  background-color: #fff;
   /*position: absolute;*/
   top: 48px;
   left: 0;
-  display: none !important;
+  /*display: none !important; */
   padding-top: 4px;
   padding-top: 0.25rem;
 }
@@ -7458,27 +7459,77 @@ header:after {
   border-bottom: 1px solid #e4e5e6;
 }
 
+.main-nav__drop-down__header {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+.main-nav__drop-down__header:before, .main-nav__drop-down__header:after {
+  content: " ";
+  display: table;
+}
+.main-nav__drop-down__header:after {
+  clear: both;
+}
+
+.main-nav__drop-down__header__block {
+  position: relative;
+  float: left;
+  width: 100%;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
 .main-nav__drop-down__content {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+.main-nav__drop-down__content:before, .main-nav__drop-down__content:after {
+  content: " ";
+  display: table;
+}
+.main-nav__drop-down__content:after {
+  clear: both;
+}
+
+.main-nav__drop-down__content__block {
+  position: relative;
+  float: left;
+  width: 100%;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.main-nav__drop-down__content__row {
   display: flex;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
   -webkit-align-content: stretch;
   align-content: stretch;
-  width: 100%;
   margin: 0 -15px;
 }
 
 .main-nav__drop-down__links, .main-nav__drop-down__features {
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
   min-width: 50%;
   padding: 0 15px;
 }
 
+.main-nav__drop-down__links__row, .main-nav__drop-down__features__row {
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  flex-grow: 1;
+  margin: 0 -15px;
+}
+
 /* Each block of links */
+.main-nav__drop-down__links-block {
+  padding: 0 15px;
+  min-width: 33.333333%;
+}
 .main-nav__drop-down__links-block:last-child .main-nav__drop-down__link:last-child {
   border-bottom: none;
 }
@@ -7522,10 +7573,6 @@ header:after {
 }
 
 /* Main nav drop-down features */
-.main-nav__drop-down__features {
-  display: none;
-}
-
 .main-nav-list > li.main-hover .main-nav__drop-down {
   display: block;
 }
@@ -7754,8 +7801,10 @@ header:after {
     display: block;
   }
 
-  .main-nav__drop-down__header-block {
-    /*@include make-md-column(12);*/
+  .main-nav__drop-down__links__row, .main-nav__drop-down__features__row {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
   }
 
   .main-nav__drop-down__links {

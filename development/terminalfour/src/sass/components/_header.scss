@@ -348,10 +348,11 @@ header {
 .main-nav__drop-down {
     width: 100%;
     z-index: 400;
+    background-color: $white;
     /*position: absolute;*/
     top: 48px;
     left: 0;
-    display: none !important; 
+    /*display: none !important; */
     @include rem-calc(padding-top, 4);
     ul {
         margin: 0;
@@ -367,24 +368,40 @@ header {
 
     }
 }
+.main-nav__drop-down__header {
+    @include make-row;
+}
+.main-nav__drop-down__header__block {
+    @include make-xs-column(12);
+}    
 .main-nav__drop-down__content {
+    @include make-row;
+}
+.main-nav__drop-down__content__block {
+    @include make-xs-column(12);
+}
+.main-nav__drop-down__content__row {
     display: flex;
     @include flex-direction(row);
     @include align-content(stretch);
-    width: 100%;
     margin: 0 -15px;
 }
+
 .main-nav__drop-down__links, .main-nav__drop-down__features {
-    display: flex;
-    @include flex-direction(column);
+    
     min-width: 50%;
     padding: 0 15px;
 }
-//.main-nav__drop-down__links {
-//    @include flex-grow(2);
-//}
+.main-nav__drop-down__links__row, .main-nav__drop-down__features__row {
+    display: flex;
+    @include flex-direction(column);
+    flex-grow: 1;
+    margin: 0 -15px;
+}
 /* Each block of links */
 .main-nav__drop-down__links-block {
+    padding: 0 15px;
+    min-width: 33.333333%;
     &:last-child {
          .main-nav__drop-down__link {
             &:last-child {
@@ -431,10 +448,6 @@ header {
     
 }
 /* Main nav drop-down features */
-.main-nav__drop-down__features {
-    display: none;
-}
-
 .main-nav-list {
     > li {
         &.main-hover {
@@ -590,11 +603,13 @@ header {
 
         }
     }
+    
+    
     .main-nav__drop-down__features {
         display: block;
     }
-    .main-nav__drop-down__header-block {
-        /*@include make-md-column(12);*/
+    .main-nav__drop-down__links__row, .main-nav__drop-down__features__row {
+        @include flex-direction(row);
     }
     .main-nav__drop-down__links {
         @include flex-direction(row);
