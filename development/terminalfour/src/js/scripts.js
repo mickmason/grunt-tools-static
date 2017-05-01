@@ -15,18 +15,28 @@
     */
     var $ajax = new XMLHttpRequest();
     $ajax.open("GET", "style-assets/media/svg/dfa-icons.svg", true);
+    /*$ajax.open("GET", "index.html", true);*/
     $ajax.onreadystatechange = loadSVGs;
     $ajax.send();
     
     function loadSVGs() {
       if ($ajax.readyState === 4) {
           if ($ajax.status === 200) {
-            var div = document.createElement("div");
-            div.setAttribute('class', 'dfa-icons-stack');
-            div.innerHTML = $ajax.responseText;
-            document.body.insertBefore(div, document.body.childNodes[0]);    
+            var responseContentType = $ajax.getResponseHeader("Content-Type"); 
+            /*console.log('Response Content type is: '+responseContentType);*/
+            if (responseContentType.indexOf('image/svg+xml') !== -1) {
+                /*console.log('It is SVG: '+responseContentType);*/
+                var div = document.createElement("div");
+                div.setAttribute('class', 'dfa-icons-stack');
+                div.innerHTML = $ajax.responseText;
+                document.body.insertBefore(div, document.body.childNodes[0]);    
+            } else {
+                $('body').addClass('no-svg');
+                
+            }
+           
           } else {
-            $('html').addClass('no-svg');     
+            console.log('Status is: '+$ajax.status);
           }
       }
     }

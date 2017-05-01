@@ -316,6 +316,7 @@ header {
 **/
 .main-nav {
     @include make-xs-column(12);
+    position: static;
     > a {font-weight: 400;}
 }
 .main-nav-list {
@@ -345,14 +346,32 @@ header {
 /* 
  * Mega drop-down 
  */
+.main-nav-list__dropdown {
+    > a {
+        &:hover, &:focus, &:active {
+            text-decoration: none;
+            cursor: pointer;
+        }
+    }
+}
+.main-nav__drop-down__link__show-more {
+    display: inline-block;
+    /*display: none;*/
+    .dfa-svg-icon { 
+        fill: $brand-primary;
+        max-height:    12px;
+        max-width:     12px;
+    }
+    @include rem-calc(margin-left, 4);
+}
 .main-nav__drop-down {
     width: 100%;
     z-index: 400;
     background-color: $white;
     /*position: absolute;*/
-    top: 48px;
+    top: 52px;
     left: 0;
-    /*display: none !important; */
+    display: none ; 
     @include rem-calc(padding-top, 4);
     ul {
         margin: 0;
@@ -364,9 +383,15 @@ header {
     .main-nav__drop-down__link {
         &:last-child {
             border-bottom: 1px solid $gray-light;
-        } 
-
+        }
     }
+}
+.main-nav--hover {
+    .main-nav__drop-down {
+        display: block !important; 
+        /*display: none !important; */
+    }
+        
 }
 .main-nav__drop-down__header {
     @include make-row;
@@ -376,22 +401,52 @@ header {
 }    
 .main-nav__drop-down__content {
     @include make-row;
+    
 }
 .main-nav__drop-down__content__block {
     @include make-xs-column(12);
+    
 }
 .main-nav__drop-down__content__row {
+/*    @include make-row();*/
     display: flex;
-    @include flex-direction(row);
-    @include align-content(stretch);
-    margin: 0 -15px;
+    @include flex-direction(column);
+    
 }
 
 .main-nav__drop-down__links, .main-nav__drop-down__features {
-    
-    min-width: 50%;
     padding: 0 15px;
+    @include flex-basis(0);
+    .main-nav__drop-down__link {
+        
+    }
 }
+.main-nav__drop-down__links {
+    
+    @include flex-grow(2); 
+    
+}
+.main-nav__drop-down__features {
+     display: none ; //until >= 1024px
+    @include flex-grow(1);
+    .news-related-news__article {
+        @include flex-grow(1);
+         @include flex-basis(0);
+        width: auto;
+    }
+}
+.no-flex {
+    .main-nav__drop-down__links {
+        width: 66.66667%
+    }
+    .main-nav__drop-down__features {
+        width: 33.33334%
+    }
+    .main-nav__drop-down__links, .main-nav__drop-down__features {
+        float: left;
+    }    
+}
+
 .main-nav__drop-down__links__row, .main-nav__drop-down__features__row {
     display: flex;
     @include flex-direction(column);
@@ -401,7 +456,9 @@ header {
 /* Each block of links */
 .main-nav__drop-down__links-block {
     padding: 0 15px;
-    min-width: 33.333333%;
+    /*min-width: 33.333333%;*/
+    @include flex-grow(1);
+    @include flex-basis(0);
     &:last-child {
          .main-nav__drop-down__link {
             &:last-child {
@@ -410,15 +467,13 @@ header {
         }
     }
 }
-
-.main-nav__drop-down__link__show-more {
-    display: none;
-    .dfa-svg-icon { 
-        fill: $white;
-        max-height:    12px;
-        max-width:     12px;
+.no-flex {
+    .main-nav__drop-down__links-block {
+        float: left;
     }
 }
+
+
 .main-nav__drop-down__link__mob-minus, .main-nav__drop-down__link__mob-plus {
     .dfa-svg-icon {
         fill: $brand-primary;
@@ -564,13 +619,15 @@ header {
     }
     .main-nav {
         @include make-md-column(11, 0);
+        position: static;
     }
     .main-nav-list {
         @include clearfix;
         padding: 0;
         margin: 0;
         > li {
-            font-size: $font-size-large;
+            font-size: 16px; 
+            
             font-weight: 400;
             display: block;
             float: left;
@@ -582,7 +639,7 @@ header {
                 border-right: none;
             }
             > a {
-                @include to-rem(padding, 16, ($padding-small-vertical * 2), ($padding-small-horizontal * 2.5), ($padding-small-vertical * 2.5 + 1));
+                @include to-rem(padding, 16, ($padding-small-vertical * 3), ($padding-small-horizontal * 2.25), ($padding-small-vertical * 3));
                  color: $white;
                 font-weight: 400;
             }
@@ -593,17 +650,20 @@ header {
     }
     /* Main nav dropdown */
     .main-nav__drop-down {
+        @include container-fixed;   
         position: absolute;
-        left: 15px;
-        @include make-row;   
+        @include rem-calc(padding-bottom, 16);
+        border-bottom: 4px solid $brand-primary;
         .main-nav__drop-down__link {
+            @include rem-calc(font-size, 16);
             &:last-child {
                 border-bottom: none;
-            } 
-
+            }
         }
     }
-    
+    .main-nav__drop-down__content__row {
+        @include flex-direction(row);
+    }
     
     .main-nav__drop-down__features {
         display: block;
@@ -614,12 +674,7 @@ header {
     .main-nav__drop-down__links {
         @include flex-direction(row);
     }
-    .main-nav__drop-down__links-block, main-nav__drop-down__feature-block {
-        /*@include make-md-column(3);*/
-        
-    }
     .main-nav__drop-down__link  {
-       
         a {
             padding: ($padding-small-vertical * 2) ($padding-small-horizontal / 1)   ;  
             padding-left: 0       ;      
@@ -627,7 +682,10 @@ header {
         
     }
     .main-nav__drop-down__link__show-more {
-        display: inline-block;
+        /*display: inline-block;*/
+        .dfa-svg-icon {
+            fill: $white;
+        }
     }
     .main-nav__drop-down__link__mob-minus, .main-nav__drop-down__link__mob-plus {
         display: none;
@@ -724,6 +782,24 @@ header {
         @include rem-calc(padding-right, 0);
         float: left;
         display: block;
+    }
+    
+    .main-nav__drop-down__link {
+            @include rem-calc(font-size, 16);
+    
+}
+@media screen and (min-width: 1120px) {
+     .main-nav__drop-down {
+        .main-nav-list {
+            @include rem-calc(font-size, 18);
+        }
+    }
+        > li {
+            font-size: 18px;
+            > a {
+                @include to-rem(padding, 16, ($padding-small-vertical * 2.5 - 1), ($padding-small-horizontal * 2.5), ($padding-small-vertical * 2.5));            
+            }
+        }
     }
     
 }

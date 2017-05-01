@@ -10,10 +10,6 @@
 @import "../../../lib/ekko-lightbox/ekko-lightbox.min.scss"; 
 
 
-
-/* Font defs import */
-@import url(font-defs.css); 
-
 /**
  * DFA Scaffolding
  * Pages structure 
@@ -1112,7 +1108,7 @@ footer {
     background-color: $brand-primary;
     color: $white;
     a {
-        @include dfa-text-to-uppercase;
+        
         color: $white;
         &:active, &:hover, &:focus {
             color: $white;

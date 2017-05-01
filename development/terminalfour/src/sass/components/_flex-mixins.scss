@@ -12,7 +12,11 @@
 @mixin flex-grow($value) {
     -webkit-flex-grow: $value;
     flex-grow:         $value;
-}   
+} 
+@mixin flex-shrink($value) {
+    -webkit-flex-shrink: $value;
+    flex-shrink:         $value;
+} 
 @mixin flex-basis($value) {
     -webkit-flex-basis: $value;
     flex-basis: $value;
