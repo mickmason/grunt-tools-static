@@ -1,0 +1,105 @@
+/* 
+ *    Big landing feature image - not a hero 
+ */
+.landing-feature-image__block {
+    @include make-xs-column(12);
+    
+}
+.landing-feature-image {
+    position: relative;
+}
+.landing-feature-image__img {
+    position: relative;    
+    width: 100%;
+} 
+.landing-feature-image__card {
+    @include clearfix;
+    position: relative;
+    background-color: $white;
+    p {
+        margin-bottom: 0;
+    }
+    @include rem-calc(padding, 16, 0);
+    @include rem-calc(padding-right, 12);
+    &:hover {
+        background-color: $white;
+    }
+    @include dfa-transition(background-color, 212);
+}
+.landing-feature-image__card__text__heading {
+    font-weight: 700;
+    @include rem-calc(font-size, 20px);
+    margin-top: 0;
+    @include rem-calc(margin-bottom, 12);
+}
+
+.landing-feature-image__card__anchor {
+    color: inherit;
+    @include clearfix;
+    .landing-feature-image__card__text {
+        width: 88%;
+        float: left;
+        padding-right: 12px;
+    }
+    .landing-feature-image__card__link-icon {
+        width: 12%;
+        
+        float: left;
+    }
+    
+    @include dfa-transition(color, 212);
+    
+    &:hover {
+        text-decoration: none;
+        color: $brand-darker;
+/*        p {
+            text-decoration: underline;
+        }*/
+        .dfa-svg-icon {
+            fill: $brand-darker;
+        }
+    }
+    .dfa-svg-icon {
+        @include rem-calc(max-height, 72px);
+        fill: $gray-dark;
+        @include dfa-transition(fill, 212);
+        position: relative;
+        top: 50%; 
+        transform: translateY(-50%);
+    }
+}
+@media screen and (min-width: $screen-sm-min) {
+    .landing-feature-image__card__text__heading {
+            @include rem-calc(font-size, 28px);
+    }
+}
+@media screen and (min-width: $screen-md-min) {
+    .landing-feature-image__card {
+        @include dfa-box-shadow();
+        position: absolute;
+        z-index: 10;
+        bottom:   11.8%;
+        left:     11.8%;
+        max-width: 38.2%;
+        @include dfa-translate(-11.8%, -11.8%);
+        @include border-radius(8px);
+        @include rem-calc(padding, 16, 20, 22, 20);
+        @include rem-calc(padding-right, 12);
+    }
+    .landing-feature-image__card__text__heading {
+        @include rem-calc(font-size, 24px);
+    }
+
+    .landing-feature-image__card__anchor {
+        .landing-feature-image__card__text {
+            width: 84%;
+            
+        }
+        .landing-feature-image__card__link-icon {
+            width: 16%;
+            
+        }
+    }
+    
+}
+

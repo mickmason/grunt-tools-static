@@ -3,6 +3,11 @@
     -ms-flex-direction:     $value;
     flex-direction:         $value;
 }
+@mixin flex-wrap($value) {
+    -webkit-flex-wrap: $value;
+    -ms-flex-wrap:     $value;
+    flex-wrap:         $value;
+}
 @mixin flex-flow($dir: row, $wrap: wrap) {
     -webkit-flex-flow: $dir $wrap;
     -ms-flex-flow:     $dir $wrap;

@@ -371,7 +371,7 @@ header {
     /*position: absolute;*/
     top: 52px;
     left: 0;
-    display: none ; 
+     display: none ; 
     @include rem-calc(padding-top, 4);
     ul {
         margin: 0;
@@ -389,7 +389,7 @@ header {
 .main-nav--hover {
     .main-nav__drop-down {
         display: block !important; 
-        /*display: none !important; */
+        display: none !important; 
     }
         
 }
@@ -627,7 +627,6 @@ header {
         margin: 0;
         > li {
             font-size: 16px; 
-            
             font-weight: 400;
             display: block;
             float: left;
@@ -639,7 +638,7 @@ header {
                 border-right: none;
             }
             > a {
-                @include to-rem(padding, 16, ($padding-small-vertical * 3), ($padding-small-horizontal * 2.25), ($padding-small-vertical * 3));
+                @include to-rem(padding, 16, 11, ($padding-small-horizontal * 2.25), 13);
                  color: $white;
                 font-weight: 400;
             }
@@ -682,7 +681,7 @@ header {
         
     }
     .main-nav__drop-down__link__show-more {
-        /*display: inline-block;*/
+        display: inline-block;
         .dfa-svg-icon {
             fill: $white;
         }
@@ -747,7 +746,14 @@ header {
             }
         }
     }
-              
+    .main-nav-list {
+        > li {
+            font-size: 18px; 
+            > a {
+                 @include to-rem(padding, 16, ($padding-small-vertical * 2), ($padding-small-horizontal * 2.5), ($padding-small-vertical * 2.5 + 1));    
+            }
+        }
+    }
      
     .desktop-search {
         

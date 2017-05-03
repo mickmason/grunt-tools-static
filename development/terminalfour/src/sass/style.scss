@@ -454,7 +454,8 @@ h5 {
 //Media galler
 @import 'components/featured-content-block';
 
-
+//Landing feature image - not a hero
+@import 'components/landing-feature-image';
 //Forms
 @import 'components/dfa-forms';
 //Landing pages news features
@@ -827,20 +828,25 @@ select.a-z-listing__filter__input {
  * Partner logos
  */
 .dfa-partner-logos {
+    
     .landing-feature__block {
         @include to-rem(margin, 16, 16);
     }
 }
 .dfa-partner-logos {
+    @include clearfix;
+    max-width: none;
     margin: 0;
     padding: 0;
     display: block;
 }
 .dfa-partner-logos__item {
     display: block;
-    margin: auto 8px;
+    padding: 0 15px;
     list-style-image: none;
     list-style: none;
+    float: left;
+    width: 50%;
     a {
         display: block;
         margin: 0 auto;
@@ -870,16 +876,17 @@ select.a-z-listing__filter__input {
         @include align-items(center);
     }
     .dfa-partner-logos__item {
-        
-        margin: auto 8px;
+        width: auto;
         @include flex-grow(1);
-        @include flex-basis(12.5%);
+        @include flex-shrink(1);
+        @include flex-basis(0);
     } 
     .no-flex {
         .dfa-partner-logos__item {
             max-width: 12.5%;
             margin: auto;
             display: inline-block;
+            
             padding: 0 8px;
         }
     }
@@ -1233,3 +1240,39 @@ footer {
 
 /* Print only class */
 .print-only { display: none;}
+
+/* Print and Share options - old build */
+.share {
+    @include clearfix;
+    padding: 8px 16px 16px;
+    border: 2px solid $gray-light;
+    border-radius: 4px;
+    @include rem-calc(margin-bottom, 16);
+    &:hover {
+        cursor: pointer;
+    }
+}
+.share span {
+    display: block;
+    padding-top: 8px;
+    @include rem-calc(font-size, 14);
+}
+.share img {
+    
+    margin-right: 8px;
+}
+.print-page {
+    background-color: #F1F1F1;
+    padding: 16px 16px;
+    @include rem-calc(margin-bottom, 16);
+}
+.print-page__link {
+    @include rem-calc(font-size, 14);
+    
+    padding-left: 28px;
+    background: url(http://dfa.ie/media/dfa/styleassets/images/print-icon.jpg) no-repeat scroll 0 1px transparent;
+    display: block;
+}
+.taglinks {
+    display: none !important;
+}
