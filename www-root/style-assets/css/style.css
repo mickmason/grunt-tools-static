@@ -4306,7 +4306,7 @@ tbody.collapse.in {
   color: #444;
 }
 
-.breadcrumb, .inner-page-breadcrumbs__nav {
+.breadcrumb, .breadcrumbs__nav, .inner-page-breadcrumbs__nav {
   padding: 8px 0;
   margin-bottom: 8px;
   margin-bottom: 0.5rem;
@@ -4318,15 +4318,15 @@ tbody.collapse.in {
   background-color: transparent;
   border-radius: none;
 }
-.breadcrumb > li, .inner-page-breadcrumbs__nav > li {
+.breadcrumb > li, .breadcrumbs__nav > li, .inner-page-breadcrumbs__nav > li {
   display: inline-block;
 }
-.breadcrumb > li + li:before, .inner-page-breadcrumbs__nav > li + li:before {
+.breadcrumb > li + li:before, .breadcrumbs__nav > li + li:before, .inner-page-breadcrumbs__nav > li + li:before {
   content: "/ ";
   padding: 0 5px;
   color: #ccc;
 }
-.breadcrumb > .active, .inner-page-breadcrumbs__nav > .active {
+.breadcrumb > .active, .breadcrumbs__nav > .active, .inner-page-breadcrumbs__nav > .active {
   color: #e4e5e6;
 }
 
@@ -9103,19 +9103,28 @@ h5.feature-heading, h5.landing-feature--heading {
  * Inner page breadcrumbs
  *
  **/
-.inner-page-breadcrumbs {
+.breadcrumbs-row {
   margin-left: -15px;
   margin-right: -15px;
 }
-.inner-page-breadcrumbs:before, .inner-page-breadcrumbs:after {
+.breadcrumbs-row:before, .breadcrumbs-row:after {
   content: " ";
   display: table;
 }
-.inner-page-breadcrumbs:after {
+.breadcrumbs-row:after {
   clear: both;
 }
-.inner-page-breadcrumbs a {
+.breadcrumbs-row a {
   font-weight: 400;
+}
+
+.breadcrumbs-block {
+  position: relative;
+  float: left;
+  width: 100%;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .inner-page-breadcrumbs__block {
@@ -9147,16 +9156,6 @@ h5.feature-heading, h5.landing-feature--heading {
   }
 }
 
-@media screen and (min-width: 1200px) {
-  .main-body--general-content {
-    /*.main-body__main {
-        @include to-rem(margin-left, 18, 48);
-    }
-    .inner-page-breadcrumbs__nav {
-        @include to-rem(margin-left, 18, 48);
-    }*/
-  }
-}
 /*
  * Hero image 
  */
@@ -9379,6 +9378,7 @@ h5.feature-heading, h5.landing-feature--heading {
   margin-bottom: 1.75rem;
   font-size: 32px;
   font-size: 2rem;
+  max-width: none;
 }
 
 .intro-feature-heading__sub {
@@ -9996,7 +9996,8 @@ h5.feature-heading, h5.landing-feature--heading {
   padding-right: 15px;
 }
 
-.landing-feature-image {
+.landing-feature-section.landing-feature-image {
+  padding-top: 0;
   position: relative;
 }
 
@@ -11520,10 +11521,84 @@ h5.feature-heading, h5.landing-feature--heading {
   margin-top: 1rem;
 }
 
+/* Page text title */
+.page-title-row {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+.page-title-row:before, .page-title-row:after {
+  content: " ";
+  display: table;
+}
+.page-title-row:after {
+  clear: both;
+}
+
+.page-title-block {
+  position: relative;
+  float: left;
+  width: 100%;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.page-title__heading {
+  margin-top: 14px;
+  margin-top: 0.875rem;
+  margin-bottom: 16px;
+  margin-bottom: 1rem;
+}
+
+.main-body--inner-landing .page-title__heading {
+  margin-top: 0;
+}
+
+.page-title__sub-text {
+  font-style: italic;
+  font-size: 18px;
+  font-size: 1.125rem;
+  color: #323232;
+  font-weight: 200;
+}
+
+.page-title__hr {
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 28px;
+  margin-top: 1.75rem;
+  border-top-width: 2px;
+  border-top-color: #005036;
+}
+
+@media screen and (min-width: 768px) {
+  .page-title__heading {
+    font-size: 36px;
+    font-size: 2.25rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .page-title__heading {
+    font-size: 42px;
+    font-size: 2.625rem;
+  }
+
+  .page-title__sub-text {
+    font-size: 20px;
+    font-size: 1.25rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .page-title__heading {
+    font-size: 42px;
+    font-size: 2.625rem;
+  }
+}
 /*
  * Country travel info content
  */
-.country-travel-info__heading, .landing-page-title {
+.country-travel-info__heading, .landing-page-title, .inner-page-title {
   margin-top: 0;
   padding-bottom: 16px;
   padding-bottom: 1rem;

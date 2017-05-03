@@ -413,9 +413,12 @@ h5 {
  * Inner page breadcrumbs
  *
  **/
-.inner-page-breadcrumbs {
+.breadcrumbs-row {
     @include make-row;
     a {font-weight: 400;}
+}
+.breadcrumbs-block {
+    @include make-xs-column(12);
 }
 .inner-page-breadcrumbs__block {
     @include make-xs-column(12);
@@ -427,18 +430,6 @@ h5 {
         @include make-md-column-offset(3);
     }
 }
-@media screen and (min-width: $screen-lg-min) {
-    .main-body--general-content {   
-        /*.main-body__main {
-            @include to-rem(margin-left, 18, 48);
-        }
-        .inner-page-breadcrumbs__nav {
-            @include to-rem(margin-left, 18, 48);
-        }*/
-    }
-}
-
-
 //Hero image
 @import 'components/hero-block';
 
@@ -470,7 +461,7 @@ h5 {
 /*
  * Country travel info content
  */
-.country-travel-info__heading, .landing-page-title {
+.country-travel-info__heading, .landing-page-title, .inner-page-title {
     margin-top: 0;
     @include rem-calc(padding-bottom, $padding-small-vertical * 4);
     border-bottom: 2px solid $gray;

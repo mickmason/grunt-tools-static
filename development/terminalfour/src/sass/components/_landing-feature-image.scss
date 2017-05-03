@@ -5,9 +5,13 @@
     @include make-xs-column(12);
     
 }
-.landing-feature-image {
-    position: relative;
+.landing-feature-section {
+    &.landing-feature-image {
+        padding-top: 0;
+        position: relative;
+    }    
 }
+
 .landing-feature-image__img {
     position: relative;    
     width: 100%;
