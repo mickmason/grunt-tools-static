@@ -97,6 +97,7 @@ module.exports = function(grunt) {
           style: 'expanded',
         },//options
         files: {
+          'www-root/style-assets/css/print.css': 'development/terminalfour/src/sass/print.scss',
           'www-root/style-assets/css/style.css': 'development/terminalfour/src/sass/style.scss',
           'www-root/style-assets/css/style-ie.css': 'development/terminalfour/src/sass/style-ie.scss'
 

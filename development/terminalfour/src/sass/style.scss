@@ -430,6 +430,9 @@ h5 {
         @include make-md-column-offset(3);
     }
 }
+//Travel alert content
+@import 'components/travel-alert';
+
 //Hero image
 @import 'components/hero-block';
 
@@ -465,6 +468,7 @@ h5 {
     margin-top: 0;
     @include rem-calc(padding-bottom, $padding-small-vertical * 4);
     border-bottom: 2px solid $gray;
+    max-width: none;
 }
 .landing-page-title {
     

@@ -47,27 +47,7 @@
         }
     }
 }
-.dfa-card--plain--icon {
-    .dfa-card__anchor {
-        @include clearfix;
-    }
-    .dfa-card__card-text, .dfa-card__icon {
-        float: left;
-    }
-    .dfa-card__card-text {
-        width: 90%;
-    } 
-    .dfa-card__icon {
-        width: 10%;
-        position: relative;
-    }
-    .dfa-svg-icon {
-        max-height: 42px;
-        position: relative;   
-        top: 50%;
-        transform: translateY(-50%);
-    }
-}
+
 .dfa-card--dropshadow {
     .dfa-card__wrap {
          @include dfa-box-shadow;
@@ -168,15 +148,56 @@
     //Has an icon
     &.dfa-card--plain {
         
-        .dfa-svg-icon {
-            fill: $gray-dark;
-            @include dfa-transition(all, 200, cubic-bezier(0.420, 0.000, 0.580, 1.000));
+        img {
+            border-top-right-radius: 8px;
+            border-top-left-radius: 8px;
         }
-        &:hover, &:focus, &:active {
-            .dfa-svg-icon {
+        .dfa-card__card-text { 
+            @include to-rem(padding-top, 14, 16);
+            @include to-rem(padding-bottom, 14, 16);
+        }
+        .dfa-card__card-text__heading {
+            @include to-rem(font-size, 14, 22);
+            @include to-rem(margin-bottom, 14, 12);
+        }
+        .dfa-card__card-text__text {
+            @include to-rem(font-size, 14, 16px);
+        }
+        .dfa-card__wrap {
+            border: 1px solid $gray-light;
+            border-radius: 8px;
+        }
+    }
+}
+.dfa-card--plain--icon {
+    .dfa-card__anchor {
+        @include clearfix;
+    }
+    .dfa-card__card-text, .dfa-card__icon {
+        float: left;
+    }
+    .dfa-card__card-text {
+        width: 82.3%;
+    } 
+    .dfa-card__icon {
+        width: 17.7%;
+        position: relative;
+    }
+    .dfa-svg-icon {    
+        width: 76.4%;
+        max-height: 76px;
+        position: relative;   
+        display: block;
+        margin: 0 auto;
+        top: 50%;
+        fill: $gray-dark;
+        @include dfa-transition(fill, 200, cubic-bezier(0.420, 0.000, 0.580, 1.000));
+        transform: translateY(-50%);
+    }
+    &:hover, &:focus, &:active {
+         .dfa-svg-icon {
                 fill: $brand-primary;
-            }   
-        } 
+         }   
     }
 }
 /* Numbers card */
@@ -191,7 +212,9 @@
     .dfa-card__card-text {
         text-align: center;
     }
-    
+    .dfa-card__wrap {
+        border: 1px solid $gray-lightest;
+    }
     
     .dfa-card__card-text__heading {
         @include to-rem(font-size, 14, 20);
@@ -406,6 +429,13 @@
     .landing-feature-section--four-col, .landing-feature-section--two-col {
         .dfa-card {
             @include make-md-column(3);
+        }
+    }
+    .landing-feature-section {
+        &.landing-feature-section--river {
+            .dfa-card {
+                @include make-md-column(6);
+            }
         }
     }
     .landing-feature-section--flex-stretch {

@@ -1,0 +1,35 @@
+/* Print style sheet */
+body, html {
+    width: 100%;
+    height: 100%;
+    padding-top: 0 !important;
+    margin-top: 0  !important;
+    font-family: sans-serif;
+    vertical-align: baseline;
+}
+h1, h2, h3, h4, h5, h6 {
+   margin: 12pt 0;
+   page-break-after: avoid !important;
+}
+section, div {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+img {
+    display: block;
+}
+.header-title__text, .secondary-navigation, nav, .site-search-row, .header-navigation__mobile, .header-title--mobile, .main-nav-row, .footer-links, .breadcrumbs-row, .dfa-svg-icon, .dfa-icon, .plain-cards-feature, .discovery-slider, .discovery-tabs, .numbers-cards, .inner-navigation__show-more__icon, .inner-navigation__show-less__icon, .main-body__side-bar {
+    display: none !important;
+    height: 0 !important;
+}
+.header-title__logo {
+    width: 200px !important;
+}
+.info-card__person {
+    img {
+        max-width: 100% !important ;
+    }    
+}
+footer {
+    margin-top: 12pt;
+}
