@@ -382,8 +382,6 @@ header {
     width: 100%;
     z-index: 400;
     background-color: $white;
-    /*position: absolute;
-    top: 52px;*/
     left: 0;
     display: none;
     @include rem-calc(padding, 4, 8, 0);
@@ -406,7 +404,6 @@ header {
 .main-nav--hover {
     .main-nav__drop-down {
         display: block !important; 
-        /*display: none !important; */
     }
         
 }
@@ -437,6 +434,7 @@ header {
 .main-nav__drop-down__links {
     
     @include flex-grow(2); 
+    @include rem-calc(padding-bottom, 15); 
     
 }
 .main-nav__drop-down__features {
@@ -469,7 +467,6 @@ header {
 /* Each block of links */
 .main-nav__drop-down__links-block {
     padding: 0 15px;
-    /*min-width: 33.333333%;*/
     @include flex-grow(1);
     @include flex-basis(0);
     &:last-child {
@@ -668,8 +665,12 @@ header {
         border-bottom: 4px solid $brand-primary;
         .main-nav__drop-down__link {
             @include rem-calc(font-size, 16);
-            &:last-child {
-                border-bottom: none;
+        }
+    }
+    .main-nav-list__dropdown {
+        &:hover {
+            .main-nav__drop-down {
+                display: block;
             }
         }
     }
@@ -683,8 +684,16 @@ header {
     .main-nav__drop-down__links__row, .main-nav__drop-down__features__row {
         @include flex-direction(row);
     }
+    .main-nav__drop-down__links-block {
+        &:last-child {
+            .main-nav__drop-down__link:last-child {
+                border-bottom: 1px solid $gray-light;
+            }
+        }
+    }
     .main-nav__drop-down__links {
         @include flex-direction(row);
+        padding-bottom: 0;
     }
     .main-nav__drop-down__link  {
         a {
@@ -702,6 +711,9 @@ header {
     }
     .main-nav__drop-down__header {
         display: block;
+        a {
+            padding: 0px 6px;
+        }
     }
     /* Search display */
     .desktop-search {
@@ -793,6 +805,7 @@ header {
     .header-title {
         @include make-lg-column(4);
         height: auto;
+ 
     }    
     .secondary-navigation {
         @include make-lg-column(8);

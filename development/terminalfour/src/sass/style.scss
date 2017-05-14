@@ -1119,6 +1119,10 @@ footer {
 }
 .footer-row {
     @include make-row;
+    
+    &.landing-feature-section {
+        padding-bottom: 0;
+    }
 }
 .footer-links, .footer-address {
      @include make-xs-column(12);
@@ -1246,6 +1250,14 @@ footer {
     &:hover {
         cursor: pointer;
     }
+    display: none;
+    &.share--mobile {
+        display: block;
+    }
+    &.share--desktop {
+        display: none;
+    }
+    max-width: 820px;
 }
 .share span {
     display: block;
@@ -1260,6 +1272,8 @@ footer {
     background-color: #F1F1F1;
     padding: 16px 16px;
     @include rem-calc(margin-bottom, 16);
+    display: none;
+    max-width: 820px;
 }
 .print-page__link {
     @include rem-calc(font-size, 14);
@@ -1268,6 +1282,30 @@ footer {
     background: url(http://dfa.ie/media/dfa/styleassets/images/print-icon.jpg) no-repeat scroll 0 1px transparent;
     display: block;
 }
+.print-only {
+    display: none;
+}
+.print-page-break--after {
+    
+}
+@media screen and (min-width: $screen-md-min) {
+    .share {
+        &.share--desktop {
+            display: block;    
+        }
+        &.share--mobile {
+            display: none;
+        }
+    }
+    .print-page {
+        display: block;
+        &.print-page--mobile {
+            display: none;
+        }
+    }
+    
+}
+
 .taglinks {
     display: none !important;
 }

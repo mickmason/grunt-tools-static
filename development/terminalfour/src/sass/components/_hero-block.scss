@@ -83,25 +83,27 @@
         @include rem-calc(margin, 0, auto);
     }
 }
-.hero-text-row__mobile {
-    @include make-row;
+.hero-text-row--mobile {
+    @include make-row(0);
+    @include rem-calc(padding-bottom, 32); 
 }
-.hero-text-block__mobile {
+.hero-text-block--mobile {
     @include make-xs-column(12);
 }
-.hero-text__mobile {
-    .hero-heading__mobile {
+
+    .hero-heading--mobile {
         font-family: "SourceSans", sans-serif; 
         @include rem-calc(font-size, 36);
     }
     .hero-text-subtext {
         @include rem-calc(font-size, 18);  
-        font-family: "SourceSansSemiBold";
+        font-family: "SourceSans";
+        font-weight: 600;
     }  
-}
+
 
 @screen and (min-width $screen-md-min) {
-    .hero-heading__mobile {
+    .hero-heading--mobile {
         font-family: "SourceSans", sans-serif; 
         @include rem-calc(font-size, 40);
     }
@@ -119,7 +121,7 @@
     .hero-text {
         display: block;    
     }
-    .hero-text__mobile {
+    .hero-text-row--mobile {
         display: none;
     }
 }

@@ -249,7 +249,7 @@
             });    
         } else {
             /* Larger resolutions */
-            $thisli.hover(function(e){
+           /* $thisli.hover(function(e){
                 console.log($(this).attr('class') + ' hover');
                 var $activeLi = $('.main-nav-list > .main-nav--hover') || undefined ;
                 if ($thisli.hasClass('main-nav--hover')) {
@@ -272,9 +272,9 @@
                     }, timeOutDuration);
                     
                 }
-            });
+            });*/
             /* Close any open dropdowns */
-            $('.header-row, .main-section').hover(function(e) {
+            /*$('.header-row, .main-section').hover(function(e) {
                 console.log('Hover ' + $(this).attr('class'));
                 var $activeLi = $('.main-nav-list > .main-nav--hover');
                 if ($activeLi.length) {
@@ -284,7 +284,7 @@
                         });                    
                     }, timeOutDuration);
                 }
-            });
+            });*/
         }
     });
     /* Site-wide search handlers */
