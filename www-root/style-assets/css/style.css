@@ -2822,11 +2822,11 @@ a.btn.disabled, fieldset[disabled] a.btn {
   color: #fff;
   background-color: #006845;
   border-color: #005036;
-  -webkit-transition: color 350ms ease-out 0s;
-  -moz-transition: color 350ms ease-out 0s;
-  -o-transition: color 350ms ease-out 0s;
-  -ms-transition: color 350ms ease-out 0s;
-  transition: color 350ms ease-out 0s;
+  -webkit-transition: background-color 200ms ease-out 0s;
+  -moz-transition: background-color 200ms ease-out 0s;
+  -o-transition: background-color 200ms ease-out 0s;
+  -ms-transition: background-color 200ms ease-out 0s;
+  transition: background-color 200ms ease-out 0s;
 }
 .btn-primary:focus, .btn-primary.focus {
   color: #fff;
@@ -9385,6 +9385,72 @@ h5.feature-heading, h5.landing-feature--heading {
   }
 }
 
+.landing-feature-section.cookies-notice-section {
+  background-color: #f1f1f1;
+  margin-left: 0;
+  margin-right: 0;
+  padding-top: 18px;
+  padding-top: 1.125rem;
+  padding-bottom: 28px;
+  padding-bottom: 1.75rem;
+}
+
+#cookieNotice {
+  display: none;
+}
+
+.cookieHolder {
+  position: relative;
+  float: left;
+  width: 100%;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.cookieHolder .btn-primary:hover {
+  background-color: #e4e5e6;
+  color: #005036;
+}
+
+.cookies-heading {
+  margin-top: 0;
+  margin-bottom: 16px;
+  margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .cookies-heading {
+    margin-top: 0;
+    font-size: 28px;
+    font-size: 1.75rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .cookies-text {
+    padding-right: 15px;
+    width: 76.4%;
+  }
+  .cookies-text p {
+    max-width: 960px;
+  }
+
+  .cookies-button {
+    margin-top: 40px;
+    margin-top: 2.5rem;
+    padding-left: 45px;
+    width: 23.6%;
+  }
+
+  .cookies-button__text .btn {
+    display: inline-block;
+    margin-top: 8px;
+    margin-top: 0.5rem;
+  }
+
+  .cookies-text, .cookies-button {
+    float: left;
+  }
+}
 /* 
  *    Travel/Emergency alerts 
  */

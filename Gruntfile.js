@@ -85,6 +85,7 @@ module.exports = function(grunt) {
               'development/lib/slick/slick/slick.min.js', 
               'development/lib/jquery-match-height/jquery.matchHeight.js', 
               'development/lib/ekko-lightbox/ekko-lightbox.js', 
+              'development/lib/jquery-cookie/jquery.cookie.js', 
               'development/terminalfour/src/js/scripts.js'
           ], 
           dest: 'www-root/style-assets/js/t4-scripts.min.js'

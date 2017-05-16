@@ -256,6 +256,7 @@ blockquote {
     &.plain-cards-feature, &.news-features, &.horizontal-cards, &.numbers-cards {
         @include rem-calc(padding-bottom, ($padding-small-vertical * 16) - 22) ;
     }
+   
 }
 /* 12-cols block for each section - has a heading then content columns */
 .landing-feature__block {
@@ -430,6 +431,8 @@ h5 {
         @include make-md-column-offset(3);
     }
 }
+//Cookies notice 
+@import 'components/cookies-notice';
 //Travel alert content
 @import 'components/travel-alert';
 

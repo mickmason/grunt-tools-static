@@ -214,7 +214,7 @@
             }, timeout);       
         }
     });
-    /* Main nav dropdowns */
+    /* Main nav dropdowns in mobile - in desktop this is done with CSS :hover on main nav <li>s */
     $('.main-nav-list__dropdown').each(function() {
         var allMainNavLinks =  $('.main-nav-list > li');
         
@@ -247,45 +247,25 @@
                     });
                 }
             });    
+        } 
+    });
+    /* 
+     * Click handler for sidebar nav links with nested links 
+     * Inner Landing and General Content pages
+     */
+    $(document).on('click', '.inner-navigation__show-more', function(e) { 
+        e.preventDefault();
+        e.stopPropagation();
+        var $this = $(this);
+        if ($this.parent('li').hasClass('active')) {
+            $this.siblings('ul').stop().slideUp(200, function() {
+                $this.parent('li').removeClass('active');        
+            });    
         } else {
-            /* Larger resolutions */
-           /* $thisli.hover(function(e){
-                console.log($(this).attr('class') + ' hover');
-                var $activeLi = $('.main-nav-list > .main-nav--hover') || undefined ;
-                if ($thisli.hasClass('main-nav--hover')) {
-                    return false;
-                } else if ($activeLi.length) {
-                    setTimeout(function() {
-                        $activeLi.find('.main-nav__drop-down').stop().slideUp(durationUp, function() {
-                            $activeLi.removeClass('main-nav--hover');
-                            $thisDropdown.stop().slideDown(durationUp, function() {
-                                $thisli.addClass('main-nav--hover');
-                            })
-                        });
-                    }, timeOutDuration);
-                    
-                } else {
-                    setTimeout(function() { 
-                        $thisDropdown.stop().slideDown(durationDown, function(){
-                            $thisli.addClass('main-nav--hover');
-                        });
-                    }, timeOutDuration);
-                    
-                }
-            });*/
-            /* Close any open dropdowns */
-            /*$('.header-row, .main-section').hover(function(e) {
-                console.log('Hover ' + $(this).attr('class'));
-                var $activeLi = $('.main-nav-list > .main-nav--hover');
-                if ($activeLi.length) {
-                    setTimeout(function() { 
-                        $activeLi.find('.main-nav__drop-down').stop().slideUp(durationUp, function() {
-                            $activeLi.removeClass('main-nav--hover');
-                        });                    
-                    }, timeOutDuration);
-                }
-            });*/
-        }
+            $this.siblings('ul').eq(0).stop().slideDown({duration: 200, complete: function() {
+                $this.parent('li').stop().addClass('active');        
+            }});               
+        }  
     });
     /* Site-wide search handlers */
     $('#search-submit-button').on('click', function(e){
@@ -409,8 +389,6 @@
                 $this.addClass('active');
             });        
         }
-        
-    
     });
     /**!
      * A-Z Filters
@@ -653,21 +631,21 @@
     addShowInnerNavHandler();
     $(window).on('resize', addShowInnerNavHandler);
     
-    /* Click handler for sidebar nav links with nested links */
-    $(document).on('click', '.inner-navigation__show-more', function(e) { 
-        e.preventDefault();
-        e.stopPropagation();
-        var $this = $(this);
-        if ($this.parent('li').hasClass('active')) {
-            $this.siblings('ul').stop().slideUp(200, function() {
-                $this.parent('li').removeClass('active');        
-            });    
-        } else {
-            $this.siblings('ul').eq(0).stop().slideDown({duration: 200, complete: function() {
-                $this.parent('li').stop().addClass('active');        
-            }});               
-        }  
-    });
-
     
+    /**
+     * Handles show/hide cookies policy
+     * Uses this version of https://github.com/carhartl/jquery-cookie
+     **/
+    if($.cookie("acceptcookies2")) {
+        $('#cookieNotice').hide();
+
+    } else{$('#cookieNotice').show();}
+    //cookie notice
+    $('#cookieNotice .cookies-button .btn').click(function(e) {
+        e.preventDefault();
+        $('#cookieNotice').slideUp(360, function() {
+                $.cookie("acceptcookies2", "true", { expires: 365, path: '/' });
+                //$.cookie("acceptcookies", "true", { expires: 365, path: '/' });
+        });
+    }); //end click   
 })(window); 
