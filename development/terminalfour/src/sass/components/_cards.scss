@@ -504,7 +504,6 @@
         .landing-feature__row {
             @include flex-direction(row);
             @include flex-wrap(wrap);
-            @include align-items(center);
             @include justify-content(space-around);
             .dfa-card {
                 float: none;
