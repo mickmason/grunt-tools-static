@@ -281,7 +281,7 @@
     });
     
     /* Postition hero text in tablet and bigger devices  */
-    if ($('.hero-text')) {
+    if (false) {
         if (window.outerWidth > 768) {
             var $heroText = $('.hero-text');
             var x = ($heroText.attr('data-posx')) ? $heroText.attr('data-posx') : 'center';
@@ -315,6 +315,23 @@
             });
         } 
     }
+    /* Allow user to set the font size of the hero text heading */
+    function heroTextSetter() {
+        console.log('Hero text setter');
+        if ($('.hero-text')) {
+            var $heroText = $('.hero-text');
+            if (window.outerWidth > 768) {
+                 var fontSize = parseInt($heroText.data('font-size'));
+                 if (fontSize !== 'NaN') {
+                     $heroText.find('.hero-heading').css('fontSize', (fontSize / parseInt($('body').css('fontSize'))) + 'rem ');
+                 }
+            } else {
+                $heroText.find('.hero-heading').css('fontSize', '');
+            }
+        }    
+    }//heroTextSetter()
+    heroTextSetter();
+    $($global).on('resize', heroTextSetter);
     
     /**!
      * Feature content block show/hide
