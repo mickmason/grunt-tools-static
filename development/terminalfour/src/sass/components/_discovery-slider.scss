@@ -202,7 +202,7 @@
     @include to-rem(margin, 14, 8, 15, 0);
     > div {
         background-color: $brand-primary;
-        @include dfa-transition(background-color, 80);
+        @include dfa-transition(background-color, 220);
         &:hover, &:active, &:focus {
             cursor: pointer;
             background-color: $brand-darker;

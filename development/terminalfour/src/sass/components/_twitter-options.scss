@@ -1,7 +1,21 @@
-.landing-feature-section {
-    &.scroller-feed {
-        
+
+.scroller-feed {
+    
+    .slick-dots {
+        li {
+            button {
+                width: 32px;
+                height: 32px;
+                &:before {
+                    width: 32px;
+                    height: 32px;
+                    color: $brand-darker;
+                    font-size: 32px;
+                }                            
+            }
+        }
     }
+    
 }
 //Scroller bootstrap col
 .scroller-feed__scroller-block {
@@ -38,10 +52,15 @@
         padding-right: 15px;
         width: 100%;
     } 
-    .discovery-slider__controls {
-        
-        
-        
+    
+    .discovery-slider__controls__pause {
+        background-color: $gray-light; 
+        svg {
+            fill: $gray-dark;
+        }
+        &:hover {
+            background-color: $gray-lightest; 
+        }
     }
 }
 .scroller-info__card {
@@ -112,7 +131,6 @@
             margin: 0;
             display: block;
             @include make-md-column(8);
-            padding-top: 16px;
             
         }
         .scroller-feed__controls__mobile {

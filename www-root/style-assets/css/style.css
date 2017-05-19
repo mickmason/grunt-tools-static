@@ -11618,11 +11618,11 @@ h5.feature-heading, h5.landing-feature--heading {
 }
 .discovery-slider__controls > div {
   background-color: #006845;
-  -webkit-transition: background-color 80ms ease-out 0s;
-  -moz-transition: background-color 80ms ease-out 0s;
-  -o-transition: background-color 80ms ease-out 0s;
-  -ms-transition: background-color 80ms ease-out 0s;
-  transition: background-color 80ms ease-out 0s;
+  -webkit-transition: background-color 220ms ease-out 0s;
+  -moz-transition: background-color 220ms ease-out 0s;
+  -o-transition: background-color 220ms ease-out 0s;
+  -ms-transition: background-color 220ms ease-out 0s;
+  transition: background-color 220ms ease-out 0s;
   width: 32px;
   height: 32px;
   margin-left: 1px;
@@ -11997,6 +11997,17 @@ h5.feature-heading, h5.landing-feature--heading {
     font-size: 2.625rem;
   }
 }
+.scroller-feed .slick-dots li button {
+  width: 32px;
+  height: 32px;
+}
+.scroller-feed .slick-dots li button:before {
+  width: 32px;
+  height: 32px;
+  color: #005036;
+  font-size: 32px;
+}
+
 .scroller-feed__scroller-block {
   position: relative;
   float: left;
@@ -12037,6 +12048,15 @@ h5.feature-heading, h5.landing-feature--heading {
   padding-top: 8px;
   padding-right: 15px;
   width: 100%;
+}
+.scroller-feed .discovery-slider__controls__pause {
+  background-color: #e4e5e6;
+}
+.scroller-feed .discovery-slider__controls__pause svg {
+  fill: #323232;
+}
+.scroller-feed .discovery-slider__controls__pause:hover {
+  background-color: #f4f5f6;
 }
 
 .scroller-info__card {
@@ -12144,7 +12164,6 @@ h5.feature-heading, h5.landing-feature--heading {
     min-height: 1px;
     padding-left: 15px;
     padding-right: 15px;
-    padding-top: 16px;
   }
 }
 @media screen and (min-width: 992px) and (min-width: 992px) {
@@ -13284,7 +13303,11 @@ footer a:active, footer a:hover, footer a:focus {
   font-size: 18px;
   font-size: 1.125rem;
 }
-.archive-subsections.month li {
+.archive-subsections.months .archive-subsections__header {
+  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
+}
+.archive-subsections.months li {
   margin-bottom: 12px;
   margin-bottom: 0.75rem;
 }
@@ -13298,6 +13321,22 @@ footer a:active, footer a:hover, footer a:focus {
 .archivemonthlist {
   padding-top: 4px;
   padding-top: 0.25rem;
+}
+.archivemonthlist h2 {
+  margin-top: 0;
+}
+
+.publisting {
+  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
+}
+.publisting .press-release__label .content-label {
+  padding-right: 8px;
+  padding-right: 0.5rem;
+}
+.publisting h3 {
+  margin-bottom: 12px;
+  margin-bottom: 0.75rem;
 }
 
 /*# sourceMappingURL=style.css.map */

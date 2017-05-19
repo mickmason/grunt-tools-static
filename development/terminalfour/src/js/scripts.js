@@ -90,7 +90,6 @@
     $('.scroller-feed__slider').slick({
         accessibility: true,
         mobileFirst: true,
-        autoplay: true,
         dots: true,
         slide: '.scroller-feed__item',
         prevArrow: '.discovery-slider__controls .discovery-slider__controls_prev',

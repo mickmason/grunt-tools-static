@@ -156,7 +156,10 @@
     a {
             @include rem-calc(font-size, 18px);
         }
-    &.month {
+    &.months {
+        .archive-subsections__header {
+            @include rem-calc(margin-bottom, 10px);
+        }
         li {
             @include rem-calc(margin-bottom, 12px);
         }
@@ -167,5 +170,20 @@
     @include rem-calc(font-size, 20px); 
 }
 .archivemonthlist {
+    h2 {
+        margin-top: 0;
+    }
     @include rem-calc(padding-top, 4px);
+}
+.publisting {
+    @include rem-calc(margin-bottom, 20px);
+    .press-release__label {
+        .content-label {
+            @include rem-calc(padding-right, 8px);
+        }
+    }
+    h3 {
+        @include rem-calc(margin-bottom, 12px);        
+    }
+    
 }
