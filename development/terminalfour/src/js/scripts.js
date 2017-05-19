@@ -86,6 +86,17 @@
             }
         }]
     });
+    /* Twitter scroller  */
+    $('.scroller-feed__slider').slick({
+        accessibility: true,
+        mobileFirst: true,
+        autoplay: true,
+        dots: true,
+        slide: '.scroller-feed__item',
+        prevArrow: '.discovery-slider__controls .discovery-slider__controls_prev',
+        nextArrow: '.discovery-slider__controls .discovery-slider__controls_next',
+        adaptiveHeight: true
+    });
     /* Discovery slider */
     $('.discovery-slider__slider').slick({
         mobileFirst: true,
@@ -112,6 +123,7 @@
      */
     var matchHeightArray = 
         [
+            '.scroller-feed__scroller-block, .landing-section__twitter-block',
             '.landing-feature-image__card__text, .landing-feature-image__card__link-icon',
             '.dfa-card--plain--icon .dfa-card__card-text, .dfa-card--plain--icon .dfa-card__icon',
             '.dfa-card--horizontal .dfa-card__wrap, .dfa-card--horizontal .dfa-card__media',

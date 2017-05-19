@@ -522,32 +522,80 @@
             </section>
             <!-- Intro row **-->
        <!-- Plain cards - flex-stretch x 2 -->
-        <section id="scroller-feed" class="landing-feature-section landing-feature-section--flex landing-feature-section--flex-stretch  scroller-feed" style="/* background-color: #f3f4f5 */">
+        <section id="scroller-feed" class="landing-feature-section scroller-feed" style="/* background-color: #f3f4f5 */">
             <div class="content-wrap">        
                 <div class="landing-feature__block">
                     <h1 class="landing-feature--heading"><code>1.</code> Image scroller with Twitter feed</h1>
                     <div class="landing-feature__row">
-                        <div class="scroller-feed__scroller-block">
+                        <div class="scroller-feed__scroller-block scroller-feed__slider">
                             <div class="scroller-feed__item">
                                <a href="https://www.dfa.ie/global-irish/">
                                     <img src="https://www.dfa.ie/media/globalirish/forum-2015-banner.png" alt="Wish I was a dictator" class="scroller-feed__item__img" />
-                                    <div class="landing-feature-image__card">
+                                    <div class="scroller-info__card">
                                         <h3 class="scroller-feed__item__heading">Civic forum</h3>   
-                                        <p class="scroller-feed__item__sub-text">2015 Global Irish Civic Forum</p>       
-                                    </div>
-                                    
+                                        <hr />
+                                        <p class="scroller-feed__item__sub-text">
+                                            2015 Global Irish Civic Forum
+                                            <svg class="dfa-svg-icon">
+                                                <use xlink:href="#next_arrow" />
+                                            </svg>
+                                        </p>   
+                                        <!--<p class="scroller-feed__item__read-more">Read more</p>       -->
+                                    </div> 
                                </a>
-                                
-                                
                             </div>
-                        </div><!-- // .scroller-block -->
-                        <div class="landing-section__twitter-block">
-                            <h2>Latest from <a href="https://twitter.com/dfatirl">@dfatIRL</a></h2>
-                            <div class="twitter-feed-wrap">
-                                
+                            <div class="scroller-feed__item">
+                               <a href="https://www.dfa.ie/global-irish/">
+                                    <img src="https://www.dfa.ie/media/dfa/alldfawebsitemedia/passportcitizenship/passportonline/passport-online-landing-page-banner.jpg" alt="Apply for your passport online" class="scroller-feed__item__img" />
+                                    <div class="scroller-info__card">
+                                        <h3 class="scroller-feed__item__heading">Online passport applications</h3>   
+                                        <hr />
+                                        <p class="scroller-feed__item__sub-text">
+                                            Apply for your passport online
+                                            <svg class="dfa-svg-icon">
+                                                <use xlink:href="#next_arrow" />
+                                            </svg>
+                                        </p>   
+                                        <!--<p class="scroller-feed__item__read-more">Read more</p>       -->
+                                    </div> 
+                               </a>
                             </div>
                             
-                        </div><!-- // .landing-section__feed-block -->
+                        </div><!-- // .scroller-block .!slider -->
+                        <div class="discovery-slider__controls scroller-feed__controls__mobile">
+                                <div class="discovery-slider__controls_next slick-arrow" style="">
+                                    <svg class="dfa-svg-icon">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#next_arrow"></use>
+                                    </svg> 
+                                </div>
+                                <div class="discovery-slider__controls_prev slick-arrow" style="">
+                                    <svg class="dfa-svg-icon">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#prev_arrow"></use>
+                                    </svg>   
+                                </div>
+                        </div>
+                        <div class="landing-section__twitter-block">
+                            <div class="twitter-block__inner-wrap">
+                                <h3>Latest from <a href="https://twitter.com/dfatirl">@dfatIRL</a></h3>
+                                <div class="twitter-feed-wrap"> 
+                                     <a class="twitter-timeline" data-height="280" data-theme="light" href="https://twitter.com/dfatirl">Tweets by dfatirl</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+                                </div>    
+                            </div><!-- // .twitter-block__inner-wrap -->
+                        </div><!-- // .landing-section__twiter-block -->
+                        <div class="discovery-slider__controls scroller-feed__controls__desktop">
+                                <div class="discovery-slider__controls_next slick-arrow" style="">
+                                    <svg class="dfa-svg-icon">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#next_arrow"></use>
+                                    </svg> 
+                                </div>
+                                <div class="discovery-slider__controls_prev slick-arrow" style="">
+                                    <svg class="dfa-svg-icon">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#prev_arrow"></use>
+                                    </svg>   
+                                </div>
+                        </div>
+                        
                     </div><!-- // .landing-feature__row -->
                 </div><!-- // .landing-feature__block -->
             </div><!-- // .content-wrap -->
