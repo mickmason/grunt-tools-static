@@ -178,12 +178,16 @@
 .publisting {
     @include rem-calc(margin-bottom, 20px);
     .press-release__label {
+        background-color: transparent;
+        margin-bottom: 0;
         .content-label {
-            @include rem-calc(padding-right, 8px);
+            background-color: transparent;
+            padding: 0;
+            color: $gray-dark;
         }
     }
     h3 {
-        @include rem-calc(margin-bottom, 12px);        
+        @include rem-calc(margin-bottom, 4px);        
     }
     
 }

@@ -91,10 +91,26 @@
         accessibility: true,
         mobileFirst: true,
         dots: true,
+        autoplay: true,
+        autoplaySpeed: 4000,
+        infinite: false,
+        pauseOnHover:true,
+        pauseOnDotsHover: true,
         slide: '.scroller-feed__item',
-        prevArrow: '.discovery-slider__controls .discovery-slider__controls_prev',
-        nextArrow: '.discovery-slider__controls .discovery-slider__controls_next',
+        prevArrow: '.scroller-feed .discovery-slider__controls_prev',
+        nextArrow: '.scroller-feed .discovery-slider__controls_next',
         adaptiveHeight: true
+    });
+    $('.discovery-slider__controls__pause').on('click', function(e) {
+        e.preventDefault();
+        if ($(this).hasClass('discovery-slider__controls__paused')) {
+            $('.scroller-feed__slider').slick('slickPlay');
+            $(this).removeClass('discovery-slider__controls__paused');
+        } else {
+            $('.scroller-feed__slider').slick('slickPause');
+            $('.discovery-slider__controls__pause').addClass('discovery-slider__controls__paused');    
+        }
+
     });
     /* Discovery slider */
     $('.discovery-slider__slider').slick({

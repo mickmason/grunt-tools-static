@@ -1,6 +1,5 @@
 
 .scroller-feed {
-    
     .slick-dots {
         li {
             button {
@@ -51,16 +50,32 @@
         padding-top: 8px;
         padding-right: 15px;
         width: 100%;
+        .discovery-slider__controls__pause {
+            background-color: $white;
+        }
+       
     } 
     
     .discovery-slider__controls__pause {
-        background-color: $gray-light; 
-        svg {
-            fill: $gray-dark;
+        background-color: $gray-lightest;
+        .dfa-svg-icon {
+            fill: $brand-primary;
         }
-        &:hover {
-            background-color: $gray-lightest; 
+        &:hover, &:focus, &:active {
+            background-color: lighten($brand-primary, 8%); 
+            .dfa-svg-icon {
+                fill: $white;
+            }
         }
+        &.discovery-slider__controls__paused {
+            padding: 4px;
+            background-color: lighten($brand-primary, 8%); 
+            .dfa-svg-icon {
+                fill: $white;
+            }
+        }
+       
+        
     }
 }
 .scroller-info__card {
@@ -125,13 +140,13 @@
     }
     .scroller-feed__scroller-block {
         @include make-md-column(8,0);
+        padding-left: 15px;
     }    
     .scroller-feed {
         .scroller-feed__controls__desktop {
             margin: 0;
             display: block;
             @include make-md-column(8);
-            
         }
         .scroller-feed__controls__mobile {
             display: none;
