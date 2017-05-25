@@ -12008,6 +12008,21 @@ h5.feature-heading, h5.landing-feature--heading {
   font-size: 32px;
 }
 
+.landing-feature-section.scroller-feed {
+  padding-top: 36px;
+  padding-top: 2.25rem;
+  padding-bottom: 36px;
+  padding-bottom: 2.25rem;
+}
+
+@media screen and (min-width: 992px) {
+  .landing-feature-section .scroller-feed {
+    padding-top: 48px;
+    padding-top: 3rem;
+    padding-bottom: 48px;
+    padding-bottom: 3rem;
+  }
+}
 .scroller-feed__scroller-block {
   position: relative;
   float: left;

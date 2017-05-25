@@ -16,6 +16,21 @@
     }
     
 }
+.landing-feature-section {
+    &.scroller-feed {
+        @include rem-calc(padding-top, 36);
+        @include rem-calc(padding-bottom, 36);
+        
+    }
+}
+@media screen and (min-width: $screen-md-min) {
+    .landing-feature-section {
+        .scroller-feed {
+            @include rem-calc(padding-top, 48);
+            @include rem-calc(padding-bottom, 48);
+        }
+    }   
+}
 //Scroller bootstrap col
 .scroller-feed__scroller-block {
     @include make-xs-column(12, 0);
