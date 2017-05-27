@@ -258,6 +258,15 @@ blockquote {
     }
    
 }
+.main-body--general-content {
+    .landing-feature-section {
+        @include rem-calc(padding-top, ($padding-small-vertical * 8));
+        @include rem-calc(padding-bottom, ($padding-small-vertical * 8)) ;
+        max-width: 865px;
+        
+    }
+    .intro-feature-heading { font-size: inherit;}
+}
 /* 12-cols block for each section - has a heading then content columns */
 .landing-feature__block {
     @include make-xs-column(12);

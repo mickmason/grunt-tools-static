@@ -1,4 +1,7 @@
-
+/**
+  * Various code containers for landing and inner pages
+**/
+/* Twitter scroller - feature scroller with a Twitter feed */
 .scroller-feed {
     .slick-dots {
         li {
@@ -14,13 +17,11 @@
             }
         }
     }
-    
 }
 .landing-feature-section {
     &.scroller-feed {
         @include rem-calc(padding-top, 36);
-        @include rem-calc(padding-bottom, 36);
-        
+        @include rem-calc(padding-bottom, 36);        
     }
 }
 @media screen and (min-width: $screen-md-min) {
@@ -176,4 +177,50 @@
     }
 }
 
+/* Code container - wraps misc code - usually iframes so they fill the width of the content area */
+.code-container__block {
+    @include make-xs-column(12);
+}
 
+.embed-container-wrapper {
+    iframe {
+        
+        border: 1px solid $gray-lighter;
+        width: 100% !important;
+    }
+}
+.main-section--landing {
+    .embed-container-wrapper {
+        iframe {
+            width: 100% !important;
+            height: auto !important;
+            @include rem-calc(min-height, 400) ;
+        }
+    }    
+}
+@media screen and (min-width: $screen-sm-min) {
+    .main-section--landing { 
+        .embed-container-wrapper {
+            iframe {
+                @include rem-calc(min-height, 550) ;
+            }
+        }
+    }
+}
+@media screen and (min-width: $screen-md-min) {
+    .main-section--landing { 
+        .embed-container-wrapper {
+            iframe {
+                   @include rem-calc(min-height, 680) ;
+            }
+        }
+    }
+    
+}
+/*@media screen and (min-width: $screen-lg-min) {
+    .embed-container-wrapper {
+        iframe {
+            @include rem-calc(min-height, 720);
+        }
+    }
+}*/

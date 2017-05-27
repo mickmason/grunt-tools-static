@@ -8394,6 +8394,17 @@ blockquote .attribution {
   padding-bottom: 2.625rem;
 }
 
+.main-body--general-content .landing-feature-section {
+  padding-top: 32px;
+  padding-top: 2rem;
+  padding-bottom: 32px;
+  padding-bottom: 2rem;
+  max-width: 865px;
+}
+.main-body--general-content .intro-feature-heading {
+  font-size: inherit;
+}
+
 /* 12-cols block for each section - has a heading then content columns */
 .landing-feature__block {
   position: relative;
@@ -11997,6 +12008,10 @@ h5.feature-heading, h5.landing-feature--heading {
     font-size: 2.625rem;
   }
 }
+/**
+  * Various code containers for landing and inner pages
+**/
+/* Twitter scroller - feature scroller with a Twitter feed */
 .scroller-feed .slick-dots li button {
   width: 32px;
   height: 32px;
@@ -12220,6 +12235,47 @@ h5.feature-heading, h5.landing-feature--heading {
     padding-right: 15px;
   }
 }
+/* Code container - wraps misc code - usually iframes so they fill the width of the content area */
+.code-container__block {
+  position: relative;
+  float: left;
+  width: 100%;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.embed-container-wrapper iframe {
+  border: 1px solid #7b7b7b;
+  width: 100% !important;
+}
+
+.main-section--landing .embed-container-wrapper iframe {
+  width: 100% !important;
+  height: auto !important;
+  min-height: 400px;
+  min-height: 25rem;
+}
+
+@media screen and (min-width: 768px) {
+  .main-section--landing .embed-container-wrapper iframe {
+    min-height: 550px;
+    min-height: 34.375rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .main-section--landing .embed-container-wrapper iframe {
+    min-height: 680px;
+    min-height: 42.5rem;
+  }
+}
+/*@media screen and (min-width: $screen-lg-min) {
+    .embed-container-wrapper {
+        iframe {
+            @include rem-calc(min-height, 720);
+        }
+    }
+}*/
 /*
  * Country travel info content
  */

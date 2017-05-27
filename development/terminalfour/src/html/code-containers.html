@@ -1,5 +1,5 @@
     @@include('structure/site-header--landing.html') 
-    <div class="main-section">
+    <div class="main-section main-section--landing">
            <!--** Landing page-breadcrumbs row -->
         <section class="breadcrumbs-row landing-page-breadcrumbs landing-page-breadcrumbs__desktop">
             <div class="content-wrap">
@@ -7,9 +7,7 @@
                 <nav class="breadcrumbs-block" >
                        <ul class="breadcrumbs__nav">
                            <li><a href="index.html">Home</a></li>
-                           <li>Video container</li>
-                           <li><a href="#code-container">Code container [possibly maps]</a></li>
-                           
+                           <li>Code containers</li>
                        </ul>
                 </nav>
                 <!--** // breadcrumbs ** -->
@@ -31,14 +29,14 @@
             <section class="intro-feature landing-feature-section">
                 <div class="content-wrap">
                     <div class="intro-feature-block"> 
-                         <h1 class="intro-feature-heading">Twitter feed embed content types</h1>   
+                         <h1 class="">Twitter feed embed content types</h1>   
                          <div class="intro-feature-body">
                             <div class="intro-feature-leftcol"> 
-
                                 <p><strong>Please see:</strong></p>
                                 <ol>
                                     <li><a href="#scroller-feed">Image scroller with Twitter feed</a></li>
-                                    <li><a href="#stretch-x2">Flexible cards with Twitter feed</a></li>
+                                    <li><a >Video container</a></li>
+                                    <li><a href="#code-container">Code container</a></li>
                                 </ol>
                              </div> 
                              <div class="intro-feature-rightcol">
@@ -137,10 +135,42 @@
                 </div><!-- // .landing-feature__block -->
             </div><!-- // .content-wrap -->
         </section><!-- // #scroller-feed row -->
-        <!-- Code container -->
-        <section class="landing-feature-row code-container">
+         <!-- Video embed container -->
+        <section id="video-container" class="landing-feature-section video-container">
             <div class="content-wrap">
-                
+                <div class="code-container__block">
+                    <h2 class="landing-feature--heading"><code>2.</code> Video embed block</h2>   
+                    <div class="embed-container-wrapper"> 
+                        <a href="https://www.youtube.com/embed/4wTtWfq03bg?rel=0" data-gallery="AIEF 2017" data-toggle="lightbox" data-title="Irish Music and dance" data-footer="Traditional and contemporary Irish music and dance remain very popular with the Irish diaspora." >
+                            <img class="gallery-item-image img-responsive" src="https://img.youtube.com/vi/4wTtWfq03bg/maxresdefault.jpg" alt="Irish Dance" />
+                            <div class="gallery-item-play dfa-card--video__play media-play-icon">
+                                <div class="play-media dfa-icon dfa-card--video__play-icon ">
+                                    <svg class="dfa-svg-icon">
+                                        <use href="#play_icon"></use>
+                                    </svg>   
+                                </div>                                
+                            </div>
+
+                        </a>
+                    </div><!-- // .code-container__wrap -->
+                    <div class="code-container__supporting">
+                        
+                    </div>
+                </div><!-- // .video-container__block -->
+            </div><!-- // .content-wrap -->
+        </section><!-- // .video-container -->
+        <!-- Code container -->
+        <section id="code-container" class="landing-feature-section code-container">
+            <div class="content-wrap">
+                <div class="code-container__block">
+                    <h2 class="landing-feature--heading"><code>3.</code> Code container block</h2>   
+                    <div class="code-container__code-wrap embed-container-wrapper"> 
+                        <iframe width="540" height="765" src="//e.issuu.com/embed.html#7918093/8912913" frameborder="0" allowfullscreen></iframe> 
+                    </div><!-- // .code-container__wrap -->
+                    <div class="code-container__supporting">
+                        
+                    </div>
+                </div><!-- // .code-container__block -->
             </div><!-- // .content-wrap -->
         </section><!-- // .code-container -->
         
