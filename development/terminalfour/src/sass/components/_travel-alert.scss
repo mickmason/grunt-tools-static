@@ -1,0 +1,102 @@
+/* 
+ *    Travel/Emergency alerts 
+ */
+.travel-alert__block {
+    @include make-xs-column(12);
+    .dfa-svg-icon {
+        fill: $gray-dark; 
+    }
+    
+}
+.travel-alert__content__wrap {
+    
+    border-left: 6px solid $gray-dark;
+    @include to-rem(padding, 14,  4, 16, 8);
+    background-color: $gray-lightest;
+    @include clearfix;
+}
+.travel-alert__content {
+    margin-top: 2%;
+}
+.travel-alert__heading {
+    margin-top: 0;
+}
+.travel-alert__heading-icon {
+    display: inline-block;
+    position: relative;
+    bottom: -5px;
+    @include to-rem(height, 14,  28);
+    @include to-rem(width,  14, 28);
+    .dfa-svg-icon {
+        @include to-rem(height, 14,  28);
+        @include to-rem(width,  14, 28);
+    }
+}
+.travel-alert__md-icon-wrap {
+    display: none;
+    
+}
+.travel-alert__summary {
+    @include to-rem(margin, 14,  12, 0);
+    @include to-rem(padding, 14,  12, 16, 8);
+    background-color: $gray-light;
+    h1, h2, h3, h4, h5, h6 {
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+    border-radius: 4px;
+    max-width: 820px;
+}
+
+@media screen and (min-width: $screen-md-min) {
+    .travel-alert__content__wrap {
+        border-left-width: 8px;
+        border-left-color: $gray;
+        padding-left: 0;
+        
+    }
+    .travel-alert__heading-icon {
+        display: none;
+    }
+    .travel-alert__md-icon-wrap {
+        display: block;
+        /*@include make-md-column(1,0);*/
+        float: left;
+        width: 11.8%;
+        margin-top: 0.7%;
+        .dfa-svg-icon {
+            fill: $gray-dark;
+            @include to-rem(max-height, 16,  82);
+            /*@include to-rem(max-width, 16,  58);*/
+            max-width: 50%; 
+            margin-left: auto;
+            margin-right: auto;
+            display: block;  
+            
+        }
+    }
+    .travel-alert__content {
+        /*@include make-md-column(11, 0);*/
+        float: left;
+        width: 88.2%;
+    }
+}
+
+@media screen and (min-width: $screen-lg-min) {
+    .travel-alert__block {
+        /*max-width: 76.4%;*/
+    }
+    .travel-alert__content__wrap {
+        margin-top: 0;
+    }
+    .travel-alert__md-icon-wrap {
+        margin-top: 0.8%;
+       .dfa-svg-icon {
+            @include to-rem(max-height, 16,  64);
+            max-width: 38.2%; 
+            top: 0;
+        } 
+    }
+    
+}

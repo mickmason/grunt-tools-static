@@ -1,7 +1,21 @@
-    @@include('structure/site-header.html')
-    @@include('structure/hero-image.html')
+    @@include('structure/site-header--landing.html')
+    @@include('hero-image.html')
     <!--** Main section .container **-->
     <div class="main-section">
+        <!--** Landing page-breadcrumbs row -->
+        <section class="breadcrumbs-row landing-page-breadcrumbs landing-page-breadcrumbs__desktop">
+            <div class="content-wrap">
+                <!--** breadcrumbs ** -->
+                <nav class="breadcrumbs-block" >
+                       <ul class="breadcrumbs__nav">
+                           <li><a href="index.html">Home</a></li>
+                           <li>General content</li>
+                       </ul>
+                </nav>
+                <!--** // breadcrumbs ** -->
+            </div>
+            <!--** // content-wrap **-->
+        </section>
         @@include('two-col-intro.html')
         @@include('people-feature.html')
         @@include('media-gallery.html')

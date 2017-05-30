@@ -10,10 +10,6 @@
 @import "../../../lib/ekko-lightbox/ekko-lightbox.min.scss"; 
 
 
-
-/* Font defs import */
-@import url(font-defs.css); 
-
 /**
  * DFA Scaffolding
  * Pages structure 
@@ -260,6 +256,7 @@ blockquote {
     &.plain-cards-feature, &.news-features, &.horizontal-cards, &.numbers-cards {
         @include rem-calc(padding-bottom, ($padding-small-vertical * 16) - 22) ;
     }
+   
 }
 /* 12-cols block for each section - has a heading then content columns */
 .landing-feature__block {
@@ -410,38 +407,47 @@ h5 {
 
 @import 'components/cards'; //Cards
 
-
-
 /***
  *
  * Inner page breadcrumbs
  *
  **/
-.inner-page-breadcrumbs {
+.breadcrumbs-row {
     @include make-row;
     a {font-weight: 400;}
+    &.landing-page-breadcrumbs__mobile {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    ul {
+        margin-bottom: 0;
+    }
+}
+.landing-page-breadcrumbs__desktop {
+    display: none;
+}
+.breadcrumbs-block {
+    @include make-xs-column(12);
 }
 .inner-page-breadcrumbs__block {
     @include make-xs-column(12);
 }
-
 @media screen and (min-width: $screen-md-min) {
+    .landing-page-breadcrumbs__desktop {
+        display: block;
+    }
+    .landing-page-breadcrumbs__mobile {
+        display: none;
+    }
     .inner-page-breadcrumbs__block {
         @include make-md-column(9);
         @include make-md-column-offset(3);
     }
 }
-@media screen and (min-width: $screen-lg-min) {
-    .main-body--general-content {   
-        /*.main-body__main {
-            @include to-rem(margin-left, 18, 48);
-        }
-        .inner-page-breadcrumbs__nav {
-            @include to-rem(margin-left, 18, 48);
-        }*/
-    }
-}
-
+//Cookies notice 
+@import 'components/cookies-notice';
+//Travel alert content
+@import 'components/travel-alert';
 
 //Hero image
 @import 'components/hero-block';
@@ -458,7 +464,8 @@ h5 {
 //Media galler
 @import 'components/featured-content-block';
 
-
+//Landing feature image - not a hero
+@import 'components/landing-feature-image';
 //Forms
 @import 'components/dfa-forms';
 //Landing pages news features
@@ -469,14 +476,16 @@ h5 {
 @import 'components/discovery-slider';
 @import 'components/accordion-tabs';
 @import 'components/site-info-card';
+@import 'components/twitter-options';
 
 /*
  * Country travel info content
  */
-.country-travel-info__heading, .landing-page-title {
+.country-travel-info__heading, .landing-page-title, .inner-page-title {
     margin-top: 0;
     @include rem-calc(padding-bottom, $padding-small-vertical * 4);
     border-bottom: 2px solid $gray;
+    max-width: none;
 }
 .landing-page-title {
     
@@ -492,25 +501,6 @@ h5 {
 .country-travel-info__datestamp {
     color: $gray;
     @include rem-calc(font-size, 12);
-}
-/*.country-travel-info__status {
-    display: inline-block;
-    color: $white;
-    background-color: #008552 ;
-    @include rem-calc(padding, $padding-small-vertical, $padding-small-horizontal);
-    @include rem-calc(margin-bottom, $padding-small-horizontal * 3);
-    &.country-travel-info__high-caution {
-        background-color: #fcbd02 ;
-    }
-    &.country-travel-info__avoid-travel {
-        background-color: #ff8120 ;
-    }
-    &.country-travel-info__do-not-travel {
-        background-color: #cc0000 ;
-    }
-}*/
-.country-travel-info__status {
-    
 }
 /* Legacy country travel status information */
 .security-status {
@@ -831,20 +821,25 @@ select.a-z-listing__filter__input {
  * Partner logos
  */
 .dfa-partner-logos {
+    
     .landing-feature__block {
         @include to-rem(margin, 16, 16);
     }
 }
 .dfa-partner-logos {
+    @include clearfix;
+    max-width: none;
     margin: 0;
     padding: 0;
     display: block;
 }
 .dfa-partner-logos__item {
     display: block;
-    margin: auto 8px;
+    padding: 0 15px;
     list-style-image: none;
     list-style: none;
+    float: left;
+    width: 50%;
     a {
         display: block;
         margin: 0 auto;
@@ -874,16 +869,17 @@ select.a-z-listing__filter__input {
         @include align-items(center);
     }
     .dfa-partner-logos__item {
-        
-        margin: auto 8px;
+        width: auto;
         @include flex-grow(1);
-        @include flex-basis(12.5%);
+        @include flex-shrink(1);
+        @include flex-basis(0);
     } 
     .no-flex {
         .dfa-partner-logos__item {
             max-width: 12.5%;
             margin: auto;
             display: inline-block;
+            
             padding: 0 8px;
         }
     }
@@ -1112,7 +1108,7 @@ footer {
     background-color: $brand-primary;
     color: $white;
     a {
-        @include dfa-text-to-uppercase;
+        
         color: $white;
         &:active, &:hover, &:focus {
             color: $white;
@@ -1121,6 +1117,10 @@ footer {
 }
 .footer-row {
     @include make-row;
+    
+    &.landing-feature-section {
+        padding-bottom: 0;
+    }
 }
 .footer-links, .footer-address {
      @include make-xs-column(12);
@@ -1237,3 +1237,73 @@ footer {
 
 /* Print only class */
 .print-only { display: none;}
+
+/* Print and Share options - old build */
+.share {
+    @include clearfix;
+    padding: 8px 16px 16px;
+    border: 2px solid $gray-light;
+    border-radius: 4px;
+    @include rem-calc(margin-bottom, 16);
+    &:hover {
+        cursor: pointer;
+    }
+    display: none;
+    &.share--mobile {
+        display: block;
+    }
+    &.share--desktop {
+        display: none;
+    }
+    max-width: 820px;
+}
+.share span {
+    display: block;
+    padding-top: 8px;
+    @include rem-calc(font-size, 14);
+}
+.share img {
+    
+    margin-right: 8px;
+}
+.print-page {
+    background-color: #F1F1F1;
+    padding: 16px 16px;
+    @include rem-calc(margin-bottom, 16);
+    display: none;
+    max-width: 820px;
+}
+.print-page__link {
+    @include rem-calc(font-size, 14);
+    
+    padding-left: 28px;
+    background: url(http://dfa.ie/media/dfa/styleassets/images/print-icon.jpg) no-repeat scroll 0 1px transparent;
+    display: block;
+}
+.print-only {
+    display: none;
+}
+.print-page-break--after {
+    
+}
+@media screen and (min-width: $screen-md-min) {
+    .share {
+        &.share--desktop {
+            display: block;    
+        }
+        &.share--mobile {
+            display: none;
+        }
+    }
+    .print-page {
+        display: block;
+        &.print-page--mobile {
+            display: none;
+        }
+    }
+    
+}
+
+.taglinks {
+    display: none !important;
+}

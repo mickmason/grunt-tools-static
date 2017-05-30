@@ -1,0 +1,127 @@
+/* Print style sheet */
+@page {
+  size: A4;
+}
+body, html {
+  width: 100%;
+  height: 100%;
+  padding-top: 0.25cm !important;
+  padding-bottom: 0.25cm !important;
+  margin-top: 0cm  !important;
+  margin-bottom: 0cm  !important;
+  font-family: sans-serif;
+  vertical-align: baseline;
+  line-height: 20pt;
+}
+
+.print-only {
+  display: inherit;
+}
+
+.print-page-break--before {
+  page-break-before: always;
+}
+
+.print-page-break--after {
+  page-break-after: always;
+}
+
+.print-page-title {
+  margin-top: 220pt;
+}
+.print-page-title h1 {
+  font-size: 28pt;
+  line-height: 32pt;
+  margin-bottom: 3.52778mm;
+}
+.print-page-title p {
+  margin-top: 0mm;
+  font-size: 24pt;
+  line-height: 26pt;
+}
+.print-page-title .print-page-title__url {
+  font-size: 14pt;
+  color: gray;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 7.05556mm 0 3.52778mm;
+  page-break-after: avoid !important;
+}
+
+h1 {
+  font-size: 24pt;
+  line-height: 26pt;
+}
+
+h2 {
+  font-size: 18pt;
+}
+
+h3 {
+  font-size: 16pt;
+}
+
+h4 {
+  font-size: 14pt;
+}
+
+section, div {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+img {
+  display: block;
+}
+
+.header-title__logo--small, .header-title__text, .secondary-navigation, nav, .site-search-row, .header-navigation__mobile, .header-title--mobile, .main-nav-row, .footer-links, .breadcrumbs-row, .dfa-svg-icon, .dfa-icon, .plain-cards-feature, .discovery-slider, .discovery-tabs, .numbers-cards, .inner-navigation__show-more__icon, .inner-navigation__show-less__icon, .main-body__side-bar, .dfa-parter-logos, .dfa-icons-stack, .panel-heading, .noprint {
+  display: none !important;
+  height: 0 !important;
+}
+
+blockquote {
+  background-color: #e3e4e5;
+}
+
+.content-wrap {
+  margin-top: 0cm;
+  margin-bottom: 0cm;
+}
+
+.header-title {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.header-title__logo {
+  height: 40pt !important;
+}
+
+.main-body a {
+  color: inherit;
+  font-weight: bold;
+  text-decoration: none;
+}
+.main-body a:not([href^='#'][id^='d.en.']):after {
+  content: " <" attr(href) ">";
+  font-size: 90%;
+}
+
+.info-card__person img {
+  max-width: 100% !important;
+}
+
+footer {
+  margin-top: 12pt;
+}
+
+.footer-address p {
+  margin-bottom: 0mm;
+}
+
+.dfa-print-only {
+  display: block;
+}
+
+/*# sourceMappingURL=print.css.map */

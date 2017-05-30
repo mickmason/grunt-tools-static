@@ -14,19 +14,29 @@
     * Load SVG via AJAX
     */
     var $ajax = new XMLHttpRequest();
-    $ajax.open("GET", "style-assets/media/svg/dfa-icons.svg", true);
+    $ajax.open('GET', 'style-assets/media/svg/dfa-icons.svg', true);
+    /*$ajax.open("GET", "index.html", true);*/
     $ajax.onreadystatechange = loadSVGs;
     $ajax.send();
     
     function loadSVGs() {
       if ($ajax.readyState === 4) {
           if ($ajax.status === 200) {
-            var div = document.createElement("div");
-            div.setAttribute('class', 'dfa-icons-stack');
-            div.innerHTML = $ajax.responseText;
-            document.body.insertBefore(div, document.body.childNodes[0]);    
+            var responseContentType = $ajax.getResponseHeader("Content-Type"); 
+            /*console.log('Response Content type is: '+responseContentType);*/
+            if (responseContentType.indexOf('image/svg+xml') !== -1) {
+                /*console.log('It is SVG: '+responseContentType);*/
+                var div = document.createElement("div");
+                div.setAttribute('class', 'dfa-icons-stack');
+                div.innerHTML = $ajax.responseText;
+                document.body.insertBefore(div, document.body.childNodes[0]);    
+            } else {
+                $('body').addClass('no-svg');
+                
+            }
+           
           } else {
-            $('html').addClass('no-svg');     
+            console.log('Status is: '+$ajax.status);
           }
       }
     }
@@ -102,6 +112,8 @@
      */
     var matchHeightArray = 
         [
+            '.landing-feature-image__card__text, .landing-feature-image__card__link-icon',
+            '.dfa-card--plain--icon .dfa-card__card-text, .dfa-card--plain--icon .dfa-card__icon',
             '.dfa-card--horizontal .dfa-card__wrap, .dfa-card--horizontal .dfa-card__media',
             '.landing-feature-section .dfa-card__wrap',
             '.features-row--four-col .dfa-card--widget__background', 
@@ -202,6 +214,59 @@
             }, timeout);       
         }
     });
+    /* Main nav dropdowns in mobile - in desktop this is done with CSS :hover on main nav <li>s */
+    $('.main-nav-list__dropdown').each(function() {
+        var allMainNavLinks =  $('.main-nav-list > li');
+        
+        var $thisli = $(this);
+        var $thisDropdown = $thisli.find('.main-nav__drop-down');
+        var durationDown = 300;
+        var durationUp = 300;
+        var timeOutDuration = 80;
+        /* Mobile resolutions */
+        if (window.outerWidth < 992) {
+            $thisli.click(function(e) {
+                e.preventDefault();
+                var $activeLi = $('.main-nav-list > .main-nav--hover') || undefined ;
+                
+                if ($thisli.hasClass('main-nav--hover')) {
+                    $thisDropdown.stop().slideUp(durationUp, function() {
+                        $thisli.removeClass('main-nav--hover');
+                    });
+                } else if ($activeLi.length) {
+                    console.log('There is an active link');    
+                    $activeLi.find('.main-nav__drop-down').stop().slideUp(durationUp, function() {
+                        $activeLi.removeClass('main-nav--hover');
+                        $thisDropdown.stop().slideDown(durationUp, function() {
+                            $thisli.addClass('main-nav--hover');
+                        })
+                    });
+                } else {
+                    $thisDropdown.stop().slideDown(durationDown, function(){
+                        $thisli.addClass('main-nav--hover');
+                    });
+                }
+            });    
+        } 
+    });
+    /* 
+     * Click handler for sidebar nav links with nested links 
+     * Inner Landing and General Content pages
+     */
+    $(document).on('click', '.inner-navigation__show-more', function(e) { 
+        e.preventDefault();
+        e.stopPropagation();
+        var $this = $(this);
+        if ($this.parent('li').hasClass('active')) {
+            $this.siblings('ul').stop().slideUp(200, function() {
+                $this.parent('li').removeClass('active');        
+            });    
+        } else {
+            $this.siblings('ul').eq(0).stop().slideDown({duration: 200, complete: function() {
+                $this.parent('li').stop().addClass('active');        
+            }});               
+        }  
+    });
     /* Site-wide search handlers */
     $('#search-submit-button').on('click', function(e){
         e.preventDefault();
@@ -216,34 +281,57 @@
     });
     
     /* Postition hero text in tablet and bigger devices  */
-    if ($('.hero-text')) {
+    if (false) {
         if (window.outerWidth > 768) {
             var $heroText = $('.hero-text');
-            var x = ($heroText.attr('data-posx')) ? parseInt($heroText.attr('data-posx')) : 50 ;
-            var y = ($heroText.attr('data-posy')) ? parseInt($heroText.attr('data-posy')) : 30;
+            var x = ($heroText.attr('data-posx')) ? $heroText.attr('data-posx') : 'center';
+            var y = ($heroText.attr('data-posy')) ? $heroText.attr('data-posy') : 'middle';
             var align = '';
-            if (x < 50) {
-                align = 'left';    
-                if ($(window).outerWidth(true) > 1620) {
-                    x = 40;
-                }
-            } else if (x > 50) {
-                if ($(window).outerWidth(true) > 1620) {
-                    x = 60;
-                }
-                align = 'right';
-            } else {
-                align = 'center';   
+            console.log('Hero text x is '+x);
+            console.log('Hero text y is '+y);
+            if (x === 'center') {
+                align = 'center';    
+                x = 50;
+            } else if (x === 'left') {
+                x = 50;
+                align = 'left';
+            } else if ( x === 'right') {
+                align = 'right';   
+                x = 0;
             }
-            if (y > 50) {
-                $heroText.parent('.hero-image-wrapper').find('.hero-scroll').css({display: 'none'});    
-            }
+            if (y === 'middle') {
+                y = 50;
+            } else if (y === 'top') {
+                y = 30;
+             } else if (y === 'bottom') {
+                 y = 70;
+             } else if (y === 'middle') {
+                 y = 50;
+             }
+
             $heroText.css({left: x+'%', top: y+'%', textAlign: align});
             $($global).on('resize', function() {
                 $heroText.css({left: x+'%', top: y+'%', textAlign: align});
             });
         } 
     }
+    /* Allow user to set the font size of the hero text heading */
+    function heroTextSetter() {
+        console.log('Hero text setter');
+        if ($('.hero-text')) {
+            var $heroText = $('.hero-text');
+            if (window.outerWidth > 768) {
+                 var fontSize = parseInt($heroText.data('font-size'));
+                 if (fontSize !== 'NaN') {
+                     $heroText.find('.hero-heading').css('fontSize', (fontSize / parseInt($('body').css('fontSize'))) + 'rem ');
+                 }
+            } else {
+                $heroText.find('.hero-heading').css('fontSize', '');
+            }
+        }    
+    }//heroTextSetter()
+    heroTextSetter();
+    $($global).on('resize', heroTextSetter);
     
     /**!
      * Feature content block show/hide
@@ -324,8 +412,6 @@
                 $this.addClass('active');
             });        
         }
-        
-    
     });
     /**!
      * A-Z Filters
@@ -568,21 +654,21 @@
     addShowInnerNavHandler();
     $(window).on('resize', addShowInnerNavHandler);
     
-    /* Click handler for sidebar nav links with nested links */
-    $(document).on('click', '.inner-navigation__show-more', function(e) { 
-        e.preventDefault();
-        e.stopPropagation();
-        var $this = $(this);
-        if ($this.parent('li').hasClass('active')) {
-            $this.siblings('ul').stop().slideUp(200, function() {
-                $this.parent('li').removeClass('active');        
-            });    
-        } else {
-            $this.siblings('ul').eq(0).stop().slideDown({duration: 200, complete: function() {
-                $this.parent('li').stop().addClass('active');        
-            }});               
-        }  
-    });
-
     
+    /**
+     * Handles show/hide cookies policy
+     * Uses this version of https://github.com/carhartl/jquery-cookie
+     **/
+    if($.cookie("acceptcookies2")) {
+        $('#cookieNotice').hide();
+
+    } else{$('#cookieNotice').show();}
+    //cookie notice
+    $('#cookieNotice .cookies-button .btn').click(function(e) {
+        e.preventDefault();
+        $('#cookieNotice').slideUp(360, function() {
+                $.cookie("acceptcookies2", "true", { expires: 365, path: '/' });
+                //$.cookie("acceptcookies", "true", { expires: 365, path: '/' });
+        });
+    }); //end click   
 })(window); 

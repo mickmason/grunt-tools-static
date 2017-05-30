@@ -75,23 +75,6 @@
         }
     }    
 }
-@media screen and (min-width: $screen-sm-min) {
-    .dfa-card__card-text__heading {
-        @include to-rem(font-size, 16, 18);
-    }
-    .dfa-card__card-text__text {
-        @include to-rem(font-size, 16, 16);    
-    }
-    
-}
-@media screen and (min-width: $screen-lg-min) {
-    .dfa-card__card-text {
-        @include to-rem(padding, 18, ($padding-small-vertical * 4), ($padding-small-horizontal * 2));
-    }
-    .dfa-card__card-text__text {
-        @include to-rem(font-size, 18, 16);  
-    }
-}
 
 /* Horizontal card */
 .dfa-card {
@@ -148,15 +131,56 @@
     //Has an icon
     &.dfa-card--plain {
         
-        .dfa-svg-icon {
-            fill: $gray-dark;
-            @include dfa-transition(all, 200, cubic-bezier(0.420, 0.000, 0.580, 1.000));
+        img {
+            border-top-right-radius: 8px;
+            border-top-left-radius: 8px;
         }
-        &:hover, &:focus, &:active {
-            .dfa-svg-icon {
+        .dfa-card__card-text { 
+            @include to-rem(padding-top, 14, 16);
+            @include to-rem(padding-bottom, 14, 16);
+        }
+        .dfa-card__card-text__heading {
+            @include to-rem(font-size, 14, 22);
+            @include to-rem(margin-bottom, 14, 12);
+        }
+        .dfa-card__card-text__text {
+            @include to-rem(font-size, 16, 18px);
+        }
+        .dfa-card__wrap {
+            border: 1px solid $gray-light;
+            border-radius: 8px;
+        }
+    }
+}
+.dfa-card--plain--icon {
+    .dfa-card__anchor {
+        @include clearfix;
+    }
+    .dfa-card__card-text, .dfa-card__icon {
+        float: left;
+    }
+    .dfa-card__card-text {
+        width: 82.3%;
+    } 
+    .dfa-card__icon {
+        width: 17.7%;
+        position: relative;
+    }
+    .dfa-svg-icon {    
+        width: 76.4%;
+        max-height: 76px;
+        position: relative;   
+        display: block;
+        margin: 0 auto;
+        top: 50%;
+        fill: $gray-dark;
+        @include dfa-transition(fill, 200, cubic-bezier(0.420, 0.000, 0.580, 1.000));
+        transform: translateY(-50%);
+    }
+    &:hover, &:focus, &:active {
+         .dfa-svg-icon {
                 fill: $brand-primary;
-            }   
-        } 
+         }   
     }
 }
 /* Numbers card */
@@ -171,7 +195,9 @@
     .dfa-card__card-text {
         text-align: center;
     }
-    
+    .dfa-card__wrap {
+        border: 1px solid $gray-lightest;
+    }
     
     .dfa-card__card-text__heading {
         @include to-rem(font-size, 14, 20);
@@ -192,30 +218,6 @@
     @include dfa-translate(-50%,-50%);
     color: $white;
 }
-@media screen and (min-width: $screen-sm-min) {
-    .dfa-card--numbers {
-            .dfa-card--media {
-                @include to-rem(min-height, 16, 200);
-            }
-        .dfa-card__card-text__heading {
-            @include to-rem(font-size, 16, 20);
-        }
-    }
-}
-@media screen and (min-width: $screen-lg-min) {
-    .dfa-card--numbers {
-        .dfa-card--media {
-            @include to-rem(min-height, 18, 200);
-        }
-        .dfa-card__card-text__heading {
-            @include to-rem(font-size, 18, 20);
-        }
-        .dfa-card__card-text__text {
-            @include to-rem(font-size, 18, 16);
-        }
-    }
-}
-
 /* 
  * DFA Widget Card
  */
@@ -273,14 +275,18 @@
     }
     
 }
-
 .dfa-widget-btn {
     @include rem-calc(font-size, 16);
     
     //transform: translate(-0, 50%);
 }
-
 @media screen and (min-width: $screen-sm-min) {
+    .dfa-card__card-text__heading {
+        @include to-rem(font-size, 16, 18);
+    }
+    .dfa-card__card-text__text {
+        @include to-rem(font-size, 16, 16);    
+    }
     .dfa-widget-body {
         @include rem-calc(padding-bottom, ($padding-small-vertical * 11));
     }
@@ -290,7 +296,153 @@
         bottom: 14px;
         @include rem-calc(bottom, 18);
     }
+    .dfa-card--numbers {
+            .dfa-card--media {
+                @include to-rem(min-height, 16, 200);
+            }
+        .dfa-card__card-text__heading {
+            @include to-rem(font-size, 16, 20);
+        }
+    }
 }
+@media screen and (min-width: $screen-lg-min) {
+    .dfa-card__card-text {
+        @include to-rem(padding, 18, ($padding-small-vertical * 4), ($padding-small-horizontal * 2));
+    }
+    .dfa-card__card-text__text {
+        @include to-rem(font-size, 18, 16);  
+    }
+    .dfa-card--numbers {
+        .dfa-card--media {
+            @include to-rem(min-height, 18, 200);
+        }
+        .dfa-card__card-text__heading {
+            @include to-rem(font-size, 18, 20);
+        }
+        .dfa-card__card-text__text {
+            @include to-rem(font-size, 18, 16);
+        }
+    }
+}
+
+/* 
+ *    Big landing feature image - not a hero 
+ */
+.landing-feature-image__block {
+    @include make-xs-column(12);
+    
+}
+@media screen and (max-width: $screen-xs-max) {
+    .landing-feature-section {
+        &.landing-feature-image {
+            @include rem-calc(padding-bottom, 0);
+        }    
+    }    
+}
+@media screen  and (min-width: $screen-xs-max) and (max-width: $screen-sm-max) {
+    .landing-feature-section {
+        &.landing-feature-image {
+            padding-top: 0;
+            @include rem-calc(padding-bottom, 12);
+            position: relative;
+
+        }    
+    }    
+}
+.landing-feature-image__img {
+    position: relative;    
+    width: 100%;
+} 
+.landing-feature-image__card {
+    @include clearfix;
+    position: relative;
+    background-color: $white;
+    p {
+        margin-bottom: 0;
+    }
+    @include rem-calc(padding, 16, 0);
+    @include rem-calc(padding-right, 12);
+    &:hover {
+        background-color: $white;
+    }
+    @include dfa-transition(background-color, 212);
+}
+.landing-feature-image__card__text__heading {
+    font-weight: 700;
+    @include rem-calc(font-size, 20px);
+    margin-top: 0;
+    @include rem-calc(margin-bottom, 12);
+}
+
+.landing-feature-image__card__anchor {
+    color: inherit;
+    @include clearfix;
+    .landing-feature-image__card__text {
+        width: 88%;
+        float: left;
+        padding-right: 12px;
+    }
+    .landing-feature-image__card__link-icon {
+        width: 12%;
+        
+        float: left;
+    }
+    
+    @include dfa-transition(color, 212);
+    
+    &:hover {
+        text-decoration: none;
+        color: $brand-darker;
+/*        p {
+            text-decoration: underline;
+        }*/
+        .dfa-svg-icon {
+            fill: $brand-darker;
+        }
+    }
+    .dfa-svg-icon {
+        @include rem-calc(max-height, 72px);
+        fill: $gray-dark;
+        @include dfa-transition(fill, 212);
+        position: relative;
+        top: 50%; 
+        transform: translateY(-50%);
+    }
+}
+@media screen and (min-width: $screen-sm-min) {
+    .landing-feature-image__card__text__heading {
+            @include rem-calc(font-size, 28px);
+    }
+}
+@media screen and (min-width: $screen-md-min) {
+    .landing-feature-image__card {
+        @include dfa-box-shadow();
+        position: absolute;
+        z-index: 10;
+        bottom:   11.8%;
+        left:     11.8%;
+        max-width: 38.2%;
+        @include dfa-translate(-11.8%, -11.8%);
+        @include border-radius(8px);
+        @include rem-calc(padding, 16, 20, 22, 20);
+        @include rem-calc(padding-right, 12);
+    }
+    .landing-feature-image__card__text__heading {
+        @include rem-calc(font-size, 24px);
+    }
+
+    .landing-feature-image__card__anchor {
+        .landing-feature-image__card__text {
+            width: 84%;
+            
+        }
+        .landing-feature-image__card__link-icon {
+            width: 16%;
+            
+        }
+    }
+}
+
 
 /* 
  * Card rows
@@ -302,33 +454,12 @@
         display: flex;
         @include flex-direction(column);
   
+    }
+}
 
-    }
-}
-.landing-feature-section--flex-stretch {
-    .landing-feature__row {
-        @include align-items(stretch);
-    }
-}
 .landing-feature-section--flex-space-between {
     .landing-feature__row {
         @include justify-content(space-between);
-    }
-    
-}
-@media screen and (min-width: $screen-sm-min) {
-     .landing-feature-section--flex, .landing-feature-section--flex-stretch, .landing-feature-section--flex-space-between, .landing-feature-section--flex-space-around  {
-        .landing-feature__row {
-            @include flex-direction(row);
-        }
-    }
-}
-@media screen and (min-width: $screen-lg-min) {
-    .landing-feature-section--flex-space-between {
-        .dfa-card {
-            max-width: 25%;
-        }
-
     }
 }
 
@@ -372,10 +503,17 @@
     .landing-feature-section--flex {
         .landing-feature__row {
             @include flex-direction(row);
-            @include align-items(center);
+            @include flex-wrap(wrap);
             @include justify-content(space-around);
             .dfa-card {
                 float: none;
+                @include flex-grow(1);
+                @include flex-shrink(1);
+                @include flex-basis(50%);
+                margin: 0 auto;
+                @include rem-calc(margin-bottom, 16);
+                max-width:  50%;
+                width: auto;
             }
         }
     }
@@ -401,5 +539,42 @@
             @include make-md-column(3);
         }
     }
-    
+    .landing-feature-section {
+        &.landing-feature-section--river {
+            .dfa-card {
+                @include make-md-column(6);
+            }
+        }
+    }
+    .landing-feature-section--flex-stretch {
+         .landing-feature__row {
+            @include flex-direction(row);
+            @include flex-wrap(initial);
+            .dfa-card {
+                @include flex-basis(0);
+            }
+        }
+    }
+    .landing-feature-section--flex-stretch {
+         .landing-feature__row {
+            .dfa-card {
+                max-width: none;
+            }
+        }
+    }    
+    .landing-feature-section--flex-space-between {
+         .landing-feature__row {
+            .dfa-card {
+                max-width: 25%;
+            }
+        }
+    } 
+}
+@media screen and (min-width: $screen-lg-min) {
+    .landing-feature-section--flex-space-between {
+        .dfa-card {
+            max-width: 25%;
+        }
+
+    }
 }

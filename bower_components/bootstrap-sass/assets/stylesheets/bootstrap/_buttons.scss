@@ -19,7 +19,7 @@
   white-space: nowrap;
   @include button-size($padding-base-vertical * 1.25, $padding-base-horizontal * 2, $font-size-base, $line-height-base, $btn-border-radius-base);
   @include user-select(none);
-
+  @include dfa-transition(background-color, 200, ease-out);
   &,
   &:active,
   &.active {
@@ -73,7 +73,7 @@ a.btn {
 }
 .btn-primary {
   @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
-     @include dfa-transition(color, 350, ease-out);
+     @include dfa-transition(background-color, 200, ease-out);
 }
 // Success appears as green
 .btn-success {

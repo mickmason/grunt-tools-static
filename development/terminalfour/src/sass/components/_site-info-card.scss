@@ -56,3 +56,51 @@
         
     }
 }
+/* Page text title */
+.page-title-row {
+    @include make-row ;
+}
+.page-title-block {
+    @include make-xs-column(12) ;
+}
+.page-title__heading {
+    @include rem-calc(margin-top, 14);
+    @include rem-calc(margin-bottom, 16);
+}
+.main-body--inner-landing {
+    .page-title__heading {
+        margin-top: 0;
+    }
+}
+.page-title__sub-text {
+    font-style: italic;
+    @include rem-calc(font-size, 18);
+    color: $gray-dark;
+    font-weight: 200;
+}
+.page-title__hr {
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+    @include rem-calc(margin-top, 28);
+    border-top-width: 2px;
+    border-top-color: $brand-darker;
+}
+@media screen and (min-width: $screen-sm-min) {
+    .page-title__heading {
+        @include rem-calc(font-size, 36);
+    }
+}
+@media screen and (min-width: $screen-md-min) {
+    .page-title__heading {
+        @include rem-calc(font-size, 42);
+    }
+    .page-title__sub-text {
+        @include rem-calc(font-size, 20);
+    }
+}
+@media screen and (min-width: $screen-lg-min) {
+    .page-title__heading {
+        @include rem-calc(font-size, 42);
+    }
+}

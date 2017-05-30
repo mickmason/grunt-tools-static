@@ -13,6 +13,7 @@
     margin-top: 0;
     @include rem-calc(margin-bottom, 28);
     @include rem-calc(font-size, 32);
+    max-width: none;
 }
 .intro-feature-heading__sub {
     margin-top: 0; 
