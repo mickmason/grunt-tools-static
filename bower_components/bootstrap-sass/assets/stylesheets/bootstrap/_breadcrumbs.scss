@@ -4,9 +4,10 @@
 
 
 .breadcrumb, .breadcrumbs__nav, .inner-page-breadcrumbs__nav {
+  @include clearfix;
   padding: $breadcrumb-padding-vertical 0;
-  @include to-rem(margin-bottom, 16, 8);
-  @include to-rem(margin-bottom, 16, 8);
+  
+  @include to-rem(margin-bottom, 16, 0);
   @include to-rem(font-size, 16, 14);
   list-style: none;
   background-color: transparent;
@@ -14,18 +15,31 @@
 
   > li {
     display: inline-block;
-
-    + li:before {
-      // [converter] Workaround for https://github.com/sass/libsass/issues/1115
-      $nbsp: "\00a0";
-      content: "#{$breadcrumb-separator}#{$nbsp}"; // Unicode space added since inline-block means non-collapsing white-space
-      padding: 0 5px;
-      color: $breadcrumb-color;
-    }
-  }
+    float: left;
+     + li:before {
+          // [converter] Workaround for https://github.com/sass/libsass/issues/1115
+          //$nbsp: "\00a0";
+          //content: "#{$breadcrumb-separator}#{$nbsp}"; // Unicode space added since inline-block means non-collapsing white-space
+          padding: 0 5px;
+    //      color: $breadcrumb-color;
+        }
+      } 
 
   > .active {
     color: $breadcrumb-active-color;
   }
+    a {
+        text-decoration: underline;
+    }
 }
-
+@media screen and (min-width: $screen-md-min) {
+    .breadcrumb, .breadcrumbs__nav, .inner-page-breadcrumbs__nav {
+        @include rem-calc(font-size, 16);
+    }
+}
+@media screen and (min-width: $screen-lg-min) {
+    .breadcrumb, .breadcrumbs__nav, .inner-page-breadcrumbs__nav {
+        @include rem-calc(padding-left, 16);
+//        @include rem-calc(font-size, 18);
+    }
+}

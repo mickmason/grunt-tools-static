@@ -34,6 +34,12 @@
 /* 
  * Global components
  */
+.bg-gradient {
+        /* 45 deg gradient */
+        background: rgb(0,80,54); 
+        background-image: linear-gradient(-18deg, rgba(0,80,54,1) 0%,rgba(0,104,69,1) 100%); 
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#005036', endColorstr='#006845',GradientType=1 );         
+}
 /* SVG Icons */
 .dfa-icon__svg--ie-fallback {
     display: none;
@@ -186,34 +192,43 @@ blockquote {
         @include to-rem(margin-bottom, 16, 8);
          
     }
-    p::before {
-        content: "\201D";
-        font-family: sans-serif;
-        font-weight: 600;
-        font-style: normal;
-        @include to-rem(font-size, 16, 36);
-        
-        color: $white;
-        position: absolute;
-        top: 9px;
-        @include to-rem(left, 16, -21);
-    }
     .attribution {
         font-style: normal;
         font-weight: 600;
         font-size: inherit;
         font-size: 1rem;
     }
-    
+}
+.blockquote-left, .blockquote-right {
+        font-style: normal;
+        @include dfa-gradient();
+        color: $white;
+        border-left: none; 
 }
 @media screen and (min-width: $screen-md-min) {
     blockquote {
         .attribution {
             @include to-rem(font-size, 16, 14);
-        }
+        }        
+    }
+    .blockquote-left {
+        float: left;
+        max-width: 25%;
+        margin: 0px 20px 20px 0; 
+        .button-white {width: 100%}
+    }
+    .blockquote-right {
+        float: right;
+        max-width: 25%;
+        margin: 0px 0px 20px 20px; 
+        .button-white {width: 100%}
     }
 }
-
+@media screen and (min-width: 1445px) {
+    .blockquote-right {
+        margin-right: calc(100% - 820px);
+    }
+}
 
 /* 
  * General page scaffolding 
@@ -422,14 +437,35 @@ h5 {
  *
  **/
 .breadcrumbs-row {
+    
     @include make-row;
+    background-color: $gray-lightest;
+    @include rem-calc(padding-top,     4px); 
+    @include rem-calc(padding-bottom,  4px); 
+    @include rem-calc(margin-bottom, 22px); 
     a {font-weight: 400;}
     &.landing-page-breadcrumbs__mobile {
         margin-left: 0;
         margin-right: 0;
-    }
-    ul {
         margin-bottom: 0;
+    }
+    &.landing-page-breadcrumbs {
+        margin-bottom: 0;
+    }
+}
+.breadcrumb_separator {
+    display: inline-block;
+    
+    float: left;    
+    max-height: 16px;
+    max-width: 20px;
+    @include rem-calc(padding-left,  4px);
+    @include rem-calc(padding-right,  4px);
+    @include rem-calc(padding-top,  2px);
+    .dfa-svg-icon {
+        fill: $gray-dark;
+        max-height: 16px;
+        max-width: 20px;
     }
 }
 .landing-page-breadcrumbs__desktop {
@@ -448,10 +484,38 @@ h5 {
     .landing-page-breadcrumbs__mobile {
         display: none;
     }
-    .inner-page-breadcrumbs__block {
-        @include make-md-column(9);
-        @include make-md-column-offset(3);
+    .breadcrumb_separator {
+        @include rem-calc(padding-left,   8px);
+        @include rem-calc(padding-right,  8px);
+        @include rem-calc(padding-top,    4px);
+        max-height: 18px;
+        max-width: 32px;
+        .dfa-svg-icon {
+            max-height: 18px;
+            max-width: 24px;
+        }
     }
+
+}
+@media screen and (min-width: $screen-lg-min) {
+    .breadcrumbs-row {
+        @include make-row;
+        background-color: $gray-lightest;
+        @include rem-calc(padding-top,     6px); 
+        @include rem-calc(padding-bottom,  6px);
+    }
+    .breadcrumb_separator {
+        /*@include rem-calc(padding-left,   10px);
+        @include rem-calc(padding-right,  10px);*/
+        @include rem-calc(padding-top,    4px);
+        max-height: 18px;
+        max-width: 38px;
+        .dfa-svg-icon {
+            max-height: 18px;
+            max-width: 38px;
+        }
+    }
+
 }
 //Cookies notice 
 @import 'components/cookies-notice';
@@ -1036,16 +1100,23 @@ select.a-z-listing__filter__input {
 }
 @media screen and (min-width: $screen-md-min) {
     .heading--side-bar {
+        background: $gray;
+        color: $white;
         border: none;
-        padding-top: 0;
-        padding-left: 0;
+        
+        font-weight: 200;
+        @include rem-calc(padding, 10);
+        
+        @include rem-calc(font-size, 14);
         margin-bottom: 0;
+        margin-top: 0;
         .inner-navigation__show-more__icon, .inner-navigation__show-less__icon {
              display: none !important;
         }
-        background: transparent;
+        
         &:hover {
             background: transparent;
+            
             cursor: default;
         }
     }

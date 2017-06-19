@@ -6,7 +6,7 @@
 // Base styles
 // --------------------------------------------------
 
-.btn {
+.btn, .btn-primary--reversed, .button, .button-white, .btn-transparent {
   display: inline-block;
   margin-bottom: 0; // For input.btn
   font-weight: $btn-font-weight;
@@ -71,9 +71,15 @@ a.btn {
         @include button-variant($white, $btn-default-color, $btn-default-border);
     }
 }
-.btn-primary {
-  @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
-     @include dfa-transition(background-color, 200, ease-out);
+.btn-primary, .button, {
+  @include button-variant($white, $brand-primary, $brand-primary);
+     @include dfa-transition(background-color, 180, ease-out);
+    > a {
+        color: $white;
+    }
+}
+.button {
+    margin-bottom: 8px;
 }
 // Success appears as green
 .btn-success {
@@ -96,22 +102,28 @@ a.btn {
     background-color: transparent;
     border-color: $white;
     &:hover, &:active, &:focus {
+        > a {
+            color: $gray-dark;    
+        }
         color: $gray-dark;
         background-color: $white;
         background-color: rgba(258, 258, 258, 0.8);   
     }
 }
-.btn-primary--reversed { 
+.btn-primary--reversed, .button-white { 
   color: $brand-darker;
   background-color:  rgba($white, 1);
   border-color: $brand-darker;
     &:hover, &:active, &:focus {
+      > a {
+          color: $white;      
+      }
       color: $white;
       background-color:  $brand-darker;
       background-color:  rgba($brand-darker, 0.8);
       border-color: $gray-dark; 
     }
-  @include dfa-transition(all, 60);
+  @include dfa-transition(background-color, 180);
 }
 .dfa-btn--submit {
     background-color: $brand-primary;
