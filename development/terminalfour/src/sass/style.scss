@@ -200,6 +200,7 @@ blockquote {
     }
 }
 .blockquote-left, .blockquote-right {
+        padding: 16px 20px;
         font-style: normal;
         @include dfa-gradient();
         color: $white;
@@ -984,11 +985,7 @@ select.a-z-listing__filter__input {
     background-color: $gray-lightest;
     border: 1px solid $brand-primary;
     position: relative;
-    
-    &:hover {
-        cursor: pointer;
-        background-color: transparent;
-    }
+
     .inner-navigation__show-more__icon, .inner-navigation__show-less__icon {
         position: absolute;
         top: 19%;
@@ -1098,12 +1095,18 @@ select.a-z-listing__filter__input {
        
     }
 }
+@media screen and (max-width: $screen-sm-max) {
+    .heading--side-bar {
+        &:hover {
+            cursor: pointer;
+            background-color: transparent;
+        }
+    }
+}
 @media screen and (min-width: $screen-md-min) {
     .heading--side-bar {
-        background: $gray;
-        color: $white;
         border: none;
-        
+        font-style: italic;
         font-weight: 200;
         @include rem-calc(padding, 10);
         
@@ -1112,12 +1115,6 @@ select.a-z-listing__filter__input {
         margin-top: 0;
         .inner-navigation__show-more__icon, .inner-navigation__show-less__icon {
              display: none !important;
-        }
-        
-        &:hover {
-            background: transparent;
-            
-            cursor: default;
         }
     }
     .inner-navigation {

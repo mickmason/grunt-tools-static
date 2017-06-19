@@ -87,6 +87,13 @@
         }]
     });
     /* Twitter scroller  */
+    
+    $('.scroller-feed__slider').on('init', function(slick) {
+        console.log('on init '+$('.scroller-feed__item').length );
+        if ($('.scroller-feed__item').length <= 1) {
+            $('.scroller-feed__controls').hide();
+        }
+    });
     $('.scroller-feed__slider').slick({
         accessibility: true,
         mobileFirst: true,
@@ -100,7 +107,9 @@
         prevArrow: '.scroller-feed .discovery-slider__controls_prev',
         nextArrow: '.scroller-feed .discovery-slider__controls_next',
         adaptiveHeight: true
+
     });
+   
     $('.discovery-slider__controls__pause').on('click', function(e) {
         e.preventDefault();
         if ($(this).hasClass('discovery-slider__controls__paused')) {

@@ -373,8 +373,8 @@ header {
 /*    display: none;*/
     .dfa-svg-icon { 
         fill: $brand-primary;
-        max-height:    12px;
-        max-width:     12px;
+        max-height:    10px;
+        max-width:     10px;
     }
     @include rem-calc(margin-left, 4);
 }
