@@ -1,0 +1,4 @@
+@mixin dfa-transparent($bgcol: #000, $alpha: 0.2) {
+    background-color: $bgcol;
+    background-color: rgba($bgcol, $alpha) ;
+}

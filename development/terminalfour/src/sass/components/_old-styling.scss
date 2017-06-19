@@ -1,0 +1,193 @@
+/*
+ * Styling and classes adapded and carried over from Old Site
+ * Styling for any old mark-up carried over
+ * 
+ */
+/* Language switchers - from old site */
+.en .lang-switcher.en, .hu .lang-switcher.hu, .ie .lang-switcher.ie, .zh .lang-switcher.zh,  .pl .lang-switcher.pl, .es .lang-switcher.es { display: none; }
+
+/* Utility classes from old site */
+.casestudy-banner {
+    margin: 10px 0;
+    position: relative;
+}   
+.content .info {
+    border: medium none;
+    margin-left: 5px;
+    vertical-align: bottom;
+}
+.casestudy-banner .info {
+    background-color: #000;
+    bottom: 30px;
+    font-size: 20px;
+    left: 20px;
+    padding-bottom: 20px;
+    position: absolute;
+    width: 315px;
+}
+.casestudy-banner .info p {
+    color: #F0F0F0;
+    line-height: 23px;
+    margin: 0;
+    padding: 18px 15px 0 18px;
+}
+
+/* Print only class */
+.print-only { display: none;}
+
+/* Print and Share options - old build */
+.share {
+    @include clearfix;
+    padding: 8px 16px 16px;
+    border: 2px solid $gray-light;
+    border-radius: 4px;
+    @include rem-calc(margin-bottom, 16);
+    &:hover {
+        cursor: pointer;
+    }
+    display: none;
+    &.share--mobile {
+        display: block;
+    }
+    &.share--desktop {
+        display: none;
+    }
+    max-width: 820px;
+}
+.share span {
+    display: block;
+    padding-top: 8px;
+    @include rem-calc(font-size, 14);
+}
+.share img {
+    
+    margin-right: 8px;
+}
+.print-page {
+    background-color: #F1F1F1;
+    padding: 16px 16px;
+    @include rem-calc(margin-bottom, 16);
+    display: none;
+    max-width: 820px;
+}
+.print-page__link {
+    @include rem-calc(font-size, 14);
+    
+    padding-left: 28px;
+    background: url(http://dfa.ie/media/dfa/styleassets/images/print-icon.jpg) no-repeat scroll 0 1px transparent;
+    display: block;
+}
+.print-only {
+    display: none;
+}
+.print-page-break--after {
+    
+}
+@media screen and (min-width: $screen-md-min) {
+    .share {
+        &.share--desktop {
+            display: block;    
+        }
+        &.share--mobile {
+            display: none;
+        }
+    }
+    .print-page {
+        display: block;
+        &.print-page--mobile {
+            display: none;
+        }
+    }
+    
+}
+.taglinks {
+    display: none !important;
+}
+/* Press releases archive */
+.archive-subsections {
+    &.years {
+        @include rem-calc(margin-top, 32px); 
+        
+        a {
+            background-color: $gray-light;
+            @include rem-calc(padding, 4px, 10px);
+            @include border-radius(4px);
+            @include dfa-transition(background-color, 180);
+            border: 1px solid $gray;
+            &:hover {
+                border: 1px solid $gray;
+                background-color: $gray-lightest;
+                
+            }
+        }
+        [class*=currentbranch] {
+            a {
+                color: $white;
+                background-color: $brand-primary;
+                border-color: $gray-light;
+                &:hover {
+                    
+                    background-color: $brand-darker;
+
+                }   
+            }    
+        }
+    }
+    
+    ul {
+        &::before {
+            content: "Browse by year";
+        }
+        @include clearfix;
+        max-width: none;
+        padding: 0;
+        @include rem-calc(margin-bottom, 24px);
+    }
+    li {
+        display: block;
+        float: left;
+        @include rem-calc(margin-bottom, 16px);
+        list-style: none;
+        @include rem-calc(margin-right, 12px);
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+    a {
+            @include rem-calc(font-size, 18px);
+        }
+    &.months {
+        .archive-subsections__header {
+            @include rem-calc(margin-bottom, 10px);
+        }
+        li {
+            @include rem-calc(margin-bottom, 12px);
+        }
+    }
+}
+.archive-subsections__header {
+    font-weight: 600;
+    @include rem-calc(font-size, 20px); 
+}
+.archivemonthlist {
+    h2 {
+        margin-top: 0;
+    }
+    @include rem-calc(padding-top, 4px);
+}
+.publisting {
+    @include rem-calc(margin-bottom, 20px);
+    .press-release__label {
+        background-color: transparent;
+        margin-bottom: 0;
+        .content-label {
+            background-color: transparent;
+            padding: 0;
+            color: $gray-dark;
+        }
+    }
+    h3 {
+        @include rem-calc(margin-bottom, 4px);        
+    }
+    
+}

@@ -64,6 +64,7 @@
     @include make-xs-column(12) ;
 }
 .page-title__heading {
+    max-width: none;
     @include rem-calc(margin-top, 14);
     @include rem-calc(margin-bottom, 16);
 }
