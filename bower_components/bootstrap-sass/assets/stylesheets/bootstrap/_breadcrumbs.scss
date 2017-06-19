@@ -34,11 +34,12 @@
 }
 @media screen and (min-width: $screen-md-min) {
     .breadcrumb, .breadcrumbs__nav, .inner-page-breadcrumbs__nav {
-        @include rem-calc(font-size, 16);
+        @include to-rem(font-size, 16, 16);
     }
 }
 @media screen and (min-width: $screen-lg-min) {
     .breadcrumb, .breadcrumbs__nav, .inner-page-breadcrumbs__nav {
+        @include to-rem(font-size, 18, 18);
         @include rem-calc(padding-left, 16);
 //        @include rem-calc(font-size, 18);
     }

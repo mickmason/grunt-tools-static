@@ -1279,4 +1279,7 @@ footer {
     }
 }
 
+//Get themeing
+@import 'components/themeing';
+//Old styles which needed to be carried over
 @import 'components/old-styling'; 

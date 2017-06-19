@@ -4363,6 +4363,8 @@ tbody.collapse.in {
 }
 @media screen and (min-width: 1200px) {
   .breadcrumb, .breadcrumbs__nav, .inner-page-breadcrumbs__nav {
+    font-size: 18px;
+    font-size: 1rem;
     padding-left: 16px;
     padding-left: 1rem;
   }
@@ -7059,9 +7061,6 @@ header:after {
   font-size: 0.875rem;
   font-weight: 600;
   color: #006845;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  letter-spacing: 0.1rem;
 }
 .header-title__text.header-title--mobile__text {
   display: block;
@@ -7122,9 +7121,6 @@ header:after {
     display: block;
     margin: 0;
     font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 0.11em;
-    letter-spacing: 0.11rem;
   }
 
   .header-title--mobile {
@@ -7166,18 +7162,25 @@ header:after {
   width: 56px;
   width: 3.5rem;
   height: 72px;
-  -webkit-transition: background-color 100ms ease-in 0s;
-  -moz-transition: background-color 100ms ease-in 0s;
-  -o-transition: background-color 100ms ease-in 0s;
-  -ms-transition: background-color 100ms ease-in 0s;
-  transition: background-color 100ms ease-in 0s;
+  -webkit-transition: background-color 200ms ease-out 0s;
+  -moz-transition: background-color 200ms ease-out 0s;
+  -o-transition: background-color 200ms ease-out 0s;
+  -ms-transition: background-color 200ms ease-out 0s;
+  transition: background-color 200ms ease-out 0s;
 }
 .header-navigation__mobile-search .header-navigation__mobile-icon, .header-navigation__mobile-menu .header-navigation__mobile-icon {
   margin-left: auto;
   margin-right: auto;
 }
-.header-navigation__mobile-search .header-navigation__mobile-icon img, .header-navigation__mobile-menu .header-navigation__mobile-icon img {
-  height: 26px;
+.header-navigation__mobile-search .header-navigation__mobile-icon svg, .header-navigation__mobile-menu .header-navigation__mobile-icon svg {
+  max-height: 24px;
+  max-height: 1.5rem;
+  fill: #fff;
+}
+.header-navigation__mobile-search .header-navigation__mobile-icon .dfa-icon-label, .header-navigation__mobile-menu .header-navigation__mobile-icon .dfa-icon-label {
+  font-weight: 400;
+  color: inherit;
+  text-align: center;
 }
 .header-navigation__mobile-search a, .header-navigation__mobile-menu a {
   color: inherit;
@@ -8717,14 +8720,11 @@ h5.feature-heading, h5.landing-feature--heading {
 }
 .dfa-card__anchor:hover, .dfa-card__anchor:active, .dfa-card__anchor:focus {
   cursor: pointer;
-  color: inherit;
+  color: #005036;
   text-decoration: none;
 }
 .dfa-card__anchor:hover .dfa-card__btn, .dfa-card__anchor:active .dfa-card__btn, .dfa-card__anchor:focus .dfa-card__btn {
   color: #fff;
-}
-.dfa-card__anchor:hover .dfa-card__card-text, .dfa-card__anchor:active .dfa-card__card-text, .dfa-card__anchor:focus .dfa-card__card-text {
-  color: #005036;
 }
 .dfa-card__anchor:hover .dfa-card__date, .dfa-card__anchor:hover .dfa-card__btn, .dfa-card__anchor:active .dfa-card__date, .dfa-card__anchor:active .dfa-card__btn, .dfa-card__anchor:focus .dfa-card__date, .dfa-card__anchor:focus .dfa-card__btn {
   text-decoration: none;
@@ -13318,6 +13318,66 @@ footer a:active, footer a:hover, footer a:focus {
 }
 .ekko-lightbox .modal-header {
   border-bottom: none;
+}
+
+/** 
+ *    Themeing
+ * 
+ **   Default is the two-tone DFA Green
+ *
+ **   Theme-gray is used in consulates, missions, micro-sites
+ *    The difference is in the site header the main nav is brand primary green the top header is light gray #e4e5e6de
+ * 
+ **   Theme-blue is Irish Aid two-tone blue. This does the header in the blue, then all components which have colour will be changed to the Irish
+ *    Aid blue
+ *
+**/
+.dfa-theme-gray .header-row {
+  color: #323232;
+  background-color: #e4e5e6;
+}
+.dfa-theme-gray .header-navigation__mobile-search .header-navigation__mobile-icon svg, .dfa-theme-gray .header-navigation__mobile-menu .header-navigation__mobile-icon svg {
+  fill: #323232;
+}
+.dfa-theme-gray .header-navigation__mobile-search.active, .dfa-theme-gray .header-navigation__mobile-search:hover, .dfa-theme-gray .header-navigation__mobile-menu.active, .dfa-theme-gray .header-navigation__mobile-menu:hover {
+  background-color: #006845;
+}
+.dfa-theme-gray .header-navigation__mobile-search.active .header-navigation__mobile-icon svg, .dfa-theme-gray .header-navigation__mobile-search:hover .header-navigation__mobile-icon svg, .dfa-theme-gray .header-navigation__mobile-menu.active .header-navigation__mobile-icon svg, .dfa-theme-gray .header-navigation__mobile-menu:hover .header-navigation__mobile-icon svg {
+  fill: #fff;
+}
+.dfa-theme-gray .header-navigation__mobile-search.active .dfa-icon-label, .dfa-theme-gray .header-navigation__mobile-search:hover .dfa-icon-label, .dfa-theme-gray .header-navigation__mobile-menu.active .dfa-icon-label, .dfa-theme-gray .header-navigation__mobile-menu:hover .dfa-icon-label {
+  color: #fff;
+}
+
+.dfa-theme-blue a {
+  color: #064476;
+}
+.dfa-theme-blue .header-row {
+  background-color: #0E61A1;
+}
+.dfa-theme-blue .header-navigation__mobile-search .dfa-icon-label, .dfa-theme-blue .header-navigation__mobile-menu .dfa-icon-label {
+  color: #fff;
+}
+.dfa-theme-blue .header-navigation__mobile-search.active, .dfa-theme-blue .header-navigation__mobile-search:hover, .dfa-theme-blue .header-navigation__mobile-menu.active, .dfa-theme-blue .header-navigation__mobile-menu:hover {
+  background-color: #064476;
+}
+.dfa-theme-blue .header-title--mobile__cols {
+  border-bottom-color: #064476;
+}
+.dfa-theme-blue .dfa-card__anchor {
+  color: #323232;
+}
+.dfa-theme-blue .dfa-card__anchor:hover, .dfa-theme-blue .dfa-card__anchor:focus, .dfa-theme-blue .dfa-card__anchor:active {
+  color: #064476;
+}
+.dfa-theme-blue .page-title__hr {
+  border-top-color: #064476;
+}
+.dfa-theme-blue footer {
+  background-color: #064476;
+}
+.dfa-theme-blue footer a {
+  color: #fff;
 }
 
 /*

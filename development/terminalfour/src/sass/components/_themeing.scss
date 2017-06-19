@@ -1,0 +1,77 @@
+/** 
+ *    Themeing
+ * 
+ **   Default is the two-tone DFA Green
+ *
+ **   Theme-gray is used in consulates, missions, micro-sites
+ *    The difference is in the site header the main nav is brand primary green the top header is light gray #e4e5e6de
+ * 
+ **   Theme-blue is Irish Aid two-tone blue. This does the header in the blue, then all components which have colour will be changed to the Irish
+ *    Aid blue
+ *
+**/
+.dfa-theme-gray {
+    .header-row {
+        color: $gray-dark;
+        background-color: $gray-light;
+    } 
+    .header-navigation__mobile-search, .header-navigation__mobile-menu {
+       .header-navigation__mobile-icon {
+            svg {
+                fill: $gray-dark;
+            }
+        }   
+        &.active, &:hover {
+            background-color: $brand-primary;
+            .header-navigation__mobile-icon {
+                svg {
+                    fill: $white;
+                }
+            }   
+            .dfa-icon-label {
+                color: $white;
+            }
+        }     
+    }
+}
+.dfa-theme-blue {
+    // Re-scaffolding
+    a {
+        color: $theme-blue;
+    }
+    // Header
+    .header-row {
+        
+        background-color: $theme-blue-lighter;
+    } 
+    .header-navigation__mobile-search, .header-navigation__mobile-menu {
+        .dfa-icon-label {
+             color: $white;
+        }
+        &.active, &:hover {
+            background-color: $theme-blue;
+        }     
+    }
+    .header-title--mobile__cols {
+        border-bottom-color: $theme-blue;
+    }
+    
+    // Components 
+    .dfa-card__anchor {
+        color: $gray-dark;
+        &:hover, &:focus, &:active {
+            color: $theme-blue; 
+        }
+    }
+    .page-title__hr {
+        border-top-color: $theme-blue;
+    }
+    // Footer
+    footer {
+        background-color: $theme-blue;
+        a {
+            color: $white; 
+        }
+    }
+   
+}
