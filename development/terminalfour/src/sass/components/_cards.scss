@@ -34,14 +34,12 @@
     font-weight: 400;
     &:hover, &:active, &:focus {
         cursor: pointer;
-        color: inherit;
+        color: $brand-darker;
         text-decoration: none;
         .dfa-card__btn {
             color: $white;
         }
-        .dfa-card__card-text {
-            color: $brand-darker;
-        }
+ 
         .dfa-card__date, .dfa-card__btn {
             text-decoration: none;
         }
