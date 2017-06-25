@@ -39,6 +39,9 @@
     background-color: $white;
     @include rem-calc(padding, 4, 2, 6, 2);
     z-index: 10;
+/*    &::after {
+        @include skew-label;
+    }*/
 }
 .content-label--plain {
     @include rem-calc(padding, 4, 8);
@@ -84,6 +87,7 @@
        
     }
 }
+
 .dfa-card--widget {
     .content-label {
         &::after {

@@ -443,7 +443,7 @@ h5 {
     background-color: $gray-lightest;
     @include rem-calc(padding-top,     4px); 
     @include rem-calc(padding-bottom,  4px); 
-    @include rem-calc(margin-bottom, 22px); 
+    @include rem-calc(margin-bottom,  20px); 
     a {font-weight: 400;}
     &.landing-page-breadcrumbs__mobile {
         margin-left: 0;
@@ -1280,6 +1280,42 @@ footer {
 }
 
 //Get themeing
-@import 'components/themeing';
+//@import 'components/themeing';
 //Old styles which needed to be carried over
 @import 'components/old-styling'; 
+
+
+/* Temp patch code - remove when new header is integrated */
+.breadcrums-row {
+    @include rem-calc(margin-bottom, 20px);
+}
+.breadcrumb > li + li:before, .breadcrumbs__nav > li + li:before, .inner-page-breadcrumbs__nav > li + li:before {
+    content: "/ ";
+    padding: 0 5px;
+    color: #ccc;
+}
+.page-title__heading {
+    @include rem-calc(margin-top, 0);
+}
+.page-title__sub-text {
+    max-width: none;
+}
+.page-title__hr {
+    @include rem-calc(margin-top, 24);
+}
+@media screen and (min-width: $screen-md-min) {
+    .page-title__heading {
+        @include rem-calc(font-size, 36);
+    }
+}
+@media screen and (min-width: $screen-lg-min) {
+    .page-title__heading {
+        @include rem-calc(font-size, 36);
+    }
+}
+.content-label {
+    &::after {
+        @include skew-label;
+    }
+}
+/* End temp patch code - remove when new header is integrated */

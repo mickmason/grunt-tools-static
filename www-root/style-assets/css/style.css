@@ -9415,8 +9415,8 @@ h5.feature-heading, h5.landing-feature--heading {
   padding-top: 0.25rem;
   padding-bottom: 4px;
   padding-bottom: 0.25rem;
-  margin-bottom: 22px;
-  margin-bottom: 1.375rem;
+  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 }
 .breadcrumbs-row:before, .breadcrumbs-row:after {
   content: " ";
@@ -10780,6 +10780,9 @@ h5.feature-heading, h5.landing-feature--heading {
   padding: 4px 2px 6px 2px;
   padding: 0.25rem 0.125rem 0.375rem 0.125rem;
   z-index: 10;
+  /*    &::after {
+          @include skew-label;
+      }*/
 }
 
 .content-label--plain {
@@ -12071,8 +12074,8 @@ h5.feature-heading, h5.landing-feature--heading {
 
 .page-title__heading {
   max-width: none;
-  margin-top: 14px;
-  margin-top: 0.875rem;
+  margin-top: 0px;
+  margin-top: 0rem;
   margin-bottom: 16px;
   margin-bottom: 1rem;
 }
@@ -12093,8 +12096,8 @@ h5.feature-heading, h5.landing-feature--heading {
   max-width: none;
   margin-left: 0;
   margin-right: 0;
-  margin-top: 28px;
-  margin-top: 1.75rem;
+  margin-top: 24px;
+  margin-top: 1.5rem;
   border-top-width: 2px;
   border-top-color: #005036;
 }
@@ -12107,19 +12110,13 @@ h5.feature-heading, h5.landing-feature--heading {
 }
 @media screen and (min-width: 992px) {
   .page-title__heading {
-    font-size: 42px;
-    font-size: 2.625rem;
+    font-size: 40px;
+    font-size: 2.5rem;
   }
 
   .page-title__sub-text {
     font-size: 20px;
     font-size: 1.25rem;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .page-title__heading {
-    font-size: 42px;
-    font-size: 2.625rem;
   }
 }
 /**
@@ -13320,66 +13317,6 @@ footer a:active, footer a:hover, footer a:focus {
   border-bottom: none;
 }
 
-/** 
- *    Themeing
- * 
- **   Default is the two-tone DFA Green
- *
- **   Theme-gray is used in consulates, missions, micro-sites
- *    The difference is in the site header the main nav is brand primary green the top header is light gray #e4e5e6de
- * 
- **   Theme-blue is Irish Aid two-tone blue. This does the header in the blue, then all components which have colour will be changed to the Irish
- *    Aid blue
- *
-**/
-.dfa-theme-gray .header-row {
-  color: #323232;
-  background-color: #e4e5e6;
-}
-.dfa-theme-gray .header-navigation__mobile-search .header-navigation__mobile-icon svg, .dfa-theme-gray .header-navigation__mobile-menu .header-navigation__mobile-icon svg {
-  fill: #323232;
-}
-.dfa-theme-gray .header-navigation__mobile-search.active, .dfa-theme-gray .header-navigation__mobile-search:hover, .dfa-theme-gray .header-navigation__mobile-menu.active, .dfa-theme-gray .header-navigation__mobile-menu:hover {
-  background-color: #006845;
-}
-.dfa-theme-gray .header-navigation__mobile-search.active .header-navigation__mobile-icon svg, .dfa-theme-gray .header-navigation__mobile-search:hover .header-navigation__mobile-icon svg, .dfa-theme-gray .header-navigation__mobile-menu.active .header-navigation__mobile-icon svg, .dfa-theme-gray .header-navigation__mobile-menu:hover .header-navigation__mobile-icon svg {
-  fill: #fff;
-}
-.dfa-theme-gray .header-navigation__mobile-search.active .dfa-icon-label, .dfa-theme-gray .header-navigation__mobile-search:hover .dfa-icon-label, .dfa-theme-gray .header-navigation__mobile-menu.active .dfa-icon-label, .dfa-theme-gray .header-navigation__mobile-menu:hover .dfa-icon-label {
-  color: #fff;
-}
-
-.dfa-theme-blue a {
-  color: #064476;
-}
-.dfa-theme-blue .header-row {
-  background-color: #0E61A1;
-}
-.dfa-theme-blue .header-navigation__mobile-search .dfa-icon-label, .dfa-theme-blue .header-navigation__mobile-menu .dfa-icon-label {
-  color: #fff;
-}
-.dfa-theme-blue .header-navigation__mobile-search.active, .dfa-theme-blue .header-navigation__mobile-search:hover, .dfa-theme-blue .header-navigation__mobile-menu.active, .dfa-theme-blue .header-navigation__mobile-menu:hover {
-  background-color: #064476;
-}
-.dfa-theme-blue .header-title--mobile__cols {
-  border-bottom-color: #064476;
-}
-.dfa-theme-blue .dfa-card__anchor {
-  color: #323232;
-}
-.dfa-theme-blue .dfa-card__anchor:hover, .dfa-theme-blue .dfa-card__anchor:focus, .dfa-theme-blue .dfa-card__anchor:active {
-  color: #064476;
-}
-.dfa-theme-blue .page-title__hr {
-  border-top-color: #064476;
-}
-.dfa-theme-blue footer {
-  background-color: #064476;
-}
-.dfa-theme-blue footer a {
-  color: #fff;
-}
-
 /*
  * Styling and classes adapded and carried over from Old Site
  * Styling for any old mark-up carried over
@@ -13604,5 +13541,59 @@ footer a:active, footer a:hover, footer a:focus {
   margin-bottom: 4px;
   margin-bottom: 0.25rem;
 }
+
+/* Temp patch code - remove when new header is integrated */
+.breadcrums-row {
+  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
+}
+
+.breadcrumb > li + li:before, .breadcrumbs__nav > li + li:before, .inner-page-breadcrumbs__nav > li + li:before {
+  content: "/ ";
+  padding: 0 5px;
+  color: #ccc;
+}
+
+.page-title__heading {
+  margin-top: 0px;
+  margin-top: 0rem;
+}
+
+.page-title__sub-text {
+  max-width: none;
+}
+
+.page-title__hr {
+  margin-top: 24px;
+  margin-top: 1.5rem;
+}
+
+@media screen and (min-width: 992px) {
+  .page-title__heading {
+    font-size: 36px;
+    font-size: 2.25rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .page-title__heading {
+    font-size: 36px;
+    font-size: 2.25rem;
+  }
+}
+.content-label::after {
+  background: inherit;
+  bottom: 0;
+  content: '';
+  display: block;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  right: -6.4%;
+  transform: skewX(-14deg);
+  transform-origin: 100%;
+}
+
+/* End temp patch code - remove when new header is integrated */
 
 /*# sourceMappingURL=style.css.map */
