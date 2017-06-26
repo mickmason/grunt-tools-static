@@ -303,16 +303,27 @@ blockquote {
         margin: 0;
         @include to-rem(margin-top, 14, 9);
         @include to-rem(font-size, 14, 14);
-        color: $brand-primary;
         @media screen and (min-width: 465px) {
             display: inline-block;
         }
         @media screen and (min-width: $screen-md-min) {
-            
             @include to-rem(margin-top, 16, 14);
         }
     }
+    .dfa-play-icon {
+        max-height: 18px;
+        max-width: 10px;
+        padding-top: 2px;
+    }
+    > a {
+        &:hover, &:active, &:focus {
+            + svg {
+                fill: $brand-darker;
+            }
+        }
+    }
 }
+
 h1 {
     &.feature-heading, &.landing-feature--heading {
         @include to-rem(font-size, 14, 24);    
@@ -371,6 +382,12 @@ h5 {
 @media screen and (min-width: $screen-lg-min) {
     .feature-heading, .landing-feature--heading {
         @include rem-calc(margin-bottom, ($padding-small-vertical * 8));
+        .dfa-play-icon {
+            max-height: 20px;
+            max-width: 12px;
+            margin-bottom: 3px;
+        }
+        
     }
     h1 {
         &.feature-heading, &.landing-feature--heading {

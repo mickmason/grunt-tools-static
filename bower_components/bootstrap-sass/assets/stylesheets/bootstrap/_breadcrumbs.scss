@@ -6,22 +6,17 @@
 .breadcrumb, .breadcrumbs__nav, .inner-page-breadcrumbs__nav {
   @include clearfix;
   padding: $breadcrumb-padding-vertical 0;
-  
   @include to-rem(margin-bottom, 16, 0);
   @include to-rem(font-size, 16, 14);
   list-style: none;
   background-color: transparent;
   border-radius: none; 
-
+  max-width: none;
   > li {
     display: inline-block;
     float: left;
      + li:before {
-          // [converter] Workaround for https://github.com/sass/libsass/issues/1115
-          //$nbsp: "\00a0";
-          //content: "#{$breadcrumb-separator}#{$nbsp}"; // Unicode space added since inline-block means non-collapsing white-space
           padding: 0 5px;
-    //      color: $breadcrumb-color;
         }
       } 
 

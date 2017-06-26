@@ -14,7 +14,7 @@
     <script src="style-assets/lib/jquery-3.1.1/jquery-3.1.1.min.js"></script>
 
 </head>
-<body id="en-lang" class="">
+<body id="en-lang" class=""> 
        <!-- Cookies notice inherited from old site -->
        <section id="cookieNotice" class="noprint cookies-notice-section landing-feature-section">
            <div class="content-wrap">
@@ -41,8 +41,13 @@
                 <div class="header-title ">
                     <h1 class="header-title__text">Africa Ireland forum 2017 | AIEF 2017</h1>
                     <a href="javascript:void(0)" class="header-link__home header-title__logo " title="Go to Site Homepage">
-                        <img class=" header-title__logo header-title__logo--small" alt="The Department of Foreign Affairs and Trade, Ireland" src="style-assets/media/svg-imgs/DFAT_Green_Simplified_Horizontal.svg" /> 
-                        <img class=" header-title__logo header-title__logo--large" alt="The Department of Foreign Affairs and Trade, Ireland" src="style-assets/media/svg-imgs/DFAT_Green_Simplified_Horizontal.svg" /> 
+
+                                    <svg class="dfa-svg-icon dfa-header-logo">
+                                        <use xlink:href="#DFAT-Simple-Black" />
+                                    </svg>
+
+                        <!--<img class=" header-title__logo header-title__logo--small" alt="The Department of Foreign Affairs and Trade, Ireland" src="style-assets/media/svg-imgs/DFAT_Green_Simplified_Horizontal.svg" /> 
+                        <img class=" header-title__logo header-title__logo--large" alt="The Department of Foreign Affairs and Trade, Ireland" src="style-assets/media/svg-imgs/DFAT_Green_Simplified_Horizontal.svg" /> -->
                     </a> 
                 </div>
                 
@@ -55,7 +60,9 @@
                         <li class="secondary-nav-link"><a href="javascript:void()" title="DFA home">Secondary nav3</a></li> 
                         <li class="secondary-nav-link secondary-nav-dropdown"><a href="javascript:void()" title="DFA home">Quicklinks
                            <div class="dfa-icon ">
-                                    <img class="close-menu" src="style-assets/media/svg-imgs/menu_dots_circle_active.svg" alt="Image" />
+                                    <svg class="dfa-svg-icon secondary-navigation__menu__icon">
+                                        <use xlink:href="#menu_dots_circle" />
+                                    </svg>
                             </div>
                            </a>
                             <ul class="">
