@@ -47,9 +47,7 @@
     a {
             font-weight: 400;
             color: inherit;
-            &:hover {
-                color: $brand-primary;
-            }
+
         }
     p {
         @include to-rem(margin-top, 14, 14);

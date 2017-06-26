@@ -12,13 +12,16 @@
 **/
 .dfa-theme-gray {
     .header-row {
-        color: $gray-dark;
-        background-color: $gray-light;
+        color: $brand-darker;
+        background-color: $white;
     } 
+    svg {
+        fill: $brand-darker;
+    }
     .header-navigation__mobile-search, .header-navigation__mobile-menu {
        .header-navigation__mobile-icon {
             svg {
-                fill: $gray-dark;
+                fill: $brand-darker;
             }
         }   
         &.active, &:hover {
@@ -33,16 +36,46 @@
             }
         }     
     }
+    
+    @media screen and (min-width: $screen-md-min) {
+        .header-row {
+            background-color: $gray-light;
+        }
+        .secondary-navigation {
+            .dfa-icon {
+                svg {
+                    fill: $brand-darker;
+                }
+            }
+        }
+        .main-nav-row {
+            background-color: $brand-primary;
+        }
+        .main-nav-list {
+            > li {
+                &:hover {
+                    background-color: $brand-darker ;
+                }
+            }
+        }
+        .desktop-search {
+            .desktop-search-anchor {
+                background-color: $brand-darker
+            }
+        }
+    }
 }
 .dfa-theme-blue {
     // Re-scaffolding
     a {
         color: $theme-blue;
     }
-    // Header
+    // Header and navigation
     .header-row {
-        
         background-color: $theme-blue-lighter;
+        a {
+            color: $white;            
+        }
     } 
     .header-navigation__mobile-search, .header-navigation__mobile-menu {
         .dfa-icon-label {
@@ -55,17 +88,208 @@
     .header-title--mobile__cols {
         border-bottom-color: $theme-blue;
     }
+    .site-search-row, .main-nav-row {
+           border-bottom-color: $theme-blue;
+    }
+    
+   @media screen and (min-width: $screen-md-min) {
+        .header-row {
+            background-color: $theme-blue-lighter;
+        }
+        .secondary-navigation {
+            color: $brand-darker;
+       }
+       .secondary-nav-dropdown {
+            .dfa-icon {
+                svg {
+                    fill: $white;
+                }
+            }
+            &.active {
+                .dfa-icon {
+                    svg {
+                        fill: $theme-blue;
+                    }
+                }
+                a {
+                    color: $theme-blue;    
+                }
+            }
+        }
+        .main-nav-row {
+            background-color: $theme-blue;
+        }
+       .main-nav__drop-down {
+           border-bottom-color: $theme-blue;
+       }
+        .main-nav-list {
+            > li {
+                &:hover {
+                    background-color: $theme-blue-lighter ;
+                }
+            }
+        }
+       .desktop-search { 
+            .desktop-search-anchor {
+                background-color: $theme-blue-lighter;
+            }
+        }
+    }
     
     // Components 
+    //landing features
+    .landing-feature--heading {
+        > a {
+            color: $gray-dark;
+            &:hover, &:active, &:focus {
+                color: $theme-blue;
+            }
+        }
+    }
+    
+    //Accordion tabs 
+    .accordion-tabs__panel-heading {
+        background-color: $theme-blue;
+    }
+    .accordion-tabs__tabs__item {
+        background-color: $theme-blue;
+        &.active {
+            color: $theme-blue;
+            background-color: $white;
+            border-bottom-color: $white;
+        }
+    }
+    .page-title__hr {
+        border-top-color: $theme-blue;
+    }
+    
+    //Old news archives
+    .archive-subsections.years [class*=currentbranch] a {
+        background-color: $theme-blue-lighter;
+        &:hover, &:active, &:focus {
+            background-color: $theme-blue;
+        }
+    }
+    
+    
+    //Buttons 
+    .btn-primary {
+        background-color: $theme-blue-lighter;
+        &:hover, &:active, &:focus {
+            background-color: $theme-blue;
+        }
+    }
+    .btn-primary--reversed {
+        border-color: $theme-blue;
+        &:hover, &:active, &:focus {
+            background-color: $theme-blue-lighter;
+        }
+    }
+    .btn-transparent {
+        color: $white;
+        &:hover {
+            color: $theme-blue;
+        }
+    }
+    .dfa-btn--submit {
+        background-color: $theme-blue-lighter;
+        &:hover, &:active, &:focus {
+            background-color: $theme-blue;
+        }
+    }
+    //Press releases
+    .press-release__label {
+        .content-label {
+            background-color: $theme-blue;
+        }
+    }
+    .news-listing-entry-anchor {
+        color: inherit;
+        &:hover {
+            color: $theme-blue;
+        }
+    }
+    
+    //Cards 
+    .landing-feature-image__card__anchor {
+        color: $gray-dark;
+        &:hover, &:active, &:focus {
+            color: $theme-blue;
+            .dfa-svg-icon {
+                fill: $theme-blue;
+            } 
+        }
+    }
+    .dfa-card--numbers {
+        .dfa-card--media {
+            background-color: $theme-blue;
+        }
+    }
+    .dfa-card--plain--icon {
+        &:hover, &:active, &:focus {
+            .dfa-svg-icon {
+                fill: $theme-blue;
+            }            
+        }
+
+    }
     .dfa-card__anchor {
         color: $gray-dark;
         &:hover, &:focus, &:active {
             color: $theme-blue; 
         }
     }
-    .page-title__hr {
-        border-top-color: $theme-blue;
+    
+    //Discovery slider
+    .discovery-slider__slide__bg {
+        &.bg-gradient {
+            background: rgb(6,68,118); 
+            background-image: -webkit-linear-gradient(288deg, rgba($theme-blue,1) 0%, rgba($theme-blue-lighter,1) 100%);
+            background-image: -o-linear-gradient(288deg, rgba($theme-blue,1) 0%, rgba($theme-blue-lighter,1) 100%);
+            background-image: linear-gradient(18deg, rgba($theme-blue,1) 0%, rgba($theme-blue-lighter,1) 100%); 
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#005036', endColorstr='#006845',GradientType=1 ); 
+        }
     }
+    .discovery-slider__controls {
+        > div:not(.discovery-slider__controls__pause) {
+            background-color: $theme-blue-lighter;
+            &:hover, &:active, &:focus {
+                background-color: $theme-blue;
+            }
+        }
+    }
+    .discovery-slider__controls__pause {
+        &:hover, &:active, &:focus {
+            background-color: lighten($theme-blue, 10%);
+        }
+    }
+    // Info card 
+    .info-card__person {
+        a {
+            color: $gray-dark;
+            &:hover, &:focus, &:active {
+                color: $theme-blue;
+            }
+        }
+    }
+    //Twitter scroller
+    .scroller-feed  {
+        .discovery-slider__controls__pause {
+            &.discovery-slider__controls__paused {
+                background-color: lighten($theme-blue, 10%);
+            }
+        }
+    }
+    .scroller-feed {
+        .slick-dots {
+            li {
+                button:before {
+                     color: $theme-blue;               
+                }
+            }
+        }
+    }
+    
     // Footer
     footer {
         background-color: $theme-blue;
