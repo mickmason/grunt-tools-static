@@ -988,10 +988,29 @@ select.a-z-listing__filter__input {
 .main-body {
     @include make-row;
 }
+.inner-navigation__show-more__icon, .inner-navigation__show-less__icon {
+    @include to-rem(width, 14, 18);
+    @include to-rem(height, 14, 18);
+}
+.inner-navigation__show-less__icon {
+    display: none;
+}
 .main-body__side-bar {
     @include make-md-column(3);
     a {font-weight: 400;}
+    .dfa-svg-icon {
+        fill: $brand-darker;
+    }
+    
+   .inner-navigation__show-more__icon, .inner-navigation__show-less__icon {
+        position: absolute;
+        top: 19%;
+        right: 8px;
+        @include to-rem(width, 14, 28);
+        @include to-rem(height, 14, 28);
+    }
 }
+
 .heading--side-bar {
     @include to-rem(font-size, 14, 16);
     font-weight: 600;
@@ -999,17 +1018,11 @@ select.a-z-listing__filter__input {
     
     @include to-rem(padding, 14, 14, 16);
     @include to-rem(margin-bottom, 14, 16); 
-    background-color: $gray-lightest;
+    background-color: $gray-lightest; 
     border: 1px solid $brand-primary;
     position: relative;
 
-    .inner-navigation__show-more__icon, .inner-navigation__show-less__icon {
-        position: absolute;
-        top: 19%;
-        right: 8px;
-        @include to-rem(width, 14, 28);
-        @include to-rem(height, 14, 28);
-    }
+
     &.active {
         margin-bottom: 0;
         background-color: $white;
@@ -1021,18 +1034,9 @@ select.a-z-listing__filter__input {
         }
     }
 }
-.inner-navigation__show-more__icon, .inner-navigation__show-less__icon {
-    @include to-rem(width, 14, 18);
-    @include to-rem(height, 14, 18);
-}
-.inner-navigation__show-less__icon {
-    display: none;
-}
-
 .inner-navigation {
     display: none;
     list-style-image: none;
-
     padding: 0;
     margin: 0; 
     @include to-rem(padding, 14, 16, 0, 0); 
@@ -1041,6 +1045,7 @@ select.a-z-listing__filter__input {
     li {
         @include clearfix;
         list-style: none;
+        position: relative;
         li {
             a {
                 @include to-rem(padding-left, 14, ($padding-small-vertical * 4)) ;
@@ -1056,8 +1061,25 @@ select.a-z-listing__filter__input {
         &:last-child {
             border-bottom: none;
         }
+         &.sub-nav {
+            > a {
+                width: 88%
+            }
+        }
     }
-    
+   
+    .inner-navigation__show-more__icon, .inner-navigation__show-less__icon {
+        width: 12%;
+        height: 36px;
+        padding: 8px 4px 9px;
+        top: 0px;
+        right: 0;
+        border-left: 1px solid $gray-light;
+        @include dfa-transition(background-color, 180);
+        &:active, &:hover, &:focus {
+            background-color: $gray-light;
+        }
+    }
     a {
         display: block;
         clear: both;
@@ -1066,6 +1088,7 @@ select.a-z-listing__filter__input {
             background-color: $gray-lightest;
         }
         @include dfa-transition(background-color, 120);
+        
     }
     [class*='currentbranch'] {
         width: 90%;
@@ -1100,7 +1123,11 @@ select.a-z-listing__filter__input {
                 }
     }
     > li {
-       border-bottom: 1px solid $gray-light;
+        &:first-child {
+            border-top: 1px solid $gray-light;    
+        }
+        
+        border-bottom: 1px solid $gray-light;
         &.active {
             .inner-navigation__show-less__icon {
                 display: inline;
@@ -1109,8 +1136,8 @@ select.a-z-listing__filter__input {
                 display: none;
             }
         }
-       
     }
+
 }
 @media screen and (max-width: $screen-sm-max) {
     .heading--side-bar {
@@ -1119,6 +1146,21 @@ select.a-z-listing__filter__input {
             background-color: transparent;
         }
     }
+}
+@media screen and (min-width: $screen-sm-min) {
+    .inner-navigation {
+       li {
+            &.sub-nav {
+                > a {
+                    width: 90%
+                }
+            }
+        }
+        .inner-navigation__show-more__icon, .inner-navigation__show-less__icon {
+                height: 42px;
+                width: 10%;
+        }
+    }    
 }
 @media screen and (min-width: $screen-md-min) {
     .heading--side-bar {
@@ -1155,9 +1197,16 @@ select.a-z-listing__filter__input {
                          float: left;
                 }
         }
+        li {
+            &.sub-nav {
+                > a {
+                    width: 82%
+                }
+            }
+        }
         .inner-navigation__show-more__icon, .inner-navigation__show-less__icon {
-                @include to-rem(width, 16, 20);
-                @include to-rem(height, 16, 20);
+                height: 42px;
+                width: 18%;
         }
     }
 }
@@ -1169,6 +1218,14 @@ select.a-z-listing__filter__input {
 }
 
 @media screen and (min-width: $screen-lg-min) {
+    .inner-navigation {
+        .inner-navigation__show-more__icon, .inner-navigation__show-less__icon {
+            height: 47.6px;
+            padding-top: 12px;
+            padding-bottom: 13px;
+            
+        }
+    }
     .main-body__main {
         @include make-md-column(9);
     }   
@@ -1297,7 +1354,7 @@ footer {
 }
 
 //Get themeing
-//@import 'components/themeing';
+@import 'components/themeing';
 //Old styles which needed to be carried over
 @import 'components/old-styling'; 
 

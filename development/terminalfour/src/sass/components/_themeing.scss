@@ -70,7 +70,7 @@
     a {
         color: $theme-blue;
     }
-    // Header and navigation
+    // Header and navigation 
     .header-row {
         background-color: $theme-blue-lighter;
         a {
@@ -91,8 +91,12 @@
     .site-search-row, .main-nav-row {
            border-bottom-color: $theme-blue;
     }
-    
-   @media screen and (min-width: $screen-md-min) {
+    .main-nav__drop-down__link__show-more {
+        .dfa-svg-icon { 
+            fill: $theme-blue;
+        }
+    }
+    @media screen and (min-width: $screen-md-min) {
         .header-row {
             background-color: $theme-blue-lighter;
         }
@@ -119,6 +123,11 @@
         .main-nav-row {
             background-color: $theme-blue;
         }
+        .main-nav__drop-down__link__show-more {
+            .dfa-svg-icon { 
+                fill: $white;
+            }
+        }
        .main-nav__drop-down {
            border-bottom-color: $theme-blue;
        }
@@ -135,7 +144,15 @@
             }
         }
     }
-    
+    //Inner navigation
+    .heading--side-bar {
+        border-color: $theme-blue;
+    }
+    .main-body__side-bar {
+        .dfa-svg-icon {
+            fill: $theme-blue;
+        }
+    }
     // Components 
     //landing features
     .landing-feature--heading {
@@ -196,6 +213,17 @@
         &:hover, &:active, &:focus {
             background-color: $theme-blue;
         }
+    }
+    .button {
+        border-color: $theme-blue;
+        background-color: $theme-blue-lighter;
+        a {
+            color: $white;    
+        }
+        &:hover, &:active, &:focus {
+            background-color: $theme-blue;
+        }
+        
     }
     //Press releases
     .press-release__label {
@@ -289,7 +317,13 @@
             }
         }
     }
-    
+    //Misc content elements
+    blockquote {
+        border-left-color: $theme-blue;
+    }
+    .blockquote-left, .blockquote-right {
+        @include dfa-gradient($theme-blue-lighter, $theme-blue);
+    }
     // Footer
     footer {
         background-color: $theme-blue;

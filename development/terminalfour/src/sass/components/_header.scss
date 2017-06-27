@@ -252,7 +252,6 @@ header {
     text-align: center;
 }
 .secondary-nav-dropdown {
-    padding-bottom: 0;
     &.active {
         background-color: $white;
         color: $brand-darker;
@@ -281,6 +280,8 @@ header {
     @include rem-calc(min-width, 220); 
     position: absolute;
     right: 0;
+    top: 44px;
+    
     background-color: $white;
     z-index: 100;
 }
@@ -557,7 +558,6 @@ header {
         .dfa-header-logo {
             width: 260px;
         }
-        
     }
     .header-title-logo {
         height: auto;

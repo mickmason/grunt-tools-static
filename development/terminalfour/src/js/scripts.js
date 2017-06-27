@@ -287,11 +287,12 @@
      * Click handler for sidebar nav links with nested links 
      * Inner Landing and General Content pages
      */
-    $(document).on('click', '.inner-navigation__show-more', function(e) { 
+    $(document).on('click', '.inner-navigation .inner-navigation__show-more__icon, .inner-navigation .inner-navigation__show-less__icon', function(e) {
+        
         e.preventDefault();
         e.stopPropagation();
         var $this = $(this);
-        if ($this.parent('li').hasClass('active')) {
+        if ($this.parents('li').hasClass('active')) {
             $this.siblings('ul').stop().slideUp(200, function() {
                 $this.parent('li').removeClass('active');        
             });    

@@ -80,6 +80,9 @@ a.btn {
 }
 .button {
     margin-bottom: 8px;
+    a {
+        @include dfa-transition(background-color, 180, ease-out);
+    }
 }
 // Success appears as green
 .btn-success {

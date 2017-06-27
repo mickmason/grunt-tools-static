@@ -14,7 +14,7 @@
     <script src="style-assets/lib/jquery-3.1.1/jquery-3.1.1.min.js"></script>
 
 </head>
-<body id="en-lang" class=""> 
+<body id="en-lang" class="dfa-theme-blue"> 
        <!-- Cookies notice inherited from old site -->
        <section id="cookieNotice" class="noprint cookies-notice-section landing-feature-section">
            <div class="content-wrap">
@@ -485,46 +485,70 @@
         <section class="main-body">
            <div class="content-wrap">
               <aside class="main-body__side-bar">               
-                  
+                                                    
+                <aside class="main-body__side-bar">
                     <h3 class="heading--side-bar">In this section: 
-                        <img class="inner-navigation__show-more__icon" src="style-assets/media/svg-imgs/next_arrow.svg" alt="View more icon" />
-                        <img class="inner-navigation__show-less__icon" src="style-assets/media/svg-imgs/down_arrow.svg" alt="View more icon" />
+                        <span class="inner-navigation__show-more__icon">
+                            <svg class="dfa-svg-icon">
+                                   <use xlink:href="#next_arrow" />
+                            </svg>    
+                        </span>
+                        <span class="inner-navigation__show-less__icon">
+                            <svg class="dfa-svg-icon">
+                                <use xlink:href="#down_arrow" />
+                            </svg>    
+                        </span>
                     </h3>
                     <ul class="inner-navigation">
-                        <li><a href="javascript:void" class="" >Section link #1</a>
+                        <li>
+                           <a href="javascript:void(0)" class="" >Section link #1</a>                            
                             <ul class="multilevel-linkul-0">
-                                <li><a href="javascript:void">Section sub-link #1</a></li>
-                                <li><a href="javascript:void">Section sub-link #2</a></li>
-                                <li><a href="javascript:void">Section sub-link #3</a></li>
+                                <li><a href="javascript:void(0)">Section sub-link #1</a>
+                                </li>
+                                <li><a href="javascript:void(0)">Section sub-link #2</a></li>
+                                <li><a href="javascript:void(0)">Section sub-link #3</a></li>
                             </ul>
                         </li>
-                        <li><a href="javascript:void">Section link #2</a></li>
-                        <li><a href="javascript:void" >Section link #3</a>
+                        <li><a href="javascript:void(0)">Section link #2</a></li>
+                        <li><a href="javascript:void(0)" >Section link #3</a>
                             <ul class="multilevel-linkul-0">
-                                <li><a href="javascript:void">Section sub-link #1</a></li>
-                                <li><a href="javascript:void">Section sub-link #2</a></li>
-                                <li><a href="javascript:void">Section sub-link #3</a></li>
+                                <li><a href="javascript:void(0)">Section sub-link #1</a></li>
+                                <li><a href="javascript:void(0)">Section sub-link #2</a></li>
+                                <li><a href="javascript:void(0)">Section sub-link #3</a></li>
                             </ul>
                         </li>
-                        <li><a href="javascript:void">Section link #4</a></li>
-                        <li><a href="javascript:void">Section link #5</a></li>
+                        <li><a href="javascript:void(0)">Section link #4</a></li>
+                        <li><a href="javascript:void(0)">Section link #5</a></li>
                     </ul>
                     <!-- Script adds show more/less links to inner navs with dropdowns -->
                     <script>
                         (function addShowMoreLessLinks() {
                           if ($('[class*="multilevel-linkul"]').length > 0) {
+                            
+                            // Add show more, show less icons if there are nested links 
+                            var svgNS = "http://www.w3.org/2000/svg";
+                            var xlinkNS = "http://www.w3.org/1999/xlink";
+                            
+                            var $showMoreSvg = document.createElementNS(svgNS, 'svg');
+                            $showMoreSvg.setAttribute('class', 'dfa-svg-icon');
+                            var $showMoreUse = document.createElementNS(svgNS, "use");                              
+                            $showMoreUse.setAttributeNS(xlinkNS, 'href','#next_arrow');
+                            $($showMoreSvg).append($showMoreUse);
+                            var $spMore = $('<span></span>').addClass('inner-navigation__show-more__icon').append($showMoreSvg);
+                              
+                            var $showLessSvg = document.createElementNS(svgNS, 'svg');
+                            $showLessSvg.setAttribute('class', 'dfa-svg-icon');
+                            $showLessUse = document.createElementNS(svgNS,'use');  ;
+                            $showLessUse.setAttributeNS(xlinkNS, 'href', '#down_arrow');
+                            $($showLessSvg).append($showLessUse);
+                            var $spLess = $('<span></span>').addClass('inner-navigation__show-less__icon').append($showLessSvg);
+                            
                             var $mlUl = $('[class*="multilevel-linkul"]');
-                            /* Add show more, show less icons if there are nested links */
-                            var $showMoreAnchor = $('<a/>');
-                            $showMoreAnchor.addClass('inner-navigation__show-more');
-                            $showMoreAnchor.attr('href', '#');
-                            var $showMoreImg = $('<img />').attr('src','style-assets/media/svg-imgs/next_arrow.svg').attr('class', 'inner-navigation__show-more__icon').attr('alt', 'Show more links in this section');
-                            var $showLessImg = $('<img />').attr('src','style-assets/media/svg-imgs/down_arrow.svg').attr('class', 'inner-navigation__show-less__icon').attr('alt', 'Show fewer links in this section');
-                            $showMoreAnchor.append([$showMoreImg, $showLessImg]);
                             $mlUl.each(function(idx) {
-                                $(this).siblings('a').eq(0).addClass('inner-navigation__parent-link');
+                                $(this).parent('li').addClass('sub-nav');
                             });
-                            $mlUl.before($showMoreAnchor);
+                            $mlUl.before($spMore).before($spLess);
+                            
                             }
                         })();
                     </script>
@@ -548,6 +572,7 @@
                           <a href="javascript:window.print()" class="print print-page__link">Print page</a>
                         </section>
                       <!-- ** // Print and share options ** -->
+                </aside><!-- // .main-body__side-bar -->
                </aside>
                 <section class="main-body__main">
                     <a id="d.en.12488"></a>
