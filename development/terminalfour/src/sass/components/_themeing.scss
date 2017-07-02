@@ -69,6 +69,9 @@
     // Re-scaffolding
     a {
         color: $theme-blue;
+        &.btn-primary {
+            color: $white;
+        }
     }
     // Header and navigation 
     .header-row {
@@ -163,7 +166,14 @@
             }
         }
     }
+    //Discovery slider
     
+    .discovery-slider__controls__pause {
+        background-color: $gray-lightest;
+        .dfa-svg-icon {
+            fill: $theme-blue;
+        }
+    }
     //Accordion tabs 
     .accordion-tabs__panel-heading {
         background-color: $theme-blue;
@@ -190,8 +200,9 @@
     
     
     //Buttons 
-    .btn-primary {
+    .btn-primary  {
         background-color: $theme-blue-lighter;
+        
         &:hover, &:active, &:focus {
             background-color: $theme-blue;
         }
@@ -239,6 +250,38 @@
     }
     
     //Cards 
+    .dfa-card--dropshadow {
+        .dfa-card__wrap {
+             @include dfa-box-shadow;
+             background-color: #fbfcfd;
+             transition: all 0.18s cubic-bezier(.25,.8,.25,1);    
+        }
+
+        .dfa-svg-icon {
+            fill: $theme-blue-lighter;
+        }    
+        &:hover, &:active, &:focus  {
+            .dfa-svg-icon {
+                fill: $theme-blue;
+            }
+        }    
+    }
+    .dfa-card {
+
+        &.dfa-card--horizontal {
+            .dfa-svg-icon {
+                fill: $gray-dark;
+            }            
+            &:hover, &:focus, &:active {
+                .dfa-svg-icon {
+                    fill: $theme-blue;
+                }
+            }
+        }
+    }
+    
+
+    
     .landing-feature-image__card__anchor {
         color: $gray-dark;
         &:hover, &:active, &:focus {

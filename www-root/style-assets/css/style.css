@@ -8868,7 +8868,6 @@ h5.feature-heading, h5.landing-feature--heading {
   width: 80%;
 }
 .dfa-card.dfa-card--horizontal .dfa-svg-icon {
-  fill: #006845;
   fill: #323232;
   position: absolute;
   top: 50%;
@@ -10720,7 +10719,7 @@ h5.feature-heading, h5.landing-feature--heading {
   position: absolute;
   bottom: 0;
   text-align: center;
-  background-color: #000;
+  background-color: #dfdfdf;
 }
 
 @media screen and (min-width: 768px) {
@@ -13479,6 +13478,9 @@ footer a:active, footer a:hover, footer a:focus {
 .dfa-theme-blue a {
   color: #064476;
 }
+.dfa-theme-blue a.btn-primary {
+  color: #fff;
+}
 .dfa-theme-blue .header-row {
   background-color: #0E61A1;
 }
@@ -13544,6 +13546,12 @@ footer a:active, footer a:hover, footer a:focus {
 .dfa-theme-blue .landing-feature--heading > a:hover, .dfa-theme-blue .landing-feature--heading > a:active, .dfa-theme-blue .landing-feature--heading > a:focus {
   color: #064476;
 }
+.dfa-theme-blue .discovery-slider__controls__pause {
+  background-color: #f4f5f6;
+}
+.dfa-theme-blue .discovery-slider__controls__pause .dfa-svg-icon {
+  fill: #064476;
+}
 .dfa-theme-blue .accordion-tabs__panel-heading {
   background-color: #064476;
 }
@@ -13606,6 +13614,32 @@ footer a:active, footer a:hover, footer a:focus {
 }
 .dfa-theme-blue .news-listing-entry-anchor:hover {
   color: #064476;
+}
+.dfa-theme-blue .dfa-card--dropshadow .dfa-card__wrap {
+  box-shadow: 1px 2px 4px 1px rgba(50, 50, 50, 0.53);
+  transition: all 0.18s cubic-bezier(0.25, 0.8, 0.25, 1);
+  background-color: #fbfcfd;
+  transition: all 0.18s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.dfa-theme-blue .dfa-card--dropshadow .dfa-card__wrap:hover {
+  -webkit-box-shadow: 1px 4px 12px 2px rgba(50, 50, 50, 0.36);
+  -moz-box-shadow: 1px 4px 12px 2px rgba(50, 50, 50, 0.36);
+  box-shadow: 1px 4px 12px 2px rgba(50, 50, 50, 0.36);
+}
+.dfa-theme-blue .dfa-card--dropshadow .dfa-card__wrap:hover .dfa-widget-heading, .dfa-theme-blue .dfa-card--dropshadow .dfa-card__wrap:hover .dfa-card__heading {
+  color: #005036;
+}
+.dfa-theme-blue .dfa-card--dropshadow .dfa-svg-icon {
+  fill: #0E61A1;
+}
+.dfa-theme-blue .dfa-card--dropshadow:hover .dfa-svg-icon, .dfa-theme-blue .dfa-card--dropshadow:active .dfa-svg-icon, .dfa-theme-blue .dfa-card--dropshadow:focus .dfa-svg-icon {
+  fill: #064476;
+}
+.dfa-theme-blue .dfa-card.dfa-card--horizontal .dfa-svg-icon {
+  fill: #323232;
+}
+.dfa-theme-blue .dfa-card.dfa-card--horizontal:hover .dfa-svg-icon, .dfa-theme-blue .dfa-card.dfa-card--horizontal:focus .dfa-svg-icon, .dfa-theme-blue .dfa-card.dfa-card--horizontal:active .dfa-svg-icon {
+  fill: #064476;
 }
 .dfa-theme-blue .landing-feature-image__card__anchor {
   color: #323232;
