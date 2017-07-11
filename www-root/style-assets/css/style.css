@@ -1877,6 +1877,30 @@ pre code {
 table {
   background-color: transparent;
 }
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td,
+table > tfoot > tr > th,
+table > tfoot > tr > td {
+  padding: 0 8px 0 8px;
+}
+table > thead > tr > th:first-child,
+table > thead > tr > td:first-child,
+table > tbody > tr > th:first-child,
+table > tbody > tr > td:first-child,
+table > tfoot > tr > th:first-child,
+table > tfoot > tr > td:first-child {
+  padding-left: 0;
+}
+table > thead > tr > th:last-child,
+table > thead > tr > td:last-child,
+table > tbody > tr > th:last-child,
+table > tbody > tr > td:last-child,
+table > tfoot > tr > th:last-child,
+table > tfoot > tr > td:last-child {
+  padding-right: 0;
+}
 
 caption {
   padding-top: 8px;
@@ -7041,8 +7065,9 @@ header:after {
   padding-bottom: 10px;
   padding-bottom: 0.71429rem;
 }
-.header-title .dfa-header-logo {
-  width: 240px;
+.header-title .dfa-header-logo, .header-title svg {
+  height: 36px;
+  max-width: 240px;
 }
 
 .header-title--text-only .header-title__logo {
@@ -7722,8 +7747,9 @@ header:after {
   }
 }
 @media (min-width: 768px) {
-  .header-title .dfa-header-logo {
-    width: 260px;
+  .header-title .dfa-header-logo, .header-title svg {
+    height: 49px;
+    max-width: 260px;
   }
 
   .header-title-logo {
@@ -7788,6 +7814,10 @@ header:after {
   .header-title .svg-icon--dfa-logo {
     fill: #006845;
   }
+  .header-title svg {
+    height: 55px;
+    max-width: none;
+  }
 
   .header-title__text {
     color: inherit;
@@ -7802,19 +7832,14 @@ header:after {
   }
 
   .header-title__logo {
-    height: auto;
-    width: 100%;
+    height: 55px;
+    max-width: none;
   }
   .header-title__logo.header-title__logo--small {
     display: none;
   }
   .header-title__logo.header-title__logo--large {
     display: inline;
-  }
-  .header-title__logo .dfa-header-logo {
-    padding-top: 8px;
-    height: 58px;
-    width: 320px;
   }
 
   .header-title--text-only .header-title__logo {
@@ -8066,9 +8091,21 @@ header:after {
     height: 2rem;
   }
   .desktop-search .desktop-search-icon {
-    width: 32px;
+    width: 36px;
     width: 2rem;
+    height: 36px;
+    height: 2rem;
+    padding-top: 6px;
+    padding-top: 0.33333rem;
+    padding-bottom: 4px;
+    padding-bottom: 0.22222rem;
     float: right;
+  }
+  .desktop-search .desktop-search-icon .dfa-svg-icon {
+    fill: #fff;
+  }
+  .desktop-search svg {
+    fill: #fff;
   }
   .desktop-search .search-icon {
     display: block;
@@ -13533,6 +13570,12 @@ footer a:active, footer a:hover, footer a:focus {
   .dfa-theme-blue .desktop-search .desktop-search-anchor {
     background-color: #0E61A1;
   }
+}
+.dfa-theme-blue .panel-title > a.panel-heading__anchor {
+  color: #064476;
+}
+.dfa-theme-blue .panel-heading a .panel-heading__show-more__icon .dfa-svg-icon, .dfa-theme-blue .panel-heading a .panel-heading__show-less__icon .dfa-svg-icon {
+  fill: #064476;
 }
 .dfa-theme-blue .heading--side-bar {
   border-color: #064476;

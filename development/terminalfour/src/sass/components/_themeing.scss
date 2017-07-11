@@ -147,6 +147,13 @@
             }
         }
     }
+    //General content 
+    .panel-title > a.panel-heading__anchor {
+        color: $theme-blue;
+    }
+    .panel-heading a .panel-heading__show-more__icon .dfa-svg-icon, .panel-heading a .panel-heading__show-less__icon .dfa-svg-icon {
+        fill: $theme-blue;
+    }
     //Inner navigation
     .heading--side-bar {
         border-color: $theme-blue;
@@ -167,7 +174,6 @@
         }
     }
     //Discovery slider
-    
     .discovery-slider__controls__pause {
         background-color: $gray-lightest;
         .dfa-svg-icon {
@@ -279,9 +285,6 @@
             }
         }
     }
-    
-
-    
     .landing-feature-image__card__anchor {
         color: $gray-dark;
         &:hover, &:active, &:focus {
