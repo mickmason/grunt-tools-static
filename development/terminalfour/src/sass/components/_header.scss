@@ -107,10 +107,13 @@ header {
     .header-navigation__mobile-icon {
        
         margin-left: auto; margin-right: auto;
-        svg {
-            @include rem-calc(max-height, 22px);
+        .dfa-svg-icon {
+            @include to-rem(max-height, 14, 22px);
             fill: $white;
             stroke: $white;
+            @media screen and (min-width: $screen-sm-min) {
+                @include to-rem(max-height, 16, 24px);
+            }
         }
         .dfa-icon-label {
             font-weight: 400;
@@ -783,6 +786,11 @@ header {
             @include to-rem(height, 16, 32);
         }
         .desktop-search-icon {
+            .dfa-svg-icon {
+                fill: $white;
+                max-height: 30px;
+                padding-top: 4px;
+            }
             @include to-rem(width, 16, 32);
             float: right;
         }

@@ -7180,11 +7180,17 @@ header:after {
   margin-left: auto;
   margin-right: auto;
 }
-.header-navigation__mobile-search .header-navigation__mobile-icon svg, .header-navigation__mobile-menu .header-navigation__mobile-icon svg {
+.header-navigation__mobile-search .header-navigation__mobile-icon .dfa-svg-icon, .header-navigation__mobile-menu .header-navigation__mobile-icon .dfa-svg-icon {
   max-height: 22px;
-  max-height: 1.375rem;
+  max-height: 1.57143rem;
   fill: #fff;
   stroke: #fff;
+}
+@media screen and (min-width: 768px) {
+  .header-navigation__mobile-search .header-navigation__mobile-icon .dfa-svg-icon, .header-navigation__mobile-menu .header-navigation__mobile-icon .dfa-svg-icon {
+    max-height: 24px;
+    max-height: 1.5rem;
+  }
 }
 .header-navigation__mobile-search .header-navigation__mobile-icon .dfa-icon-label, .header-navigation__mobile-menu .header-navigation__mobile-icon .dfa-icon-label {
   font-weight: 400;
@@ -8070,6 +8076,11 @@ header:after {
     width: 2rem;
     float: right;
   }
+  .desktop-search .desktop-search-icon .dfa-svg-icon {
+    fill: #fff;
+    max-height: 30px;
+    padding-top: 4px;
+  }
   .desktop-search .search-icon {
     display: block;
     margin-left: auto;
@@ -8489,6 +8500,13 @@ blockquote .attribution {
 }
 .main-section:after {
   clear: both;
+}
+.main-section.main-section--homepage {
+  padding-top: 28px;
+  padding-top: 1.75rem;
+}
+.main-section.main-section--homepage .landing-feature-section:first-of-type {
+  padding-top: 0;
 }
 
 /* Each section */
@@ -12488,13 +12506,12 @@ h5.feature-heading, h5.landing-feature--heading {
 
 /* Legacy country travel status information */
 .security-status {
-  color: #fff;
   padding: 14px;
   padding: 0.875rem;
   margin-bottom: 20px;
   margin-bottom: 1.25rem;
-  background-color: #006845;
-  border: 1px solid #005e3e;
+  background-color: transparent;
+  border: 2px solid #008752;
   max-width: 320px;
   max-width: 20rem;
 }
@@ -12504,11 +12521,10 @@ h5.feature-heading, h5.landing-feature--heading {
   margin: 0;
   padding: 0;
 }
-.security-status li {
-  background-color: #fff;
+.security-status .security-status__status {
   padding: 8px 12px;
   padding: 0.5rem 0.75rem;
-  color: #323232;
+  color: #fff;
 }
 .security-status h3 {
   margin-top: 0;
@@ -12518,13 +12534,19 @@ h5.feature-heading, h5.landing-feature--heading {
   margin-bottom: 8px;
   margin-bottom: 0.5rem;
 }
+.security-status .security-status__status--normal {
+  background-color: #008752;
+}
 .security-status .security-status__status--high-caution {
+  background-color: #fcbd02;
   display: none;
 }
 .security-status .security-status__status--avoid {
+  background-color: #ff8120;
   display: none;
 }
 .security-status .security-status__status--do-not {
+  background-color: #cc0000;
   display: none;
 }
 .security-status .security-status__more-info {
@@ -12536,29 +12558,26 @@ h5.feature-heading, h5.landing-feature--heading {
   margin-bottom: 0;
 }
 .security-status .security-status__more-info a {
-  color: #fff;
   font-weight: 400;
+  color: inherit;
 }
 .security-status.high-caution .security-status__status--normal, .security-status.avoid .security-status__status--normal, .security-status.do-not .security-status__status--normal {
   display: none;
 }
 .security-status.high-caution {
-  background-color: #fcbd02;
-  border-color: #f2b502;
+  border-color: #fcbd02;
 }
 .security-status.high-caution .security-status__status--high-caution {
   display: list-item;
 }
 .security-status.avoid {
-  background-color: #ff8120;
-  border-color: #ff7307;
+  border-color: #ff8120;
 }
-.security-status.avoid .security-status__status--high-caution {
+.security-status.avoid .security-status__status--avoid {
   display: list-item;
 }
 .security-status.do-not {
-  background-color: #cc0000;
-  border-color: #b30000;
+  border-color: #cc0000;
 }
 .security-status.do-not .security-status__status--do-not {
   display: list-item;
@@ -13440,7 +13459,7 @@ footer a:active, footer a:hover, footer a:focus {
 **/
 .dfa-theme-gray .header-row {
   color: #005036;
-  background-color: #fff;
+  background-color: #e4e5e6;
 }
 .dfa-theme-gray svg {
   fill: #005036;
@@ -13458,9 +13477,6 @@ footer a:active, footer a:hover, footer a:focus {
   color: #fff;
 }
 @media screen and (min-width: 992px) {
-  .dfa-theme-gray .header-row {
-    background-color: #e4e5e6;
-  }
   .dfa-theme-gray .secondary-navigation .dfa-icon svg {
     fill: #005036;
   }
@@ -13517,6 +13533,9 @@ footer a:active, footer a:hover, footer a:focus {
   }
   .dfa-theme-blue .secondary-nav-dropdown.active a {
     color: #064476;
+  }
+  .dfa-theme-blue .secondary-nav-link__sub-link {
+    border-bottom-color: #064476;
   }
   .dfa-theme-blue .main-nav-row {
     background-color: #064476;
@@ -13698,6 +13717,21 @@ footer a:active, footer a:hover, footer a:focus {
   background-image: -webkit-linear-gradient(-18deg, #0E61A1 0%, #064476 100%);
   background-image: -o-linear-gradient(-18deg, #0E61A1 0%, #064476 100%);
   background-image: linear-gradient(-18deg, #0E61A1 0%, #064476 100%);
+}
+.dfa-theme-blue .panel-title > a.panel-heading__anchor {
+  color: #064476;
+}
+.dfa-theme-blue .panel-heading a .panel-heading__show-more__icon .dfa-svg-icon, .dfa-theme-blue .panel-heading a .panel-heading__show-less__icon .dfa-svg-icon {
+  fill: #064476;
+}
+.dfa-theme-blue .panel-heading a .panel-heading__show-more__icon .dfa-svg-icon, .dfa-theme-blue .panel-heading a .panel-heading__show-less__icon .dfa-svg-icon {
+  fill: #064476;
+}
+.dfa-theme-blue .dfa-feature-panel .panel-title > a.panel-heading__anchor {
+  color: #fff;
+}
+.dfa-theme-blue .dfa-feature-panel .panel-heading a .panel-heading__show-more__icon .dfa-svg-icon, .dfa-theme-blue .dfa-feature-panel .panel-heading a .panel-heading__show-less__icon .dfa-svg-icon {
+  fill: #fff;
 }
 .dfa-theme-blue footer {
   background-color: #064476;
@@ -13932,17 +13966,6 @@ footer a:active, footer a:hover, footer a:focus {
 }
 
 /* Temp patch code - remove when new header is integrated */
-.breadcrums-row {
-  margin-bottom: 20px;
-  margin-bottom: 1.25rem;
-}
-
-.breadcrumb > li + li:before, .breadcrumbs__nav > li + li:before, .inner-page-breadcrumbs__nav > li + li:before {
-  content: "/ ";
-  padding: 0 5px;
-  color: #ccc;
-}
-
 .page-title__heading {
   margin-top: 0px;
   margin-top: 0rem;

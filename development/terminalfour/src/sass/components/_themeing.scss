@@ -13,7 +13,7 @@
 .dfa-theme-gray {
     .header-row {
         color: $brand-darker;
-        background-color: $white;
+        background-color: $gray-light;
     } 
     svg {
         fill: $brand-darker;
@@ -24,7 +24,7 @@
                 fill: $brand-darker;
             }
         }   
-        &.active, &:hover {
+        &.active, &:hover { 
             background-color: $brand-primary;
             .header-navigation__mobile-icon {
                 svg {
@@ -39,7 +39,7 @@
     
     @media screen and (min-width: $screen-md-min) {
         .header-row {
-            background-color: $gray-light;
+
         }
         .secondary-navigation {
             .dfa-icon {
@@ -122,6 +122,9 @@
                     color: $theme-blue;    
                 }
             }
+        }
+        .secondary-nav-link__sub-link {
+            border-bottom-color: $theme-blue;
         }
         .main-nav-row {
             background-color: $theme-blue;
@@ -279,9 +282,6 @@
             }
         }
     }
-    
-
-    
     .landing-feature-image__card__anchor {
         color: $gray-dark;
         &:hover, &:active, &:focus {
@@ -367,6 +367,26 @@
     .blockquote-left, .blockquote-right {
         @include dfa-gradient($theme-blue-lighter, $theme-blue);
     }
+    
+    .panel-title > a.panel-heading__anchor {
+        color: $theme-blue;
+    }
+    .panel-heading a .panel-heading__show-more__icon .dfa-svg-icon, .panel-heading a .panel-heading__show-less__icon .dfa-svg-icon {
+        fill: $theme-blue;
+    }
+     .panel-heading a .panel-heading__show-more__icon .dfa-svg-icon, .panel-heading a .panel-heading__show-less__icon .dfa-svg-icon {
+        fill: $theme-blue;
+    }
+    .dfa-feature-panel { 
+        .panel-title > a.panel-heading__anchor {
+            color: $white;
+        }
+        .panel-heading a .panel-heading__show-more__icon .dfa-svg-icon, .panel-heading a .panel-heading__show-less__icon .dfa-svg-icon {
+            fill: $white;
+        }
+        
+    }
+    
     // Footer
     footer {
         background-color: $theme-blue;
