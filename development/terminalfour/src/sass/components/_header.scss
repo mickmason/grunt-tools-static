@@ -792,19 +792,19 @@ header {
             @include to-rem(height, 16, 32);
         }
         .desktop-search-icon {
-<<<<<<< HEAD
-            @include to-rem(width, 18, 36);
-            @include to-rem(height, 18, 36);
-            @include to-rem(padding-top, 18, 6);
-            @include to-rem(padding-bottom, 18, 4);
-=======
+//
+//            @include to-rem(width, 18, 36);
+//            @include to-rem(height, 18, 36);
+//            @include to-rem(padding-top, 18, 6);
+//            @include to-rem(padding-bottom, 18, 4);
+//
             .dfa-svg-icon {
                 fill: $white;
                 max-height: 30px;
                 padding-top: 4px;
             }
             @include to-rem(width, 16, 32);
->>>>>>> mm-dev
+
             float: right;
             .dfa-svg-icon {
                 fill: $white;
