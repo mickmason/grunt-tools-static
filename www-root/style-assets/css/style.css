@@ -7334,6 +7334,16 @@ header:after {
   padding-right: 16px;
   padding-right: 1.14286rem;
 }
+.mobile-nav__lang-switchers .lang-switcher > a.muted {
+  color: #5a5a5a;
+}
+.mobile-nav__lang-switchers .lang-switcher > a.muted:hover, .mobile-nav__lang-switchers .lang-switcher > a.muted:active, .mobile-nav__lang-switchers .lang-switcher > a.muted:focus {
+  text-decoration: none;
+}
+
+.lang-switcher > a.muted:hover, .lang-switcher > a.muted:active, .lang-switcher > a.muted:focus {
+  text-decoration: none;
+}
 
 /**
  *    Desktop secondary nav 
@@ -7343,6 +7353,12 @@ header:after {
   padding-right: 0.4375rem;
   float: left;
   display: none;
+}
+.secondary-navigation .lang-switcher > a.muted {
+  color: #cdcdcd;
+}
+.secondary-navigation .lang-switcher > a.muted:hover, .secondary-navigation .lang-switcher > a.muted:active, .secondary-navigation .lang-switcher > a.muted:focus {
+  text-decoration: none;
 }
 
 .secondary-nav-nav, .secondary-nav__sub {
@@ -13528,6 +13544,12 @@ footer a:active, footer a:hover, footer a:focus {
   .dfa-theme-gray .desktop-search .desktop-search-anchor {
     background-color: #005036;
   }
+}
+.dfa-theme-gray .lang-switcher > a.muted {
+  color: #5a5a5a;
+}
+.dfa-theme-gray .lang-switcher > a.muted:hover, .dfa-theme-gray .lang-switcher > a.muted:active, .dfa-theme-gray .lang-switcher > a.muted:focus {
+  text-decoration: none;
 }
 
 .dfa-theme-blue a {

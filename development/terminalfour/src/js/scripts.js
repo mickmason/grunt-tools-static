@@ -10,6 +10,16 @@
       return (div.firstChild && div.firstChild.namespaceURI) == 'http://www.w3.org/2000/svg';
     }
     
+    /* 
+    *   Check if fulltext content is translated 
+    */
+   
+    if ($('.press-release.media--fulltext').length > 0 && $('.press-release.media--fulltext').attr('data-translated') === undefined) {
+        console.log('not translated');
+        $('.lang-switcher > a').addClass('muted');
+    } else {
+        
+    }
     /*
     * Load SVG via AJAX
     */
@@ -19,7 +29,7 @@
     $ajax.onreadystatechange = loadSVGs;
     $ajax.send();
     
-    function loadSVGs() {
+    function loadSVGs() { 
       if ($ajax.readyState === 4) {
           if ($ajax.status === 200) {
             var responseContentType = $ajax.getResponseHeader("Content-Type"); 

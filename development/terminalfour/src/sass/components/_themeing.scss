@@ -64,6 +64,16 @@
             }
         }
     }
+    .lang-switcher {
+        > a {
+            &.muted {
+                color: #5a5a5a;
+                &:hover, &:active, &:focus {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
 }
 .dfa-theme-blue {
     // Re-scaffolding

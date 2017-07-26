@@ -221,6 +221,27 @@ header {
         @include to-rem(padding-left, 14, $padding-small-horizontal*2);
         @include to-rem(padding-right, 14, $padding-small-horizontal*2);
     }
+    
+    .lang-switcher {
+        > a {
+            &.muted {
+                color: #5a5a5a;
+                &:hover, &:active, &:focus {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+//Muted language switcher
+.lang-switcher {
+        > a {
+            &.muted {
+                &:hover, &:active, &:focus {
+                    text-decoration: none;
+                }
+            }
+        }
 }
 /**
  *    Desktop secondary nav 
@@ -229,6 +250,17 @@ header {
     @include rem-calc(padding-right, 7);
     float: left;
     display: none;
+
+    .lang-switcher {
+        > a {
+            &.muted {
+                color: #cdcdcd;
+                &:hover, &:active, &:focus {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
 }
 .secondary-nav-nav, .secondary-nav__sub {
     margin: 0;
