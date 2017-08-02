@@ -466,7 +466,7 @@
 @media screen and (min-width: $screen-sm-min) {
     .features-row--four-col, .features-row--two-col {
         .dfa-card {
-            @include make-sm-column(6);
+            width: 50%;
         }
         .dfa-widget-body {
                 @include rem-calc(padding, ($padding-small-vertical * 4), ($padding-small-vertical * 4), ($padding-small-vertical * 8));
@@ -494,7 +494,14 @@
     }
     .landing-feature-section--four-col, .landing-feature-section--two-col, .landing-feature-section--river, .landing-feature-section--flex {
         .dfa-card {
-            @include make-sm-column(6);
+            width: 50%;
+        }
+    }
+    .landing-feature-section--river {
+        .dfa-card {
+            &:nth-child(odd) {
+                clear: left;
+            } 
         }
     }
     .landing-feature-section--flex {

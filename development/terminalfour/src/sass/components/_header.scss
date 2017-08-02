@@ -226,9 +226,6 @@ header {
         > a {
             &.muted {
                 color: #5a5a5a;
-                &:hover, &:active, &:focus {
-                    text-decoration: none;
-                }
             }
         }
     }
@@ -255,9 +252,6 @@ header {
         > a {
             &.muted {
                 color: #cdcdcd;
-                &:hover, &:active, &:focus {
-                    text-decoration: none;
-                }
             }
         }
     }

@@ -7337,9 +7337,6 @@ header:after {
 .mobile-nav__lang-switchers .lang-switcher > a.muted {
   color: #5a5a5a;
 }
-.mobile-nav__lang-switchers .lang-switcher > a.muted:hover, .mobile-nav__lang-switchers .lang-switcher > a.muted:active, .mobile-nav__lang-switchers .lang-switcher > a.muted:focus {
-  text-decoration: none;
-}
 
 .lang-switcher > a.muted:hover, .lang-switcher > a.muted:active, .lang-switcher > a.muted:focus {
   text-decoration: none;
@@ -7356,9 +7353,6 @@ header:after {
 }
 .secondary-navigation .lang-switcher > a.muted {
   color: #cdcdcd;
-}
-.secondary-navigation .lang-switcher > a.muted:hover, .secondary-navigation .lang-switcher > a.muted:active, .secondary-navigation .lang-switcher > a.muted:focus {
-  text-decoration: none;
 }
 
 .secondary-nav-nav, .secondary-nav__sub {
@@ -9383,19 +9377,8 @@ h5.feature-heading, h5.landing-feature--heading {
 /* Four col rows */
 @media screen and (min-width: 768px) {
   .features-row--four-col .dfa-card, .features-row--two-col .dfa-card {
-    position: relative;
-    min-height: 1px;
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-}
-@media screen and (min-width: 768px) and (min-width: 768px) {
-  .features-row--four-col .dfa-card, .features-row--two-col .dfa-card {
-    float: left;
     width: 50%;
   }
-}
-@media screen and (min-width: 768px) {
   .features-row--four-col .dfa-widget-body, .features-row--two-col .dfa-widget-body {
     padding: 16px 16px 32px;
     padding: 1rem 1rem 2rem;
@@ -9422,20 +9405,13 @@ h5.feature-heading, h5.landing-feature--heading {
   }
 
   .landing-feature-section--four-col .dfa-card, .landing-feature-section--two-col .dfa-card, .landing-feature-section--river .dfa-card, .landing-feature-section--flex .dfa-card {
-    position: relative;
-    min-height: 1px;
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-}
-@media screen and (min-width: 768px) and (min-width: 768px) {
-  .landing-feature-section--four-col .dfa-card, .landing-feature-section--two-col .dfa-card, .landing-feature-section--river .dfa-card, .landing-feature-section--flex .dfa-card {
-    float: left;
     width: 50%;
   }
-}
 
-@media screen and (min-width: 768px) {
+  .landing-feature-section--river .dfa-card:nth-child(odd) {
+    clear: left;
+  }
+
   .landing-feature-section--flex .landing-feature__row {
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
