@@ -149,12 +149,33 @@
             '.features-row--two-col .dfa-card--widget__background', 
             '.people-feature-person', 
             '.people-feature-overlay',
-            '.gallery-item .dfa-card__wrap'
+        
         ];
-    // $('.dfa-widget').matchHeight(); 
-    matchHeightArray.forEach(function($this, idx, arr) { 
+    var matchHeightAlwaysArray = [
+            '.gallery-item .dfa-card__wrap'
+    ];
+    matchHeightAlwaysArray.forEach(function($this, idx, arr) { 
         $($this).matchHeight();    
     });
+    // $('.dfa-widget').matchHeight(); 
+    console.log('$($global).outerWidth() '+$($global).outerWidth());
+    if ($($global).outerWidth() >=767) {
+            matchHeightArray.forEach(function($this, idx, arr) { 
+                $($this).matchHeight();    
+            });    
+    }
+    $($global).on('resize', function() {
+        if ($($global).outerWidth() >=767) {
+            matchHeightArray.forEach(function($this, idx, arr) { 
+                $($this).matchHeight();    
+            });
+        } else {
+            matchHeightArray.forEach(function($this, idx, arr) { 
+                $($this).css('height', 'auto');    
+            });                         
+        }
+    });
+    
 
     /*!
      *  Desaturate/saturate images

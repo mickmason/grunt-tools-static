@@ -497,13 +497,15 @@
             width: 50%;
         }
     }
-    .landing-feature-section--river {
+    
         .dfa-card {
-            &:nth-child(odd) {
-                clear: left;
-            } 
+            &.dfa-card--horizontal, &.dfa-card--plain--icon {
+                &:nth-child(odd) {
+                    clear: left;
+                } 
+            }
         }
-    }
+    
     .landing-feature-section--flex {
         .landing-feature__row {
             @include flex-direction(row);
@@ -524,10 +526,14 @@
     .no-flex {
         .landing-feature-section--flex {
             .landing-feature__row {
-   
                 .dfa-card {
+                    width: 25%;
                     float: left;
+                    &.dfa-card--horizontal, &.dfa-card--plain--icon {
+                       width: 50%;
+                    }
                 }
+                
             }
         }   
     }

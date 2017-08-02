@@ -9408,7 +9408,7 @@ h5.feature-heading, h5.landing-feature--heading {
     width: 50%;
   }
 
-  .landing-feature-section--river .dfa-card:nth-child(odd) {
+  .dfa-card.dfa-card--horizontal:nth-child(odd), .dfa-card.dfa-card--plain--icon:nth-child(odd) {
     clear: left;
   }
 
@@ -9438,7 +9438,11 @@ h5.feature-heading, h5.landing-feature--heading {
   }
 
   .no-flex .landing-feature-section--flex .landing-feature__row .dfa-card {
+    width: 25%;
     float: left;
+  }
+  .no-flex .landing-feature-section--flex .landing-feature__row .dfa-card.dfa-card--horizontal, .no-flex .landing-feature-section--flex .landing-feature__row .dfa-card.dfa-card--plain--icon {
+    width: 50%;
   }
 }
 @media screen and (min-width: 992px) {
