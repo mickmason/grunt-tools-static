@@ -12528,7 +12528,8 @@ h5.feature-heading, h5.landing-feature--heading {
   margin-right: 0.5rem;
 }
 
-.country-travel-info__summary {
+.country-travel-info__summary, .introduction {
+  font-weight: 700;
   font-size: 18px;
   font-size: 1.125rem;
 }
@@ -13223,6 +13224,31 @@ select.a-z-listing__filter__input {
   display: none;
 }
 
+.side-bar__content {
+  display: none;
+}
+
+.side-bar__content__body {
+  background-color: #f4f5f6;
+  padding: 0.5rem;
+  font-size: 14px;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+.side-bar__content__body img {
+  width: auto;
+  height: auto !important;
+  max-width: 100%;
+}
+
+.side-bar__content__heading {
+  background-color: #fbecb1;
+  padding: 0.5rem;
+  border-style: dashed;
+  border-width: 0px 0px 1px;
+  margin-bottom: 0;
+}
+
 @media screen and (max-width: 991px) {
   .heading--side-bar:hover {
     cursor: pointer;
@@ -13237,8 +13263,21 @@ select.a-z-listing__filter__input {
     height: 42px;
     width: 10%;
   }
+
+  .side-bar__content__body {
+    font-size: 15px;
+    font-size: 0.9375rem;
+  }
 }
 @media screen and (min-width: 992px) {
+  .side-bar__content__mobile {
+    display: none;
+  }
+
+  .side-bar__content {
+    display: block;
+  }
+
   .heading--side-bar {
     border: none;
     font-style: italic;

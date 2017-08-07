@@ -157,8 +157,6 @@
     matchHeightAlwaysArray.forEach(function($this, idx, arr) { 
         $($this).matchHeight();    
     });
-    // $('.dfa-widget').matchHeight(); 
-    console.log('$($global).outerWidth() '+$($global).outerWidth());
     if ($($global).outerWidth() >=767) {
             matchHeightArray.forEach(function($this, idx, arr) { 
                 $($this).matchHeight();    
@@ -582,7 +580,6 @@
                 }
             });
             checkIfAllHidden($(this));
-            //(hiddenCount == childLisLen) ? $(this).hide() : $(this).show() ;
         });
     });
     /**! Misc scripts for CMS build **/
@@ -629,7 +626,7 @@
         return month[val];
     }
 
-    if($('.country-travel-info__status').length != 0 && jQuery('body#en-lang').length != 0 && jQuery('.updated-date').length != 0) {
+    if($('.country-travel-info__status, .introduction').length != 0 && jQuery('body#en-lang').length != 0 && jQuery('.updated-date').length != 0) {
 		var updated = [];
 		$.each($('.updated-date'), function() {
 			var date = $(this).text();
