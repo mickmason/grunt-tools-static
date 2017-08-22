@@ -269,7 +269,7 @@ blockquote {
 .landing-feature-section {
     @include make-row;
     @include rem-calc(padding-top, ($padding-small-vertical * 8));
-    @include rem-calc(padding-bottom, ($padding-small-vertical * 16)) ;
+    @include rem-calc(padding-bottom, ($padding-small-vertical * 8)) ;
     &.landing-feature-section--featured { 
         padding-top: 0;
         padding-bottom: 0;

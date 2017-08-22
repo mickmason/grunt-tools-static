@@ -2,13 +2,6 @@
  * Site info card
  */
 .info-card {
-    hr {
-        max-width: none;
-    }
-    &.landing-feature-section {
-        @include rem-calc(padding-top, 0);
-        @include rem-calc(padding-bottom, 0);
-    }
     .content-wrap {
            @include to-rem(padding-top, 14, 0);
            @include to-rem(padding-bottom, 14, 0);
