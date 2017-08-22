@@ -321,7 +321,81 @@
         }
     }
 }
+/* 
+ * Carried over from old site and restyles - DFA Double Section Box content type
+**/
+.double-section-box {
+    background-color: $white;
+    @include make-row;
+}
+.double-section-box__box {
+    float: left; 
+    @include make-xs-column(12);
+    @include rem-calc(margin-top, 16);
+    .double-section-box__box-text {
+        a {
+            color: inherit;
+        }        
+    }
+}
+.double-section-box__box__wrap {
+    @include make-row(0);
+    @include dfa-box-shadow;
+    @include clearfix;
+    background-color: #fbfcfd;
+    transition: all 0.18s cubic-bezier(.25,.8,.25,1);    
+}
 
+.double-section-box__img-link {
+    display: inline-block;
+    overflow: hidden;
+    float: left;
+    max-width: 25%;
+    text-align: center;
+    display: flex;
+    
+    > img {
+        align-self: center;  
+        position: relative;
+        left: 50%;
+        @include dfa-translate(-50%, 0);
+    }
+}
+@meida screen and (max-width: $screen-xs-max) {
+    width: 25%;
+}
+.double-section-box__box-text {
+    @include make-xs-column(9,0);
+    @include rem-calc(padding, 14, 14, 14, 18);
+    > h3 {
+        margin-top: 0;
+        @include rem-calc(font-size, 18);
+        @include rem-calc(margin-bottom, 12);
+    }
+
+}
+@media screen and (min-width: $screen-md-min) {
+    
+    .double-section-box__box {
+        width: 50%;
+        @include rem-calc(margin-top, 20);
+    }
+    .double-section-box__img-link {
+
+    }
+    .double-section-box__box-text {
+        
+        > h3 {
+            margin-top: 0;
+            @include rem-calc(margin-bottom, 8);
+        }
+        > a {
+                display: block;
+                @include to-rem(font-size, 16, 14);
+         
+        }
+    }
+}
 /* 
  *    Big landing feature image - not a hero 
  */

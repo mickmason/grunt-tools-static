@@ -77,7 +77,7 @@
         },
         {
             breakpoint: 767,
-            settings: {
+            settings: { 
                 slidesToShow: 2,
                 slidesToScroll: 2
             }
@@ -149,6 +149,7 @@
             '.features-row--two-col .dfa-card--widget__background', 
             '.people-feature-person', 
             '.people-feature-overlay',
+            '.double-section-box__box, .double-section-box__box__wrap'
         
         ];
     var matchHeightAlwaysArray = [
