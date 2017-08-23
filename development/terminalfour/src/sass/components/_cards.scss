@@ -327,6 +327,9 @@
 .double-section-box {
     background-color: $white;
     @include make-row;
+    &:nth-last-child(1) {
+        @include rem-calc(margin-bottom, 24);
+    }
 }
 .double-section-box__box {
     float: left; 
@@ -337,6 +340,7 @@
             color: inherit;
         }        
     }
+    
 }
 .double-section-box__box__wrap {
     @include make-row(0);
@@ -352,14 +356,6 @@
     float: left;
     max-width: 25%;
     text-align: center;
-    display: flex;
-    
-    > img {
-        align-self: center;  
-        position: relative;
-        left: 50%;
-        @include dfa-translate(-50%, 0);
-    }
 }
 @meida screen and (max-width: $screen-xs-max) {
     width: 25%;

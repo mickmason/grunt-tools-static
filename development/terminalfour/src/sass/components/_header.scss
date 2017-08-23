@@ -24,7 +24,7 @@ header {
         height: 36px;
         max-width: 240px;
     }
-    
+
 }
 .header-title--text-only {
     .header-title__logo {
@@ -47,6 +47,16 @@ header {
         color: $gray-dark;
         @include to-rem(padding-top, 16, ($padding-small-vertical * 0.75));
         @include to-rem(padding-bottom, 16, ($padding-small-vertical * 0.75));
+        > a {
+            &:hover, &:active, &:focus {
+                color: inherit; 
+            }
+        }
+    }
+    > a {
+        &:hover, &:active, &:focus {
+            color: $white;
+        }
     }
     
 }

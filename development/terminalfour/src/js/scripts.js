@@ -627,7 +627,7 @@
         return month[val];
     }
 
-    if($('.country-travel-info__status, .introduction').length != 0 && jQuery('body#en-lang').length != 0 && jQuery('.updated-date').length != 0) {
+    if($('.security-status').length != 0 && jQuery('body#en-lang').length != 0 && jQuery('.updated-date').length != 0) {
 		var updated = [];
 		$.each($('.updated-date'), function() {
 			var date = $(this).text();
@@ -663,7 +663,7 @@
 		newDiv += "<span id='updated_title'>Updated: </span>"
 		newDiv +=  "<span id='updated_value'>" + updated_full_date + "</span></p>";
 		
-          $(newDiv).insertAfter(".country-travel-info__summary");
+          $(newDiv).insertAfter(".introduction");
 		
 	}
     /**!

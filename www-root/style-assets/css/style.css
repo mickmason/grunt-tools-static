@@ -7105,6 +7105,12 @@ header:after {
   padding-bottom: 3px;
   padding-bottom: 0.1875rem;
 }
+.header-title__text.header-title--mobile__text > a:hover, .header-title__text.header-title--mobile__text > a:active, .header-title__text.header-title--mobile__text > a:focus {
+  color: inherit;
+}
+.header-title__text > a:hover, .header-title__text > a:active, .header-title__text > a:focus {
+  color: #fff;
+}
 
 .header-link__home {
   display: inline-block;
@@ -9209,6 +9215,10 @@ h5.feature-heading, h5.landing-feature--heading {
 .double-section-box:after {
   clear: both;
 }
+.double-section-box:nth-last-child(1) {
+  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
+}
 
 .double-section-box__box {
   float: left;
@@ -9262,17 +9272,6 @@ h5.feature-heading, h5.landing-feature--heading {
   float: left;
   max-width: 25%;
   text-align: center;
-  display: flex;
-}
-.double-section-box__img-link > img {
-  align-self: center;
-  position: relative;
-  left: 50%;
-  -webkit-transform: translate(-50%, 0);
-  -moz-transform: translate(-50%, 0);
-  -o-transform: translate(-50%, 0);
-  -ms-transform: translate(-50%, 0);
-  transform: translate(-50%, 0);
 }
 
 @meida screen and (max-width: $screen-xs-max) {
@@ -13660,6 +13659,12 @@ footer a:active, footer a:hover, footer a:focus {
 }
 .dfa-theme-gray .header-navigation__mobile-search.active .dfa-icon-label, .dfa-theme-gray .header-navigation__mobile-search:hover .dfa-icon-label, .dfa-theme-gray .header-navigation__mobile-menu.active .dfa-icon-label, .dfa-theme-gray .header-navigation__mobile-menu:hover .dfa-icon-label {
   color: #fff;
+}
+.dfa-theme-gray .header-title__text.header-title--mobile__text > a:hover, .dfa-theme-gray .header-title__text.header-title--mobile__text > a:active, .dfa-theme-gray .header-title__text.header-title--mobile__text > a:focus {
+  color: inherit;
+}
+.dfa-theme-gray .header-title__text > a:hover, .dfa-theme-gray .header-title__text > a:active, .dfa-theme-gray .header-title__text > a:focus {
+  color: inherit;
 }
 @media screen and (min-width: 992px) {
   .dfa-theme-gray .secondary-navigation .dfa-icon svg {

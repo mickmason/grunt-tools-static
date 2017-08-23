@@ -36,7 +36,21 @@
             }
         }     
     }
-    
+    .header-title__text {
+        &.header-title--mobile__text {
+            > a {
+                &:hover, &:active, &:focus {
+                    color: inherit; 
+                }
+            }
+        }
+        > a {
+            &:hover, &:active, &:focus {
+                color: inherit;
+            }
+        }
+
+    }
     @media screen and (min-width: $screen-md-min) {
         .header-row {
 
