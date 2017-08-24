@@ -1,10 +1,9 @@
 /*
- * Hero image 
+ * Hero image, video
  */
-.hero-image-wrapper {
+.hero-image-wrapper, .hero-video-wrapper {
     position: relative;
     overflow: hidden;
-    z-index: 0;
     .content-wrap { 
         position: absolute;
         top:0px;
@@ -14,8 +13,23 @@
         z-index: 20;
         @include dfa-translate(-50%, -0%);
     }
+    height: 45vh;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
-
+.hero-video-wrapper {
+    height: 65vh;
+    video {
+        position: absolute;
+        z-index: 0;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: auto;
+        @include dfa-translate(-50%, -50%);
+    }
+}
 .hero-image {
     position: relative;
     width: 100%;
@@ -118,6 +132,10 @@
     }
 }
 @media screen and (min-width: $screen-sm-min) {
+    .hero-image-wrapper {
+        
+        height: 50vh;
+    }
     .hero-text {
         //default 
         max-width: 88.2%;
@@ -225,6 +243,13 @@
     }   
 }
 @media screen and (min-width: $screen-md-min) {
+    .hero-image-wrapper {
+        
+        height: 100vh;
+    }
+    .hero-video-wrapper {
+        height: 100vh;    
+    }
     .hero-text {
          
         .hero-heading {

@@ -376,6 +376,26 @@
     heroTextSetter();
     $($global).on('resize', heroTextSetter);
     
+    /* Hero video resizer */
+    function heroVideo() {
+      $('.hero-video').each(function() {
+        var ratio = 16/9;
+        var heroContainer = $(this).closest('.hero-video-wrapper');
+        var video = $(this);
+        video.css('width', '');
+        var heroHeight = heroContainer.outerHeight();
+        var videoHeight = video.outerHeight();
+        if ( videoHeight < heroHeight ) {
+          var newWidth = heroHeight * ratio;
+          video.css('width', newWidth + 'px');
+        }
+      });
+    }
+    heroVideo();
+    $(window).on('resize', function() {
+      heroVideo();
+    });
+    
     /**!
      * Feature content block show/hide
      */
