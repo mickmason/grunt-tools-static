@@ -96,15 +96,16 @@
 }
 .scroller-info__card {
     color: $white;
-    @include dfa-transparent($alpha: 0.5);
+    @include dfa-transparent($alpha: 0.8);
     position: absolute;
     left: 4.2375%;
-    bottom: 11.3%;
+    top: 11.3%;
+    max-width: 91.525%;
     //@include dfa-translate(-0%,50%);
     @include rem-calc(padding, 14px, 16px); 
     @include dfa-transition(background-color, 180);
     &:active, &:hover, &:focus {
-        @include dfa-transparent($alpha: 0.8);
+        @include dfa-transparent($alpha: 1);
     }
     hr {
         margin-top: 0;

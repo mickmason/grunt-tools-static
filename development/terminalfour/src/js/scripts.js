@@ -156,9 +156,9 @@
             '.gallery-item .dfa-card__wrap'
     ];
     matchHeightAlwaysArray.forEach(function($this, idx, arr) { 
-        $($this).matchHeight();    
+        $($this).matchHeight();   
     });
-    if ($($global).outerWidth() >=767) {
+    if ($($global).outerWidth() > 768) {
             matchHeightArray.forEach(function($this, idx, arr) { 
                 $($this).matchHeight();    
             });    
@@ -717,12 +717,83 @@
         e.preventDefault();
         return false; 
       });
-  	/* Check if media fulltext is translated */
-/*  	if ($('.press-release.content--fulltext').length > 0 && $('.press-release.media--fulltext').attr('data-translated') === undefined) {
-      console.log('this is fulltext');
-      $('.lang-switcher > a').addClass('muted');
-  	}*/
-    
+    /** 
+     *  Lang switcher patch script
+     *  Required for T4 fulltext content which uses fulltext filename and which is in a translated site and language disclaimer text is used.
+     *  When RDSM13209 is resolved this can be removed
+     */
+    var $ajaxLangTest = new XMLHttpRequest(); 
+    /* If this is fulltext content */
+    if ($('.content--fulltext').length > 0) {
+        /* If any language switcher links for translated languages */
+        var $langSwitcherLink = 
+        ($('.lang-switcher.ie > a').length > 0) ? $('.lang-switcher.ie > a') : 
+        ($('.lang-switcher.pl > a').length > 0) ? $('.lang-switcher.pl > a') : 
+        ($('.lang-switcher.cn > a').length > 0) ? $('.lang-switcher.cn > a') : 
+        undefined ;
+        /* If there is a language switcher */
+        if ($langSwitcherLink !== undefined) {
+            /* href on the language switcher */
+            var langSwitcherLinkHref = $langSwitcherLink.attr('href');
+            console.log('Checking for ' + langSwitcherLinkHref);
+            /* Function which does and AJAX call to the url and calls done(true|false) if it can get the file or not */
+            function checkTranslatedFile(url, done) {
+                 var $ajaxLangTest = new XMLHttpRequest();
+                 $ajaxLangTest.onreadystatechange = function() {
+                        if ($ajaxLangTest.readyState === 4) {
+                             if ($ajaxLangTest.status === 404) {
+                                 done(false);
+                             } else {
+                                 done(true);
+                         }   
+                        }
+                     };
+                     $ajaxLangTest.addEventListener('error', function() {
+                         done(false);
+                     });
+                     $ajaxLangTest.open('GET', url, true);
+                     try {
+                            $ajaxLangTest.send();    
+                     } catch (e) {
+                            done(false);
+                     }   
+            }//checkTranslatedFile()            
+           
+            /* Call that function - the callback tests the result of the AJAX call */
+            checkTranslatedFile(langSwitcherLinkHref, function(resp) { 
+                /* If the URL in the link is wrong */
+                
+                if (resp === false ) {
+                    /* If the URL has '-1' appended to the filename */
+                    if (langSwitcherLinkHref.indexOf('-1.html') !== -1) {
+                        
+                        langSwitcherLinkHref = langSwitcherLinkHref.replace('-1.html', '.html');   
+                        console.log('Remove -1 ' + langSwitcherLinkHref);
+                    /* If it doesn't then append it */
+                    } else {
+                        
+                        langSwitcherLinkHref = langSwitcherLinkHref.replace('.html', '-1.html');
+                        console.log('Add -1 ' + langSwitcherLinkHref);
+                    }
+                    /* Then try again */
+                    checkTranslatedFile(langSwitcherLinkHref, function(resp) {
+                        
+                        /* No luck again - mute the switcher */
+                        if (resp === false) {
+                            $langSwitcherLink.addClass('muted');
+                        /* Got it - change the switcher href */
+                        } else {
+                            $langSwitcherLink.attr('href', langSwitcherLinkHref);
+                        }
+                    });
+                /* Else do nothing */
+                } else {
+                    return true;
+                }
+            });
+        }//endif there is a switcher
+    }//endif this is fulltext content
+    /* End lang switcher patch script */
     
     
    

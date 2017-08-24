@@ -8822,6 +8822,7 @@ h5.feature-heading, h5.landing-feature--heading {
 }
 
 .dfa-card__card-text__heading {
+  line-height: 1.555;
   margin-top: 0;
   margin-bottom: 8px;
   margin-bottom: 0.5rem;
@@ -9145,8 +9146,8 @@ h5.feature-heading, h5.landing-feature--heading {
 
 @media screen and (min-width: 768px) {
   .dfa-card__card-text__heading {
-    font-size: 18px;
-    font-size: 1.125rem;
+    font-size: 16px;
+    font-size: 1rem;
   }
 
   .dfa-card__card-text__text {
@@ -9242,6 +9243,7 @@ h5.feature-heading, h5.landing-feature--heading {
   transition: all 0.18s cubic-bezier(0.25, 0.8, 0.25, 1);
   background-color: #fbfcfd;
   transition: all 0.18s cubic-bezier(0.25, 0.8, 0.25, 1);
+  overflow: hidden;
 }
 .double-section-box__box__wrap:before, .double-section-box__box__wrap:after {
   content: " ";
@@ -9270,12 +9272,20 @@ h5.feature-heading, h5.landing-feature--heading {
   display: inline-block;
   overflow: hidden;
   float: left;
-  max-width: 25%;
-  text-align: center;
+  width: 25%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.double-section-box__img-link > img {
+  width: 100% !important;
+  height: 100%;
 }
 
-@meida screen and (max-width: $screen-xs-max) {
-  width: 25%;
+@media screen and (min-width: 768px) {
+  .double-section-box__img-link {
+    width: 17.85%;
+  }
 }
 .double-section-box__box-text {
   position: relative;
@@ -9291,8 +9301,8 @@ h5.feature-heading, h5.landing-feature--heading {
   margin-top: 0;
   font-size: 18px;
   font-size: 1.125rem;
-  margin-bottom: 12px;
-  margin-bottom: 0.75rem;
+  margin-bottom: 4px;
+  margin-bottom: 0.25rem;
 }
 
 @media screen and (min-width: 992px) {
@@ -9302,10 +9312,12 @@ h5.feature-heading, h5.landing-feature--heading {
     margin-top: 1.25rem;
   }
 
+  .double-section-box__img-link {
+    width: 25%;
+  }
+
   .double-section-box__box-text > h3 {
     margin-top: 0;
-    margin-bottom: 8px;
-    margin-bottom: 0.5rem;
   }
   .double-section-box__box-text > a {
     display: block;
@@ -12438,10 +12450,11 @@ h5.feature-heading, h5.landing-feature--heading {
 .scroller-info__card {
   color: #fff;
   background-color: #000;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.8);
   position: absolute;
   left: 4.2375%;
-  bottom: 11.3%;
+  top: 11.3%;
+  max-width: 91.525%;
   padding: 14px 16px;
   padding: 0.875rem 1rem;
   -webkit-transition: background-color 180ms ease-out 0s;
@@ -12452,7 +12465,7 @@ h5.feature-heading, h5.landing-feature--heading {
 }
 .scroller-info__card:active, .scroller-info__card:hover, .scroller-info__card:focus {
   background-color: #000;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: black;
 }
 .scroller-info__card hr {
   margin-top: 0;
