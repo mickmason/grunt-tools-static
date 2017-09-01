@@ -14,7 +14,7 @@
     <script src="style-assets/lib/jquery-3.1.1/jquery-3.1.1.min.js"></script>
 
 </head>
-<body id="en-lang" class="">
+<body id="en-lang" class="dfa-theme-gray"> 
        <!-- Cookies notice inherited from old site -->
        <section id="cookieNotice" class="noprint cookies-notice-section landing-feature-section">
            <div class="content-wrap">
@@ -39,10 +39,10 @@
                <div class="content-wrap">
                 <!--** Header title column - logo and desktop title **-->
                 <div class="header-title ">
-                    <h1 class="header-title__text">Africa Ireland forum 2017 | AIEF 2017</h1>
+                    <h1 class="header-title__text"><a href="javascript:void(0)">Africa Ireland forum 2017 | AIEF 2017</a></h1>
                     <a href="javascript:void(0)" class="header-link__home header-title__logo " title="Go to Site Homepage">
-                        <img class=" header-title__logo header-title__logo--small" alt="The Department of Foreign Affairs and Trade, Ireland" src="style-assets/media/svg-imgs/DFAT_Green_Simplified_Horizontal.svg" /> 
-                        <img class=" header-title__logo header-title__logo--large" alt="The Department of Foreign Affairs and Trade, Ireland" src="style-assets/media/svg-imgs/DFAT_Green_Simplified_Horizontal.svg" /> 
+                        <img class=" header-title__logo header-title__logo--small" alt="The Department of Foreign Affairs and Trade, Ireland" src="style-assets/media/svg-imgs/DFAT-Simple-Black.svg" /> 
+                        <img class=" header-title__logo header-title__logo--large" alt="The Department of Foreign Affairs and Trade, Ireland" src="style-assets/media/svg-imgs/DFAT-Simple-Black.svg" /> 
                     </a> 
                 </div>
                 
@@ -50,12 +50,14 @@
                 <!--** Header secondary nav visibile >= 992px BS $screen-md-min **-->
                 <div class="secondary-navigation">
                     <ul class="secondary-nav-nav">
-                        <li class="secondary-nav-link"><a href="javascript:void()" title="DFA home">Secondary nav1</a></li> 
+                        <li class="ie lang-switcher secondary-nav-link"><a href="javascript:void()" title="DFA home">Gaeilge</a></li> 
                         <li class="secondary-nav-link"><a href="javascript:void()" title="DFA home">Secondary nav2</a></li>
                         <li class="secondary-nav-link"><a href="javascript:void()" title="DFA home">Secondary nav3</a></li> 
                         <li class="secondary-nav-link secondary-nav-dropdown"><a href="javascript:void()" title="DFA home">Quicklinks
                            <div class="dfa-icon ">
-                                    <img class="close-menu" src="style-assets/media/svg-imgs/menu_dots_circle_active.svg" alt="Image" />
+                                    <svg class="dfa-svg-icon secondary-navigation__menu__icon">
+                                        <use xlink:href="#menu_dots_circle" />
+                                    </svg>
                             </div>
                            </a>
                             <ul class="">
@@ -103,7 +105,7 @@
             <!-- ** Header micro-site title row **-->
             <div class="header-title--mobile">
                 <div class="header-title--mobile__cols">
-                    <h1 class="header-title--mobile__text header-title__text">Africa Ireland forum 2017 | AIEF 2017</h1>
+                    <h1 class="header-title--mobile__text header-title__text"><a href="javascript:void(0)">Africa Ireland forum 2017 | AIEF 2017</a></h1>
                 </div>
             </div>
             <!-- ** // Header micro-site title row **-->
@@ -426,7 +428,10 @@
                     <div class="desktop-search" data-target="site-search">
                          <a href="javascript:void(0)" class="desktop-search-anchor" title="Show site search">
                             <div class="desktop-search-icon dfa-icon">
-                                <img class="search-icon" src="style-assets/media/svg-imgs/search_Icons Bazaar_white.svg" alt="Image" />
+                                <svg class="dfa-svg-icon">
+                                            <use href="#search_icon" />
+                                        </svg>
+
                             </div>
                             <span class="desktop-search-text">Search: </span>
                         </a>  
@@ -440,12 +445,14 @@
                <div class="content-wrap">
                    <div class="site-search">
                     <form id="dfa-site-search" action="javascript:void">
-                        <label class="hidden"  for="dfa-site-search">Searach DFA website</label>
+                        <label class="hidden"  for="dfa-site-search">Search DFA website</label>
                         <input type="text" placeholder="Search DFA Website" class="dfa-site-search-input" id="dfa-site-search-input" name="dfa-site-search-input" />
                         <div class="dfa-site-search-submit">
                             <a href="javascript:void(0)" id="search-submit-button">
                                 <div class=" dfa-icon">
-                                    <img src="style-assets/media/svg-imgs/search_Icons Bazaar_323232.svg" alt="Image" />    
+                                    <svg class="dfa-svg-icon header-navigation__mobile-icon__search">
+                                        <use xlink:href="#search_icon" />
+                                    </svg>
                                 </div>
                             </a>
                         </div>
@@ -477,47 +484,71 @@
         <!--** Main body row **-->
         <section class="main-body">
            <div class="content-wrap">
-              <aside class="main-body__side-bar">               
-                  
+       
+                                                    
+                <aside class="main-body__side-bar">
                     <h3 class="heading--side-bar">In this section: 
-                        <img class="inner-navigation__show-more__icon" src="style-assets/media/svg-imgs/next_arrow.svg" alt="View more icon" />
-                        <img class="inner-navigation__show-less__icon" src="style-assets/media/svg-imgs/down_arrow.svg" alt="View more icon" />
+                        <span class="inner-navigation__show-more__icon">
+                            <svg class="dfa-svg-icon">
+                                   <use xlink:href="#next_arrow" />
+                            </svg>    
+                        </span>
+                        <span class="inner-navigation__show-less__icon">
+                            <svg class="dfa-svg-icon">
+                                <use xlink:href="#down_arrow" />
+                            </svg>    
+                        </span>
                     </h3>
                     <ul class="inner-navigation">
-                        <li><a href="javascript:void" class="" >Section link #1</a>
+                        <li>
+                           <a href="javascript:void(0)" class="" >Section link #1</a>                            
                             <ul class="multilevel-linkul-0">
-                                <li><a href="javascript:void">Section sub-link #1</a></li>
-                                <li><a href="javascript:void">Section sub-link #2</a></li>
-                                <li><a href="javascript:void">Section sub-link #3</a></li>
+                                <li><a href="javascript:void(0)">Section sub-link #1</a>
+                                </li>
+                                <li><a href="javascript:void(0)">Section sub-link #2</a></li>
+                                <li><a href="javascript:void(0)">Section sub-link #3</a></li>
                             </ul>
                         </li>
-                        <li><a href="javascript:void">Section link #2</a></li>
-                        <li><a href="javascript:void" >Section link #3</a>
+                        <li><a href="javascript:void(0)">Section link #2</a></li>
+                        <li><a href="javascript:void(0)" >Section link #3</a>
                             <ul class="multilevel-linkul-0">
-                                <li><a href="javascript:void">Section sub-link #1</a></li>
-                                <li><a href="javascript:void">Section sub-link #2</a></li>
-                                <li><a href="javascript:void">Section sub-link #3</a></li>
+                                <li><a href="javascript:void(0)">Section sub-link #1</a></li>
+                                <li><a href="javascript:void(0)">Section sub-link #2</a></li>
+                                <li><a href="javascript:void(0)">Section sub-link #3</a></li>
                             </ul>
                         </li>
-                        <li><a href="javascript:void">Section link #4</a></li>
-                        <li><a href="javascript:void">Section link #5</a></li>
+                        <li><a href="javascript:void(0)">Section link #4</a></li>
+                        <li><a href="javascript:void(0)">Section link #5</a></li>
                     </ul>
                     <!-- Script adds show more/less links to inner navs with dropdowns -->
                     <script>
                         (function addShowMoreLessLinks() {
                           if ($('[class*="multilevel-linkul"]').length > 0) {
+                            
+                            // Add show more, show less icons if there are nested links 
+                            var svgNS = "http://www.w3.org/2000/svg";
+                            var xlinkNS = "http://www.w3.org/1999/xlink";
+                            
+                            var $showMoreSvg = document.createElementNS(svgNS, 'svg');
+                            $showMoreSvg.setAttribute('class', 'dfa-svg-icon');
+                            var $showMoreUse = document.createElementNS(svgNS, "use");                              
+                            $showMoreUse.setAttributeNS(xlinkNS, 'href','#next_arrow');
+                            $($showMoreSvg).append($showMoreUse);
+                            var $spMore = $('<span></span>').addClass('inner-navigation__show-more__icon').append($showMoreSvg);
+                              
+                            var $showLessSvg = document.createElementNS(svgNS, 'svg');
+                            $showLessSvg.setAttribute('class', 'dfa-svg-icon');
+                            $showLessUse = document.createElementNS(svgNS,'use');  ;
+                            $showLessUse.setAttributeNS(xlinkNS, 'href', '#down_arrow');
+                            $($showLessSvg).append($showLessUse);
+                            var $spLess = $('<span></span>').addClass('inner-navigation__show-less__icon').append($showLessSvg);
+                            
                             var $mlUl = $('[class*="multilevel-linkul"]');
-                            /* Add show more, show less icons if there are nested links */
-                            var $showMoreAnchor = $('<a/>');
-                            $showMoreAnchor.addClass('inner-navigation__show-more');
-                            $showMoreAnchor.attr('href', '#');
-                            var $showMoreImg = $('<img />').attr('src','style-assets/media/svg-imgs/next_arrow.svg').attr('class', 'inner-navigation__show-more__icon').attr('alt', 'Show more links in this section');
-                            var $showLessImg = $('<img />').attr('src','style-assets/media/svg-imgs/down_arrow.svg').attr('class', 'inner-navigation__show-less__icon').attr('alt', 'Show fewer links in this section');
-                            $showMoreAnchor.append([$showMoreImg, $showLessImg]);
                             $mlUl.each(function(idx) {
-                                $(this).siblings('a').eq(0).addClass('inner-navigation__parent-link');
+                                $(this).parent('li').addClass('sub-nav');
                             });
-                            $mlUl.before($showMoreAnchor);
+                            $mlUl.before($spMore).before($spLess);
+                            
                             }
                         })();
                     </script>
@@ -541,9 +572,10 @@
                           <a href="javascript:window.print()" class="print print-page__link">Print page</a>
                         </section>
                       <!-- ** // Print and share options ** -->
-               </aside>
+                </aside><!-- // .main-body__side-bar -->
+
                 <section class="main-body__main">
-                   <article class="press-release">
+                   <article class="press-release media--fulltext">
                     <h1 class="content-heading ">Statement by Minister Flanagan on Northern Ireland and UK exit from EU</h1>
                     
                     <p class="press-release__label press-release__label--news">
@@ -572,6 +604,10 @@
                     <p>I am pleased to have the opportunity to commence today&rsquo;s debate for the Government and to put forward the Government&rsquo;s Motion on the critical issue of Northern Ireland and Brexit.</p>
                     <p>The UK&rsquo;s withdrawal from the European Union is a major strategic challenge for the island of Ireland and it concerns us all. We are facing acute challenges to our economy and trade prospects as well in relation to Northern Ireland and the Government is working in a structured and comprehensive way to address these.</p>
                     <p>Brexit is at the very top of our agenda and it has been since well before the referendum vote in the UK. It is on the top of the agenda in every Department across Government, and that&rsquo;s doubly true for my own Department and the Department of An Taoiseach.&nbsp; The challenges of Brexit are multifaceted and so is our response.&nbsp; Across every government Department a substantial programme of work is underway.&nbsp; For the last eight months, I have been working closely with the Taoiseach in briefing governments in the EU on Ireland&rsquo;s priorities and highlighting Ireland&rsquo;s approach and position to partner countries outside the EU.</p>
+                    
+                    <div class="embed-container-wrapper embed-container-wrapper--news"> 
+                        <iframe title="News title - video" src="//www.youtube.com/embed/BGGAEtn_1wY?rel=0" />
+                    </div> 
                     <div class="press-release__summary press-release__for-media">
                         <h3 class="press-release__summary__heading">For the media</h3>
                         <p><strong>Appendix &ndash; Government countermotion</strong></p>
@@ -665,7 +701,6 @@
 
                                 </div>
                                 <div class="news-listing-entry skew-label">
-
                                         <div class="news-listing-entry-text">
                                             <h3 class="news-listing-entry-heading"><a href="javascript:void(0)" class="news-listing-entry-anchor">Minister Flanagan's statements on Northern Ireland in Seanad Debate</a></h3>
                                             <p class="press-release__label press-release__label--news">
@@ -726,7 +761,6 @@
                                                 <a href="javascript:void()"><span class="content-label">News</span></a>    
                                             </p>
                                             <p class="news-date">26th January 2017</p>
-                                            
                                         </div>
                                 </div>
                                 <div class="news-listing-entry skew-label">
@@ -744,8 +778,7 @@
                 </section><!-- // .main-body__main -->
             </div><!-- // .content-wrap -->
         </section><!-- // .main-body -->
-    </main>
-    <!--** // Main section .container **-->
+    </main><!--** // Main section .main-section **-->
          <footer class="print-page-break--before">
              <div class="footer-row landing-feature-section">
                  <div class="content-wrap">

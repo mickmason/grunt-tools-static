@@ -17,6 +17,8 @@
     @include to-rem(padding, 16, ($padding-small-vertical * 4), ($padding-small-horizontal * 2));
 }
 .dfa-card__card-text__heading {
+    line-height: 1.555;
+    
     margin-top: 0;
     @include rem-calc(margin-bottom, 8);
     @include to-rem(font-size, 14, 16);
@@ -105,7 +107,6 @@
             width: 80%;
         }
         .dfa-svg-icon {
-            fill: $brand-primary;
             fill: $gray-dark;
             position: absolute;
             top: 50%;
@@ -280,7 +281,7 @@
 }
 @media screen and (min-width: $screen-sm-min) {
     .dfa-card__card-text__heading {
-        @include to-rem(font-size, 16, 18);
+        @include to-rem(font-size, 16, 16);
     }
     .dfa-card__card-text__text {
         @include to-rem(font-size, 16, 16);    
@@ -322,7 +323,87 @@
         }
     }
 }
+/* 
+ * Carried over from old site and restyles - DFA Double Section Box content type
+**/
+.double-section-box {
+    background-color: $white;
+    @include make-row;
+    &:nth-last-child(1) {
+        @include rem-calc(margin-bottom, 24);
+    }
+}
+.double-section-box__box {
+    float: left; 
+    @include make-xs-column(12);
+    @include rem-calc(margin-top, 16);
+    .double-section-box__box-text {
+        a {
+            color: inherit;
+        }        
+    }
+    
+}
+.double-section-box__box__wrap {
+    @include make-row(0);
+    @include dfa-box-shadow;
+    @include clearfix;
+    background-color: #fbfcfd;
+    transition: all 0.18s cubic-bezier(.25,.8,.25,1);    
+    overflow: hidden;
+}
 
+.double-section-box__img-link {
+    display: inline-block;
+    overflow: hidden;
+    float: left;
+    width: 25%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    > img {
+        width: 100% !important;
+        height: 100% ;
+    }
+    
+
+}
+    @media screen and (min-width: $screen-sm-min) {
+        .double-section-box__img-link {
+            width: 17.85%;
+        }
+    } 
+
+.double-section-box__box-text {
+    @include make-xs-column(9,0);
+    @include rem-calc(padding, 14, 14, 14, 18);
+    > h3 {
+        margin-top: 0;
+        @include rem-calc(font-size, 18);
+        @include rem-calc(margin-bottom, 4);
+    }
+}
+@media screen and (min-width: $screen-md-min) {
+    .double-section-box__box {
+        width: 50%;
+        @include rem-calc(margin-top, 20);
+    }
+    .double-section-box__img-link {
+         width: 25%;
+    }
+    .double-section-box__box-text {
+        
+        > h3 {
+            margin-top: 0;
+            
+        }
+        > a {
+                display: block;
+                @include to-rem(font-size, 16, 14);
+         
+        }
+    }
+}
 /* 
  *    Big landing feature image - not a hero 
  */
@@ -467,7 +548,7 @@
 @media screen and (min-width: $screen-sm-min) {
     .features-row--four-col, .features-row--two-col {
         .dfa-card {
-            @include make-sm-column(6);
+            width: 50%;
         }
         .dfa-widget-body {
                 @include rem-calc(padding, ($padding-small-vertical * 4), ($padding-small-vertical * 4), ($padding-small-vertical * 8));
@@ -495,9 +576,18 @@
     }
     .landing-feature-section--four-col, .landing-feature-section--two-col, .landing-feature-section--river, .landing-feature-section--flex {
         .dfa-card {
-            @include make-sm-column(6);
+            width: 50%;
         }
     }
+    
+        .dfa-card {
+            &.dfa-card--horizontal, &.dfa-card--plain--icon {
+                &:nth-child(odd) {
+                    clear: left;
+                } 
+            }
+        }
+    
     .landing-feature-section--flex {
         .landing-feature__row {
             @include flex-direction(row);
@@ -518,10 +608,14 @@
     .no-flex {
         .landing-feature-section--flex {
             .landing-feature__row {
-   
                 .dfa-card {
+                    width: 25%;
                     float: left;
+                    &.dfa-card--horizontal, &.dfa-card--plain--icon {
+                       width: 50%;
+                    }
                 }
+                
             }
         }   
     }

@@ -8,34 +8,37 @@ header {
     @include make-row;
     color: $white;
     background-color: $brand-primary;
+    svg {
+        fill: $white;
+    }
 }
 .header-title, .header-navigation {
-    height: 72px;
+
 }
 .header-title {
-    @include make-xs-column(8);
-    @include to-rem(padding-top, 14, ($padding-small-vertical * 3));
-    @include to-rem(padding-bottom, 14, ($padding-small-vertical * 3)); 
+    @include make-xs-column(9);
+    @include to-rem(padding-top, 14, ($padding-small-vertical * 2)+2);
+    @include to-rem(padding-bottom, 14, ($padding-small-vertical * 2)+2); 
 
-    .svg-icon--dfa-logo {
-        fill: $white;
-//        @include to-rem(height, 14, 48);
-       
+    .dfa-header-logo, svg {
+        height: 36px;
+        max-width: 240px;
     }
+
 }
 .header-title--text-only {
     .header-title__logo {
         display: block;
         @include make-row;
     }
-}
+} 
 .header-title__text {
     display: none;
     @include to-rem(padding-bottom, 16, ($padding-small-vertical * 2));
     margin: 0;
     @include to-rem(font-size, 16, 14);
     font-weight: 600;
-    color: $brand-primary;
+    color: $white;
     &.header-title--mobile__text {
         display: block;
         @include to-rem(font-size, 14, 18);
@@ -44,7 +47,18 @@ header {
         color: $gray-dark;
         @include to-rem(padding-top, 16, ($padding-small-vertical * 0.75));
         @include to-rem(padding-bottom, 16, ($padding-small-vertical * 0.75));
+        > a {
+            &:hover, &:active, &:focus {
+                color: inherit; 
+            }
+        }
     }
+    > a {
+        &:hover, &:active, &:focus {
+            color: $white;
+        }
+    }
+    
 }
 
 .header-link__home {
@@ -78,12 +92,13 @@ header {
  *    Mobile nav and search 
  **/
 .header-navigation__mobile {
-    @include make-xs-column(4, 0);
-    height: 72px;
+    @include make-xs-column(3, 0);
+    height: 61px;
+    
 }
 .header-title__logo {
     //width: 100%;
-    @include to-rem(height, 14, 48);
+    @include to-rem(height, 14, 36); 
     &.header-title__logo--large { display: none;}
 }
 .dfa-logo {
@@ -92,26 +107,38 @@ header {
     width: 100%;
 }
 .header-navigation__mobile-search, .header-navigation__mobile-menu {
-    padding: ($padding-small-vertical * 4) ($padding-small-horizontal / 2) ($padding-small-vertical * 3);
+    padding-left: ($padding-small-horizontal / 2) ;
+    padding-right: ($padding-small-horizontal / 2) ;
     float: right; 
-    @include rem-calc(width, 56);
-    height: 72px;
-    
+    width: 50%;
+    max-width: 42px;
+    height: 100%;
     @include dfa-transition(background-color, 200, ease-out);
+    position: relative;
     .header-navigation__mobile-icon {
-            margin-left: auto; margin-right: auto;
-        svg {
-            @include rem-calc(max-height, 24px);
+       
+        margin-left: auto; margin-right: auto;
+        .dfa-svg-icon {
+            @include to-rem(max-height, 14, 22px);
             fill: $white;
+            stroke: $white;
+            @media screen and (min-width: $screen-sm-min) {
+                @include to-rem(max-height, 16, 24px);
+            }
         }
         .dfa-icon-label {
             font-weight: 400;
             color: inherit;
             text-align: center;
+            @include rem-calc(font-size, 12);
         }
     }
     a { 
         color: inherit; 
+        display: block;
+        top: 50%;
+        @include dfa-translate(0%, -50%); 
+        position: relative;
         &:hover, &:active, &:focus {
             text-decoration: none;
         }
@@ -204,6 +231,24 @@ header {
         @include to-rem(padding-left, 14, $padding-small-horizontal*2);
         @include to-rem(padding-right, 14, $padding-small-horizontal*2);
     }
+    
+    .lang-switcher {
+        > a {
+            &.muted {
+                color: #5a5a5a;
+            }
+        }
+    }
+}
+//Muted language switcher
+.lang-switcher {
+        > a {
+            &.muted {
+                &:hover, &:active, &:focus {
+                    text-decoration: none;
+                }
+            }
+        }
 }
 /**
  *    Desktop secondary nav 
@@ -212,6 +257,14 @@ header {
     @include rem-calc(padding-right, 7);
     float: left;
     display: none;
+
+    .lang-switcher {
+        > a {
+            &.muted {
+                color: #cdcdcd;
+            }
+        }
+    }
 }
 .secondary-nav-nav, .secondary-nav__sub {
     margin: 0;
@@ -232,16 +285,21 @@ header {
 .secondary-nav-link {
     @include clearfix;
     display: inline-block;
-    @include to-rem(padding-top, 14, ($padding-small-vertical * 3));
+    @include to-rem(padding-top, 14, ($padding-small-vertical * 2));
     @include to-rem(padding-bottom, 14, ($padding-small-vertical * 3));
     @include to-rem(padding-left, 14, ($padding-small-horizontal * 0.75));
     @include to-rem(padding-right, 14, ($padding-small-horizontal * 0.75));
     text-align: center;
 }
 .secondary-nav-dropdown {
-    padding-bottom: 0;
     &.active {
         background-color: $white;
+        color: $brand-darker;
+        .dfa-icon {
+            svg {
+                fill: $brand-darker;
+            }                    
+        }
     }
     @include dfa-transition(background-color, 60, swing);
 
@@ -262,6 +320,8 @@ header {
     @include rem-calc(min-width, 220); 
     position: absolute;
     right: 0;
+    top: 44px;
+    
     background-color: $white;
     z-index: 100;
 }
@@ -531,26 +591,33 @@ header {
 }
 
 @media screen and (min-width: 379px) {
-
-    .header-navigation__mobile-menu {
-
-        margin-right: 15px;
-    }
 }
 @media (min-width: $screen-sm-min) {
-    .header-title, .header-navigation__mobile {
-        height: 86px;
-    }  
-    .header-title__logo {
-    @include to-rem(max-width, 16, 300);
-       
+    .header-title {
+        @include make-sm-column(10);
+        .dfa-header-logo, svg {
+            height: 49px;
+            max-width: 260px;
+        }
     }
+    .header-title-logo {
+        height: auto;
+    }
+    .header-navigation__mobile {
+        @include make-sm-column(2);
+    }    
+    .header-title, .header-navigation__mobile {
+        height: 72px;
+    }  
+    .header-title {
+        
+        
+    }
+
     .header-navigation__mobile-search, .header-navigation__mobile-menu {
-        height: 86px;
-        width: 66px ;
-        padding: ($padding-small-vertical * 4) ($padding-small-horizontal) ($padding-small-vertical * 2);
+        max-width: 50px;
         .navigation-text-label { 
-            font-size: 12px;
+            font-size: 14px;
         }
     }
     .dfa-site-search-input {
@@ -566,31 +633,35 @@ header {
 }
 @media (min-width: $screen-md-min) {
     /* Switch header to desktop */
-    .header-row {
-        background-color: $gray-light;
-    }
     .header-title {
-        @include make-md-column(4);
+        @include make-md-column(6);
         height: auto;
         .svg-icon--dfa-logo {
             fill: $brand-primary;
         }
+        svg {
+            height: 55px;
+            max-width: none;
+        }
     }
     .header-title__text {
+        color: inherit;
         display: block;
         margin: 0;
-        @include to-rem(font-size, 16,14);
+        @include to-rem(font-size, 16,18);
     }
     .header-title--mobile {
         display: none;
     }
     .header-title--text-only {}
     .header-title__logo { 
-        max-width: 300px;
+        height: 55px;
+        max-width: none;
         &.header-title__logo--small { display: none; }
         &.header-title__logo--large { 
             display: inline;
         } 
+
     }
     .header-title--text-only {
         .header-title__logo { 
@@ -605,14 +676,26 @@ header {
         display: none;
     }
     .secondary-navigation {
-        @include make-md-column(8);
+        @include make-md-column(6);
         @include rem-calc(padding-right, 0);
+        
         float: left;
         display: block;
         width: 65%;
-        a {font-weight: 400;}
+        a {
+            font-weight: 400;
+            color: inherit;
+        }
         .dfa-icon {
-            display: inline;
+            display: inline-block;
+            height: 20px;
+            width: auto;
+            svg {
+                max-height: 20px;
+                max-width: 25px;
+                fill: $white;
+                margin-bottom: -4px;
+            }
         }
         .close-menu {
             @include to-rem(width, 16, 24);
@@ -626,7 +709,7 @@ header {
     .main-nav-row {
         padding-top: 0;
         padding-bottom: 0;
-        background-color: $brand-primary;
+        background-color: $brand-darker; 
         display: block;
         border-bottom: none;
         position: relative;
@@ -660,7 +743,7 @@ header {
                 font-weight: 400;
             }
             &:hover {
-                background-color: $brand-darker ;
+                background-color: $brand-primary ;
             }
         }
     }
@@ -734,7 +817,7 @@ header {
             float: right;
             padding: ($padding-small-vertical * 2) ($padding-small-horizontal * 2.5) ($padding-small-vertical * 2) ($padding-small-horizontal * 3);
             color: inherit;
-            background-color: $brand-darker ;
+            background-color: $brand-primary ;
             @include clearfix;
         }
         .desktop-search-text {
@@ -745,8 +828,26 @@ header {
             @include to-rem(height, 16, 32);
         }
         .desktop-search-icon {
+//
+//            @include to-rem(width, 18, 36);
+//            @include to-rem(height, 18, 36);
+//            @include to-rem(padding-top, 18, 6);
+//            @include to-rem(padding-bottom, 18, 4);
+//
+            .dfa-svg-icon {
+                fill: $white;
+                max-height: 30px;
+                padding-top: 4px;
+            }
             @include to-rem(width, 16, 32);
+
             float: right;
+            .dfa-svg-icon {
+                fill: $white;
+            }
+        }
+        svg {
+            fill: $white;
         }
         .search-icon {
             display: block;

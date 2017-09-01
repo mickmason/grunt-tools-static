@@ -1,42 +1,39 @@
+/**! 
+* Michael Mason @ t4 
+*/
 (function t4mainfunction($global) { 
     'use strict' ;
+    
     /*
      * Detect SVG support
-     *
      */
     function supportsSvg() {
       var div = document.createElement('div');
       div.innerHTML = '<svg/>';
       return (div.firstChild && div.firstChild.namespaceURI) == 'http://www.w3.org/2000/svg';
     }
-    
     /*
     * Load SVG via AJAX
     */
     var $ajax = new XMLHttpRequest();
     $ajax.open('GET', 'style-assets/media/svg/dfa-icons.svg', true);
-    /*$ajax.open("GET", "index.html", true);*/
     $ajax.onreadystatechange = loadSVGs;
     $ajax.send();
     
-    function loadSVGs() {
+    function loadSVGs() { 
       if ($ajax.readyState === 4) {
           if ($ajax.status === 200) {
             var responseContentType = $ajax.getResponseHeader("Content-Type"); 
-            /*console.log('Response Content type is: '+responseContentType);*/
             if (responseContentType.indexOf('image/svg+xml') !== -1) {
-                /*console.log('It is SVG: '+responseContentType);*/
                 var div = document.createElement("div");
                 div.setAttribute('class', 'dfa-icons-stack');
                 div.innerHTML = $ajax.responseText;
                 document.body.insertBefore(div, document.body.childNodes[0]);    
             } else {
                 $('body').addClass('no-svg');
-                
             }
-           
           } else {
-            console.log('Status is: '+$ajax.status);
+            console.log('Load SVG HTTP status is: '+$ajax.status);
           }
       }
     }
@@ -80,16 +77,14 @@
         },
         {
             breakpoint: 767,
-            settings: {
+            settings: { 
                 slidesToShow: 2,
                 slidesToScroll: 2
             }
         }]
     });
     /* Twitter scroller  */
-    
     $('.scroller-feed__slider').on('init', function(slick) {
-        console.log('on init '+$('.scroller-feed__item').length );
         if ($('.scroller-feed__item').length <= 1) {
             $('.scroller-feed__controls').hide();
         }
@@ -154,17 +149,33 @@
             '.features-row--two-col .dfa-card--widget__background', 
             '.people-feature-person', 
             '.people-feature-overlay',
-            '.gallery-item .dfa-card__wrap'
+            '.double-section-box__box, .double-section-box__box__wrap'
+        
         ];
-    // $('.dfa-widget').matchHeight(); 
-    matchHeightArray.forEach(function($this, idx, arr) { 
-        $($this).matchHeight();    
+    var matchHeightAlwaysArray = [
+            '.gallery-item .dfa-card__wrap'
+    ];
+    matchHeightAlwaysArray.forEach(function($this, idx, arr) { 
+        $($this).matchHeight();   
+    });
+    if ($($global).outerWidth() > 768) {
+            matchHeightArray.forEach(function($this, idx, arr) { 
+                $($this).matchHeight();    
+            });    
+    }
+    $($global).on('resize', function() {
+        if ($($global).outerWidth() >=767) {
+            matchHeightArray.forEach(function($this, idx, arr) { 
+                $($this).matchHeight();    
+            });
+        } else {
+            matchHeightArray.forEach(function($this, idx, arr) { 
+                $($this).css('height', 'auto');    
+            });                         
+        }
     });
     
-  
-    /**! 
-     * Michael t4 
-     */
+
     /*!
      *  Desaturate/saturate images
      */
@@ -287,11 +298,12 @@
      * Click handler for sidebar nav links with nested links 
      * Inner Landing and General Content pages
      */
-    $(document).on('click', '.inner-navigation__show-more', function(e) { 
+    $(document).on('click', '.inner-navigation .inner-navigation__show-more__icon, .inner-navigation .inner-navigation__show-less__icon', function(e) {
+        
         e.preventDefault();
         e.stopPropagation();
         var $this = $(this);
-        if ($this.parent('li').hasClass('active')) {
+        if ($this.parents('li').hasClass('active')) {
             $this.siblings('ul').stop().slideUp(200, function() {
                 $this.parent('li').removeClass('active');        
             });    
@@ -321,8 +333,6 @@
             var x = ($heroText.attr('data-posx')) ? $heroText.attr('data-posx') : 'center';
             var y = ($heroText.attr('data-posy')) ? $heroText.attr('data-posy') : 'middle';
             var align = '';
-            console.log('Hero text x is '+x);
-            console.log('Hero text y is '+y);
             if (x === 'center') {
                 align = 'center';    
                 x = 50;
@@ -351,7 +361,6 @@
     }
     /* Allow user to set the font size of the hero text heading */
     function heroTextSetter() {
-        console.log('Hero text setter');
         if ($('.hero-text')) {
             var $heroText = $('.hero-text');
             if (window.outerWidth > 768) {
@@ -366,6 +375,26 @@
     }//heroTextSetter()
     heroTextSetter();
     $($global).on('resize', heroTextSetter);
+    
+    /* Hero video resizer */
+    function heroVideo() {
+      $('.hero-video').each(function() {
+        var ratio = 16/9;
+        var heroContainer = $(this).closest('.hero-video-wrapper');
+        var video = $(this);
+        video.css('width', '');
+        var heroHeight = heroContainer.outerHeight();
+        var videoHeight = video.outerHeight();
+        if ( videoHeight < heroHeight ) {
+          var newWidth = heroHeight * ratio;
+          video.css('width', newWidth + 'px');
+        }
+      });
+    }
+    heroVideo();
+    $(window).on('resize', function() {
+      heroVideo();
+    });
     
     /**!
      * Feature content block show/hide
@@ -393,7 +422,6 @@
                 $featureLess.fadeIn(showHideDuration, function() {
                     $this.addClass('active');     
                      $featureBody.stop().slideDown({duration: showHideDuration, complete: function() {
-                         console.log('slide down callback');
                          $(this).css({height: 'auto'});
                      }});
                 });
@@ -459,7 +487,6 @@
     
     $('.a-z-listing__alphabet').find('li').each(function(idx, thisLi) {
         var $thisLi = $(thisLi);
-        console.log(idx + ' ' +$thisLi.text() );
         $thisLi.addClass('a-z-listing__alphabet_letter');
         $thisLi.children('a').attr({'href': hrefPrefix + $thisLi.children('a').text()});
     })
@@ -574,7 +601,6 @@
                 }
             });
             checkIfAllHidden($(this));
-            //(hiddenCount == childLisLen) ? $(this).hide() : $(this).show() ;
         });
     });
     /**! Misc scripts for CMS build **/
@@ -621,7 +647,7 @@
         return month[val];
     }
 
-    if($('.country-travel-info__status').length != 0 && jQuery('body#en-lang').length != 0 && jQuery('.updated-date').length != 0) {
+    if($('.security-status').length != 0 && jQuery('body#en-lang').length != 0 && jQuery('.updated-date').length != 0) {
 		var updated = [];
 		$.each($('.updated-date'), function() {
 			var date = $(this).text();
@@ -657,7 +683,7 @@
 		newDiv += "<span id='updated_title'>Updated: </span>"
 		newDiv +=  "<span id='updated_value'>" + updated_full_date + "</span></p>";
 		
-          $(newDiv).insertAfter(".country-travel-info__summary");
+          $(newDiv).insertAfter(".introduction");
 		
 	}
     /**!
@@ -702,7 +728,97 @@
         e.preventDefault();
         $('#cookieNotice').slideUp(360, function() {
                 $.cookie("acceptcookies2", "true", { expires: 365, path: '/' });
-                //$.cookie("acceptcookies", "true", { expires: 365, path: '/' });
         });
     }); //end click   
+    
+    /* T4/Site Manager language switcher patch */
+    //Mute the lang switcher if the content is not translated - data-translated === undefined
+    $(document).on('click', '.lang-switcher > a.muted', function(e)  {
+        e.preventDefault();
+        return false; 
+      });
+    /** 
+     *  Lang switcher patch script
+     *  Required for T4 fulltext content which uses fulltext filename and which is in a translated site and language disclaimer text is used.
+     *  When RDSM13209 is resolved this can be removed
+     */
+    var $ajaxLangTest = new XMLHttpRequest(); 
+    /* If this is fulltext content */
+    if ($('.content--fulltext').length > 0) {
+        /* If any language switcher links for translated languages */
+        var $langSwitcherLink = 
+        ($('.lang-switcher.ie > a').length > 0) ? $('.lang-switcher.ie > a') : 
+        ($('.lang-switcher.pl > a').length > 0) ? $('.lang-switcher.pl > a') : 
+        ($('.lang-switcher.cn > a').length > 0) ? $('.lang-switcher.cn > a') : 
+        undefined ;
+        /* If there is a language switcher */
+        if ($langSwitcherLink !== undefined) {
+            /* href on the language switcher */
+            var langSwitcherLinkHref = $langSwitcherLink.attr('href');
+            console.log('Checking for ' + langSwitcherLinkHref);
+            /* Function which does and AJAX call to the url and calls done(true|false) if it can get the file or not */
+            function checkTranslatedFile(url, done) {
+                 var $ajaxLangTest = new XMLHttpRequest();
+                 $ajaxLangTest.onreadystatechange = function() {
+                        if ($ajaxLangTest.readyState === 4) {
+                             if ($ajaxLangTest.status === 404) {
+                                 done(false);
+                             } else {
+                                 done(true);
+                         }   
+                        }
+                     };
+                     $ajaxLangTest.addEventListener('error', function() {
+                         done(false);
+                     });
+                     $ajaxLangTest.open('GET', url, true);
+                     try {
+                            $ajaxLangTest.send();    
+                     } catch (e) {
+                            done(false);
+                     }   
+            }//checkTranslatedFile()            
+           
+            /* Call that function - the callback tests the result of the AJAX call */
+            checkTranslatedFile(langSwitcherLinkHref, function(resp) { 
+                /* If the URL in the link is wrong */
+                
+                if (resp === false ) {
+                    /* If the URL has '-1' appended to the filename */
+                    if (langSwitcherLinkHref.indexOf('-1.html') !== -1) {
+                        
+                        langSwitcherLinkHref = langSwitcherLinkHref.replace('-1.html', '.html');   
+                        console.log('Remove -1 ' + langSwitcherLinkHref);
+                    /* If it doesn't then append it */
+                    } else {
+                        
+                        langSwitcherLinkHref = langSwitcherLinkHref.replace('.html', '-1.html');
+                        console.log('Add -1 ' + langSwitcherLinkHref);
+                    }
+                    /* Then try again */
+                    checkTranslatedFile(langSwitcherLinkHref, function(resp) {
+                        
+                        /* No luck again - mute the switcher */
+                        if (resp === false) {
+                            $langSwitcherLink.addClass('muted');
+                        /* Got it - change the switcher href */
+                        } else {
+                            $langSwitcherLink.attr('href', langSwitcherLinkHref);
+                        }
+                    });
+                /* Else do nothing */
+                } else {
+                    return true;
+                }
+            });
+        }//endif there is a switcher
+    }//endif this is fulltext content
+    /* End lang switcher patch script */
+    
+    
+   
+    
+    
+    
+    
 })(window); 

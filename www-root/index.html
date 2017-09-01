@@ -15,7 +15,7 @@
     <script src="style-assets/lib/jquery-3.1.1/jquery-3.1.1.min.js"></script>
 
 </head>
-<body id="en-lang" class="">
+<body id="en-lang" class="dfa-theme-gray"> 
        <!-- Cookies notice inherited from old site -->
        <section id="cookieNotice" class="noprint cookies-notice-section landing-feature-section">
            <div class="content-wrap">
@@ -40,10 +40,10 @@
                <div class="content-wrap">
                 <!--** Header title column - logo and desktop title **-->
                 <div class="header-title ">
-                    <h1 class="header-title__text">Africa Ireland forum 2017 | AIEF 2017</h1>
+                    <h1 class="header-title__text"><a href="javascript:void(0)">Africa Ireland forum 2017 | AIEF 2017</a></h1>
                     <a href="javascript:void(0)" class="header-link__home header-title__logo " title="Go to Site Homepage">
-                        <img class=" header-title__logo header-title__logo--small" alt="The Department of Foreign Affairs and Trade, Ireland" src="style-assets/media/svg-imgs/DFAT_Green_Simplified_Horizontal.svg" /> 
-                        <img class=" header-title__logo header-title__logo--large" alt="The Department of Foreign Affairs and Trade, Ireland" src="style-assets/media/svg-imgs/DFAT_Green_Simplified_Horizontal.svg" /> 
+                        <img class=" header-title__logo header-title__logo--small" alt="The Department of Foreign Affairs and Trade, Ireland" src="style-assets/media/svg-imgs/DFAT-Simple-Black.svg" /> 
+                        <img class=" header-title__logo header-title__logo--large" alt="The Department of Foreign Affairs and Trade, Ireland" src="style-assets/media/svg-imgs/DFAT-Simple-Black.svg" /> 
                     </a> 
                 </div>
                 
@@ -51,12 +51,14 @@
                 <!--** Header secondary nav visibile >= 992px BS $screen-md-min **-->
                 <div class="secondary-navigation">
                     <ul class="secondary-nav-nav">
-                        <li class="secondary-nav-link"><a href="javascript:void()" title="DFA home">Secondary nav1</a></li> 
+                        <li class="ie lang-switcher secondary-nav-link"><a href="javascript:void()" title="DFA home">Gaeilge</a></li> 
                         <li class="secondary-nav-link"><a href="javascript:void()" title="DFA home">Secondary nav2</a></li>
                         <li class="secondary-nav-link"><a href="javascript:void()" title="DFA home">Secondary nav3</a></li> 
                         <li class="secondary-nav-link secondary-nav-dropdown"><a href="javascript:void()" title="DFA home">Quicklinks
                            <div class="dfa-icon ">
-                                    <img class="close-menu" src="style-assets/media/svg-imgs/menu_dots_circle_active.svg" alt="Image" />
+                                    <svg class="dfa-svg-icon secondary-navigation__menu__icon">
+                                        <use xlink:href="#menu_dots_circle" />
+                                    </svg>
                             </div>
                            </a>
                             <ul class="">
@@ -104,7 +106,7 @@
             <!-- ** Header micro-site title row **-->
             <div class="header-title--mobile">
                 <div class="header-title--mobile__cols">
-                    <h1 class="header-title--mobile__text header-title__text">Africa Ireland forum 2017 | AIEF 2017</h1>
+                    <h1 class="header-title--mobile__text header-title__text"><a href="javascript:void(0)">Africa Ireland forum 2017 | AIEF 2017</a></h1>
                 </div>
             </div>
             <!-- ** // Header micro-site title row **-->
@@ -427,7 +429,10 @@
                     <div class="desktop-search" data-target="site-search">
                          <a href="javascript:void(0)" class="desktop-search-anchor" title="Show site search">
                             <div class="desktop-search-icon dfa-icon">
-                                <img class="search-icon" src="style-assets/media/svg-imgs/search_Icons Bazaar_white.svg" alt="Image" />
+                                <svg class="dfa-svg-icon">
+                                            <use href="#search_icon" />
+                                        </svg>
+
                             </div>
                             <span class="desktop-search-text">Search: </span>
                         </a>  
@@ -441,12 +446,14 @@
                <div class="content-wrap">
                    <div class="site-search">
                     <form id="dfa-site-search" action="javascript:void">
-                        <label class="hidden"  for="dfa-site-search">Searach DFA website</label>
+                        <label class="hidden"  for="dfa-site-search">Search DFA website</label>
                         <input type="text" placeholder="Search DFA Website" class="dfa-site-search-input" id="dfa-site-search-input" name="dfa-site-search-input" />
                         <div class="dfa-site-search-submit">
                             <a href="javascript:void(0)" id="search-submit-button">
                                 <div class=" dfa-icon">
-                                    <img src="style-assets/media/svg-imgs/search_Icons Bazaar_323232.svg" alt="Image" />    
+                                    <svg class="dfa-svg-icon header-navigation__mobile-icon__search">
+                                        <use xlink:href="#search_icon" />
+                                    </svg>
                                 </div>
                             </a>
                         </div>
@@ -459,7 +466,7 @@
     </header>
     <!--** Site header container **--> 
     <!--** Main section .container **-->
-    <div class="main-section">
+    <div class="main-section main-section--homepage">
         <!--** Intro row ** -->
         <section class="intro-feature landing-feature-section" id="section-1">
             <div class="content-wrap">
@@ -468,9 +475,14 @@
                      <h2>Pages:</h2>
                      <ul>
                          <li><a href="embassies-landing.html">Embassies/Global Irish</a></li>
-                         <li><a href="travel-advice-landing.html">Travel advice landing</a></li>
-                         <li><a href="country-travel-info.html">Country travel page</a> <code>[existing]</code></li>
-                         <li><a href="country-travel-info--new.html">Country travel page</a> <code>[new]</code></li>
+                         <li><strong>Travel pages</strong>:</li>
+                         <ul>
+                             <li><a href="travel-advice-landing.html">Travel advice landing</a></li>
+                             <li><a href="travel-assistance-abroad.html">Travel assistance abroad</a></li>
+                             <li><a href="country-travel-info.html">Country travel page</a> <code>[existing]</code></li>
+                             <li><a href="country-travel-info--new.html">Country travel page</a> <code>[new]</code></li>    
+                         </ul>
+                         
                          <li>
                              <strong>News content</strong>
                              <ul>
@@ -481,6 +493,7 @@
                          
                          <li><a href="contact-form.html">Contact form example</a></li>
                          <li><a href="feature-landing.html">Feature landing page - AIEF</a></li>
+                         <li><a href="feature-landing--video.html">Feature landing page - video</a></li>
                          <li><a href="flexible-boxes.html">Flexible boxes x 3</a></li>
                          <li><a href="inner-landing-page.html">Inner landing page</a></li>
                          
@@ -501,7 +514,6 @@
             </div>           
 
         </section>         
-
     </div>
     <!--** // Main section .container **--> 
          <footer class="print-page-break--before">
