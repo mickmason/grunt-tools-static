@@ -24,7 +24,6 @@ header {
         height: 36px;
         max-width: 240px;
     }
-
 }
 .header-title--text-only {
     .header-title__logo {
@@ -97,12 +96,10 @@ header {
     
 }
 .header-title__logo {
-    //width: 100%;
-    @include to-rem(height, 14, 36); 
+    max-width: 100%;
     &.header-title__logo--large { display: none;}
 }
 .dfa-logo {
-    height: 54px;
     &.white-simple { display: none;}
     width: 100%;
 }
@@ -655,8 +652,6 @@ header {
     }
     .header-title--text-only {}
     .header-title__logo { 
-        height: 55px;
-        max-width: none;
         &.header-title__logo--small { display: none; }
         &.header-title__logo--large { 
             display: inline;
@@ -665,7 +660,6 @@ header {
     }
     .header-title--text-only {
         .header-title__logo { 
-            max-width: 300px;
             &.header-title__logo--small { display: inline; }
             &.header-title__logo--large { 
                 display: none;

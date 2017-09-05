@@ -50,6 +50,19 @@
 /* Page text title */
 .page-title-row {
     @include make-row ;
+    
+    &.page-title-row--narrow {
+        background-color: $gray-light;
+        .page-title__heading {
+            @include rem-calc(padding-top, 16);
+            @include rem-calc(font-size, 18);
+            @media screen and (min-width: $screen-sm-min) {
+                @include rem-calc(padding-top, 18);
+                @include rem-calc(margin-bottom, 18);
+                @include rem-calc(font-size, 24);
+            }
+        }
+    }
 }
 .page-title-block {
     @include make-xs-column(12) ;
