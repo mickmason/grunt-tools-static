@@ -814,11 +814,4 @@
         }//endif there is a switcher
     }//endif this is fulltext content
     /* End lang switcher patch script */
-    
-    
-   
-    
-    
-    
-    
 })(window); 
