@@ -186,11 +186,14 @@ blockquote {
     @include to-rem(border-left-width, 16, 24);
     border-left-color: $brand-darker;
     background-color: $gray-lightest;
-
     position: relative;
+    h1, h2, h4, h4, h5 {
+        &:first-child {
+            margin-top: 0;
+        }
+    }
     p {
         @include to-rem(margin-bottom, 16, 8);
-         
     }
     .attribution {
         font-style: normal;
@@ -199,12 +202,16 @@ blockquote {
         font-size: 1rem;
     }
 }
-.blockquote-left, .blockquote-right {
+.blockquote-left, .blockquote-right, .blockquote-left--gray, .blockquote-right--gray {
         padding: 16px 20px;
         font-style: normal;
         @include dfa-gradient();
         color: $white;
         border-left: none; 
+}
+.blockquote-left--gray, .blockquote-right--gray {
+     @include dfa-gradient($start-color: $gray-light, $end-color: $gray-lightest);
+     color: $gray-dark;
 }
 @media screen and (min-width: $screen-md-min) {
     blockquote {
@@ -212,13 +219,13 @@ blockquote {
             @include to-rem(font-size, 16, 14);
         }        
     }
-    .blockquote-left {
+    .blockquote-left, .blockquote-left--gray {
         float: left;
         max-width: 25%;
         margin: 0px 20px 20px 0; 
         .button-white {width: 100%}
     }
-    .blockquote-right {
+    .blockquote-right, .blockquote-right--gray {
         float: right;
         max-width: 25%;
         margin: 0px 0px 20px 20px; 
@@ -1029,7 +1036,7 @@ select.a-z-listing__filter__input {
     
     @include to-rem(padding, 14, 14, 16);
     @include to-rem(margin-bottom, 14, 16); 
-    background-color: $gray-lightest; 
+    background-color: rgba($gray-light, 0.76); 
     border: 1px solid $brand-primary;
     position: relative;
 
@@ -1153,6 +1160,11 @@ select.a-z-listing__filter__input {
 //Sidebar content
 .side-bar__content {
     display: none;
+    &:first-child {
+        .side-bar__content__heading {
+            margin-top: 0;    
+        }
+    }
 }
 .side-bar__content__body {
     background-color:#f4f5f6; 
@@ -1168,11 +1180,15 @@ select.a-z-listing__filter__input {
     }
 }
 .side-bar__content__heading {
-    background-color: $third-color; 
-    padding:0.5rem; 
+    &.side-bar__content__heading__em {
+        background-color: rgba($third-color, 0.92);     
+    }
+    background-color: rgba($gray-light, 0.76); 
+    padding: 0.7rem 0.5rem; 
     border-style:dashed; 
     border-width:0px 0px 1px; 
     margin-bottom:0; 
+    
 }
 
 @media screen and (max-width: $screen-sm-max) {
@@ -1431,6 +1447,12 @@ footer {
 }
 
 /** Supports general content in landing pages **/
+.gen-content-landing__block, .press-release {
+        
+    iframe {
+        margin: 1rem 0;
+    }       
+}
 .main-section--landing {
     .gen-content-landing-wrap {
         @include make-row;
@@ -1441,6 +1463,8 @@ footer {
         margin: 0 auto;
         padding-left: 15px;
         padding-right: 15px;
+        
+        
 
     }
     @media screen and (min-width: $screen-sm-min) {

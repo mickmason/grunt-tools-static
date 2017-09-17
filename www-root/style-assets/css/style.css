@@ -8444,6 +8444,9 @@ blockquote {
   background-color: #f4f5f6;
   position: relative;
 }
+blockquote h1:first-child, blockquote h2:first-child, blockquote h4:first-child, blockquote h4:first-child, blockquote h5:first-child {
+  margin-top: 0;
+}
 blockquote p {
   margin-bottom: 8px;
   margin-bottom: 0.5rem;
@@ -8455,7 +8458,7 @@ blockquote .attribution {
   font-size: 1rem;
 }
 
-.blockquote-left, .blockquote-right {
+.blockquote-left, .blockquote-right, .blockquote-left--gray, .blockquote-right--gray {
   padding: 16px 20px;
   font-style: normal;
   background: #005036;
@@ -8466,27 +8469,35 @@ blockquote .attribution {
   border-left: none;
 }
 
+.blockquote-left--gray, .blockquote-right--gray {
+  background: #005036;
+  background-image: -webkit-linear-gradient(-18deg, #e4e5e6 0%, #f4f5f6 100%);
+  background-image: -o-linear-gradient(-18deg, #e4e5e6 0%, #f4f5f6 100%);
+  background-image: linear-gradient(-18deg, #e4e5e6 0%, #f4f5f6 100%);
+  color: #323232;
+}
+
 @media screen and (min-width: 992px) {
   blockquote .attribution {
     font-size: 14px;
     font-size: 0.875rem;
   }
 
-  .blockquote-left {
+  .blockquote-left, .blockquote-left--gray {
     float: left;
     max-width: 25%;
     margin: 0px 20px 20px 0;
   }
-  .blockquote-left .button-white {
+  .blockquote-left .button-white, .blockquote-left--gray .button-white {
     width: 100%;
   }
 
-  .blockquote-right {
+  .blockquote-right, .blockquote-right--gray {
     float: right;
     max-width: 25%;
     margin: 0px 0px 20px 20px;
   }
-  .blockquote-right .button-white {
+  .blockquote-right .button-white, .blockquote-right--gray .button-white {
     width: 100%;
   }
 }
@@ -12282,22 +12293,26 @@ h5.feature-heading, h5.landing-feature--heading {
     font-size: 1.22222rem;
   }
 }
+
 @media screen and (min-width: 992px) {
-  .info-card__address, .info-card__address__misc, .info-card__person {
-    position: relative;
-    min-height: 1px;
-    padding-left: 15px;
-    padding-right: 15px;
+  .info-card .landing-feature--heading {
+    margin-bottom: 36px;
+    margin-bottom: 2.25rem;
+  }
+
+  .info-card__address {
+    width: 25%;
+    margin-bottom: -12px;
+    margin-top: -12px;
+    padding: 8px 15px;
+    background-color: #f4f5f6;
+  }
+
+  .info-card__address__misc, .info-card__person {
+    width: 37.5%;
     margin-bottom: 0;
   }
 }
-@media screen and (min-width: 992px) and (min-width: 992px) {
-  .info-card__address, .info-card__address__misc, .info-card__person {
-    float: left;
-    width: 33.33333%;
-  }
-}
-
 .info-card__person a {
   font-weight: 400;
   color: inherit;
@@ -12320,7 +12335,16 @@ h5.feature-heading, h5.landing-feature--heading {
   clear: both;
 }
 .page-title-row.page-title-row--narrow {
+  margin-left: 0;
+  margin-right: 0;
   background-color: #e4e5e6;
+}
+.page-title-row.page-title-row--narrow:before, .page-title-row.page-title-row--narrow:after {
+  content: " ";
+  display: table;
+}
+.page-title-row.page-title-row--narrow:after {
+  clear: both;
 }
 .page-title-row.page-title-row--narrow .page-title__heading {
   padding-top: 16px;
@@ -13258,7 +13282,7 @@ select.a-z-listing__filter__input {
   padding: 1rem 1.14286rem;
   margin-bottom: 16px;
   margin-bottom: 1.14286rem;
-  background-color: #f4f5f6;
+  background-color: rgba(228, 229, 230, 0.76);
   border: 1px solid #006845;
   position: relative;
 }
@@ -13392,6 +13416,9 @@ select.a-z-listing__filter__input {
 .side-bar__content {
   display: none;
 }
+.side-bar__content:first-child .side-bar__content__heading {
+  margin-top: 0;
+}
 
 .side-bar__content__body {
   background-color: #f4f5f6;
@@ -13407,11 +13434,14 @@ select.a-z-listing__filter__input {
 }
 
 .side-bar__content__heading {
-  background-color: #fbecb1;
-  padding: 0.5rem;
+  background-color: rgba(228, 229, 230, 0.76);
+  padding: 0.7rem 0.5rem;
   border-style: dashed;
   border-width: 0px 0px 1px;
   margin-bottom: 0;
+}
+.side-bar__content__heading.side-bar__content__heading__em {
+  background-color: rgba(251, 236, 177, 0.92);
 }
 
 @media screen and (max-width: 991px) {
@@ -14249,6 +14279,10 @@ footer a:active, footer a:hover, footer a:focus {
 }
 
 /** Supports general content in landing pages **/
+.gen-content-landing__block iframe, .press-release iframe {
+  margin: 1rem 0;
+}
+
 .main-section--landing .gen-content-landing-wrap {
   margin-left: -15px;
   margin-right: -15px;

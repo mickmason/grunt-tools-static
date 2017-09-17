@@ -120,7 +120,8 @@
         mobileFirst: true,
          prevArrow: '.discovery-slider__controls .discovery-slider__controls_prev',
         nextArrow: '.discovery-slider__controls .discovery-slider__controls_next',
-        adaptiveHeight: true
+        adaptiveHeight: true,
+        autoplay: true
     });
     
     /*! 
@@ -149,7 +150,8 @@
             '.features-row--two-col .dfa-card--widget__background', 
             '.people-feature-person', 
             '.people-feature-overlay',
-            '.double-section-box__box, .double-section-box__box__wrap'
+            '.double-section-box__box, .double-section-box__box__wrap',
+            '.info-card__address, .info-card__address__misc, .info-card__person'
         
         ];
     var matchHeightAlwaysArray = [
@@ -279,7 +281,6 @@
                         $thisli.removeClass('main-nav--hover');
                     });
                 } else if ($activeLi.length) {
-                    console.log('There is an active link');    
                     $activeLi.find('.main-nav__drop-down').stop().slideUp(durationUp, function() {
                         $activeLi.removeClass('main-nav--hover');
                         $thisDropdown.stop().slideDown(durationUp, function() {
@@ -809,9 +810,38 @@
                 /* Else do nothing */
                 } else {
                     return true;
-                }
+                }height
             });
         }//endif there is a switcher
     }//endif this is fulltext content
     /* End lang switcher patch script */
+    
+    /* Responsive <iframe> in General Content and media content */
+    if (($('.press-release').length > 0 || $('.gen-content-landing__block').length > 0) && $('iframe').length > 0 ) {
+        //if this is general content or news content, get an array of all iframes
+        var $iframes = $('iframe');
+        //the container for the iframes
+        var $fluidWrapper = ($('.gen-content-landing__block').length > 0) ? $('.gen-content-landing__block') : $('.press-release') ;
+        //add the aspect ratio for each iframe as a data-attribute on the <iframe> element, remove width and height attrs
+        $iframes.each(function() {
+            $(this).data('aspectRatio', $(this).attr('height') / $(this).attr('width'))
+                .removeAttr('width').removeAttr('height');    
+        });
+        //function which gets the width of the fluid container and sets the width and height of the iframes based on this
+        function makeiFramesFluid() {
+          var fluidWidth = ($fluidWrapper.outerWidth() > 800) ? 740 : $fluidWrapper.outerWidth();    
+            $iframes.each(function() {
+                $(this).attr('width', fluidWidth)
+                    .attr('height', fluidWidth * $(this).data('aspectRatio'));
+            });
+        }    
+        //call that function when the DOM is ready
+        makeiFramesFluid(); 
+        //Call it when the window resizes
+        $(window).on('resize', makeiFramesFluid);
+    } else { 
+        return;
+    }
+    
+    
 })(window); 

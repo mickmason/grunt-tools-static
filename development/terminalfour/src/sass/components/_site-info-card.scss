@@ -31,20 +31,33 @@
             @include to-rem(font-size, 18, 22);
         }    
     }
-    @media screen and (min-width: $screen-md-min) {
-        @include make-md-column(4);
+    
+}
+@media screen and (min-width: $screen-md-min) {
+    .info-card {
+        .landing-feature--heading {
+            @include rem-calc(margin-bottom, 36);
+        }
+    }
+    .info-card__address {
+        width: 25%;
+        margin-bottom: -12px;
+        margin-top: -12px;
+        padding: 8px 15px;
+        background-color: $gray-lightest;
+    }
+    .info-card__address__misc, .info-card__person {
+        width: 37.5%;
         margin-bottom: 0;
     }
 }
 .info-card__person {
     a {
-            font-weight: 400;
-            color: inherit;
-
-        }
+        font-weight: 400;
+        color: inherit;
+    }
     p {
-        @include to-rem(margin-top, 14, 14);
-        
+        @include to-rem(margin-top, 14, 14);    
     }
 }
 /* Page text title */
@@ -52,6 +65,7 @@
     @include make-row ;
     
     &.page-title-row--narrow {
+        @include make-row(0) ;
         background-color: $gray-light;
         .page-title__heading {
             @include rem-calc(padding-top, 16);
