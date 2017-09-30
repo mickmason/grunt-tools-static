@@ -7910,19 +7910,6 @@ header:after {
     height: 1.5rem;
   }
 
-  .secondary-nav-link {
-    padding-right: 0;
-  }
-  .secondary-nav-link > a {
-    padding-right: 8px;
-    padding-right: 0.57143rem;
-    border-right: 1px solid #fff;
-  }
-  .secondary-nav-link:last-child > a {
-    padding-right: 0;
-    border-right: none;
-  }
-
   .dfa-site-search-input {
     font-size: 18px;
   }
@@ -12074,25 +12061,6 @@ h5.feature-heading, h5.landing-feature--heading {
 .discovery-slider__controls .dfa-svg-icon {
   fill: #fff;
 }
-.discovery-slider__controls .discovery-slider__controls__pause {
-  background-color: #f4f5f6;
-}
-.discovery-slider__controls .discovery-slider__controls__pause .dfa-svg-icon {
-  fill: #006845;
-}
-.discovery-slider__controls .discovery-slider__controls__pause:hover, .discovery-slider__controls .discovery-slider__controls__pause:focus, .discovery-slider__controls .discovery-slider__controls__pause:active {
-  background-color: #009160;
-}
-.discovery-slider__controls .discovery-slider__controls__pause:hover .dfa-svg-icon, .discovery-slider__controls .discovery-slider__controls__pause:focus .dfa-svg-icon, .discovery-slider__controls .discovery-slider__controls__pause:active .dfa-svg-icon {
-  fill: #fff;
-}
-.discovery-slider__controls .discovery-slider__controls__pause.discovery-slider__controls__paused {
-  padding: 4px;
-  background-color: #009160;
-}
-.discovery-slider__controls .discovery-slider__controls__pause.discovery-slider__controls__paused .dfa-svg-icon {
-  fill: #fff;
-}
 
 /*
  *    Discovery accordion-tabs compontent
@@ -13787,9 +13755,6 @@ footer a:active, footer a:hover, footer a:focus {
   .dfa-theme-gray .secondary-navigation .dfa-icon svg {
     fill: #005036;
   }
-  .dfa-theme-gray .secondary-nav-link > a {
-    border-right-color: #006845;
-  }
   .dfa-theme-gray .main-nav-row {
     background-color: #006845;
   }
@@ -14314,9 +14279,8 @@ footer a:active, footer a:hover, footer a:focus {
 }
 
 /** Supports general content in landing pages **/
-.gen-content-landing__block .gen-content-iframe, .press-release .gen-content-iframe {
-  margin: 1rem 0 1rem;
-  border: none;
+.gen-content-landing__block iframe, .press-release iframe {
+  margin: 1rem 0;
 }
 
 .main-section--landing .gen-content-landing-wrap {
