@@ -62,6 +62,13 @@
                 }
             }
         }
+        .secondary-nav-link {
+           > a {
+       
+                border-right-color: $brand-primary;
+            }
+           
+        }
         .main-nav-row {
             background-color: $brand-primary;
         }

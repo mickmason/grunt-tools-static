@@ -1449,8 +1449,9 @@ footer {
 /** Supports general content in landing pages **/
 .gen-content-landing__block, .press-release {
         
-    iframe {
-        margin: 1rem 0;
+    .gen-content-iframe {
+        margin: 1rem 0 1rem;
+        border: none;
     }       
 }
 .main-section--landing {
@@ -1463,9 +1464,6 @@ footer {
         margin: 0 auto;
         padding-left: 15px;
         padding-right: 15px;
-        
-        
-
     }
     @media screen and (min-width: $screen-sm-min) {
         .content-wrap__narrow {

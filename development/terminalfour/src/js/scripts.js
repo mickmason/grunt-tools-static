@@ -83,10 +83,23 @@
             }
         }]
     });
+   
     /* Twitter scroller  */
     $('.scroller-feed__slider').on('init', function(slick) {
         if ($('.scroller-feed__item').length <= 1) {
             $('.scroller-feed__controls').hide();
+        }
+    });
+     /* Discovery and twitter scroller pause button */
+     $('.discovery-slider__controls__pause, .scroller-feed__pause').on('click', function(e) {
+        e.preventDefault();
+         var $this = $(this);
+        if ($this.hasClass('discovery-slider__controls__paused')) {
+            $this.parents('.discovery-slider__controls').eq(0).siblings('.dfa-slick-slider').slick('slickPlay');    
+            $this.removeClass('discovery-slider__controls__paused');
+        } else {
+            $this.parents('.discovery-slider__controls').eq(0).siblings('.dfa-slick-slider').slick('slickPause');     
+            $this.addClass('discovery-slider__controls__paused');    
         }
     });
     $('.scroller-feed__slider').slick({
@@ -102,17 +115,17 @@
         prevArrow: '.scroller-feed .discovery-slider__controls_prev',
         nextArrow: '.scroller-feed .discovery-slider__controls_next',
         adaptiveHeight: true
-
-    });
+    }); 
    
-    $('.discovery-slider__controls__pause').on('click', function(e) {
-        e.preventDefault();
-        if ($(this).hasClass('discovery-slider__controls__paused')) {
-            $('.scroller-feed__slider').slick('slickPlay');
-            $(this).removeClass('discovery-slider__controls__paused');
-        } else {
-            $('.scroller-feed__slider').slick('slickPause');
-            $('.discovery-slider__controls__pause').addClass('discovery-slider__controls__paused');    
+    $('.discovery-slider__slider').on('init', function(slick) {
+        var $this = $(this);
+        if ($this.find('.discovery-slider__slide').length <= 1) {
+            $this.siblings('.discovery-slider__controls').hide();
+        }
+        if ($this.hasClass('slider--stopped')) { 
+            console.log($this); 
+//            $this.slick('slickPause');  
+//            $this.siblings('.discovery-slider__controls').hide();
         }
     });
     /* Discovery slider */
@@ -826,6 +839,7 @@
         $iframes.each(function() {
             $(this).data('aspectRatio', $(this).attr('height') / $(this).attr('width'))
                 .removeAttr('width').removeAttr('height');    
+            $(this).addClass('gen-content-iframe');
         });
         //function which gets the width of the fluid container and sets the width and height of the iframes based on this
         function makeiFramesFluid() {

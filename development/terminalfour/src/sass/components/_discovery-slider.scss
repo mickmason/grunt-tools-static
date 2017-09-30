@@ -227,4 +227,25 @@
     .dfa-svg-icon {
         fill: $white;
     }
+   .discovery-slider__controls__pause {
+        background-color: $gray-lightest;
+        .dfa-svg-icon {
+            fill: $brand-primary;
+        }
+        &:hover, &:focus, &:active {
+            background-color: lighten($brand-primary, 8%); 
+            .dfa-svg-icon {
+                fill: $white;
+            }
+        }
+        &.discovery-slider__controls__paused {
+            padding: 4px;
+            background-color: lighten($brand-primary, 8%); 
+            .dfa-svg-icon {
+                fill: $white;
+            }
+        }
+       
+        
+    }
 }

@@ -299,7 +299,6 @@ header {
         }
     }
     @include dfa-transition(background-color, 60, swing);
-
     position: relative;
     .open-menu {
         display: none;
@@ -680,6 +679,7 @@ header {
             font-weight: 400;
             color: inherit;
         }
+        
         .dfa-icon {
             display: inline-block;
             height: 20px;
@@ -694,6 +694,19 @@ header {
         .close-menu {
             @include to-rem(width, 16, 24);
             @include to-rem(height, 16, 24);
+        }
+    }
+    .secondary-nav-link {
+        padding-right: 0;
+        > a {
+            @include to-rem(padding-right, 14, $padding-small-horizontal);
+            border-right: 1px solid $white;
+        }
+        &:last-child {
+            > a {
+                padding-right: 0;
+                border-right: none;                
+            }
         }
     }
     .dfa-site-search-input {
