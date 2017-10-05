@@ -94,8 +94,9 @@
      $('.discovery-slider__controls__pause, .scroller-feed__pause').on('click', function(e) {
         e.preventDefault();
          var $this = $(this);
+         console.log('This clicked '+ $this.attr('class'));
         if ($this.hasClass('discovery-slider__controls__paused')) {
-            $this.parents('.discovery-slider__controls').eq(0).siblings('.dfa-slick-slider').slick('slickPlay');    
+            $this.parents('.discovery-slider__controls').eq(0).siblings('.dfa-slick-slider').slick('slickPlay');  
             $this.removeClass('discovery-slider__controls__paused');
         } else {
             $this.parents('.discovery-slider__controls').eq(0).siblings('.dfa-slick-slider').slick('slickPause');     
@@ -853,9 +854,10 @@
         makeiFramesFluid(); 
         //Call it when the window resizes
         $(window).on('resize', makeiFramesFluid);
-    } else { 
-        return;
     }
+    
+    //Add a class to the footer links <ul> if it's not there already
+    $('.footer-links > ul').addClass('footer-links-list');
     
     
 })(window); 

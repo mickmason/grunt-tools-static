@@ -141,24 +141,22 @@
         position: relative;
         z-index: 10;
         width: 100%;
-        @media screen and (min-width: $screen-lg-min) {
+        @media screen and (min-width: 850px) {
             float: none; 
-            width: 83.3333333%;
+            max-width: 850px;
             margin: 0 auto;
         }
+
     }
 }
-/* Text-only slide text */
-.discovery-slider__text-only__body {
-    @media screen and (min-width: $screen-md-min) {
-        @include dfa-columns(2, auto, 2rem); 
+
+.information-card {
+    .read-more {
+        position: static;
+        bottom: auto;
+        float: right;
+        @include to-rem(margin-bottom, 16, 32);
     }
-}  
-/* If no columns */
-.no-columns .discovery-slider__slide.discovery-slider__text-only .discovery-slider__slide__text {
-    float: none;
-    max-width: 800px;
-    margin: 0 auto;
 }
 
 /* The content category */
@@ -206,7 +204,7 @@
         &:hover, &:active, &:focus {
             cursor: pointer;
             background-color: $brand-darker;
-        }
+        } 
         width:     32px;
         height:    32px;
         margin-left: 1px;

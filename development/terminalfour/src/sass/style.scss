@@ -1313,64 +1313,8 @@ select.a-z-listing__filter__input {
     }
 }
 
-/** 
- * Footer 
- *
-**/
-footer {
-    @include container-fixed;
-    background-color: $brand-primary;
-    color: $white;
-    a {
-        
-        color: $white;
-        &:active, &:hover, &:focus {
-            color: $white;
-        }
-    }
-}
-.footer-row {
-    @include make-row;
-    
-    &.landing-feature-section {
-        padding-bottom: 0;
-    }
-}
-.footer-links, .footer-address {
-     @include make-xs-column(12);
-     @include rem-calc(padding-bottom, 36);
-    text-align: center;
-}
-.footer-address {
-    p {
-        @include rem-calc(margin-bottom, 8);
-        line-height: 1.4;
-    }   
-}
-.footer-links {
-    ul {
-        padding: 0;
-        margin: 0; 
-    }
-   li {
-        list-style: none;
-    }
-}
-@media screen and (min-width: $screen-sm-min) {
-    .footer-links, .footer-address {
-         @include make-xs-column(6) ;
-         @include to-rem(font-size, 16, 16);
-    }
-    .footer-links {
-         text-align: left;
-        li {
-             @include to-rem(margin-bottom, 16, 4);            
-        }
-    }
-    .footer-address {
-        text-align: right;
-    }
-}
+//footer
+@import 'components/footer';
 
 /* Misc classes */
 .dfa-audio-link {

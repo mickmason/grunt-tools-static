@@ -1,6 +1,3 @@
-/* 
- *    Site-wider footer 
- */
 /** 
  * Footer 
  *
@@ -9,8 +6,7 @@ footer {
     @include container-fixed;
     background-color: $brand-primary;
     color: $white;
-    a {
-        
+    a { 
         color: $white;
         &:active, &:hover, &:focus {
             color: $white;
@@ -26,36 +22,60 @@ footer {
 }
 .footer-links, .footer-address {
      @include make-xs-column(12);
-     @include rem-calc(padding-bottom, 36);
+     @include to-rem(padding-bottom, 14, 28);
     text-align: center;
 }
 .footer-address {
     p {
-        @include rem-calc(margin-bottom, 8);
-        line-height: 1.4;
+        @include rem-calc(margin-bottom, 0);
+        
     }   
 }
 .footer-links {
     ul {
         padding: 0;
-        margin: 0; 
     }
    li {
         list-style: none;
     }
 }
+.footer-links-list {
+    @include to-rem(margin-bottom, 14, 28);
+}
+@media screen and (max-width: 767px) {
+    .footer-branding {
+        img {
+            margin: 0 auto;
+        }
+    }    
+}
+
 @media screen and (min-width: $screen-sm-min) {
     .footer-links, .footer-address {
-         @include make-xs-column(6) ;
          @include to-rem(font-size, 16, 16);
     }
     .footer-links {
-         text-align: left;
+        width: 70%;
+        text-align: left;
         li {
-             @include to-rem(margin-bottom, 16, 4);            
+             display: inline-block;
+            a {
+                @include to-rem(padding-right, 16, 8);        
+                @include to-rem(padding-left, 16, 8);    
+                border-left: 1px solid $white; 
+            }    
+            &:first-child {
+                a {
+                    border-left: none;
+                    @include to-rem(padding-left, 16, 0);    
+                }
+                    
+            }
         }
     }
     .footer-address {
+ 
+        width: 30%;
         text-align: right;
     }
 }
