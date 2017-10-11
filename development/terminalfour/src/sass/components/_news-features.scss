@@ -1,0 +1,101 @@
+
+.news-features {
+    
+    &.landing-feature-section {
+        @include to-rem(padding-top,     16, 24);
+        @include to-rem(padding-bottom,  16, 24);
+    }    
+    
+    .news-feature:first-child {
+        color: $white;
+    }
+    
+    a {
+        
+    }
+    
+}
+.news-feature {
+    
+    @include make-xs-column(12);
+    overflow: hidden;
+     color: $white;
+    @media screen and (min-width: $screen-sm-min) {
+        
+        width: 50%;
+        &:first-child {
+            width: 100%;
+            
+        }
+        
+    }
+    @media screen and (min-width: $screen-md-min) {
+        
+        width: 25%;
+        &:first-child {
+            width: 50%;
+            
+        }
+        
+    }
+}
+.news-feature__inner-wrap {
+    position: relative;
+} 
+.news-feature__img {
+    display: block;
+    position: relative;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+} 
+.news-feature__anchor {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+    color: inherit;
+    background-color: rgba(0, 0, 0, 0.24);
+    
+    @include dfa-transition(background-color, 160);
+    
+    &:hover, &:active, &:focus {
+        background-color: rgba(0, 0, 0, 0);
+    } 
+}
+.news-feature__details { 
+    width: 100%;
+    height: 38.8%;
+    @include to-rem(padding-left, 16, 8);
+    @include to-rem(padding-right, 16, 8);
+    @include to-rem(padding-bottom, 16, 12);
+    padding-top: 11.8%;
+    position: absolute;
+    
+    z-index: 100;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include gradient-vertical($start-color: rgba(0, 0, 0, 0), $end-color: rgba(0, 0, 0, 1), $start-percent: 0%, $end-percent: 100%);
+    
+    &:hover {
+        cursor: pointer;
+        // @include gradient-vertical($start-color: rgba(0, 0, 0, 0), $end-color: rgba(0, 0, 0, 1), $start-percent: 50%, $end-percent: 100%);
+        & + .news-feature__anchor {
+             background-color: rgba(0, 0, 0, 0);
+        }
+    }
+    
+}
+.news-feature__heading, .news-feature__heading {
+    margin: 0;
+}
+.news-feature__heading {
+     @include to-rem(margin-bottom, 16, 4);
+}

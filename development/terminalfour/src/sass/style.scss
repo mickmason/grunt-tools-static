@@ -275,16 +275,13 @@ blockquote {
 /* Each section */
 .landing-feature-section {
     @include make-row;
-    @include rem-calc(padding-top, ($padding-small-vertical * 8));
-    @include rem-calc(padding-bottom, ($padding-small-vertical * 8)) ;
+    @include rem-calc(padding-top, ($padding-small-vertical * 6));
+    @include rem-calc(padding-bottom, ($padding-small-vertical * 6)) ;
     &.landing-feature-section--featured { 
         padding-top: 0;
         padding-bottom: 0;
     }
-    /* padding overrides for some feature rows */
-    &.plain-cards-feature, &.news-features, &.horizontal-cards, &.numbers-cards {
-        @include rem-calc(padding-bottom, ($padding-small-vertical * 16) - 22) ;
-    }
+    
    
 }
 .main-body--general-content {
@@ -394,7 +391,7 @@ h5 {
 }
 @media screen and (min-width: $screen-lg-min) {
     .feature-heading, .landing-feature--heading {
-        @include rem-calc(margin-bottom, ($padding-small-vertical * 8));
+        
         .dfa-play-icon {
             max-height: 20px;
             max-width: 12px;
@@ -581,6 +578,7 @@ h5 {
 @import 'components/accordion-tabs';
 @import 'components/site-info-card';
 @import 'components/code-containers';
+@import 'components/news-features';
 
 /*
  * Country travel info content
