@@ -775,6 +775,8 @@
             function checkTranslatedFile(url, done) {
                  var $ajaxLangTest = new XMLHttpRequest();
                  $ajaxLangTest.onreadystatechange = function() {
+                        console.log('$ajaxLangTest readyState is: '+$ajaxLangTest.readyState);
+                        console.log('$ajaxLangTest status is: '+$ajaxLangTest.status);
                         if ($ajaxLangTest.readyState === 4) {
                              if ($ajaxLangTest.status === 404) {
                                  done(false);
@@ -800,14 +802,14 @@
                 
                 if (resp === false ) {
                     /* If the URL has '-1' appended to the filename */
-                    if (langSwitcherLinkHref.indexOf('-1.html') !== -1) {
+                    if (langSwitcherLinkHref.indexOf('-1.php') !== -1) {
                         
-                        langSwitcherLinkHref = langSwitcherLinkHref.replace('-1.html', '.html');   
+                        langSwitcherLinkHref = langSwitcherLinkHref.replace('-1.php', '.php');   
                         console.log('Remove -1 ' + langSwitcherLinkHref);
                     /* If it doesn't then append it */
                     } else {
                         
-                        langSwitcherLinkHref = langSwitcherLinkHref.replace('.html', '-1.html');
+                        langSwitcherLinkHref = langSwitcherLinkHref.replace('.php', '-1.php');
                         console.log('Add -1 ' + langSwitcherLinkHref);
                     }
                     /* Then try again */
@@ -824,7 +826,7 @@
                 /* Else do nothing */
                 } else {
                     return true;
-                }height
+                }
             });
         }//endif there is a switcher
     }//endif this is fulltext content

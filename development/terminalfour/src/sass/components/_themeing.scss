@@ -185,7 +185,7 @@
     .panel-title > a.panel-heading__anchor {
         color: $theme-blue;
     }
-    .panel-heading a .panel-heading__show-more__icon .dfa-svg-icon, .panel-heading a .panel-heading__show-less__icon .dfa-svg-icon {
+    .panel-heading a .panel-heading__show-more__icon .dfa-svg-icon, .panel-heading a .panel-heading__show-less__icon .dfa-svg {
         fill: $theme-blue;
     }
     //Inner navigation
@@ -286,6 +286,12 @@
         color: inherit;
         &:hover {
             color: $theme-blue;
+        }
+    }
+    //News grid 
+    .news-grid {
+        .landing-feature--heading {
+            border-left-color: $theme-blue;   
         }
     }
     

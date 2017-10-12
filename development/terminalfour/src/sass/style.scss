@@ -302,6 +302,23 @@ blockquote {
 .landing-feature__row {
     @include make-row;
 }
+.landing-feature__read-more {
+    p {
+        text-align: right;
+        max-width: none;
+    }
+}
+.landing-feature__read-more__link {
+    display: inline-block;
+}
+.landing-feature__read-more__icon {
+    display: inline-block;
+    @include to-rem(margin-bottom, 14, -4);
+    @include to-rem(margin-left, 14, -2);
+    @include to-rem(max-height, 14, 16);
+    @include to-rem(max-width, 14, 14);
+    
+}
 /* Landing page headings */
 .feature-heading, .landing-feature--heading {
     margin-top: 0;
