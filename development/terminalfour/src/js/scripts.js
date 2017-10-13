@@ -689,7 +689,6 @@
 		var today_date = today.getDate() ;
 		var today_month = getMonthName(today.getMonth());
 		var today_year = today.getFullYear();
-		
 		var todays_full_date = today_date + " " + today_month + " " + today_year;
 		
 		var newDiv = "<p class='country-travel-info__datestamp' id='updated-data-travel-advice'>"
@@ -720,7 +719,6 @@
                         $thisHeading.removeClass('active');
                     });    
                 }
-                
             });        
        } else {
           $('.heading--side-bar').off('click');
@@ -777,6 +775,7 @@
                  $ajaxLangTest.onreadystatechange = function() {
                         console.log('$ajaxLangTest readyState is: '+$ajaxLangTest.readyState);
                         console.log('$ajaxLangTest status is: '+$ajaxLangTest.status);
+                        console.log('$ajaxLangTest response is: '+$ajaxLangTest.getResponseHeader('Content-Type'));
                         if ($ajaxLangTest.readyState === 4) {
                              if ($ajaxLangTest.status === 404) {
                                  done(false);
