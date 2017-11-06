@@ -762,6 +762,7 @@
         var $langSwitcherLink = 
         ($('.lang-switcher.ie > a').length > 0) ? $('.lang-switcher.ie > a') : 
         ($('.lang-switcher.pl > a').length > 0) ? $('.lang-switcher.pl > a') : 
+        ($('.lang-switcher.es > a').length > 0) ? $('.lang-switcher.es > a') : 
         ($('.lang-switcher.cn > a').length > 0) ? $('.lang-switcher.cn > a') : 
         undefined ;
         /* If there is a language switcher */
@@ -777,11 +778,11 @@
                         console.log('$ajaxLangTest status is: '+$ajaxLangTest.status);
                         console.log('$ajaxLangTest response is: '+$ajaxLangTest.getResponseHeader('Content-Type'));
                         if ($ajaxLangTest.readyState === 4) {
-                             if ($ajaxLangTest.status === 404) {
+                             if ($ajaxLangTest.status === 404 || ($ajaxLangTest.status >= 300 && $ajaxLangTest.status < 400 ) {
                                  done(false);
                              } else {
                                  done(true);
-                         }   
+                            }   
                         }
                      };
                      $ajaxLangTest.addEventListener('error', function() {
