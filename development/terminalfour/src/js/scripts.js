@@ -799,17 +799,20 @@
             /* Call that function - the callback tests the result of the AJAX call */
             checkTranslatedFile(langSwitcherLinkHref, function(resp) { 
                 /* If the URL in the link is wrong */
-                
                 if (resp === false ) {
                     /* If the URL has '-1' appended to the filename */
-                    if (langSwitcherLinkHref.indexOf('-1.php') !== -1) {
+                    if (langSwitcherLinkHref.indexOf('-1.html') !== -1) {
+                        
+                        langSwitcherLinkHref = langSwitcherLinkHref.replace('-1.html', '.html');   
+                        console.log('Remove -1 ' + langSwitcherLinkHref);
+                    /* If it doesn't then append it */
+                    } else if (langSwitcherLinkHref.indexOf('-1.php') !== -1) {
                         
                         langSwitcherLinkHref = langSwitcherLinkHref.replace('-1.php', '.php');   
                         console.log('Remove -1 ' + langSwitcherLinkHref);
                     /* If it doesn't then append it */
                     } else {
-                        
-                        langSwitcherLinkHref = langSwitcherLinkHref.replace('.php', '-1.php');
+                        langSwitcherLinkHref = (langSwitcherLinkHref.indexOf('.php') >=0 ) ? langSwitcherLinkHref.replace('.html', '-1.html'); langSwitcherLinkHref.replace('.php', '-1.php') :
                         console.log('Add -1 ' + langSwitcherLinkHref);
                     }
                     /* Then try again */
