@@ -5,7 +5,7 @@
 
 table {
   background-color: $table-bg;
-    > thead,
+    /*> thead,
       > tbody,
       > tfoot {
         > tr {
@@ -20,7 +20,15 @@ table {
               }
           }
         }
-      }
+      }*/
+    > tbody {
+        > tr {
+            &:nth-child(odd) {
+                background-color: #dfdfdf;
+            }
+        }    
+    }
+    
 }
 caption {
   padding-top: $table-cell-padding;
@@ -193,7 +201,7 @@ table {
     margin-bottom: ($line-height-computed * 0.75);
     overflow-y: hidden;
     -ms-overflow-style: -ms-autohiding-scrollbar;
-    border: 1px solid $table-border-color;
+  /*  border: 1px solid $table-border-color;*/
 
     // Tighten up spacing
     > .table {

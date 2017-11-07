@@ -1876,30 +1876,25 @@ pre code {
 }
 table {
   background-color: transparent;
+  /*> thead,
+    > tbody,
+    > tfoot {
+      > tr {
+        > th,
+        > td {
+          padding: 0 8px 0 8px;
+            &:first-child {
+                padding-left: 0;
+            }
+            &:last-child {
+                padding-right: 0;
+            }
+        }
+      }
+    }*/
 }
-table > thead > tr > th,
-table > thead > tr > td,
-table > tbody > tr > th,
-table > tbody > tr > td,
-table > tfoot > tr > th,
-table > tfoot > tr > td {
-  padding: 0 8px 0 8px;
-}
-table > thead > tr > th:first-child,
-table > thead > tr > td:first-child,
-table > tbody > tr > th:first-child,
-table > tbody > tr > td:first-child,
-table > tfoot > tr > th:first-child,
-table > tfoot > tr > td:first-child {
-  padding-left: 0;
-}
-table > thead > tr > th:last-child,
-table > thead > tr > td:last-child,
-table > tbody > tr > th:last-child,
-table > tbody > tr > td:last-child,
-table > tfoot > tr > th:last-child,
-table > tfoot > tr > td:last-child {
-  padding-right: 0;
+table > tbody > tr:nth-child(odd) {
+  background-color: #dfdfdf;
 }
 
 caption {
@@ -2094,7 +2089,7 @@ table th[class*="col-"] {
     margin-bottom: 15px;
     overflow-y: hidden;
     -ms-overflow-style: -ms-autohiding-scrollbar;
-    border: 1px solid #323232;
+    /*  border: 1px solid $table-border-color;*/
   }
   .table-responsive > .table {
     margin-bottom: 0;
@@ -8874,6 +8869,7 @@ h5.feature-heading, h5.landing-feature--heading {
 .dfa-card__anchor {
   color: #323232;
   font-weight: 400;
+  display: block;
 }
 .dfa-card__anchor:before, .dfa-card__anchor:after {
   content: " ";
@@ -12777,8 +12773,7 @@ h5.feature-heading, h5.landing-feature--heading {
   float: none;
   z-index: 100;
   top: 20px;
-  left: -16px;
-  left: -1rem;
+  padding-left: 0;
   font-size: 14px;
   font-size: 1rem;
   margin-top: 0;
@@ -12973,8 +12968,7 @@ h5.feature-heading, h5.landing-feature--heading {
     float: none;
     z-index: 100;
     top: 4px;
-    left: -16px;
-    left: -1rem;
+    padding-left: 0;
     padding-top: 2px;
     padding-top: 0.125rem;
     padding-bottom: 2px;

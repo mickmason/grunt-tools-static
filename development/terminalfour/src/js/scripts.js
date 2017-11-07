@@ -750,7 +750,7 @@
         e.preventDefault();
         return false; 
       });
-    /** 
+     /** 
      *  Lang switcher patch script
      *  Required for T4 fulltext content which uses fulltext filename and which is in a translated site and language disclaimer text is used.
      *  When RDSM13209 is resolved this can be removed
@@ -769,20 +769,30 @@
         if ($langSwitcherLink !== undefined) {
             /* href on the language switcher */
             var langSwitcherLinkHref = $langSwitcherLink.attr('href');
-            console.log('Checking for ' + langSwitcherLinkHref);
+            
             /* Function which does and AJAX call to the url and calls done(true|false) if it can get the file or not */
             function checkTranslatedFile(url, done) {
                  var $ajaxLangTest = new XMLHttpRequest();
                  $ajaxLangTest.onreadystatechange = function() {
-                        console.log('$ajaxLangTest readyState is: '+$ajaxLangTest.readyState);
-                        console.log('$ajaxLangTest status is: '+$ajaxLangTest.status);
-                        console.log('$ajaxLangTest response is: '+$ajaxLangTest.getResponseHeader('Content-Type'));
+                      
                         if ($ajaxLangTest.readyState === 4) {
-                             if ($ajaxLangTest.status === 404 || ($ajaxLangTest.status >= 300 && $ajaxLangTest.status < 400 ) {
+                            
+                            //console.log('heading is: '+$($ajaxLangTest.responseText).find('.content-heading').html());
+                            //if page is 404 OR responseURL is DFA 404 page OR (if IE) the response contains a heading with the text 'Page not found' then there is no page
+                            try {
+                                if ($ajaxLangTest.status === 404) {
+                                     done(false);
+                                } else if ($ajaxLangTest.responseURL === 'https://www.dfa.ie/404/') {
+                                  
+                                    done(false);
+                                } else if ($($ajaxLangTest.responseText).find('.content-heading').html() === 'Page not found') {
+                                     done(false);
+                                } else {
+                                     done(true);
+                                }   
+                            } catch (e) {
                                  done(false);
-                             } else {
-                                 done(true);
-                            }   
+                            }
                         }
                      };
                      $ajaxLangTest.addEventListener('error', function() {
@@ -793,7 +803,8 @@
                             $ajaxLangTest.send();    
                      } catch (e) {
                             done(false);
-                     }   
+                     } 
+                
             }//checkTranslatedFile()            
            
             /* Call that function - the callback tests the result of the AJAX call */
@@ -812,7 +823,7 @@
                         console.log('Remove -1 ' + langSwitcherLinkHref);
                     /* If it doesn't then append it */
                     } else {
-                        langSwitcherLinkHref = (langSwitcherLinkHref.indexOf('.php') >=0 ) ? langSwitcherLinkHref.replace('.html', '-1.html'); langSwitcherLinkHref.replace('.php', '-1.php') :
+                        langSwitcherLinkHref = (langSwitcherLinkHref.indexOf('.php') >=0 ) ? langSwitcherLinkHref.replace('.php', '-1.php') : langSwitcherLinkHref.replace('.html', '-1.html');
                         console.log('Add -1 ' + langSwitcherLinkHref);
                     }
                     /* Then try again */
@@ -864,5 +875,7 @@
     //Add a class to the footer links <ul> if it's not there already
     $('.footer-links > ul').addClass('footer-links-list');
     
+    //Wrap tables in general content 
+    $('.main-body--general-content .main-body__main .table, .main-body--general-content .main-body__main table, .gen-content-landing__block .table, .gen-content-landing__block table').wrap('<div class="table-responsive"></div>');
     
 })(window); 

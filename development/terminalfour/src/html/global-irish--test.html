@@ -35,78 +35,16 @@
                         <p>Please also see 2017&nbsp;<a href="/media/dfa/alldfawebsitemedia/ourrolesandpolicies/theirishabroad/2017-List-of-Questions-on-ESP-Application-Form.pdf">List of the questions for the ESP Online Application Form</a></p>
                         <p>&nbsp; &nbsp;</p>
                         </div> 
-                </article>
+                    </article>
+                
+                    <h2>Consular Fees</h2>
+                    
+                    
+                
                 </section><!-- // .main-body__main -->
             </div>
         </section>
     </main>
-    <script>
-         var $ajaxLangTest = new XMLHttpRequest();
-
-    /* If this is fulltext content */
-    if ($('.content--fulltext').length > 0) {
-        /* If any language switcher links for translated languages */
-        var $langSwitcherLink = 
-        ($('.lang-switcher.ie > a').length > 0) ? $('.lang-switcher.ie > a') : 
-        ($('.lang-switcher.pl > a').length > 0) ? $('.lang-switcher.pl > a') : 
-        ($('.lang-switcher.cn > a').length > 0) ? $('.lang-switcher.cn > a') : 
-        undefined ;
-        /* If there is a language switcher */
-        if ($langSwitcherLink !== undefined) {
-            /* href on the language switcher */
-            var langSwitcherLinkHref = $langSwitcherLink.attr('href');
-            
-            /* Function which does and AJAX call to the url and calls done(true|false) if it can get the file or not */
-            function checkTranslatedFile(url, done) {
-                 var $ajaxLangTest = new XMLHttpRequest();
-                 $ajaxLangTest.onreadystatechange = function() {
-                        if ($ajaxLangTest.readyState === 4) {
-                             if ($ajaxLangTest.status === 404) {
-                                 done(false);
-                             } else {
-                                 done(true);
-                         }   
-                        }
-                     };
-                     $ajaxLangTest.addEventListener('error', function() {
-                         done(false);
-                     });
-                     $ajaxLangTest.open('GET', url, true);
-                     try {
-                            $ajaxLangTest.send();    
-                     } catch (e) {
-                            done(false);
-                     }   
-            }//checkTranslatedFile()            
-           
-            /* Call that function - the callback tests the result of the AJAX call */
-            checkTranslatedFile(langSwitcherLinkHref, function(resp) { 
-                /* If the URL in the link is wrong */
-                if (resp === false ) {
-                    /* If the URL has '-1' appended to the filename */
-                    if (langSwitcherLinkHref.indexOf('-1.html') !== -1) {
-                        langSwitcherLinkHref = langSwitcherLinkHref.replace('-1.html', '.html');   
-                    /* If it doesn't then append it */
-                    } else {
-                        langSwitcherLinkHref = langSwitcherLinkHref.replace('.html', '-1.html');
-                    }
-                    /* Then try again */
-                    checkTranslatedFile(langSwitcherLinkHref, function(resp) {
-                        /* No luck again - mute the switcher */
-                        if (resp === false) {
-                            $langSwitcherLink.addClass('muted');
-                        /* Got it - change the switcher href */
-                        } else {
-                            $langSwitcherLink.attr('href', langSwitcherLinkHref);
-                        }
-                    });
-                /* Else do nothing */
-                } else {
-                    return true;
-                }
-            });
-        }//endif there is a switcher
-    }//endif this is fulltext content
-    </script>
+   
     <!--** // Main section .container **-->
     @@include('structure/site-footer.html')

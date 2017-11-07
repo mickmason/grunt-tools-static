@@ -34,6 +34,7 @@
     @include clearfix;
     color: $gray-dark;
     font-weight: 400;
+    display: block;
     &:hover, &:active, &:focus {
         cursor: pointer;
         color: $brand-darker;

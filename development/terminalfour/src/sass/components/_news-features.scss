@@ -48,7 +48,7 @@
             float: none;
             z-index: 100;
             top: 20px;
-            @include to-rem(left, 16, -16);
+            padding-left: 0;
             @include to-rem(font-size, 14, 14);
             margin-top: 0;
         }
@@ -215,7 +215,7 @@
                 float: none;
                 z-index: 100;
                 top: 4px;
-                @include to-rem(left, 16, -16);
+                padding-left: 0;
                 @include to-rem(padding-top, 16, 2);
                 @include to-rem(padding-bottom, 16, 2);
             }
