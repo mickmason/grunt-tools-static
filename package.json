@@ -1,12 +1,11 @@
 {
-  "clientName": "Department of Foreign Affairs",
-  "projectName": "Department of Foreign Affairs - Feature Landing page",
-  "description": "Create a feature landing page for use in various DFA sites",
+  "clientName": "Big Cat Digital",
+  "projectName": "Big Cat Static Site Grunt Tools",
+  "description": "Big Cat Static Site Grunt Tools",
   "developer": "Michael Mason",
   "version": "0.1.0",
   "devDependencies": {
     "grunt": "latest",
-    "grunt-bower-task": "latest",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-copy": "latest",
     "grunt-contrib-sass": "latest",
@@ -14,6 +13,9 @@
     "grunt-contrib-watch": "latest",
     "grunt-express": "latest",
     "grunt-include-replace": "latest",
-    "grunt-svgstore": "^1.0.0"
-  }
+    "grunt-run": "^0.8.1",
+    "grunt-svgstore": "^1.0.0",
+    "jshint": "^2.9.7"
+  },
+  "dependencies": {}
 }

@@ -1,8 +1,0 @@
-// Opacity
-
-@mixin transition($property, $duration: 500; $function: ease-out $delay: 0) {
-  -webkit-transition:  $property ($duration)ms ($function) ($delay)s;
-  -moz-transition:     $property ($duration)ms ($function) ($delay)s;
-  -o-transition:       $property ($duration)ms ($function) ($delay)s;
-  transition:          $property ($duration)ms ($function) ($delay)s;
-}

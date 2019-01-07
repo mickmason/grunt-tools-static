@@ -1,9 +1,0 @@
-//Make columnised layout
-@mixin dfa-columns($cols, $min-width, $gap: 1rem) {
-    -moz-columns: $cols $min-width;
-    -webkit-columns: $cols $min-width;
-    columns: $cols $min-width;
-    -moz-column-gap: $cols $min-width;
-    -webkit-column-gap: $cols $min-width;
-    column-gap: $gap;
-}

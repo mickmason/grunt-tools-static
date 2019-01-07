@@ -1,7 +1,0 @@
-//Text transform
-
-@mixin text-to-uppercase($spacing: 0.1) {
-  text-transform: uppercase;
-  letter-spacing: ($spacing)em;
-  letter-spacing: ($spacing)rem;
-}
