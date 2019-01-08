@@ -10,7 +10,6 @@ Big Cat Static Website Grunt Tools.
 To be brought up to date in some places. Or jettisoned altogether...
 
 -----
-
 ## Two builds
 
 There are two builds: developement (default) and build.
@@ -36,21 +35,20 @@ It calls:
 
 * `includereplace`
 * `sass`
-* [grunt-run](https://www.npmjs.com/package/grunt-run) to call [JSHint](https://jshint.com/)
-* `ugligifiy` using [grunt-contrib-uglify](https://www.npmjs.com/package/grunt-contrib-uglify)
+* [grunt-run](https://www.npmjs.com/package/grunt-run) to call:
+⋅⋅* [`jshint`] [JSHint](https://jshint.com/)
+⋅⋅* [`babel`](https://babeljs.io/)
+⋅⋅* `ugligifiy` using [grunt-contrib-uglify](https://www.npmjs.com/package/grunt-contrib-uglify)
+⋅⋅* 
 * `concatenate` sub-task `dist`
 
+-----
 ## Dependencies
 
 You will need to have these.
 
-### JSHint
+### NPX
 
-This uses [JSHint](https://jshint.com/).
+This is used to run JSHint, Babel and Uglify tasks.
 
-Install this globally:
-
-```npm i -g jshint```
-
-Ensure your NPM_PATH environment variable has the path to the executable. If you use `nvm` that is `Users/${user}/.nvm/versions/node/${@active-version}/bin`.
-
+[`npx`](https://www.npmjs.com/package/npx)

@@ -3,9 +3,5 @@
  * Created by Michael Mason 
 **/
 function hi(name) {
-  console.log(`Hi ${name}`);
+  console.log("Hello ".concat(name));
 }
-
-var hello = (name) => {
-  console.log(`Hello ${name})`);
-};

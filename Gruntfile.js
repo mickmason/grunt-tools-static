@@ -20,16 +20,34 @@ module.exports = function(grunt) {
   //Uncomment the line below to add csslint to the project (Ctrl+f to find all regions needed to be uncommented in order to add in csslint)
   //grunt.loadNpmTasks('grunt-contrib-csslint');
   
+	const projectFiles = {
+		jsFiles: {
+			src: ['development/src/js/scripts.js', 'development/src/js/scripts2.js'],
+			dest: {
+				dev: 'www-root/assets/js/scripts.js',
+				dist: 'www-root/assets/js/scripts.js'
+			}
+		}
+	}
+	
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 		run: {
 			options: {
-				
+				failOnError: true
 			},
 			jshint: {
-				cmd: 'jshint', 
-				args: ['development/src/js/scripts.js']
+				cmd: 'npx',
+				args: ['jshint', projectFiles.jsFiles.src[0], projectFiles.jsFiles.src[1]]
+			},
+			babel: {
+				cmd: 'npx',
+				args: ['babel', projectFiles.jsFiles.src[0], '--out-dir', 'development/src/js/temp/']
+			},
+			uglify: {
+				cmd: 'npx',
+				args: ['uglifyjs', 'development/src/js/temp/scripts.js', '-o', 'development/src/js/temp/scripts.min.js', '-m']
 			}
 		},
     express: {
@@ -59,10 +77,10 @@ module.exports = function(grunt) {
       },
 			dev: {
 				src: ['development/src/js/scripts.js'], 
-      	dest: 'www-root/assets/js/scripts.js',	
+      	dest: projectFiles.jsFiles.dest.dev
 			},
       dist: {
-        src: ['development/src/js/scripts.js'], 
+        src: ['development/src/js/temp/scripts.min.js'], 
         dest: 'www-root/assets/js/scripts.min.js'
       }
     },//concat
@@ -186,14 +204,14 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['server']);
   grunt.registerTask('server', [
     'express',
-    'watch',
-    'express-keepalive'
+    'watch'
   ]);
 	grunt.registerTask('build', [
 		'includereplace',
 		'sass',
     'run:jshint',
-		'uglify',
+		'run:babel',
+		'run:uglify',
 		'concat:dist'
   ]);
 
