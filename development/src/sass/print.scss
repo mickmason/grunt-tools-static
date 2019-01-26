@@ -70,17 +70,6 @@ img {
 blockquote {
     background-color: #e3e4e5;
 }
-.content-wrap {
-    margin-top: 0cm;
-    margin-bottom: 0cm;
-}
-.header-title {
-    padding-top: 0;
-    padding-bottom: 0;
-}
-.header-title__logo {
-    height: 40pt !important;
-}
 a {
      color: inherit;
     font-weight: bold;
@@ -98,6 +87,6 @@ footer {
         margin-bottom: 0mm;
     }
 }
-.dfa-print-only {
+.print-only {
     display: block;
 }
