@@ -10,15 +10,15 @@ module.exports = {
 				files: ['<%= paths.jsFiles.src %>'],
        	//Uncomment the line below and delete the other "tasks:['uglify:build'] to add JSHint into the project"
        	//tasks: ['jshint','uglify:build']
-       	tasks: ['concat:dev']
+       	tasks: ['run:jshint', 'concat:dev']
       },//scripts
 
       htmlcompile: {
-        files: ['development/src/html/**/*.html'],
+        files: ['<%= paths.html.src %>**/*.html'],
         tasks: ['includereplace:dist']
       },//htmlcompile
       media: {
-          files: ['development/src/media/**/*.*'],
+          files: ['<%= paths.media.src %>**/*.*'],
           tasks: ['copy:media']
       },
 			svg: {

@@ -9,7 +9,7 @@ module.exports = {
 	},
 	default: {
 		files: {
-			'www-root/assets/media/svg/bc-icons.svg': ['development/src/media/icons/*.svg'],
+			'<%= paths.media.svg.dest %>': ['<%= paths.media.svg.src %>'],
 		}
 	}
 }

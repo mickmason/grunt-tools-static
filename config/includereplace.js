@@ -1,10 +1,10 @@
 module.exports =  {
 	dist: {
 		options: {
-			includesDir: 'development/src/html/includes'
+			includesDir: '<%= paths.html.includes %>'
 		},
 		files: [
-			{src: '**/*.html', dest: 'www-root/', expand: true, cwd: 'development/src/html/'}
+			{src: '**/*.html', dest: 'www-root/', expand: true, cwd: '<%= paths.html.src %>'}
 		]	
 	} 	
 }

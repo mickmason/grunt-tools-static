@@ -9,4 +9,10 @@
  * Created by Michael Mason * 
  **/
 
-"use strict";function hi(o){console.log("Hi ".concat(o))}var hello=function o(c){console.log("Hello ".concat(c))};
+
+function hi(name) {
+  console.log(`Hi ${name}`);
+}
+var hello = (name) => { 
+  console.log(`Hello ${name}`);
+}; 

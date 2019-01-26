@@ -4,6 +4,19 @@ module.exports = function(grunt) {
   const options = {
 		pkg: grunt.file.readJSON('package.json'),
 		paths: {
+			dist: 'www-root/',
+			media: {
+				src: 'development/src/media/',
+				dest: 'www-root/assets/media/',
+				svgs: {
+					src: 'development/src/media/icons/*.svg',
+					dest: 'www-root/assets/media/svg/bc-icons.svg'
+				}
+			},
+			html: {
+				src: 'development/src/html/',
+				includes: 'development/src/html/includes/'
+			},
 			jsFiles: {
 				src: ['development/src/js/scripts.js'],
 				dest: {
@@ -14,6 +27,12 @@ module.exports = function(grunt) {
 					min: 'development/src/js/temp/scripts.min.js',
 					unmin: 'development/src/js/temp/scripts.js'
 				}
+			},
+			scss: {
+				src: 'development/src/sass/style.scss',
+				dest: 'www-root/assets/css/style.css',
+				printSrc: 'development/src/sass/print.scss',
+				printDest: 'www-root/assets/css/print.css' 
 			}
 		},
 		config: { 
@@ -34,7 +53,6 @@ module.exports = function(grunt) {
   //Uncomment the line below to add csslint to the project (Ctrl+f to find all regions needed to be uncommented in order to add in csslint)
   //grunt.loadNpmTasks('grunt-contrib-csslint');
   
-	
 
   // Default task(s).
   grunt.registerTask('default', ['server']);
