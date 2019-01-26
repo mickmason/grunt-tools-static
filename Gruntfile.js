@@ -20,12 +20,13 @@ module.exports = function(grunt) {
 			jsFiles: {
 				src: ['development/src/js/scripts.js'],
 				dest: {
-					dev: 'www-root/assets/js/scripts.js',
-					dist: 'www-root/assets/js/scripts.min.js'
+					dev: 'www-root/assets/js/',
+					dist: 'www-root/assets/js/'
 				},
 				tempPaths: {
-					min: 'development/src/js/temp/scripts.min.js',
-					unmin: 'development/src/js/temp/scripts.js'
+					path: 'development/src/js/temp/',
+					min: 'development/src/js/temp/',
+					unmin: 'development/src/js/temp/'
 				}
 			},
 			scss: {
@@ -43,17 +44,7 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt, tasks);
   grunt.initConfig(configs);
 	
-		
-  //Uncomment the line below to add HTML Validation to the project
-  //  grunt.loadNpmTasks('grunt-html-validation');
-
-  //Uncommment the line below to add JSHint into the project (Ctrl+f to find all regions needed to be uncommented in order to add in JSHint)
-  //grunt.loadNpmTasks('grunt-contrib-jshint');
-
-  //Uncomment the line below to add csslint to the project (Ctrl+f to find all regions needed to be uncommented in order to add in csslint)
-  //grunt.loadNpmTasks('grunt-contrib-csslint');
-  
-
+ 
   // Default task(s).
   grunt.registerTask('default', ['server']);
   grunt.registerTask('server', [
@@ -68,5 +59,10 @@ module.exports = function(grunt) {
 		'run:uglify',
 		'concat:dist'
   ]);
+	grunt.registerTask('cleanup', 'Clean up temporary files', () => {
+		console.log(options.paths.jsFiles.tempPaths.path);
+		grunt.file.delete(options.paths.jsFiles.tempPaths.path, { force: true});
+		grunt.file.delete(options.paths.jsFiles.dest.dist+'scripts.js', { force: true});
+	});
 
 }

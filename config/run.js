@@ -8,10 +8,10 @@ module.exports = {
 			},
 			babel: {
 				cmd: 'npx',
-				args: ['babel', '<%= paths.jsFiles.src %>', '--out-dir', '<%= paths.jsFiles.tempPath %>']
+				args: ['babel', '<%= paths.jsFiles.src %>', '--out-dir', '<%= paths.jsFiles.tempPaths.unmin %>']
 			},
 			uglify: {
 				cmd: 'npx',
-				args: ['uglifyjs', '<%= paths.jsFiles.tempPaths.unmin %>', '-o',  '<%= paths.jsFiles.tempPaths.min %>', '-m']
+				args: ['uglifyjs', '<%= paths.jsFiles.tempPaths.unmin %>scripts.js', '-o',  '<%= paths.jsFiles.tempPaths.min %>scripts.min.js', '-m']
 			}
 } 

@@ -98,18 +98,14 @@ blockquote {
   height: 40pt !important;
 }
 
-.main-body a {
+a {
   color: inherit;
   font-weight: bold;
   text-decoration: none;
 }
-.main-body a:not([href^='#'][id^='d.en.']):after {
+a:not([href^='#'][id^='d.en.']):after {
   content: " <" attr(href) ">";
   font-size: 90%;
-}
-
-.info-card__person img {
-  max-width: 100% !important;
 }
 
 footer {

@@ -5,7 +5,7 @@
 body, html {
     width: 100%;
     height: 100%;
-    padding-top: 0.25cm !important;
+    padding-top: 0.25cm !important; 
     padding-bottom: 0.25cm !important;
     margin-top: 0cm  !important;
     margin-bottom: 0cm  !important;
@@ -49,17 +49,12 @@ h1 {
 }
 h2 {
     font-size: 18pt;
-    
-    
 }
 h3 {
     font-size: 16pt;
-    
-    
 }
 h4 {
     font-size: 14pt;
-    
 }
 section, div {
     margin-top: 0;
@@ -86,21 +81,14 @@ blockquote {
 .header-title__logo {
     height: 40pt !important;
 }
-.main-body {
-    a {
-         color: inherit;
-        font-weight: bold;
-        text-decoration: none;
-        &:not([href^='#'][id^='d.en.']):after { 
-            content: " <" attr(href) ">";
-            font-size: 90%;
-        }
+a {
+     color: inherit;
+    font-weight: bold;
+    text-decoration: none;
+    &:not([href^='#'][id^='d.en.']):after { 
+        content: " <" attr(href) ">";
+        font-size: 90%;
     }
-}
-.info-card__person {
-    img {
-        max-width: 100% !important ;
-    }    
 }
 footer {
     margin-top: 12pt;
