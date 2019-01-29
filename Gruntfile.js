@@ -15,7 +15,8 @@ module.exports = function(grunt) {
 			},
 			html: {
 				src: 'development/src/html/',
-				includes: 'development/src/html/includes/'
+				includes: 'development/src/html/includes/',
+				dest: 'www-root/'
 			},
 			jsFiles: {
 				src: ['development/src/js/scripts.js'],
@@ -34,6 +35,10 @@ module.exports = function(grunt) {
 				dest: 'www-root/assets/css/style.css',
 				printSrc: 'development/src/sass/print.scss',
 				printDest: 'www-root/assets/css/print.css' 
+			},
+			css: {
+				style: 'www-root/assets/css/style.css',
+				styleMin: 'www-root/assets/css/style.min.css'
 			}
 		},
 		config: { 
@@ -44,7 +49,6 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt, tasks);
   grunt.initConfig(configs);
 	
- 
   // Default task(s).
   grunt.registerTask('default', ['server']);
   grunt.registerTask('server', [
@@ -54,10 +58,15 @@ module.exports = function(grunt) {
 	grunt.registerTask('build', [
 		'includereplace',
 		'sass',
+		'run:postcssbuild',
+		'critical',
     'run:jshint',
 		'run:babel',
 		'run:uglify',
-		'concat:dist'
+		'concat:dist',
+		'cleanup',
+		'server'
+		
   ]);
 	grunt.registerTask('cleanup', 'Clean up temporary files', () => {
 		console.log(options.paths.jsFiles.tempPaths.path);

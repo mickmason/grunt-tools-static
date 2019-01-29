@@ -4,7 +4,7 @@ module.exports = {
         files: ['development/**/**/*.scss'],
         //Uncomment the line below and delete the other tasks line to add csslint into the project
         //tasks: ['sass:dist','csslint:strict']
-        tasks: ['sass']
+        tasks: ['includereplace:dist', 'sass', 'run:postcssdev', 'critical']
       },//sass
       scripts: {
 				files: ['<%= paths.jsFiles.src %>'],
@@ -15,7 +15,7 @@ module.exports = {
 
       htmlcompile: {
         files: ['<%= paths.html.src %>**/*.html'],
-        tasks: ['includereplace:dist']
+        tasks: ['includereplace:dist', 'sass', 'run:postcssdev', 'critical']
       },//htmlcompile
       media: {
           files: ['<%= paths.media.src %>**/*.*'],
@@ -25,5 +25,4 @@ module.exports = {
 				  files: ['development/src/media/icons/*.svg'],
           tasks: ['svgstore']
 			}
-
 }//watch
