@@ -66,7 +66,6 @@ module.exports = function(grunt) {
 		'concat:dist',
 		'cleanup',
 		'server'
-		
   ]);
 	grunt.registerTask('cleanup', 'Clean up temporary files', () => {
 		grunt.file.delete(options.paths.jsFiles.tempPaths.path, { force: true});
