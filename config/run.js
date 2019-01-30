@@ -16,7 +16,7 @@ module.exports = {
 	},
 	postcssdev: {
 			cmd: 'npx',
-			args: ['postcss', '<%= paths.css.style %>', '--use', 'autoprefixer', '--replace']
+			args: ['postcss', '<%= paths.css.style %>', '--use', 'autoprefixer', '-o', '<%= paths.css.styleMin %>']
 	},
 	postcssbuild: {
 			cmd: 'npx',

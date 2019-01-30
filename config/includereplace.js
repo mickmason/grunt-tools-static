@@ -1,4 +1,4 @@
-module.exports =  {
+module.exports = {
 	dist: {
 		options: {
 			includesDir: '<%= paths.html.includes %>'
