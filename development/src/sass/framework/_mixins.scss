@@ -1,0 +1,4 @@
+@mixin makeCol($padding: $gutter/2) {
+	padding-left: $padding;
+	padding-right: $padding;
+}
