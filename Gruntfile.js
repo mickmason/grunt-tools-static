@@ -69,7 +69,6 @@ module.exports = function(grunt) {
 		
   ]);
 	grunt.registerTask('cleanup', 'Clean up temporary files', () => {
-		console.log(options.paths.jsFiles.tempPaths.path);
 		grunt.file.delete(options.paths.jsFiles.tempPaths.path, { force: true});
 		grunt.file.delete(options.paths.jsFiles.dest.dist+'scripts.js', { force: true});
 	});
